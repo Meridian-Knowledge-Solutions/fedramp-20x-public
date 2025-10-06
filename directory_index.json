@@ -1,0 +1,76 @@
+{
+  "structure_type": "secure_hybrid_fedramp_20x_organized",
+  "generated": "2025-10-06T03:26:36Z",
+  "security_model": "evidence_v2_excluded_from_public_security_gate_validated",
+  "phase_2_compliance": "master_validator_active",
+  "security_validation": "secure_public_sync.py gate passed",
+  "directories": {
+    "root": {
+      "description": "KSI validation results and core compliance files",
+      "key_files": [
+        "unified_ksi_validations.json",
+        "failed_ksi_report_readable.md",
+        "evidence_commit_metadata.json"
+      ],
+      "structure": "validation results in root for direct access"
+    },
+    "scn_automation": {
+      "description": "Enhanced SCN automation and change notification results",
+      "purpose": "FedRAMP 20x Combined Requirements SCN transparency",
+      "key_files": [
+        "scn_classification.json",
+        "external_repo_changes_public.json (sanitized)",
+        "scn_issues/"
+      ],
+      "note": "Main repo changes only - infrastructure monitored separately"
+    },
+    "compliance_evidence": {
+      "description": "Complete SCN compliance evidence packages",
+      "purpose": "Enhanced FedRAMP 20x compliance documentation",
+      "contents": "evidence packages with full audit trails"
+    },
+    "audit_summaries": {
+      "description": "SCN audit summaries and metadata",
+      "purpose": "Complete audit trail for compliance verification"
+    },
+    "phase2_compliance": {
+      "description": "Phase 2 3PAO validation compliance files",
+      "purpose": "Master validator results and consistency tracking",
+      "key_files": [
+        "3pao_audit_report.json",
+        "validation_consistency_log.json",
+        "technical_validation_log.json"
+      ]
+    }
+  },
+  "excluded_for_security": [
+    "evidence_v2/ (contains sensitive AWS infrastructure details)",
+    "external_repo_changes.json (contains repository names, commit SHAs, file paths, URLs)",
+    "bandit-report.json (internal security scan results)",
+    "scn_classification_summary.md (contains file names/paths)"
+  ],
+  "security_validation_performed": {
+    "secure_public_sync": "python script validation completed",
+    "allowlist_enforced": true,
+    "blocklist_enforced": true,
+    "forbidden_patterns_checked": true,
+    "staging_validation": "completed",
+    "final_verification": "pending"
+  },
+  "compliance_features": {
+    "ksi_validation": "automated_machine_readable_assessment",
+    "scn_management": "enhanced_combined_requirements_compliance",
+    "scn_scope": "main_repository_changes_only",
+    "infrastructure_scn": "separate_dedicated_workflow",
+    "phase_2_readiness": "master_validator_consistency_tracking",
+    "security_scanning": "trufflehog_validated",
+    "public_transparency": "organized_structure_with_security_exclusions",
+    "external_repo_monitoring": "sanitized_infrastructure_impact_analysis",
+    "master_validator_active": true,
+    "consistency_tracking": true,
+    "technical_validation": true,
+    "3pao_audit_ready": true,
+    "secure_sync_gate": "enforced",
+    "compliance_status": "ready_for_phase_2_assessment_security_validated"
+  }
+}
