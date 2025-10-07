@@ -6188,17 +6188,40 @@ async function loadQuarterlyReportData() {
 
 <script>
 // ====================================================================
-// SCRIPT START - COMPLETE TWO-TIER IMPLEMENTATION (NO REDUNDANT SECTIONS)
+// SCRIPT START - COMPLETE TWO-TIER IMPLEMENTATION WITH AWS INTEGRATION
 // ====================================================================
 (function() {
     'use strict';
 
     // ====================================================================
-    // PHASE 1: AUTHENTICATION & DATA SANITIZATION
+    // PHASE 1: API CONFIGURATION & AUTHENTICATION
     // ====================================================================
+    
+    // API Configuration - UPDATE THIS with actual API endpoint from Ticket 1
+    const FEDRAMP_API_CONFIG = {
+        // Base URL from AWS CloudFormation output (PLACEHOLDER - update when backend is ready)
+        BASE_URL: 'https://[REPLACE-WITH-ACTUAL-API-ID].execute-api.us-east-1.amazonaws.com/prod',
+        
+        // API endpoints
+        ENDPOINTS: {
+            REGISTER: '/register',
+            PACKAGE: '/package'
+        },
+        
+        // Configuration
+        TIMEOUT: 30000, // 30 seconds
+        PACKAGE_TIMEOUT: 120000, // 2 minutes for large file
+        
+        // Token storage key
+        TOKEN_KEY: 'fedRAMPAccessToken',
+        
+        // Demo mode flag - set to false when backend is ready
+        DEMO_MODE: true
+    };
+    
     class FedRAMPAuth {
         constructor() { 
-            this.token = localStorage.getItem('fedRAMPAccessToken'); 
+            this.token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY); 
             this.isAuthenticated = this.validateToken(); 
         }
         
@@ -6208,7 +6231,7 @@ async function loadQuarterlyReportData() {
                 const payload = JSON.parse(atob(this.token.split('.')[1])); 
                 return payload.exp > Date.now() / 1000; 
             } catch { 
-                localStorage.removeItem('fedRAMPAccessToken'); 
+                localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY); 
                 return false; 
             } 
         }
@@ -6229,7 +6252,7 @@ async function loadQuarterlyReportData() {
         }
         
         logout() { 
-            localStorage.removeItem('fedRAMPAccessToken'); 
+            localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY); 
             window.location.reload(); 
         }
     }
@@ -6467,116 +6490,77 @@ async function loadQuarterlyReportData() {
                 </div>
                 
                 <div class="trust-grid">
-                    <div class="trust-card">
-                        <h4>📦 Complete Authorization Package</h4>
-                        <p>Download the full System Security Plan (SSP), Security Assessment Report (SAR), and all supporting documentation.</p>
-                        <button class="action-btn" onclick="window.originalDownloadJSON ? window.originalDownloadJSON() : downloadAuthPackage()">Download Complete Package</button>
+                    <div class="trust-card featured">
+                        <div class="trust-card-icon">📦</div>
+                        <h4>Complete Authorization Package</h4>
+                        <p>Download the complete technical authorization package including:</p>
+                        <ul style="text-align: left; margin: 1rem 0; font-size: 0.9rem;">
+                            <li>KSI Technical Validations (unified + continuous)</li>
+                            <li>Vulnerability Assessments (VDR with remediation status)</li>
+                            <li>Technical Validation Logs (complete audit trail)</li>
+                            <li>Evidence Files (54 KSI validation outputs)</li>
+                            <li>3PAO Assessment Reports</li>
+                            <li>Supply Chain Risk Classification</li>
+                            <li>FedRAMP Marketplace Documentation</li>
+                            <li>Impact Level Justification</li>
+                        </ul>
+                        <button class="action-btn primary" onclick="downloadAuthorizationPackage()">
+                            📥 Download Authorization Package
+                        </button>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.75rem;">
+                            <strong>Package size:</strong> ~50-150 MB | <strong>Format:</strong> ZIP archive<br>
+                            <strong>Updated:</strong> Every 24 hours via automated pipelines
+                        </p>
                     </div>
                     
                     <div class="trust-card">
-                        <h4>📋 Technical Assessment Reports</h4>
-                        <p>Access detailed 3PAO assessment findings, continuous monitoring data, and technical evidence.</p>
-                        <button class="action-btn" onclick="window.originalViewFailedReport ? window.originalViewFailedReport() : viewTechnicalReports()">View Assessment Reports</button>
+                        <div class="trust-card-icon">📋</div>
+                        <h4>Quarterly Reports</h4>
+                        <p>Access RFC-0016 quarterly authorization reports with detailed compliance updates and trend analysis.</p>
+                        <button class="action-btn" onclick="viewQuarterlyReports()">
+                            View Quarterly Reports
+                        </button>
                     </div>
                     
                     <div class="trust-card">
-                        <h4>🎯 Risk Management Dashboard</h4>
-                        <p>View real-time POA&M items, vulnerability tracking, and risk analysis integrated with VDR data.</p>
-                        <button class="action-btn" onclick="window.originalShowPOAMModal ? window.originalShowPOAMModal() : showRiskDashboard()">Access Risk Dashboard</button>
+                        <div class="trust-card-icon">🎯</div>
+                        <h4>Risk Management</h4>
+                        <p>View real-time POA&M items, vulnerability tracking, and remediation timelines.</p>
+                        <button class="action-btn" onclick="window.originalShowPOAMModal ? window.originalShowPOAMModal() : showPOAMModalTwoTier()">
+                            Access Risk Dashboard
+                        </button>
                     </div>
                     
                     <div class="trust-card">
-                        <h4>📊 Raw Validation Data</h4>
-                        <p>Export machine-readable KSI validation results for integration with your agency's GRC tools.</p>
-                        <button class="action-btn" onclick="exportValidationData()">Export Validation Data</button>
+                        <div class="trust-card-icon">📊</div>
+                        <h4>Technical Validation Data</h4>
+                        <p>Export machine-readable KSI validation results in JSON format for GRC system integration.</p>
+                        <button class="action-btn" onclick="exportValidationData()">
+                            Export Validation Data
+                        </button>
                     </div>
                 </div>
                 
-                <div class="quarterly-reports-authenticated">
-                    <h3>📋 Quarterly Authorization Reports (RFC-0016)</h3>
-                    <p>Ongoing Authorization Reports per FRR-CCM-01 providing regular summaries of changes, accepted weaknesses, and authorization data</p>
-                    
-                    <div class="reports-grid">
-                        <div class="report-card">
-                            <h4>📅 Current Quarter Report</h4>
-                            <p>Q3 2025 - Available in both machine-readable and human-readable formats</p>
-                            <div class="report-actions">
-                                <button onclick="downloadQuarterlyReport('current')" class="btn-secondary">Download Report</button>
-                                <button onclick="viewQuarterlyReport('current')" class="btn-secondary">View Online</button>
-                            </div>
+                <div class="agency-support" style="margin-top: 2rem; padding: 1.5rem; background: var(--card-bg); border-radius: 12px;">
+                    <h3 style="margin-top: 0;">📞 Federal Agency Support</h3>
+                    <p>For questions about the authorization package or technical assistance:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div>
+                            <strong>FedRAMP Inquiries:</strong><br>
+                            <a href="mailto:fedramp@meridianks.com">fedramp@meridianks.com</a>
                         </div>
-                        
-                        <div class="report-card">
-                            <h4>📊 Report Archive & Schedule</h4>
-                            <p>Access historical quarterly reports and compliance tracking data</p>
-                            <div class="report-actions">
-                                <button onclick="showReportArchive()" class="btn-secondary">Browse Archive</button>
-                                <button onclick="subscribeToReports()" class="btn-secondary">Subscribe to Updates</button>
-                            </div>
+                        <div>
+                            <strong>Security Team:</strong><br>
+                            <a href="mailto:security@meridianks.com">security@meridianks.com</a>
                         </div>
-                        
-                        <div class="report-card">
-                            <h4>🎪 Quarterly Review Meetings</h4>
-                            <p>Synchronous quarterly reviews for all agency customers per FRR-CCM-QR</p>
-                            <div class="report-actions">
-                                <button onclick="registerForQuarterlyReview()" class="btn-secondary">Register for Review</button>
-                                <button onclick="openAgencyFeedback()" class="btn-secondary">Submit Feedback</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="quarterly-details">
-                        <h4>📊 Report Contents (FRR-CCM-01)</h4>
-                        <div class="content-grid">
-                            <div class="content-section">
-                                <h5>🔄 Changes to Authorization Data</h5>
-                                <ul class="content-list">
-                                    <li>Key Security Indicators (KSI) performance updates</li>
-                                    <li>Automation health and validation consistency</li>
-                                    <li>Significant change notifications (SCN) summary</li>
-                                </ul>
-                            </div>
-                            <div class="content-section">
-                                <h5>⚠️ Accepted Weaknesses (VDR)</h5>
-                                <ul class="content-list">
-                                    <li>Active vulnerability counts by N-rating</li>
-                                    <li>LEV+IRV critical indicators</li>
-                                    <li>Agency action requirements</li>
-                                </ul>
-                            </div>
-                            <div class="content-section">
-                                <h5>🔮 Planned Changes (Next 3 Months)</h5>
-                                <ul class="content-list">
-                                    <li>Planned infrastructure updates</li>
-                                    <li>Security control enhancements</li>
-                                    <li>Compliance milestone tracking</li>
-                                </ul>
-                            </div>
+                        <div>
+                            <strong>Technical Support:</strong><br>
+                            <a href="mailto:support@meridianks.com">support@meridianks.com</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="agency-resources">
-                    <h3>🔧 Agency Resources</h3>
-                    <div class="resource-grid">
-                        <div class="resource-item">
-                            <h4>📋 Compliance Reporting</h4>
-                            <p>Generate agency-specific compliance reports and evidence packages</p>
-                            <button onclick="generateComplianceReport()" class="btn-secondary">Generate Report</button>
-                        </div>
-                        <div class="resource-item">
-                            <h4>🔍 Evidence Search</h4>
-                            <p>Search and filter technical evidence by control, timeline, or risk level</p>
-                            <button onclick="showEvidenceSearch()" class="btn-secondary">Search Evidence</button>
-                        </div>
-                        <div class="resource-item">
-                            <h4>📞 Direct Support</h4>
-                            <p>Priority support channel for federal agencies</p>
-                            <button onclick="contactFederalSupport()" class="btn-secondary">Contact Support</button>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
+            </div>
+        `;
     }
     
     function renderKSICardTwoTier(ksi) {
@@ -6925,6 +6909,16 @@ async function loadQuarterlyReportData() {
         alert('Opening risk management dashboard... (This would show detailed POA&M and risk data in production)');
     }
     
+    function viewQuarterlyReports() {
+        logAgencyAccess('quarterly_reports_access');
+        // In production, this would navigate to or display quarterly reports
+        if (window.originalViewQuarterlyReports) {
+            window.originalViewQuarterlyReports();
+        } else {
+            alert('Opening quarterly reports dashboard... (This would display RFC-0016 reports in production)');
+        }
+    }
+    
     function exportValidationData() {
         logAgencyAccess('validation_data_export');
         if (window.allKsis) {
@@ -7022,7 +7016,7 @@ async function loadQuarterlyReportData() {
     }
     
     // ====================================================================
-    // MODAL MANAGEMENT & REGISTRATION
+    // MODAL MANAGEMENT & REGISTRATION (Step 2.4 - AWS Integration)
     // ====================================================================
     function showRegistrationModal() { 
         document.getElementById('registration-modal').classList.add('active'); 
@@ -7045,45 +7039,338 @@ async function loadQuarterlyReportData() {
         document.body.style.overflow = 'hidden';
     }
     
+    /**
+     * Handle federal agency registration with real AWS API
+     * Step 2.4 from Ticket 2
+     */
     async function handleRegistration(e) {
         e.preventDefault();
-        const data = Object.fromEntries(new FormData(e.target));
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
         
-        if (!data.email.match(/\.(gov|mil)$/i)) { 
-            showErrorMessage('A valid .gov or .mil email address is required.'); 
-            return; 
+        // Client-side validation
+        if (!data.email.match(/\.(gov|mil|fed\.us)$/i)) {
+            showErrorMessage('Please use a federal email address (.gov, .mil, or .fed.us)');
+            return;
         }
         
-        // Create demo token
-        const tokenData = { 
-            agency: data.agency, 
-            email: data.email,
-            contact: data.contact,
-            system_name: data.system_name,
-            exp: Math.floor(Date.now() / 1000) + (8 * 60 * 60) // 8 hours
-        };
+        try {
+            showLoadingMessage('Registering agency...');
+            
+            if (FEDRAMP_API_CONFIG.DEMO_MODE) {
+                // Demo mode - create local token without API call
+                console.log('🔧 DEMO MODE: Creating local token (backend not yet deployed)');
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+                
+                const tokenData = {
+                    agency: data.agency,
+                    email: data.email,
+                    contact: data.contact,
+                    system_name: data.system_name || '',
+                    exp: Math.floor(Date.now() / 1000) + (365 * 24 * 60 * 60) // 1 year
+                };
+                
+                const token = 'demo.header.' + btoa(JSON.stringify(tokenData)) + '.demo.signature';
+                localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, token);
+                
+                window.fedRAMPAuth = new FedRAMPAuth();
+                closeCustomModal('registration-modal');
+                showSuccessMessage('✓ Registration successful! Loading federal agency dashboard...');
+                setTimeout(() => window.location.reload(), 2000);
+                
+            } else {
+                // Production mode - call AWS API
+                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.REGISTER}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        agency: data.agency,
+                        email: data.email,
+                        contact: data.contact,
+                        system_name: data.system_name || '',
+                        purpose: data.purpose || ''
+                    }),
+                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success) {
+                    // Store JWT token from backend
+                    localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, result.token);
+                    
+                    // Update authentication state
+                    window.fedRAMPAuth = new FedRAMPAuth();
+                    
+                    // Close registration modal
+                    closeCustomModal('registration-modal');
+                    
+                    // Show success message
+                    showSuccessMessage('✓ Registration successful! Loading federal agency dashboard...');
+                    
+                    // Reload page to show authenticated view
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                    
+                } else {
+                    const errorMessage = result.error || result.message || 'Registration failed. Please try again.';
+                    showErrorMessage(errorMessage);
+                }
+            }
+            
+        } catch (error) {
+            console.error('Registration error:', error);
+            
+            if (error.name === 'AbortError') {
+                showErrorMessage('Registration request timed out. Please try again.');
+            } else if (error.message.includes('Failed to fetch')) {
+                showErrorMessage('Network error. Please check your connection and try again.');
+            } else {
+                showErrorMessage('Unable to complete registration. Please try again.');
+            }
+        } finally {
+            hideLoadingMessage();
+        }
+    }
+    
+    /**
+     * Download complete authorization package from private repository
+     * Step 2.5 from Ticket 2
+     */
+    async function downloadAuthorizationPackage() {
+        const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
         
-        localStorage.setItem('fedRAMPAccessToken', 'header.' + btoa(JSON.stringify(tokenData)) + '.sig');
-        window.fedRAMPAuth = new FedRAMPAuth();
+        // Check authentication
+        if (!token) {
+            showErrorMessage('Please register with your federal email to download the authorization package.');
+            showRegistrationModal();
+            return;
+        }
         
-        closeCustomModal('registration-modal');
-        showSuccessMessage('Registration successful! Refreshing with authenticated access.');
-        
-        setTimeout(() => window.location.reload(), 2000);
+        try {
+            showLoadingMessage('Preparing authorization package download...');
+            
+            if (FEDRAMP_API_CONFIG.DEMO_MODE) {
+                // Demo mode - simulate download
+                console.log('🔧 DEMO MODE: Simulating package download (backend not yet deployed)');
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate delay
+                
+                showSuccessMessage('✓ Demo mode: In production, this will download the complete authorization package ZIP (~50-150MB) from AWS S3');
+                console.log('📦 Package would include: 10+ JSON files, 2 HTML files, evidence_v2/ with 54 KSI directories');
+                
+            } else {
+                // Production mode - request package download from AWS API
+                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.PACKAGE_TIMEOUT)
+                });
+                
+                if (response.ok) {
+                    // Get the ZIP file as blob
+                    const blob = await response.blob();
+                    
+                    // Extract filename from Content-Disposition header
+                    const contentDisposition = response.headers.get('Content-Disposition');
+                    let filename = 'meridian-authorization-package.zip';
+                    if (contentDisposition) {
+                        const filenameMatch = contentDisposition.match(/filename="?(.+)"?/);
+                        if (filenameMatch) {
+                            filename = filenameMatch[1];
+                        }
+                    }
+                    
+                    // Create download link and trigger download
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // Cleanup
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                    
+                    showSuccessMessage(`✓ Download started: ${filename}`);
+                    logAgencyAccess('authorization_package_download', filename);
+                    
+                } else {
+                    // Handle error responses
+                    const errorData = await response.json().catch(() => ({}));
+                    
+                    if (response.status === 401) {
+                        localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+                        showErrorMessage('Your session has expired. Please register again.');
+                        setTimeout(() => window.location.reload(), 2000);
+                    } else if (response.status === 404) {
+                        showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
+                    } else {
+                        showErrorMessage(errorData.error || 'Failed to download authorization package.');
+                    }
+                }
+            }
+            
+        } catch (error) {
+            console.error('Package download error:', error);
+            
+            if (error.name === 'AbortError') {
+                showErrorMessage('Download request timed out. The package may be very large. Please try again.');
+            } else if (error.message.includes('Failed to fetch')) {
+                showErrorMessage('Network error during download. Please check your connection.');
+            } else {
+                showErrorMessage('Unable to download authorization package. Please try again.');
+            }
+        } finally {
+            hideLoadingMessage();
+        }
     }
     
     // ====================================================================
-    // NOTIFICATION SYSTEM
+    // NOTIFICATION SYSTEM & HELPER FUNCTIONS (Step 2.7 from Ticket 2)
     // ====================================================================
-    function showSuccessMessage(m) { createNotification(m, 'success'); }
-    function showErrorMessage(m) { createNotification(m, 'error'); }
-    function createNotification(m, t) { 
-        const e = document.createElement('div'); 
-        e.className = `notification ${t}`; 
-        e.innerHTML = `<div>${m}</div><button onclick="this.parentElement.remove()" style="background:none;border:none;color:inherit;font-size:1.2rem;cursor:pointer;margin-left:auto;">&times;</button>`; 
-        e.style.cssText = 'display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;';
-        document.body.appendChild(e); 
-        setTimeout(() => e.remove(), 5000); 
+    
+    /**
+     * Show loading message with spinner
+     */
+    function showLoadingMessage(message) {
+        let loadingDiv = document.getElementById('loading-indicator');
+        
+        if (!loadingDiv) {
+            loadingDiv = document.createElement('div');
+            loadingDiv.id = 'loading-indicator';
+            loadingDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                z-index: 10000;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 500;
+            `;
+            document.body.appendChild(loadingDiv);
+        }
+        
+        loadingDiv.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 20 20" style="animation: spin 1s linear infinite;">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="50" stroke-dashoffset="25"/>
+            </svg>
+            <span>${message}</span>
+        `;
+        loadingDiv.style.display = 'flex';
+        
+        // Add animation CSS if not present
+        if (!document.getElementById('loading-animation-style')) {
+            const style = document.createElement('style');
+            style.id = 'loading-animation-style';
+            style.textContent = `
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+    
+    /**
+     * Hide loading message
+     */
+    function hideLoadingMessage() {
+        const loadingDiv = document.getElementById('loading-indicator');
+        if (loadingDiv) {
+            loadingDiv.style.display = 'none';
+        }
+    }
+    
+    /**
+     * Show success message
+     */
+    function showSuccessMessage(message) {
+        createNotification(message, 'success');
+    }
+    
+    /**
+     * Show error message
+     */
+    function showErrorMessage(message) {
+        createNotification(message, 'error');
+    }
+    
+    /**
+     * Create notification toast with auto-dismiss
+     */
+    function createNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10001;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: white;
+            min-width: 320px;
+            max-width: 500px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 500;
+            background: ${type === 'success'
+                ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+                : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'};
+        `;
+        
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 1.25rem;">${type === 'success' ? '✓' : '✗'}</span>
+                <span>${message}</span>
+            </div>
+            <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0; margin-left: 1rem; line-height: 1;">&times;</button>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto-remove after 6 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 6000);
+        
+        // Add animations if not present
+        if (!document.getElementById('notification-animation-style')) {
+            const style = document.createElement('style');
+            style.id = 'notification-animation-style';
+            style.textContent = `
+                @keyframes slideInRight {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOutRight {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
     }
 
     // ====================================================================
@@ -7151,10 +7438,15 @@ async function loadQuarterlyReportData() {
             .authenticated-welcome { background: var(--bg-accent, #f9fafb); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border-color, #e5e7eb); }
             .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
             .trust-card { background: var(--bg-primary, #ffffff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; }
+            .trust-card.featured { border: 2px solid var(--primary-500, #3b82f6); background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, var(--bg-primary, #ffffff) 100%); }
+            .trust-card-icon { font-size: 2rem; margin-bottom: 1rem; }
             .trust-card h4 { margin-bottom: 0.5rem; color: var(--text-primary, #111827); }
             .trust-card p { margin-bottom: 1rem; color: var(--text-secondary, #6b7280); line-height: 1.6; }
-            .action-btn { background: var(--primary-500, #3b82f6); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+            .trust-card ul { margin: 0.5rem 0; padding-left: 1.5rem; }
+            .trust-card ul li { margin: 0.25rem 0; color: var(--text-secondary, #6b7280); }
+            .action-btn { background: var(--primary-500, #3b82f6); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; width: 100%; }
             .action-btn:hover { background: var(--primary-600, #2563eb); transform: translateY(-1px); }
+            .action-btn.primary { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
             
             /* Public Trust Center */
             .compliance-summary-public { background: var(--bg-accent, #f9fafb); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border-color, #e5e7eb); }
@@ -7172,28 +7464,6 @@ async function loadQuarterlyReportData() {
             .info-card { background: var(--bg-primary, #ffffff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; }
             .info-card h4 { margin-bottom: 1rem; color: var(--text-primary, #111827); }
             .info-card p { margin: 0.5rem 0; color: var(--text-secondary, #6b7280); }
-            
-            /* Quarterly Reports in Trust Center */
-            .quarterly-reports-authenticated { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color, #e5e7eb); }
-            .reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-            .report-card { background: var(--bg-accent, #f9fafb); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; }
-            .report-card h4 { margin-bottom: 0.5rem; color: var(--text-primary, #111827); }
-            .report-card p { margin-bottom: 1rem; color: var(--text-secondary, #6b7280); }
-            .report-actions { display: flex; gap: 0.5rem; }
-            .report-actions .btn-secondary { flex: 1; }
-            .quarterly-details { margin-top: 2rem; }
-            .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
-            .content-section { background: var(--bg-primary, #ffffff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; padding: 1rem; }
-            .content-section h5 { margin-bottom: 0.75rem; color: var(--text-primary, #111827); font-size: 0.95rem; }
-            .content-list { list-style: none; padding: 0; margin: 0; }
-            .content-list li { padding: 0.25rem 0; color: var(--text-secondary, #6b7280); font-size: 0.875rem; }
-            
-            /* Agency Resources */
-            .agency-resources { margin-top: 2rem; }
-            .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
-            .resource-item { background: var(--bg-accent, #f9fafb); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; padding: 1.25rem; }
-            .resource-item h4 { margin-bottom: 0.5rem; color: var(--text-primary, #111827); font-size: 1rem; }
-            .resource-item p { margin-bottom: 1rem; color: var(--text-secondary, #6b7280); font-size: 0.875rem; line-height: 1.5; }
             
             /* Modal Content Specific */
             .agency-access-upgrade { background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 100%); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 1.5rem; border: 1px solid rgba(59,130,246,0.2); }
@@ -7230,10 +7500,10 @@ async function loadQuarterlyReportData() {
             /* Responsive Design */
             @media (max-width: 768px) {
                 .modal-content { padding: 1.5rem; margin: 1rem; }
-                .trust-grid, .info-grid, .resource-grid, .reports-grid, .content-grid { grid-template-columns: 1fr; }
+                .trust-grid, .info-grid { grid-template-columns: 1fr; }
                 .compliance-metrics-public { grid-template-columns: 1fr; }
-                .form-actions, .technical-actions, .report-actions { flex-direction: column; }
-                .technical-actions .btn-secondary, .report-actions .btn-secondary { flex: none; }
+                .form-actions, .technical-actions { flex-direction: column; }
+                .technical-actions .btn-secondary { flex: none; }
                 .ksi-metrics-auth { flex-direction: column; gap: 0.5rem; }
                 .auth-info { flex-direction: column; align-items: flex-start; }
             }
@@ -7282,6 +7552,10 @@ async function loadQuarterlyReportData() {
         window.showAccessRequiredModal = showAccessRequiredModal;
         window.closeTemporaryModal = closeTemporaryModal;
         window.logAgencyAccess = logAgencyAccess;
+        window.downloadAuthorizationPackage = downloadAuthorizationPackage;
+        window.viewQuarterlyReports = viewQuarterlyReports;
+        window.showLoadingMessage = showLoadingMessage;
+        window.hideLoadingMessage = hideLoadingMessage;
         
         // Add event listeners
         const regForm = document.getElementById('agency-registration-form');
@@ -7316,8 +7590,9 @@ async function loadQuarterlyReportData() {
             window.renderKsis();
         }
         
-        console.log('🚀 Two-Tier FedRAMP System Initialized Successfully (Redundant Sections Removed)');
+        console.log('🚀 Two-Tier FedRAMP System Initialized Successfully (Steps 2.4-2.7 Complete)');
         console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated);
+        console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED (Update BASE_URL when backend ready)' : 'DISABLED');
         if (window.fedRAMPAuth.isAuthenticated) {
             console.log('Agency Info:', window.fedRAMPAuth.getAgencyInfo());
         }
@@ -7368,6 +7643,5 @@ async function loadQuarterlyReportData() {
 
 })();
 </script>
-    
 </body>
 </html>
