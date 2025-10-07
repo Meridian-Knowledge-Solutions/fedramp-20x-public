@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** FAIL
-**Last Check:** 2025-10-06 03:26
+**Last Check:** 2025-10-07 03:04
 
 **What it validates:** Analyze security impact of changes before implementation
 
@@ -34,4 +34,4 @@ FAIL Insufficient impact assessment evidence (20%): FAIL No terraform plan evide
 - INFO No Change Manager requests found - may not be actively used yet
 
 ---
-*Generated 2025-10-06 03:26 UTC*
+*Generated 2025-10-07 03:04 UTC*
