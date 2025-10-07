@@ -7626,6 +7626,9 @@ async function loadQuarterlyReportData() {
     function initializeTwoTierSystem() {
         window.fedRAMPAuth = new FedRAMPAuth();
         addStyles();
+
+        // INJECT MODAL HTML FIRST - ADD THIS LINE
+        injectModalHTML();
         
         // Remove redundant sections first
         removeRedundantSections();
@@ -7762,6 +7765,157 @@ async function loadQuarterlyReportData() {
         setTimeout(initializeTwoTierSystem, 500);
     }
 
+// ====================================================================
+// DYNAMIC MODAL CONTENT INJECTION
+// ====================================================================
+function injectModalHTML() {
+    // Replace Registration Modal Content
+    let registrationModal = document.getElementById('registration-modal');
+    
+    if (!registrationModal) {
+        // Create modal if it doesn't exist
+        registrationModal = document.createElement('div');
+        registrationModal.id = 'registration-modal';
+        registrationModal.className = 'modal';
+        document.body.appendChild(registrationModal);
+    }
+    
+    registrationModal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🏛️ Federal Agency Registration</h3>
+                <button class="close-btn" onclick="closeCustomModal('registration-modal')">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.
+                </p>
+                
+                <form id="agency-registration-form">
+                    <div class="form-group">
+                        <label for="agency">Federal Agency Name *</label>
+                        <input 
+                            type="text" 
+                            id="agency" 
+                            name="agency" 
+                            required
+                            placeholder="e.g., Department of Defense"
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Official Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            pattern=".*\\.(gov|mil|fed\\.us)$"
+                            placeholder="your.name@agency.gov"
+                            title="Must be a .gov, .mil, or .fed.us email address"
+                        />
+                        <small>Must end with .gov, .mil, or .fed.us</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact">Contact Name *</label>
+                        <input 
+                            type="text" 
+                            id="contact" 
+                            name="contact" 
+                            required
+                            placeholder="John Doe"
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="system_name">System/Project Name (Optional)</label>
+                        <input 
+                            type="text" 
+                            id="system_name" 
+                            name="system_name"
+                            placeholder="e.g., DOD Cloud Migration Project"
+                        />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="purpose">Purpose (Optional)</label>
+                        <textarea 
+                            id="purpose" 
+                            name="purpose"
+                            rows="3"
+                            placeholder="Brief description of why you need access to authorization materials"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            Register & Send Verification Email
+                        </button>
+                    </div>
+                </form>
+                
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.875rem; color: var(--text-tertiary);">
+                    <p><strong>What happens next:</strong></p>
+                    <ol style="margin: 0.5rem 0 0 1.5rem; padding: 0;">
+                        <li>We'll send a verification email to your address</li>
+                        <li>Click the link in the email (valid for 24 hours)</li>
+                        <li>Your federal agency access will be activated</li>
+                        <li>Download complete authorization package immediately</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Create or Replace Access Required Modal
+    let accessModal = document.getElementById('access-required-modal');
+    
+    if (!accessModal) {
+        accessModal = document.createElement('div');
+        accessModal.id = 'access-required-modal';
+        accessModal.className = 'modal';
+        document.body.appendChild(accessModal);
+    }
+    
+    accessModal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔒 Federal Agency Access Required</h3>
+                <button class="close-btn" onclick="closeCustomModal('access-required-modal')">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <h4 class="feature-name" style="color: var(--primary-500); margin-bottom: 1rem;">Feature Access</h4>
+                
+                <p style="margin-bottom: 1rem;">
+                    This feature requires authenticated federal agency access. Register with your .gov or .mil email to unlock:
+                </p>
+                
+                <ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;">
+                    <!-- Benefits will be inserted by JavaScript -->
+                </ul>
+                
+                <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                    <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary" style="flex: 1;">
+                        Cancel
+                    </button>
+                    <button onclick="closeCustomModal('access-required-modal'); showRegistrationModal();" class="btn-primary" style="flex: 2;">
+                        Register Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    console.log('✓ Modal HTML injected/updated');
+}
+
+    
 })();
 </script>
 </body>
