@@ -1,22 +1,32 @@
-# KSI-PIY-03: Define baselines for approved hardware, software, and firmware components
+# KSI-PIY-03: Maintain a vulnerability disclosure program
 
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** PASS
-**Last Check:** 2025-10-09 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-09 20:38
 
-**What it validates:** Define baselines for approved hardware, software, and firmware components
+**What it validates:** Maintain a vulnerability disclosure program
 
-**Why it matters:** Validates comprehensive baseline management from basic AMI standards to enterprise-grade immutable infrastructure and compliance validation
+**Why it matters:** CORRECTED: Validates vulnerability disclosure program (NOT baselines) in version-controlled repository with public accessibility and response procedures.
 
 ## Validation Method
 
-1. **Manual Review:** Manual review of approved AMI baselines, launch templates, and hardware/software standards documentation
+1. `aws codecommit get-file --repository-name security-governance --file-path policies/vulnerability-disclosure-policy.md --output json`
+   *Retrieve vulnerability disclosure policy document*
+
+2. `aws codecommit get-folder --repository-name security-governance --folder-path policies/vulnerability-disclosure/ --output json`
+   *List VDP supporting documentation (submission process, response procedures)*
+
+3. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
+   *Check VDP maintenance and updates*
+
+4. `aws codecommit get-commit-history --repository-name security-governance --output json`
+   *Audit trail of VDP policy changes*
 
 ## Latest Results
 
-- PASS Vulnerability disclosure program maintained: PASS Vulnerability disclosure documentation: vulnerability_disclosure_program_final.pdf
+- FAIL No vulnerability disclosure program detected (1/14): WARNING Legacy VDP documentation - migrate to CodeCommit
 
 ---
-*Generated 2025-10-09 03:05 UTC*
+*Generated 2025-10-09 20:38 UTC*

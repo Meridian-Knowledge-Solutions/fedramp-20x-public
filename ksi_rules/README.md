@@ -39,7 +39,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Incident Reporting
 
-- [PASS] [KSI-INR-01](KSI-INR-01.md): Document incident handling procedures
+- [FAIL] [KSI-INR-01](KSI-INR-01.md): RESPOND to incidents according to FedRAMP requirements and cloud service provider policies
 - [PASS] [KSI-INR-02](KSI-INR-02.md): Establish an insider threat program
 - [PASS] [KSI-INR-03](KSI-INR-03.md): Implement automated incident response procedures
 
@@ -55,17 +55,17 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Policy and Inventory
 
 - [PASS] [KSI-PIY-01](KSI-PIY-01.md): Maintain an inventory of authorized users
-- [PASS] [KSI-PIY-02](KSI-PIY-02.md): Maintain an inventory of all software installed on systems
-- [PASS] [KSI-PIY-03](KSI-PIY-03.md): Define baselines for approved hardware, software, and firmware components
+- [FAIL] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
+- [FAIL] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
-- [PASS] [KSI-PIY-05](KSI-PIY-05.md): Maintain a data protection policy that addresses data retention requirements
+- [FAIL] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
-- [PASS] [KSI-PIY-07](KSI-PIY-07.md): Document the system security policy
+- [FAIL] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
 
 ## Recovery Planning
 
 - [PASS] [KSI-RPL-01](KSI-RPL-01.md): Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
-- [PASS] [KSI-RPL-02](KSI-RPL-02.md): Document system recovery procedures
+- [PASS] [KSI-RPL-02](KSI-RPL-02.md): Develop and maintain a recovery plan that aligns with the defined recovery objectives
 - [PASS] [KSI-RPL-03](KSI-RPL-03.md): Back up information regularly per the recovery point objective
 - [PASS] [KSI-RPL-04](KSI-RPL-04.md): Test recovery procedures regularly
 
@@ -85,15 +85,15 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Third-Party Information Resources
 
 - [PASS] [KSI-TPR-01](KSI-TPR-01.md): Document the cloud service provider (CSP) in the system security policy
-- [PASS] [KSI-TPR-03](KSI-TPR-03.md): Document all third-party services used in the system security policy
+- [FAIL] [KSI-TPR-03](KSI-TPR-03.md): Identify and prioritize mitigation of potential supply chain risks
 - [PASS] [KSI-TPR-04](KSI-TPR-04.md): Conduct vulnerability scans for applications and operating systems
 
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 53
-- **Failing:** 3
+- **Passing:** 47
+- **Failing:** 9
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-09 03:05 UTC*
+*Generated 2025-10-09 20:38 UTC*

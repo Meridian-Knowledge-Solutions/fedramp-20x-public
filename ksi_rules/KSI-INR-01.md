@@ -1,24 +1,34 @@
-# KSI-INR-01: Document incident handling procedures
+# KSI-INR-01: RESPOND to incidents according to FedRAMP requirements and cloud service provider policies
 
 ## Overview
 
 **Category:** Incident Reporting
-**Status:** PASS
-**Last Check:** 2025-10-09 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-09 20:38
 
-**What it validates:** Document incident handling procedures
+**What it validates:** RESPOND to incidents according to FedRAMP requirements and cloud service provider policies
 
-**Why it matters:** Validates incident handling documentation from basic response procedures to enterprise-grade incident management playbooks and SOAR integration
+**Why it matters:** RFC-0014 Phase Two: Changed from 'Report' to 'Respond'. Validates FedRAMP-compliant incident RESPONSE procedures (broader than just reporting) in CodeCommit with Security Hub integration.
 
 ## Validation Method
 
-1. **Manual Review:** Manual review of incident response procedures, escalation paths, and incident handling documentation
+1. `aws codecommit get-file --repository-name security-governance --file-path procedures/incident-response.md --output json`
+   *Retrieve incident RESPONSE procedures (not just reporting)*
+
+2. `aws codecommit get-folder --repository-name security-governance --folder-path templates/incident/ --output json`
+   *List incident notification templates*
+
+3. `aws securityhub describe-hub --output json`
+   *Validate Security Hub integration for incident response*
+
+4. `aws securityhub get-findings --max-results 10 --output json`
+   *Check active security findings tracking*
 
 ## Latest Results
 
-WARNING Basic incident reporting (ensure FedRAMP compliance): PASS Core reporting procedures: quick_reference_irp_guide.pdf, incident_reponse_policy.pdf, contingency_plan.pdf
-- PASS Enhanced compliance procedures: IR.zip
-- FAIL No specific FedRAMP incident reporting compliance found (required)
+FAIL Insufficient FedRAMP incident response (2/11): PASS Security Hub integrated: 0 findings tracked
+- PASS Security Hub integrated: 10 findings tracked
+- WARNING Legacy incident procedures - migrate to CodeCommit
 
 ---
-*Generated 2025-10-09 03:05 UTC*
+*Generated 2025-10-09 20:38 UTC*
