@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-10-08 03:05
+**Last Check:** 2025-10-09 03:05
 
 **What it validates:** Implement fine-grained automated actions on security events related to authentication and access control
 
@@ -46,9 +46,9 @@ PASS Strong automated response capabilities (81%): PASS Advanced threat detectio
 - PASS Automated security triggers: 11 active EventBridge rules
 - WARNING No Identity Center found (missing modern automated identity controls)
 - PASS Enterprise governance: Config rules managed centrally (multi-account architecture)
-- PASS Automated response functions: 16 security automation functions
+- PASS Automated response functions: 17 security automation functions
 - PASS Automated monitoring: 13 security-focused alarms
 - PASS Centralized governance model detected (multi-account architecture)
 
 ---
-*Generated 2025-10-08 03:05 UTC*
+*Generated 2025-10-09 03:05 UTC*

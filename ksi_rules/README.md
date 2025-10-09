@@ -16,7 +16,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
 - [PASS] [KSI-CNA-04](KSI-CNA-04.md): Clearly define and deploy security controls as code to enforce the principle of least functionality
-- [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
+- [FAIL] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
 - [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess the security posture of all services and automatically enforce secure operations
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 54
-- **Failing:** 2
+- **Passing:** 53
+- **Failing:** 3
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-08 03:05 UTC*
+*Generated 2025-10-09 03:05 UTC*

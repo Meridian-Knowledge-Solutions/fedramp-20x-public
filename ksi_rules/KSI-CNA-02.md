@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-10-08 03:05
+**Last Check:** 2025-10-09 03:05
 
 **What it validates:** Segment network and compute resources into security zones
 
@@ -42,8 +42,8 @@ PASS Strong attack surface minimization (85%): PASS Strong attack surface minimi
 - PASS Minimal compute exposure: 6/6 instances in private subnets
 - PASS Database isolation: All 1 RDS instances private
 - PASS Controlled service exposure: Single internet-facing load balancer with private backend services
-- PASS Lambda isolation: 2/16 functions in VPC
+- PASS Lambda isolation: 2/17 functions in VPC
 - PASS Advanced segmentation barriers: 1/1 Network ACLs with custom isolation rules
 
 ---
-*Generated 2025-10-08 03:05 UTC*
+*Generated 2025-10-09 03:05 UTC*
