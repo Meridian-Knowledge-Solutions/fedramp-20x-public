@@ -6199,8 +6199,8 @@ async function loadQuarterlyReportData() {
     
     // API Configuration - UPDATE THIS with actual API endpoint from Ticket 1
     const FEDRAMP_API_CONFIG = {
-        // Base URL from AWS CloudFormation output (PLACEHOLDER - update when backend is ready)
-        BASE_URL: 'https://[REPLACE-WITH-ACTUAL-API-ID].execute-api.us-east-1.amazonaws.com/prod',
+        // Base URL from AWS CloudFormation output 
+        BASE_URL: 'https://7d7pdwb9t3.execute-api.us-east-1.amazonaws.com/prod/register',
         
         // API endpoints
         ENDPOINTS: {
@@ -6218,7 +6218,7 @@ async function loadQuarterlyReportData() {
         TOKEN_KEY: 'fedRAMPAccessToken',
         
         // Demo mode flag - set to false when backend is ready
-        DEMO_MODE: true
+        DEMO_MODE: false
     };
     
     class FedRAMPAuth {
