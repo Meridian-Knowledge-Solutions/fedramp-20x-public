@@ -1,9 +1,14 @@
 {
-  "timestamp": "2025-10-09T20:38:08.579357",
+  "timestamp": "2025-10-10T03:07:15.798762",
   "total_ksis_validated": 56,
-  "technical_issues_found": 0,
-  "issues": [],
-  "status": "pass",
+  "technical_issues_found": 4,
+  "issues": [
+    "KSI-PIY-02: All 5 CLI commands failed execution",
+    "KSI-PIY-03: All 4 CLI commands failed execution",
+    "KSI-PIY-05: All 4 CLI commands failed execution",
+    "KSI-PIY-07: All 4 CLI commands failed execution"
+  ],
+  "status": "warning",
   "categories_checked": [
     "logical_consistency",
     "scoring_mathematics",

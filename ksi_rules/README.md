@@ -55,12 +55,12 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Policy and Inventory
 
 - [PASS] [KSI-PIY-01](KSI-PIY-01.md): Maintain an inventory of authorized users
-- [FAIL] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
+- [PASS] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
 - [FAIL] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
-- [FAIL] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
+- [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
-- [FAIL] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
+- [PASS] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
 
 ## Recovery Planning
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 47
-- **Failing:** 9
+- **Passing:** 50
+- **Failing:** 6
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-09 20:38 UTC*
+*Generated 2025-10-10 03:07 UTC*

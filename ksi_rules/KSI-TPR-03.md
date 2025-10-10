@@ -4,7 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** FAIL
-**Last Check:** 2025-10-09 20:38
+**Last Check:** 2025-10-10 03:07
 
 **What it validates:** Identify and prioritize mitigation of potential supply chain risks
 
@@ -29,4 +29,4 @@
 - FAIL Insufficient supply chain risk management (-1/13): WARNING Legacy SSM policies detected - migration recommended
 
 ---
-*Generated 2025-10-09 20:38 UTC*
+*Generated 2025-10-10 03:07 UTC*
