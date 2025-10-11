@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** FAIL
-**Last Check:** 2025-10-10 03:07
+**Status:** PASS
+**Last Check:** 2025-10-11 03:05
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -23,7 +23,8 @@
 
 ## Latest Results
 
-- FAIL No vulnerability disclosure program detected (2/14): WARNING Legacy VDP documentation found - migrate to CodeCommit
+WARNING Minimal VDP present (5/14): PASS Vulnerability disclosure policy documented
+- PASS VDP maintenance activity: 1 updates
 
 ---
-*Generated 2025-10-10 03:07 UTC*
+*Generated 2025-10-11 03:05 UTC*
