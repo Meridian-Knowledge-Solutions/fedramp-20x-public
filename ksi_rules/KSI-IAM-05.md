@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-12 03:08
+**Last Check:** 2025-10-12 08:31
 
 **What it validates:** Separate duties between users
 
@@ -35,11 +35,11 @@
 
 ## Latest Results
 
-FAIL Critical Zero Trust Gaps Detected (40%): FAIL [Identity] No IAM Identity Center found. A modern identity platform is a core tenant of Zero Trust.
+FAIL Critical Zero Trust Gaps Detected (80%): FAIL [Monitoring] CRITICAL GAP: No CloudTrail configured for monitoring.
+- PASS [Identity & MFA] Excellent identity practice in use (Federated/Assumed Role).
 - PASS [Segmentation] Excellent network micro-segmentation: No security groups have overly permissive inbound rules.
 - PASS [Credentials] Best practice followed: Using temporary, session-based credentials (assumed role).
 - PASS [Secure Communications] Comprehensive private networking with 7 VPC endpoints.
-- FAIL [Monitoring] CRITICAL GAP: No CloudTrail configured for monitoring.
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*

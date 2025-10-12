@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-12 03:08
+**Last Check:** 2025-10-12 08:31
 
 **What it validates:** Enforce phishing-resistant MFA for all user authentication
 
@@ -26,7 +26,9 @@
 
 ## Latest Results
 
-- Exception during evaluation: 'str' object has no attribute 'get'
+FAIL Critical MFA Gaps Detected (50%): PASS [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.
+- PASS [Federation] Strong MFA enforcement: 100% (10/10) of users are federated from an external IdP where MFA is enforced.
+- FAIL [IAM Hygiene] CRITICAL RISK: 2 legacy IAM human user(s) exist WITHOUT MFA: change_template_approver, ReadOnly.
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*

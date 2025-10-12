@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** FAIL
-**Last Check:** 2025-10-12 03:08
+**Last Check:** 2025-10-12 08:31
 
 **What it validates:** Evaluate risk and potential impact of any change (Hybrid Validation)
 
@@ -12,7 +12,7 @@
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --commit-specifier main --file-path security-governance/procedures/change-risk-assessment.md`
+1. `aws codecommit get-file --repository-name security-governance --commit-specifier main --file-path procedures/change-risk-assessment.md`
    *Live check for the risk assessment procedure in CodeCommit.*
 
 2. `test -f evidence_v2/KSI-CMT-05/ksi_compliance_report.json && cat evidence_v2/KSI-CMT-05/ksi_compliance_report.json || echo '{"error": "Compliance report artifact not found"}'`
@@ -20,8 +20,8 @@
 
 ## Latest Results
 
-FAIL Phase 2 Non-Compliant (0%): Hybrid check failed. Findings: FAIL [Live Check] Risk assessment procedure not found in AWS CodeCommit.
+FAIL Phase 2 Non-Compliant (50%): Hybrid check failed. Findings: PASS [Live Check] Comprehensive risk procedure found in CodeCommit (12157 bytes).
 - FAIL [Artifact] SCN compliance report artifact not found or is invalid.
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*

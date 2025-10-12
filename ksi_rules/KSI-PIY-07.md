@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-10-12 03:08
+**Last Check:** 2025-10-12 08:31
 
 **What it validates:** Document risk management decisions for software supply chain security
 
@@ -18,14 +18,14 @@
 2. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
    *Check the commit history for an audit trail of policy updates.*
 
-3. `aws codecommit list-approval-rule-templates-for-repository --repository-name security-governance --output json`
+3. `aws codecommit list-approval-rule-templates --output json`
    *Verify that a formal approval process is configured for the repository.*
 
 ## Latest Results
 
-FAIL Insufficient documentation for supply chain risk management (20%): FAIL [Policy] The supply chain risk management policy document is missing or insufficient.
+FAIL Insufficient documentation for supply chain risk management (40%): PASS [Policy] A comprehensive supply chain risk management policy is documented (9333 bytes).
 - WARNING [Approval] No formal approval rule templates were found for the repository.
 - PASS [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*

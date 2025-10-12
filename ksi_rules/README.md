@@ -32,7 +32,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [FAIL] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Implement enterprise-wide identity federation
 - [FAIL] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
-- [FAIL] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
+- [PASS] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
 - [FAIL] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
 - [PASS] [KSI-IAM-06](KSI-IAM-06.md): Implement fine-grained automated actions on security events related to authentication and access control
 - [PASS] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
@@ -58,7 +58,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
 - [FAIL] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
-- [FAIL] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
+- [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
 - [FAIL] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
 
@@ -79,7 +79,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Use centralized key management services
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 - [PASS] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources
-- [FAIL] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
+- [PASS] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
 - [PASS] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
 
 ## Third-Party Information Resources
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 44
-- **Failing:** 12
+- **Passing:** 47
+- **Failing:** 9
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*

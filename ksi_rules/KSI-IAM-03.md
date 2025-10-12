@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-12 03:08
+**Last Check:** 2025-10-12 08:31
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -26,7 +26,10 @@
 
 ## Latest Results
 
-- Exception during evaluation: 'str' object has no attribute 'get'
+FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'change_template_approver' appears to be a service account. This is a high-risk anti-pattern
+- replace with an IAM role.
+- CRITICAL: IAM user 'Terraform' appears to be a service account. This is a high-risk anti-pattern
+- replace with an IAM role.
 
 ---
-*Generated 2025-10-12 03:08 UTC*
+*Generated 2025-10-12 08:31 UTC*
