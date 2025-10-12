@@ -7,7 +7,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862221",
+    "timestamp": "2025-10-12T12:34:53.691761",
     "validation_method": "multi-command"
   },
   {
@@ -18,7 +18,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862229",
+    "timestamp": "2025-10-12T12:34:53.691769",
     "validation_method": "multi-command"
   },
   {
@@ -29,7 +29,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862232",
+    "timestamp": "2025-10-12T12:34:53.691772",
     "validation_method": "multi-command"
   },
   {
@@ -40,7 +40,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862235",
+    "timestamp": "2025-10-12T12:34:53.691776",
     "validation_method": "multi-command"
   },
   {
@@ -51,7 +51,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862238",
+    "timestamp": "2025-10-12T12:34:53.691779",
     "validation_method": "multi-command"
   },
   {
@@ -62,29 +62,29 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862241",
+    "timestamp": "2025-10-12T12:34:53.691781",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CMT-04",
     "validation_id": "KSI-CMT-04",
-    "assertion": false,
-    "assertion_reason": "\u274c Phase 2 Non-Compliant (50%): Hybrid check failed. Findings: \u2705 [Live Check] Comprehensive change procedure found in CodeCommit (8898 bytes).; \u274c [Artifact] SCN compliance report artifact not found or is invalid.",
+    "assertion": true,
+    "assertion_reason": "\u2705 Phase 2 Compliant (100%): Hybrid check passed. Findings: \u2705 [Live Check] Comprehensive change procedure found in CodeCommit (8898 bytes).; \u2705 [Artifact] \u2705 Evidence of change process: 19 commits with keywords; \u2705 [Artifact] \u2705 Recent changes detected: 20 commits",
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862245",
+    "timestamp": "2025-10-12T12:34:53.691784",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CMT-05",
     "validation_id": "KSI-CMT-05",
-    "assertion": false,
-    "assertion_reason": "\u274c Phase 2 Non-Compliant (50%): Hybrid check failed. Findings: \u2705 [Live Check] Comprehensive risk procedure found in CodeCommit (12157 bytes).; \u274c [Artifact] SCN compliance report artifact not found or is invalid.",
+    "assertion": true,
+    "assertion_reason": "\u2705 Phase 2 Compliant (100%): Hybrid check passed. Findings: \u2705 [Live Check] Comprehensive risk procedure found in CodeCommit (12157 bytes).; \u2705 [Artifact] \u2705 Evidence of risk assessments: 1 commits with risk keywords",
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862248",
+    "timestamp": "2025-10-12T12:34:53.691787",
     "validation_method": "multi-command"
   },
   {
@@ -95,7 +95,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862251",
+    "timestamp": "2025-10-12T12:34:53.691790",
     "validation_method": "multi-command"
   },
   {
@@ -106,7 +106,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862254",
+    "timestamp": "2025-10-12T12:34:53.691793",
     "validation_method": "multi-command"
   },
   {
@@ -117,7 +117,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862257",
+    "timestamp": "2025-10-12T12:34:53.691796",
     "validation_method": "multi-command"
   },
   {
@@ -128,7 +128,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862260",
+    "timestamp": "2025-10-12T12:34:53.691799",
     "validation_method": "multi-command"
   },
   {
@@ -139,7 +139,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862263",
+    "timestamp": "2025-10-12T12:34:53.691802",
     "validation_method": "multi-command"
   },
   {
@@ -150,7 +150,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862266",
+    "timestamp": "2025-10-12T12:34:53.691805",
     "validation_method": "multi-command"
   },
   {
@@ -161,7 +161,7 @@
     "cli_command": "15 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862269",
+    "timestamp": "2025-10-12T12:34:53.691809",
     "validation_method": "multi-command"
   },
   {
@@ -172,7 +172,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862272",
+    "timestamp": "2025-10-12T12:34:53.691812",
     "validation_method": "multi-command"
   },
   {
@@ -183,7 +183,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862275",
+    "timestamp": "2025-10-12T12:34:53.691815",
     "validation_method": "multi-command"
   },
   {
@@ -194,7 +194,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862278",
+    "timestamp": "2025-10-12T12:34:53.691818",
     "validation_method": "multi-command"
   },
   {
@@ -205,18 +205,18 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862292",
+    "timestamp": "2025-10-12T12:34:53.691821",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-IAM-04",
     "validation_id": "KSI-IAM-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., Development, ReadOnlyAccess, AdministratorAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 3 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
+    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, ReadOnlyAccess, Development).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 3 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862295",
+    "timestamp": "2025-10-12T12:34:53.691825",
     "validation_method": "multi-command"
   },
   {
@@ -227,7 +227,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862298",
+    "timestamp": "2025-10-12T12:34:53.691828",
     "validation_method": "multi-command"
   },
   {
@@ -238,7 +238,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862301",
+    "timestamp": "2025-10-12T12:34:53.691831",
     "validation_method": "multi-command"
   },
   {
@@ -249,7 +249,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862304",
+    "timestamp": "2025-10-12T12:34:53.691834",
     "validation_method": "multi-command"
   },
   {
@@ -260,7 +260,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862307",
+    "timestamp": "2025-10-12T12:34:53.691836",
     "validation_method": "multi-command"
   },
   {
@@ -271,7 +271,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862310",
+    "timestamp": "2025-10-12T12:34:53.691839",
     "validation_method": "multi-command"
   },
   {
@@ -282,7 +282,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862313",
+    "timestamp": "2025-10-12T12:34:53.691842",
     "validation_method": "multi-command"
   },
   {
@@ -293,7 +293,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862316",
+    "timestamp": "2025-10-12T12:34:53.691845",
     "validation_method": "multi-command"
   },
   {
@@ -304,18 +304,18 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862319",
+    "timestamp": "2025-10-12T12:34:53.691852",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-MLA-03",
     "validation_id": "KSI-MLA-03",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (0 critical, 2 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
+    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (1 critical, 4 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862322",
+    "timestamp": "2025-10-12T12:34:53.691855",
     "validation_method": "multi-command"
   },
   {
@@ -326,7 +326,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862325",
+    "timestamp": "2025-10-12T12:34:53.691858",
     "validation_method": "multi-command"
   },
   {
@@ -337,7 +337,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862328",
+    "timestamp": "2025-10-12T12:34:53.691863",
     "validation_method": "multi-command"
   },
   {
@@ -348,7 +348,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862331",
+    "timestamp": "2025-10-12T12:34:53.691865",
     "validation_method": "multi-command"
   },
   {
@@ -359,7 +359,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862334",
+    "timestamp": "2025-10-12T12:34:53.691868",
     "validation_method": "multi-command"
   },
   {
@@ -370,7 +370,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862337",
+    "timestamp": "2025-10-12T12:34:53.691871",
     "validation_method": "multi-command"
   },
   {
@@ -381,7 +381,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862340",
+    "timestamp": "2025-10-12T12:34:53.691874",
     "validation_method": "multi-command"
   },
   {
@@ -392,7 +392,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862343",
+    "timestamp": "2025-10-12T12:34:53.691877",
     "validation_method": "multi-command"
   },
   {
@@ -403,7 +403,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862346",
+    "timestamp": "2025-10-12T12:34:53.691879",
     "validation_method": "multi-command"
   },
   {
@@ -414,7 +414,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862349",
+    "timestamp": "2025-10-12T12:34:53.691882",
     "validation_method": "multi-command"
   },
   {
@@ -425,7 +425,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862354",
+    "timestamp": "2025-10-12T12:34:53.691885",
     "validation_method": "multi-command"
   },
   {
@@ -436,7 +436,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862357",
+    "timestamp": "2025-10-12T12:34:53.691887",
     "validation_method": "multi-command"
   },
   {
@@ -447,7 +447,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862360",
+    "timestamp": "2025-10-12T12:34:53.691890",
     "validation_method": "multi-command"
   },
   {
@@ -458,7 +458,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862363",
+    "timestamp": "2025-10-12T12:34:53.691893",
     "validation_method": "multi-command"
   },
   {
@@ -469,7 +469,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862366",
+    "timestamp": "2025-10-12T12:34:53.691896",
     "validation_method": "multi-command"
   },
   {
@@ -480,7 +480,7 @@
     "cli_command": "11 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862369",
+    "timestamp": "2025-10-12T12:34:53.691898",
     "validation_method": "multi-command"
   },
   {
@@ -491,18 +491,18 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862372",
+    "timestamp": "2025-10-12T12:34:53.691901",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-SVC-03",
     "validation_id": "KSI-SVC-03",
     "assertion": true,
-    "assertion_reason": "\u2705 Production-ready multi-service encryption with advanced key management (70%): \u2705 Object storage encryption: 9 S3 buckets configured.; \u2705 Block storage encryption: 10/11 EBS volumes encrypted (91%).; \u2705 Database encryption: 1/1 RDS instances encrypted (100%).; \u2705 Database backup encryption: 189/189 RDS snapshots encrypted.; \u2705 Backup encryption: 3/3 backup vaults encrypted.; \u2705 Encryption key infrastructure: 17 KMS keys (0 customer-managed, 17 AWS-managed).; \u2705 Enterprise-wide encryption governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for encryption policy enforcement enabled.",
+    "assertion_reason": "\u2705 Production-ready multi-service encryption with advanced key management (70%): \u2705 Object storage encryption: 9 S3 buckets configured.; \u2705 Block storage encryption: 10/11 EBS volumes encrypted (91%).; \u2705 Database encryption: 1/1 RDS instances encrypted (100%).; \u2705 Database backup encryption: 190/190 RDS snapshots encrypted.; \u2705 Backup encryption: 3/3 backup vaults encrypted.; \u2705 Encryption key infrastructure: 17 KMS keys (0 customer-managed, 17 AWS-managed).; \u2705 Enterprise-wide encryption governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for encryption policy enforcement enabled.",
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862375",
+    "timestamp": "2025-10-12T12:34:53.691904",
     "validation_method": "multi-command"
   },
   {
@@ -513,7 +513,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862378",
+    "timestamp": "2025-10-12T12:34:53.691906",
     "validation_method": "multi-command"
   },
   {
@@ -524,7 +524,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862381",
+    "timestamp": "2025-10-12T12:34:53.691909",
     "validation_method": "multi-command"
   },
   {
@@ -535,7 +535,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862384",
+    "timestamp": "2025-10-12T12:34:53.691912",
     "validation_method": "multi-command"
   },
   {
@@ -546,7 +546,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862387",
+    "timestamp": "2025-10-12T12:34:53.691914",
     "validation_method": "multi-command"
   },
   {
@@ -557,7 +557,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862389",
+    "timestamp": "2025-10-12T12:34:53.691919",
     "validation_method": "multi-command"
   },
   {
@@ -568,7 +568,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862392",
+    "timestamp": "2025-10-12T12:34:53.691922",
     "validation_method": "multi-command"
   },
   {
@@ -579,7 +579,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862395",
+    "timestamp": "2025-10-12T12:34:53.691925",
     "validation_method": "multi-command"
   },
   {
@@ -590,7 +590,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862398",
+    "timestamp": "2025-10-12T12:34:53.691930",
     "validation_method": "multi-command"
   },
   {
@@ -601,7 +601,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862401",
+    "timestamp": "2025-10-12T12:34:53.691933",
     "validation_method": "multi-command"
   },
   {
@@ -612,7 +612,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-12T08:30:58.862404",
+    "timestamp": "2025-10-12T12:34:53.691935",
     "validation_method": "multi-command"
   }
 ]

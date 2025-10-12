@@ -7,8 +7,8 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CMT-01](KSI-CMT-01.md): Document a change management policy for all system modifications
 - [PASS] [KSI-CMT-02](KSI-CMT-02.md): Use self-service templates and image repositories for provisioning
 - [PASS] [KSI-CMT-03](KSI-CMT-03.md): Use CI/CD pipelines for deploying changes
-- [FAIL] [KSI-CMT-04](KSI-CMT-04.md): Consistently follow documented change management procedure (Hybrid Validation)
-- [FAIL] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
+- [PASS] [KSI-CMT-04](KSI-CMT-04.md): Consistently follow documented change management procedure (Hybrid Validation)
+- [PASS] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
 
 ## Cloud Native Architecture
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 47
-- **Failing:** 9
+- **Passing:** 49
+- **Failing:** 7
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-12 08:31 UTC*
+*Generated 2025-10-12 12:35 UTC*
