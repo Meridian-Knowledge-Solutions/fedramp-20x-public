@@ -4,35 +4,31 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Perform regularly scheduled backups
 
-**Why it matters:** Validates comprehensive backup strategy from basic manual backups to enterprise-grade automated backup policies and disaster recovery
+**Why it matters:** Validates that automated data lifecycle and retention policies are in place across AWS Backup, S3, and CloudWatch Logs.
 
 ## Validation Method
 
-1. `aws backup list-backup-plans --output json`
-   *Check AWS Backup plans for automated backup scheduling*
+1. `aws backup get-backup-plan --backup-plan-id $(aws backup list-backup-plans --query 'BackupPlansList[0].BackupPlanId' --output text) --output json || echo '{"BackupPlan": null}'`
+   *Validate that backup plans have defined retention and deletion lifecycles.*
 
-2. `aws backup get-backup-plan --backup-plan-id $(aws backup list-backup-plans --query 'BackupPlansList[0].BackupPlanId' --output text) --output json || echo '{"BackupPlan": null}'`
-   *Validate backup plan details and retention policies*
+2. `for b in $(aws s3api list-buckets --query 'Buckets[].Name' --output text); do echo "Bucket: $b"; aws s3api get-bucket-lifecycle-configuration --bucket "$b" --output json 2>/dev/null || echo 'No lifecycle'; done`
+   *Check all S3 buckets for active lifecycle policies for data retention.*
 
-3. `aws s3api list-buckets --query 'Buckets[0].Name' --output text | xargs -I {} aws s3api list-inventory-configurations --bucket {} --output json || echo '{"InventoryConfigurationList": []}'`
-   *Check S3 bucket backup and versioning configurations*
+3. `aws logs describe-log-groups --output json`
+   *Verify that CloudWatch Log groups have retention policies configured.*
 
 4. `aws lambda list-functions --output json`
-   *Validate Lambda functions for backup automation*
-
-5. `aws logs describe-log-groups --output json`
-   *Check CloudWatch Logs for backup operation monitoring*
+   *Identify any custom Lambda functions used for automated data cleanup.*
 
 ## Latest Results
 
-PASS Good automated data lifecycle (75%): FAIL S3 Lifecycle Management
-- PASS Backup Retention Management
-- PASS Log Retention Policies
-- PASS Automated Cleanup Functions
+PASS Excellent automated data lifecycle management (100%): PASS [Backup Retention] AWS Backup plans have explicit deletion lifecycles, ensuring recovery points are removed as required.
+- PASS [S3 Lifecycle] 1 S3 bucket(s) have active lifecycle policies to manage object expiration.
+- PASS [Log Retention] A strong log retention strategy is in place, with 100% of log groups having a defined retention period.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

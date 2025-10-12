@@ -4,32 +4,27 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Use infrastructure as code to apply controls to the provisioning and management of resources
 
-**Why it matters:** Validates comprehensive IaC implementation from basic CloudFormation to enterprise-grade policy-driven deployment and automated compliance
+**Why it matters:** Validates a comprehensive IaC strategy by confirming the use of CloudFormation for deployments and AWS Config for tracking resource changes and detecting residual elements.
 
 ## Validation Method
 
 1. `aws cloudformation list-stacks --output json`
-   *Check CloudFormation stacks for infrastructure as code deployment*
+   *Check for active CloudFormation stacks as primary evidence of IaC.*
 
-2. `aws lambda list-functions --output json`
-   *Validate Lambda functions for IaC automation and deployment*
+2. `aws configservice describe-configuration-recorders --output json`
+   *Verify that AWS Config is active for tracking changes and detecting residual elements.*
 
-3. `aws events list-rules --output json`
-   *Check EventBridge rules for automated IaC workflows*
-
-4. **Manual Review:** Manual review of IaC templates, policies, and deployment pipelines
+3. `aws lambda list-functions --output json`
+   *Check for custom Lambda functions that support IaC or cleanup automation.*
 
 ## Latest Results
 
-PASS Good change cleanup processes (60%): PASS Infrastructure As Code
-- PASS Automated Cleanup
-- PASS Resource Lifecycle Management
-- FAIL Residual Element Detection
-- FAIL Change Impact Tracking
+PASS Strong IaC implementation with foundational change tracking (50%): PASS [IaC] Infrastructure is managed as code via 19 active CloudFormation stacks, ensuring consistent lifecycle management.
+- WARNING [Change Tracking] An AWS Config recorder exists but is not currently recording.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

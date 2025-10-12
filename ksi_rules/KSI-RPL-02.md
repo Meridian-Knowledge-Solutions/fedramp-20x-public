@@ -4,31 +4,29 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Develop and maintain a recovery plan that aligns with the defined recovery objectives
 
-**Why it matters:** Validates recovery procedures in CodeCommit with RTO/RPO alignment and AWS Backup infrastructure validation.
+**Why it matters:** Validates that a recovery plan is implemented and maintained as code via AWS Backup plans, vaults, and evidence of recent execution.
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --file-path procedures/recovery-plan.md --output json`
-   *Retrieve recovery plan documentation*
+1. `aws backup list-backup-plans --output json`
+   *Validates that recovery plans are defined and have been recently executed.*
 
-2. `aws codecommit get-file --repository-name security-governance --file-path procedures/recovery-testing.md --output json`
-   *Retrieve recovery testing procedures*
+2. `aws backup list-backup-vaults --output json`
+   *Checks for secure, encrypted backup vaults to store recovery points.*
 
-3. `aws backup list-backup-plans --output json`
-   *Validate AWS Backup plans alignment*
-
-4. `aws backup list-backup-vaults --output json`
-   *Validate backup vault configuration*
+3. `aws ec2 describe-snapshots --owner-ids self --max-results 100 --output json`
+   *Verifies the existence of recovery points (EBS snapshots).*
 
 ## Latest Results
 
-WARNING Basic recovery planning (5/12): PASS AWS Backup plans configured: 2 plans
-- PASS Backup vaults configured: 3 vaults
-- WARNING Legacy recovery plan documentation - migrate to CodeCommit
+PASS Excellent, automated recovery plan (100%): PASS [Plan] Recovery plan is implemented as code via 2 AWS Backup plan(s).
+- PASS [Storage] All 3 backup vaults are encrypted at rest, protecting recovery data.
+- PASS [Maintenance] All backup plans are actively maintained and have recent execution history.
+- PASS [Evidence] Recovery readiness is demonstrated by the existence of 100 recent EBS snapshots.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

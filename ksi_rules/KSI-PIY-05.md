@@ -3,29 +3,28 @@
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Document methods used to evaluate information resource implementations
 
-**Why it matters:** Validates evaluation methodology including assessment procedures and automated tools (AWS CLI, Config, Security Hub).
+**Why it matters:** Validates the evaluation methodology document, including assessment procedures and references to automated tools.
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --file-path procedures/evaluation-methodology.md --output json`
-   *Retrieve evaluation methodology document*
+1. `aws codecommit get-file --repository-name security-governance --file-path policies/evaluation-methodology.md --output json`
+   *Retrieve the correct evaluation methodology document from the 'policies' directory.*
 
 2. `aws codecommit get-folder --repository-name security-governance --folder-path procedures/ --output json`
-   *List evaluation and assessment procedures*
+   *List any supporting evaluation and assessment procedures.*
 
 3. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
-   *Check methodology updates*
+   *Check for recent updates to the methodology.*
 
 ## Latest Results
 
-WARNING Basic evaluation methods (4/12): PASS Supporting procedures: 1 documents
-- PASS Methodology maintenance: 4 updates
-- WARNING Legacy evaluation documentation found - migrate to CodeCommit
+FAIL Insufficient evaluation methodology documentation (30%): FAIL [Documentation] The evaluation methodology document is missing or insufficient.
+- PASS [Maintenance] The methodology is actively maintained, with evidence of recent updates.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

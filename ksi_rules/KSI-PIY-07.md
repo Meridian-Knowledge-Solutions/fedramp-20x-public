@@ -3,31 +3,29 @@
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Document risk management decisions for software supply chain security
 
-**Why it matters:** Validates supply chain risk management decisions with vendor assessment procedures and audit trail.
+**Why it matters:** Validates the supply chain risk policy's content, its maintenance history, and the existence of a formal approval workflow.
 
 ## Validation Method
 
 1. `aws codecommit get-file --repository-name security-governance --file-path policies/supply-chain-risk-management.md --output json`
-   *Retrieve supply chain risk management policy*
+   *Retrieve the supply chain risk management policy to analyze its content.*
 
-2. `aws codecommit get-folder --repository-name security-governance --folder-path policies/ --output json`
-   *List vendor assessments and third-party documentation*
+2. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
+   *Check the commit history for an audit trail of policy updates.*
 
-3. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
-   *Audit trail of supply chain risk decisions*
-
-4. `aws codecommit list-pull-requests --repository-name security-governance --pull-request-status CLOSED --max-results 20 --output json`
-   *Verify approval workflow for risk management decisions*
+3. `aws codecommit list-approval-rule-templates-for-repository --repository-name security-governance --output json`
+   *Verify that a formal approval process is configured for the repository.*
 
 ## Latest Results
 
-WARNING Basic supply chain risk management (6/12): PASS Supply chain risk management policy documented
-- PASS Audit trail: 1 supply chain updates
+FAIL Insufficient documentation for supply chain risk management (20%): FAIL [Policy] The supply chain risk management policy document is missing or insufficient.
+- WARNING [Approval] No formal approval rule templates were found for the repository.
+- PASS [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

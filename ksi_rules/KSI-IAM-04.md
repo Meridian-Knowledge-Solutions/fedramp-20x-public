@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Clearly define user roles and implement user-to-role mapping
 
@@ -29,11 +29,7 @@
 
 ## Latest Results
 
-WARNING Partial traditional authorization model (50%): INFO IAM Identity Center not configured (using traditional IAM)
-- PASS Role-based access pattern: 65 user-oriented roles vs 3 users (27 service roles)
-- PASS Controlled user count: 3 users (excellent for least privilege)
-- PASS Moderate policy count: 15 custom policies
-- PASS Role-based session: Using temporary credentials (just-in-time access)
+- Exception during evaluation: name 're' is not defined
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

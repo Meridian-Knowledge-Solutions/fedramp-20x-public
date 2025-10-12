@@ -3,44 +3,43 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Separate duties between users
 
-**Why it matters:** Validates comprehensive separation of duties from basic IAM policy separation to enterprise-grade audit trails and conflict detection
+**Why it matters:** Validates a zero trust architecture by checking for a modern identity provider (Identity Center), network micro-segmentation, session-based credentials, and comprehensive logging.
 
 ## Validation Method
 
-1. `aws identitystore list-users --identity-store-id $(aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text 2>/dev/null || echo 'd-9067ccc0fb') --output json || echo '{"Users": []}'`
-   *Check user accounts for separation of duties enforcement*
+1. `aws sso-admin list-instances --output json || echo '{"Instances": []}'`
+   *CRITICAL: Check for an active IAM Identity Center instance.*
 
-2. `aws cloudtrail describe-trails --output json`
-   *Validate CloudTrail for audit logging of privileged actions*
+2. `aws identitystore list-users --identity-store-id $(aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text 2>/dev/null) --output json || echo '{"Users": []}'`
+   *Check Identity Center users to verify federation.*
 
-3. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text 2>/dev/null || echo 'none') --output json 2>/dev/null || echo '{"IsLogging": false}'`
-   *Check CloudTrail logging status with dynamic trail selection*
+3. `aws cloudtrail describe-trails --output json`
+   *Validate CloudTrail configuration for comprehensive monitoring.*
 
-4. `aws ec2 describe-security-groups --output json`
-   *Validate network security separation and access controls*
+4. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text 2>/dev/null || echo 'none') --output json || echo '{"IsLogging": false}'`
+   *CRITICAL: Check if the primary CloudTrail is actively logging using its full ARN.*
 
-5. `aws ec2 describe-vpc-endpoints --output json`
-   *Check VPC endpoints for private service access separation*
+5. `aws ec2 describe-security-groups --output json`
+   *Validate network micro-segmentation by analyzing security group rules.*
 
-6. `aws iam list-virtual-mfa-devices --output json`
-   *Validate MFA enforcement for privileged user separation*
+6. `aws ec2 describe-vpc-endpoints --output json`
+   *Check for VPC endpoints to ensure secure, private communications.*
 
 7. `aws sts get-caller-identity --output json`
-   *Check current identity role and separation context*
+   *Verify the use of temporary, session-based credentials.*
 
 ## Latest Results
 
-PASS Good zero trust implementation (58%): WARNING No IAM Identity Center - missing modern zero trust identity platform
-- FAIL No MFA enforcement detected (zero trust requires multi-factor authentication)
-- PASS Excellent network micro-segmentation: 14/15 restrictive security groups (93%)
-- PASS Role-based credentials: Using assumed role session
-- PASS Comprehensive secure communications: 7 VPC endpoints configured
-- WARNING CloudTrail 'meridianks-Management-events' excellently configured but not actively logging
+FAIL Critical Zero Trust Gaps Detected (40%): FAIL [Identity] No IAM Identity Center found. A modern identity platform is a core tenant of Zero Trust.
+- PASS [Segmentation] Excellent network micro-segmentation: No security groups have overly permissive inbound rules.
+- PASS [Credentials] Best practice followed: Using temporary, session-based credentials (assumed role).
+- PASS [Secure Communications] Comprehensive private networking with 7 VPC endpoints.
+- FAIL [Monitoring] CRITICAL GAP: No CloudTrail configured for monitoring.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

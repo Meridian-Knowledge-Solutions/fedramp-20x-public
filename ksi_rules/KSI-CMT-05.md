@@ -1,37 +1,27 @@
-# KSI-CMT-05: Analyze security impact of changes before implementation
+# KSI-CMT-05: Evaluate risk and potential impact of any change (Hybrid Validation)
 
 ## Overview
 
 **Category:** Change Management
 **Status:** FAIL
-**Last Check:** 2025-10-11 03:05
+**Last Check:** 2025-10-12 03:08
 
-**What it validates:** Analyze security impact of changes before implementation
+**What it validates:** Evaluate risk and potential impact of any change (Hybrid Validation)
 
-**Why it matters:** Validates pre-change impact assessment through terraform plans, patch compliance reports, and Change Manager request documentation
+**Why it matters:** Performs a hybrid check: 1) A live call to AWS CodeCommit to verify the risk assessment document exists. 2) Reads the SCN workflow artifact to verify risk is being assessed.
 
 ## Validation Method
 
-1. `aws s3 ls s3://$(aws s3api list-buckets --query 'Buckets[?contains(Name, `terraform`) || contains(Name, `tfstate`)].Name | [0]' --output text)/plans/ --recursive 2>/dev/null | tail -20 || echo 'No plans found'`
-   *Terraform plans as evidence of IaC impact assessment*
+1. `aws codecommit get-file --repository-name security-governance --commit-specifier main --file-path security-governance/procedures/change-risk-assessment.md`
+   *Live check for the risk assessment procedure in CodeCommit.*
 
-2. `aws ssm describe-patch-baselines --output json`
-   *Patch baseline definitions showing patching impact scope*
-
-3. `aws ssm describe-instance-patch-states --instance-id $(aws ssm describe-instance-information --query 'InstanceInformationList[0].InstanceId' --output text) --output json 2>/dev/null || echo '{"InstancePatchStates": []}'`
-   *Patch compliance state as pre-patching impact assessment*
-
-4. `aws ssm get-change-request-list --max-results 50 --output json 2>/dev/null || echo '{"ChangeRequestSummaryItems": []}'`
-   *Change Manager requests containing documented change impacts*
-
-5. `aws s3api list-buckets --query 'Buckets[?contains(Name, `terraform`) || contains(Name, `tfstate`)].Name' --output json`
-   *Verify terraform state bucket exists (baseline for plan storage)*
+2. `test -f evidence_v2/KSI-CMT-05/ksi_compliance_report.json && cat evidence_v2/KSI-CMT-05/ksi_compliance_report.json || echo '{"error": "Compliance report artifact not found"}'`
+   *Reads the SCN artifact to find evidence of adherence (commit keyword analysis).*
 
 ## Latest Results
 
-FAIL Insufficient impact assessment evidence (20%): FAIL No terraform plan evidence found - IaC impact assessment not documented
-- PASS Patch baselines defined: 17 baseline(s)
-- INFO No Change Manager requests found - may not be actively used yet
+FAIL Phase 2 Non-Compliant (0%): Hybrid check failed. Findings: FAIL [Live Check] Risk assessment procedure not found in AWS CodeCommit.
+- FAIL [Artifact] SCN compliance report artifact not found or is invalid.
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

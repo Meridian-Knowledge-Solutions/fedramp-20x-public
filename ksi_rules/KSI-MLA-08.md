@@ -4,29 +4,32 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Protect audit logs to support after-the-fact investigations
 
-**Why it matters:** Validates comprehensive audit log protection from basic S3 retention to enterprise-grade immutable storage and forensic capabilities
+**Why it matters:** Validates a multi-layered log protection strategy, including log integrity (CloudTrail), long-term retention and encryption (CloudWatch, KMS), and restricted access (IAM RBAC).
 
 ## Validation Method
 
-1. `aws iam list-roles --output json`
-   *Check IAM roles for least privilege access to audit logs*
+1. `aws cloudtrail describe-trails --output json`
+   *Validate the integrity and encryption of the primary audit log source (CloudTrail).*
 
-2. `aws iam list-policies --scope Local --output json`
-   *Validate IAM policies restricting audit log modifications*
+2. `aws logs describe-log-groups --output json`
+   *Check CloudWatch Logs for evidence of long-term, compliance-grade retention.*
 
-3. `aws logs describe-log-groups --output json`
-   *Check CloudWatch Logs encryption and retention for audit protection*
+3. `aws iam list-roles --output json`
+   *Check for specialized IAM roles that enforce least privilege for log access.*
+
+4. `aws kms list-keys --output json`
+   *Verify that KMS keys are available for encrypting logs at rest.*
 
 ## Latest Results
 
-PASS Good log access control foundation (50%): PASS Rbac Log Roles Found
-- PASS Least Privilege Design Indicated
-- FAIL Jit Access Capability Proven
-- FAIL Log Specific Permissions Exist
+PASS Excellent audit log protection (100%): PASS [Integrity] The primary CloudTrail has log file validation enabled, ensuring logs are tamper-resistant.
+- PASS [Encryption] The primary CloudTrail is encrypted at rest using a KMS key.
+- PASS [Retention] An excellent log retention policy is in place, with 24 log groups configured for 365+ days.
+- PASS [Access Control] Excellent RBAC for logs detected, with distinct roles for administration (1) and viewing (2).
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

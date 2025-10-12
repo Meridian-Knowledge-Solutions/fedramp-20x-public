@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -23,8 +23,7 @@
 
 ## Latest Results
 
-WARNING Minimal VDP present (5/14): PASS Vulnerability disclosure policy documented
-- PASS VDP maintenance activity: 1 updates
+- FAIL No vulnerability disclosure program detected (1/14): PASS VDP maintenance activity: 1 updates
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

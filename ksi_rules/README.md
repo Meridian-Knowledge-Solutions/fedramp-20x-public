@@ -7,19 +7,19 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CMT-01](KSI-CMT-01.md): Document a change management policy for all system modifications
 - [PASS] [KSI-CMT-02](KSI-CMT-02.md): Use self-service templates and image repositories for provisioning
 - [PASS] [KSI-CMT-03](KSI-CMT-03.md): Use CI/CD pipelines for deploying changes
-- [FAIL] [KSI-CMT-04](KSI-CMT-04.md): Have a documented change management procedure
-- [FAIL] [KSI-CMT-05](KSI-CMT-05.md): Analyze security impact of changes before implementation
+- [FAIL] [KSI-CMT-04](KSI-CMT-04.md): Consistently follow documented change management procedure (Hybrid Validation)
+- [FAIL] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
 
 ## Cloud Native Architecture
 
 - [PASS] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
-- [PASS] [KSI-CNA-04](KSI-CNA-04.md): Clearly define and deploy security controls as code to enforce the principle of least functionality
-- [FAIL] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
+- [FAIL] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
+- [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
-- [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess the security posture of all services and automatically enforce secure operations
+- [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
 
 ## Cybersecurity Education
 
@@ -29,17 +29,17 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Identity and Access Management
 
-- [PASS] [KSI-IAM-01](KSI-IAM-01.md): Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication
+- [FAIL] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Implement enterprise-wide identity federation
-- [PASS] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
-- [PASS] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
-- [PASS] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
+- [FAIL] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
+- [FAIL] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
+- [FAIL] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
 - [PASS] [KSI-IAM-06](KSI-IAM-06.md): Implement fine-grained automated actions on security events related to authentication and access control
 - [PASS] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
 
 ## Incident Reporting
 
-- [FAIL] [KSI-INR-01](KSI-INR-01.md): RESPOND to incidents according to FedRAMP requirements and cloud service provider policies
+- [PASS] [KSI-INR-01](KSI-INR-01.md): Respond to incidents according to FedRAMP requirements and cloud service provider policies
 - [PASS] [KSI-INR-02](KSI-INR-02.md): Establish an insider threat program
 - [PASS] [KSI-INR-03](KSI-INR-03.md): Implement automated incident response procedures
 
@@ -56,11 +56,11 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 - [PASS] [KSI-PIY-01](KSI-PIY-01.md): Maintain an inventory of authorized users
 - [PASS] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
-- [PASS] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
+- [FAIL] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
-- [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
+- [FAIL] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
-- [PASS] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
+- [FAIL] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
 
 ## Recovery Planning
 
@@ -79,7 +79,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Use centralized key management services
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 - [PASS] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources
-- [PASS] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
+- [FAIL] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
 - [PASS] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
 
 ## Third-Party Information Resources
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 51
-- **Failing:** 5
+- **Passing:** 44
+- **Failing:** 12
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

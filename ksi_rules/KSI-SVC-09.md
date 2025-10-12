@@ -3,43 +3,36 @@
 ## Overview
 
 **Category:** Service Configuration
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Use TLS 1.2 or higher versions of secure protocols
 
-**Why it matters:** Validates comprehensive TLS 1.2+ enforcement from basic HTTPS to enterprise-grade cryptographic compliance and certificate management
+**Why it matters:** Validates the end-to-end use of modern, secure communication protocols (TLS 1.2+) across the infrastructure.
 
 ## Validation Method
 
 1. `aws acm list-certificates --output json`
-   *Check ACM certificates for TLS 1.2+ support and validity*
+   *Check for valid, in-use ACM certificates.*
 
 2. `aws elbv2 describe-ssl-policies --output json`
-   *Validate load balancer SSL policies for TLS 1.2+ enforcement*
+   *Get all available SSL policies for reference.*
 
 3. `for arn in $(aws elbv2 describe-load-balancers --query 'LoadBalancers[].LoadBalancerArn' --output text); do aws elbv2 describe-listeners --load-balancer-arn $arn --output json; done`
-   *Check load balancer listeners for TLS 1.2+ configurations*
+   *CRITICAL: Check the SSL policies actively used by load balancer listeners.*
 
 4. `aws ec2 describe-vpc-endpoints --output json`
-   *Validate VPC endpoints using TLS 1.2+ encrypted connections*
+   *Verify that internal traffic uses secure, private endpoints.*
 
-5. `aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,Engine,EngineVersion]' --output json`
-   *Check RDS instances for TLS 1.2+ support in database engines*
+5. `aws cloudwatch describe-alarms --query 'MetricAlarms[?contains(AlarmDescription, `Certificate`) || contains(AlarmName, `SSL`)]' --output json`
+   *Check for specific alarms that monitor certificate expiry or TLS issues.*
 
-6. `aws kms list-keys --output json`
-   *Validate KMS keys for cryptographic compliance*
-
-7. `aws cloudwatch describe-alarms --output json`
-   *Check CloudWatch alarms for TLS and certificate monitoring*
+6. `aws lambda list-functions --query 'Functions[?contains(FunctionName, `cert`) || contains(FunctionName, `ssl`)]' --output json`
+   *Look for Lambda functions related to certificate rotation or lifecycle management.*
 
 ## Latest Results
 
-PASS Good communication integrity (60%): PASS Tls Certificate Management
-- FAIL Continuous Certificate Monitoring
-- PASS Inter Service Encryption
-- PASS Integrity Validation Mechanisms
-- FAIL Automated Certificate Lifecycle
+- Exception during evaluation: 'list' object has no attribute 'get'
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*

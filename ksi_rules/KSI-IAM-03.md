@@ -3,30 +3,30 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-10-11 03:05
+**Status:** FAIL
+**Last Check:** 2025-10-12 03:08
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
-**Why it matters:** Validates comprehensive RBAC from basic IAM policies to enterprise-grade dynamic permissions and automated access reviews
+**Why it matters:** Validates the use of IAM roles for services and EC2, and critically fails if IAM users are used for service accounts, checking their attached policies for risk assessment.
 
 ## Validation Method
 
 1. `aws iam list-roles --output json`
-   *Check IAM roles for least privilege RBAC implementation*
+   *Check for a strong foundation of IAM roles for service authentication.*
 
 2. `aws iam list-users --output json`
-   *Validate IAM users have minimal direct permissions (prefer roles)*
+   *Identify all traditional IAM users for analysis.*
 
-3. `aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,IamInstanceProfile.Arn]' --output json`
-   *Check EC2 instances using IAM roles for RBAC*
+3. `aws ec2 describe-instances --query 'Reservations[*].Instances[*].IamInstanceProfile.Arn' --output json`
+   *Verify that all running EC2 instances are using IAM roles.*
+
+4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do echo "User: $user"; aws iam list-attached-user-policies --user-name "$user" --output json; done`
+   *CRITICAL: Check for policies attached directly to IAM users, which is an anti-pattern for service accounts.*
 
 ## Latest Results
 
-WARNING Basic service authentication security (75%): PASS Secure foundation: 92 IAM roles available for service authentication (39 are service-linked).
-- WARNING High Risk: 1 IAM user(s) found that appear to be service accounts (change_template_approver). These should be converted to IAM Roles.
-- PASS Identity Best Practice: No human IAM users with console passwords detected.
-- PASS EC2 Best Practice: All 6 instance(s) are correctly using IAM Instance Profiles.
+- Exception during evaluation: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-10-11 03:05 UTC*
+*Generated 2025-10-12 03:08 UTC*
