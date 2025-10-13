@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** FAIL
-**Last Check:** 2025-10-13 18:33
+**Last Check:** 2025-10-13 21:06
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
 
@@ -38,8 +38,7 @@
 
 ## Latest Results
 
-FAIL Immediate failure due to critical security violations: CRITICAL: IAM Users have AdministratorAccess: Terraform, change_template_approver. Use roles instead.
-- CRITICAL: Non-standard roles have AdministratorAccess: stacksets-exec-d5e511141f10f5aa9846491550c31da6.
+- FAIL Immediate failure due to critical security violations: CRITICAL: Non-standard roles have AdministratorAccess: stacksets-exec-d5e511141f10f5aa9846491550c31da6.
 
 ---
-*Generated 2025-10-13 18:33 UTC*
+*Generated 2025-10-13 21:06 UTC*

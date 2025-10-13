@@ -29,7 +29,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Identity and Access Management
 
-- [FAIL] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
+- [PASS] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Implement enterprise-wide identity federation
 - [FAIL] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
 - [PASS] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
@@ -60,7 +60,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
 - [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
-- [FAIL] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
+- [PASS] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security
 
 ## Recovery Planning
 
@@ -85,15 +85,15 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Third-Party Information Resources
 
 - [PASS] [KSI-TPR-01](KSI-TPR-01.md): Document the cloud service provider (CSP) in the system security policy
-- [FAIL] [KSI-TPR-03](KSI-TPR-03.md): Identify and prioritize mitigation of potential supply chain risks
+- [PASS] [KSI-TPR-03](KSI-TPR-03.md): Identify and prioritize mitigation of potential supply chain risks
 - [PASS] [KSI-TPR-04](KSI-TPR-04.md): Conduct vulnerability scans for applications and operating systems
 
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 49
-- **Failing:** 7
+- **Passing:** 52
+- **Failing:** 4
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-13 18:33 UTC*
+*Generated 2025-10-13 21:06 UTC*

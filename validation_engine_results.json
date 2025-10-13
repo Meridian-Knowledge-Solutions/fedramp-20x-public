@@ -7,7 +7,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877594",
+    "timestamp": "2025-10-13T21:06:05.178779",
     "validation_method": "multi-command"
   },
   {
@@ -18,7 +18,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877604",
+    "timestamp": "2025-10-13T21:06:05.178787",
     "validation_method": "multi-command"
   },
   {
@@ -29,7 +29,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877609",
+    "timestamp": "2025-10-13T21:06:05.178791",
     "validation_method": "multi-command"
   },
   {
@@ -40,7 +40,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877612",
+    "timestamp": "2025-10-13T21:06:05.178794",
     "validation_method": "multi-command"
   },
   {
@@ -51,7 +51,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877616",
+    "timestamp": "2025-10-13T21:06:05.178797",
     "validation_method": "multi-command"
   },
   {
@@ -62,7 +62,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877620",
+    "timestamp": "2025-10-13T21:06:05.178800",
     "validation_method": "multi-command"
   },
   {
@@ -73,7 +73,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877623",
+    "timestamp": "2025-10-13T21:06:05.178803",
     "validation_method": "multi-command"
   },
   {
@@ -84,7 +84,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877627",
+    "timestamp": "2025-10-13T21:06:05.178806",
     "validation_method": "multi-command"
   },
   {
@@ -95,7 +95,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877630",
+    "timestamp": "2025-10-13T21:06:05.178809",
     "validation_method": "multi-command"
   },
   {
@@ -106,7 +106,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877633",
+    "timestamp": "2025-10-13T21:06:05.178813",
     "validation_method": "multi-command"
   },
   {
@@ -117,18 +117,18 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877642",
+    "timestamp": "2025-10-13T21:06:05.178816",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CNA-04",
     "validation_id": "KSI-CNA-04",
     "assertion": false,
-    "assertion_reason": "\u274c Immediate failure due to critical security violations: CRITICAL: IAM Users have AdministratorAccess: Terraform, change_template_approver. Use roles instead.; CRITICAL: Non-standard roles have AdministratorAccess: stacksets-exec-d5e511141f10f5aa9846491550c31da6.",
+    "assertion_reason": "\u274c Immediate failure due to critical security violations: CRITICAL: Non-standard roles have AdministratorAccess: stacksets-exec-d5e511141f10f5aa9846491550c31da6.",
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877646",
+    "timestamp": "2025-10-13T21:06:05.178823",
     "validation_method": "multi-command"
   },
   {
@@ -139,7 +139,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877649",
+    "timestamp": "2025-10-13T21:06:05.178826",
     "validation_method": "multi-command"
   },
   {
@@ -150,7 +150,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877652",
+    "timestamp": "2025-10-13T21:06:05.178829",
     "validation_method": "multi-command"
   },
   {
@@ -161,7 +161,7 @@
     "cli_command": "15 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877655",
+    "timestamp": "2025-10-13T21:06:05.178833",
     "validation_method": "multi-command"
   },
   {
@@ -172,18 +172,18 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877658",
+    "timestamp": "2025-10-13T21:06:05.178836",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-IAM-01",
     "validation_id": "KSI-IAM-01",
-    "assertion": false,
-    "assertion_reason": "\u274c Critical MFA Gaps Detected (50%): \u2705 [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.; \u2705 [Federation] Strong MFA enforcement: 100% (10/10) of users are federated from an external IdP where MFA is enforced.; \u274c [IAM Hygiene] CRITICAL RISK: 2 legacy IAM human user(s) exist WITHOUT MFA: change_template_approver, ReadOnly.",
-    "cli_command": "4 commands executed",
+    "assertion": true,
+    "assertion_reason": "\u2705 Excellent MFA enforcement (100%): \u2705 [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.; \u2705 [Federation] Strong MFA enforcement: 100% (10/10) of users are federated from an external IdP where MFA is enforced.; \u2705 [IAM Hygiene] Excellent: No legacy IAM human users found; all users are managed via Identity Center.",
+    "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877662",
+    "timestamp": "2025-10-13T21:06:05.178839",
     "validation_method": "multi-command"
   },
   {
@@ -194,29 +194,29 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877665",
+    "timestamp": "2025-10-13T21:06:05.178843",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-IAM-03",
     "validation_id": "KSI-IAM-03",
     "assertion": false,
-    "assertion_reason": "\u274c Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'change_template_approver' appears to be a service account. This is a high-risk anti-pattern; replace with an IAM role.; CRITICAL: IAM user 'Terraform' appears to be a service account. This is a high-risk anti-pattern; replace with an IAM role.",
+    "assertion_reason": "\u274c Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'Terraform' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.; CRITICAL: IAM user 'change_template_approver' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.; CRITICAL: IAM user 'ReadOnly' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.",
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877669",
+    "timestamp": "2025-10-13T21:06:05.178846",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-IAM-04",
     "validation_id": "KSI-IAM-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., ReadOnlyAccess, AdministratorAccess, Development).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 3 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
+    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., Development, AdministratorAccess, ReadOnlyAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 3 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877681",
+    "timestamp": "2025-10-13T21:06:05.178849",
     "validation_method": "multi-command"
   },
   {
@@ -227,7 +227,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877684",
+    "timestamp": "2025-10-13T21:06:05.178852",
     "validation_method": "multi-command"
   },
   {
@@ -238,7 +238,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877687",
+    "timestamp": "2025-10-13T21:06:05.178855",
     "validation_method": "multi-command"
   },
   {
@@ -249,7 +249,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877690",
+    "timestamp": "2025-10-13T21:06:05.178858",
     "validation_method": "multi-command"
   },
   {
@@ -260,7 +260,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877694",
+    "timestamp": "2025-10-13T21:06:05.178861",
     "validation_method": "multi-command"
   },
   {
@@ -271,7 +271,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877697",
+    "timestamp": "2025-10-13T21:06:05.178866",
     "validation_method": "multi-command"
   },
   {
@@ -282,7 +282,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877700",
+    "timestamp": "2025-10-13T21:06:05.178870",
     "validation_method": "multi-command"
   },
   {
@@ -293,7 +293,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877703",
+    "timestamp": "2025-10-13T21:06:05.178873",
     "validation_method": "multi-command"
   },
   {
@@ -304,18 +304,18 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877706",
+    "timestamp": "2025-10-13T21:06:05.178876",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-MLA-03",
     "validation_id": "KSI-MLA-03",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (0 critical, 3 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
+    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (0 critical, 5 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877710",
+    "timestamp": "2025-10-13T21:06:05.178879",
     "validation_method": "multi-command"
   },
   {
@@ -326,7 +326,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877713",
+    "timestamp": "2025-10-13T21:06:05.178882",
     "validation_method": "multi-command"
   },
   {
@@ -337,7 +337,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877717",
+    "timestamp": "2025-10-13T21:06:05.178888",
     "validation_method": "multi-command"
   },
   {
@@ -348,7 +348,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877720",
+    "timestamp": "2025-10-13T21:06:05.178891",
     "validation_method": "multi-command"
   },
   {
@@ -359,18 +359,18 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877723",
+    "timestamp": "2025-10-13T21:06:05.178893",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-PIY-02",
     "validation_id": "KSI-PIY-02",
     "assertion": true,
-    "assertion_reason": "\u2705 Good per-component documentation (9/16): \u2705 Security governance repository configured; \u2705 Component security documentation: 4 components documented; \u2705 System-level security overview documented; \u2705 Components covered: Database Security, Web Application Security; \u2705 Active documentation management: 11 recent changes; \u2705 Main branch configured",
+    "assertion_reason": "\u2705 Good per-component documentation (11/16): \u2705 Security governance repository configured; \u2705 Component security documentation: 4 components documented; \u2705 System-level security overview documented; \u2705 Components covered: Database Security, Web Application Security; \u2705 PR approval workflow enforced; \u2705 Active documentation management: 11 recent changes; \u2705 Main branch configured",
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877726",
+    "timestamp": "2025-10-13T21:06:05.178896",
     "validation_method": "multi-command"
   },
   {
@@ -381,7 +381,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877730",
+    "timestamp": "2025-10-13T21:06:05.178900",
     "validation_method": "multi-command"
   },
   {
@@ -392,7 +392,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877733",
+    "timestamp": "2025-10-13T21:06:05.178902",
     "validation_method": "multi-command"
   },
   {
@@ -403,7 +403,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877736",
+    "timestamp": "2025-10-13T21:06:05.178905",
     "validation_method": "multi-command"
   },
   {
@@ -414,18 +414,18 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877739",
+    "timestamp": "2025-10-13T21:06:05.178908",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-PIY-07",
     "validation_id": "KSI-PIY-07",
-    "assertion": false,
-    "assertion_reason": "\u274c Insufficient documentation for supply chain risk management (40%): \u2705 [Policy] A comprehensive supply chain risk management policy is documented (9333 bytes).; \u26a0\ufe0f [Approval] No formal approval rule templates were found for the repository.; \u2705 [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).",
+    "assertion": true,
+    "assertion_reason": "\u2705 Strong supply chain risk documentation in place (70%): \u2705 [Policy] A comprehensive supply chain risk management policy is documented (9333 bytes).; \u2705 [Approval] A formal approval process is enforced with 1 approval rule template(s).; \u2705 [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).",
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877746",
+    "timestamp": "2025-10-13T21:06:05.178911",
     "validation_method": "multi-command"
   },
   {
@@ -436,7 +436,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877749",
+    "timestamp": "2025-10-13T21:06:05.178914",
     "validation_method": "multi-command"
   },
   {
@@ -447,7 +447,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877752",
+    "timestamp": "2025-10-13T21:06:05.178917",
     "validation_method": "multi-command"
   },
   {
@@ -458,7 +458,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877756",
+    "timestamp": "2025-10-13T21:06:05.178921",
     "validation_method": "multi-command"
   },
   {
@@ -469,7 +469,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877758",
+    "timestamp": "2025-10-13T21:06:05.178924",
     "validation_method": "multi-command"
   },
   {
@@ -480,7 +480,7 @@
     "cli_command": "11 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877762",
+    "timestamp": "2025-10-13T21:06:05.178927",
     "validation_method": "multi-command"
   },
   {
@@ -491,7 +491,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877764",
+    "timestamp": "2025-10-13T21:06:05.178929",
     "validation_method": "multi-command"
   },
   {
@@ -502,7 +502,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877768",
+    "timestamp": "2025-10-13T21:06:05.178933",
     "validation_method": "multi-command"
   },
   {
@@ -513,7 +513,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877771",
+    "timestamp": "2025-10-13T21:06:05.178936",
     "validation_method": "multi-command"
   },
   {
@@ -524,7 +524,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877774",
+    "timestamp": "2025-10-13T21:06:05.178939",
     "validation_method": "multi-command"
   },
   {
@@ -535,7 +535,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877778",
+    "timestamp": "2025-10-13T21:06:05.178942",
     "validation_method": "multi-command"
   },
   {
@@ -546,7 +546,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877781",
+    "timestamp": "2025-10-13T21:06:05.178948",
     "validation_method": "multi-command"
   },
   {
@@ -557,7 +557,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877784",
+    "timestamp": "2025-10-13T21:06:05.178953",
     "validation_method": "multi-command"
   },
   {
@@ -568,7 +568,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877788",
+    "timestamp": "2025-10-13T21:06:05.178956",
     "validation_method": "multi-command"
   },
   {
@@ -579,7 +579,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877790",
+    "timestamp": "2025-10-13T21:06:05.178959",
     "validation_method": "multi-command"
   },
   {
@@ -590,18 +590,18 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877793",
+    "timestamp": "2025-10-13T21:06:05.178962",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-TPR-03",
     "validation_id": "KSI-TPR-03",
-    "assertion": false,
-    "assertion_reason": "\u274c Insufficient supply chain risk management (4/13): \u2705 Supply chain policy documentation in repository (9333 bytes); \u26a0\ufe0f No PR approval templates found for the repository.",
-    "cli_command": "2 commands executed",
+    "assertion": true,
+    "assertion_reason": "\u2705 Excellent supply chain risk management process (100%): \u2705 [Policy] A comprehensive supply chain risk management policy is documented (9333 bytes).; \u2705 [Approval] A formal approval process is enforced with 1 approval rule template(s).; \u2705 [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).",
+    "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877796",
+    "timestamp": "2025-10-13T21:06:05.178965",
     "validation_method": "multi-command"
   },
   {
@@ -612,7 +612,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-13T18:33:22.877800",
+    "timestamp": "2025-10-13T21:06:05.178968",
     "validation_method": "multi-command"
   }
 ]

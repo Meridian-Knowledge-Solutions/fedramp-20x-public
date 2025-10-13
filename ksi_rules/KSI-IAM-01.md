@@ -3,12 +3,12 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** FAIL
-**Last Check:** 2025-10-13 18:33
+**Status:** PASS
+**Last Check:** 2025-10-13 21:06
 
 **What it validates:** Enforce phishing-resistant MFA for all user authentication
 
-**Why it matters:** Validates MFA enforcement via Identity Center and federation, while also checking for and verifying MFA on any remaining traditional IAM users.
+**Why it matters:** Validates MFA via Identity Center and federation, while accurately identifying human IAM users by checking for console passwords before verifying their MFA status.
 
 ## Validation Method
 
@@ -21,14 +21,18 @@
 3. `aws identitystore list-users --identity-store-id d-9067ccc0ff --output json`
    *Get Identity Center users to confirm federation.*
 
-4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do echo "User: $user"; aws iam list-mfa-devices --user-name "$user" --output json; done`
+4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do aws iam get-login-profile --user-name "$user" --output json; done`
+   *NEW: Loop through each IAM user to check for a console password. Success indicates a human user.*
+
+5. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do echo "User: $user"; aws iam list-mfa-devices --user-name "$user" --output json; done`
    *Loop through each IAM user to check for attached MFA devices.*
 
 ## Latest Results
 
-FAIL Critical MFA Gaps Detected (50%): PASS [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.
+PASS Excellent MFA enforcement (100%): PASS [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.
 - PASS [Federation] Strong MFA enforcement: 100% (10/10) of users are federated from an external IdP where MFA is enforced.
-- FAIL [IAM Hygiene] CRITICAL RISK: 2 legacy IAM human user(s) exist WITHOUT MFA: change_template_approver, ReadOnly.
+- PASS [IAM Hygiene] Excellent: No legacy IAM human users found
+- all users are managed via Identity Center.
 
 ---
-*Generated 2025-10-13 18:33 UTC*
+*Generated 2025-10-13 21:06 UTC*

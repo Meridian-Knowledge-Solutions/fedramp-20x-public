@@ -4,11 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-13 18:33
+**Last Check:** 2025-10-13 21:06
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
-**Why it matters:** Validates the use of IAM roles for services and EC2, and critically fails if IAM users are used for service accounts, checking their attached policies for risk assessment.
+**Why it matters:** Fails immediately if any IAM user exists without a console password, as this indicates a service account using insecure, long-lived credentials. It then scores the account based on its adoption of IAM roles.
 
 ## Validation Method
 
@@ -21,15 +21,14 @@
 3. `aws ec2 describe-instances --query 'Reservations[*].Instances[*].IamInstanceProfile.Arn' --output json`
    *Verify that all running EC2 instances are using IAM roles.*
 
-4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do echo "User: $user"; aws iam list-attached-user-policies --user-name "$user" --output json; done`
-   *CRITICAL: Check for policies attached directly to IAM users, which is an anti-pattern for service accounts.*
+4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do aws iam get-login-profile --user-name "$user" --output json; done`
+   *CRITICAL: Check for console passwords. A failure for any user indicates a service account, which is an anti-pattern.*
 
 ## Latest Results
 
-FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'change_template_approver' appears to be a service account. This is a high-risk anti-pattern
-- replace with an IAM role.
-- CRITICAL: IAM user 'Terraform' appears to be a service account. This is a high-risk anti-pattern
-- replace with an IAM role.
+FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'Terraform' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
+- CRITICAL: IAM user 'change_template_approver' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
+- CRITICAL: IAM user 'ReadOnly' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
 
 ---
-*Generated 2025-10-13 18:33 UTC*
+*Generated 2025-10-13 21:06 UTC*
