@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-13 03:09
+**Last Check:** 2025-10-13 06:33
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -32,4 +32,4 @@ FAIL Immediate Failure: Insecure service authentication methods detected. CRITIC
 - replace with an IAM role.
 
 ---
-*Generated 2025-10-13 03:09 UTC*
+*Generated 2025-10-13 06:33 UTC*
