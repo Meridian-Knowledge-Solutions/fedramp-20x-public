@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-13 21:06
+**Last Check:** 2025-10-13 22:44
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -26,9 +26,9 @@
 
 ## Latest Results
 
-FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'Terraform' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
+FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'ReadOnly' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
 - CRITICAL: IAM user 'change_template_approver' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
-- CRITICAL: IAM user 'ReadOnly' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
+- CRITICAL: IAM user 'Terraform' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
 
 ---
-*Generated 2025-10-13 21:06 UTC*
+*Generated 2025-10-13 22:44 UTC*
