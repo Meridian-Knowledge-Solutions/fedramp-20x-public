@@ -6219,7 +6219,7 @@ async function loadQuarterlyReportData() {
     // Token storage key
     TOKEN_KEY: 'fedRAMPAccessToken',
 
-    // Demo mode flag - set to false when backend is ready
+    // Demo mode flag 
     DEMO_MODE: false
     };
 
@@ -6266,75 +6266,111 @@ async function loadQuarterlyReportData() {
     // ====================================================================
 
     class SystemStatusManager {
-        constructor() {
+    constructor() {
         this.statusData = null;
-    this.lastFetch = null;
-    this.refreshTimer = null;
-        }
+        this.lastFetch = null;
+        this.refreshTimer = null;
+    }
 
     async fetchStatus() {
-            try {
-        console.log('Fetching system status from API...');
-
-    const response = await fetch(
-    `${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.STATUS}`,
-    {
-        method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
-                        },
-    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
-                    }
-    );
-
-    if (response.ok) {
-        this.statusData = await response.json();
-    this.lastFetch = Date.now();
-    console.log('✅ System status fetched successfully:', this.statusData);
-    return this.statusData;
-                } else {
-        console.error('Status API returned error:', response.status);
-    return this.getFallbackStatus();
+        try {
+            console.log('Fetching system status from API...');
+            const response = await fetch(
+                `${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.STATUS}`,
+                {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'},
+                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
                 }
-                
-            } catch (error) {
-        console.error('Error fetching system status:', error);
-    return this.getFallbackStatus();
-            }
-        }
+            );
 
-    getFallbackStatus() {
-        // Fallback to static values if API is unavailable
-        console.log('Using fallback status data');
-    return {
-        uptime_percent: "99.9",
-    total_requests: "0",
-    errored_requests: "0",
-    last_updated: new Date().toISOString()
-            };
+            if (response.ok) {
+                this.statusData = await response.json();
+                this.lastFetch = Date.now();
+                console.log('✅ System status fetched:', this.statusData);
+                return this.statusData;
+            } else {
+                console.error('Status API error:', response.status);
+                return null;
+            }
+        } catch (error) {
+            console.error('Error fetching status:', error);
+            return null;
         }
+    }
 
     getStatusIndicator() {
-            if (!this.statusData) return {color: '#10b981', text: 'Operational', icon: '🟢' };
-
-    // Parse uptime_percent (comes as string from API)
-    const uptime = parseFloat(this.statusData.uptime_percent || "99.9");
-            
-            if (uptime >= 99.9) {
-                return {color: '#10b981', text: 'All Systems Operational', icon: '🟢' };
-            } else if (uptime >= 99.0) {
-                return {color: '#f59e0b', text: 'Minor Issues', icon: '🟡' };
-            } else {
-                return {color: '#ef4444', text: 'Service Degradation', icon: '🔴' };
-            }
+        if (!this.statusData) return {color: '#9ca3af', text: 'Loading...', icon: '⚪'};
+        
+        const uptime = parseFloat(this.statusData.uptime_percent || "0");
+        const errors = parseInt(this.statusData['5xx_requests'] || "0");
+        
+        if (errors > 0) {
+            return {color: '#ef4444', text: 'Service Issues Detected', icon: '🔴'};
+        } else if (uptime >= 99.9) {
+            return {color: '#10b981', text: 'All Systems Operational', icon: '🟢'};
+        } else if (uptime >= 99.0) {
+            return {color: '#f59e0b', text: 'Minor Issues', icon: '🟡'};
+        } else {
+            return {color: '#ef4444', text: 'Service Degradation', icon: '🔴'};
         }
+    }
 
     formatUptime(uptime) {
-            // Handle both string and number, ensure we have a valid number
-            const uptimeNum = typeof uptime === 'string' ? parseFloat(uptime) : uptime;
-    if (isNaN(uptimeNum)) return '99.9%';
-    return `${uptimeNum.toFixed(2)}%`;
+        const uptimeNum = typeof uptime === 'string' ? parseFloat(uptime) : uptime;
+        return isNaN(uptimeNum) ? 'N/A' : `${uptimeNum.toFixed(2)}%`;
+    }
+
+    updateStatusUI() {
+        if (!this.statusData) return;
+        
+        const statusIndicator = this.getStatusIndicator();
+        const uptime = parseFloat(this.statusData.uptime_percent || "0");
+        const totalReqs = parseInt(this.statusData.total_requests || "0");
+        const errors = parseInt(this.statusData['5xx_requests'] || "0");
+        const avgLatency = this.statusData.avg_latency || 'N/A';
+        
+        // Calculate time range duration
+        const start = new Date(this.statusData.time_range_start);
+        const end = new Date(this.statusData.time_range_end);
+        const durationMins = Math.round((end - start) / 60000);
+
+        // Update Trust Center uptime metric
+        const uptimeMetric = document.querySelector('[data-status="trust-center-uptime"]');
+        if (uptimeMetric) {
+            uptimeMetric.innerHTML = `
+                <span class="metric-value" style="color: ${statusIndicator.color};">${statusIndicator.icon} ${this.formatUptime(uptime)}</span>
+                <span class="metric-label">Uptime (Last ${durationMins}min)</span>
+            `;
         }
+
+        // Update System Availability card
+        const availabilityCard = document.querySelector('[data-status="system-availability"]');
+        if (availabilityCard) {
+            const lastIncident = errors === 0 ? "None in monitoring period" : `${errors} errors detected`;
+            
+            availabilityCard.innerHTML = `
+                <h4>📊 System Availability</h4>
+                <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <span style="display: inline-block; width: 12px; height: 12px; background: ${statusIndicator.color}; border-radius: 50%;"></span>
+                    <strong style="color: ${statusIndicator.color};">${statusIndicator.text}</strong>
+                </p>
+                <p><strong>Uptime:</strong> ${this.formatUptime(uptime)} (Last ${durationMins} minutes)</p>
+                <p><strong>Total Requests:</strong> ${totalReqs.toLocaleString()}</p>
+                <p><strong>Average Latency:</strong> ${avgLatency}</p>
+                <p><strong>Server Errors (5xx):</strong> ${errors}</p>
+                <p><strong>Last Incident:</strong> ${lastIncident}</p>
+                <p style="margin-top: 0.75rem;">
+                    <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
+                        View Real-Time Dashboard →
+                    </a>
+                </p>
+                <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.5rem;">
+                    <em>Last updated: ${end.toLocaleString()}</em>
+                </p>
+            `;
+        }
+    }
 
     startAutoRefresh() {
         // Refresh status every 5 minutes (matching Lambda schedule)
@@ -6401,6 +6437,184 @@ async function loadQuarterlyReportData() {
     console.log('✅ Status UI updated with real-time data');
         }
     }
+
+
+// ====================================================================
+// SECURE CONFIGURATION MANAGEMENT (FedRAMP 20x Standard)
+// ====================================================================
+
+    class SecureConfigManager {
+        constructor() {
+            this.configData = null;
+            this.lastFetch = null;
+    }
+
+    async fetchConfig() {
+        try {
+            console.log('Fetching secure configuration from API...');
+            const response = await fetch(
+                `${FEDRAMP_API_CONFIG.BASE_URL}/config`,
+                {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'},
+                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+                }
+            );
+
+            if (response.ok) {
+                this.configData = await response.text();
+                this.lastFetch = Date.now();
+                console.log('✅ Secure configuration fetched successfully');
+                return this.configData;
+            } else {
+                console.error('Config API error:', response.status);
+                throw new Error('Failed to fetch configuration');
+            }
+        } catch (error) {
+            console.error('Error fetching configuration:', error);
+            throw error;
+        }
+    }
+
+    async downloadConfig() {
+        try {
+            showLoadingMessage('Preparing configuration download...');
+            
+            const markdown = this.configData || await this.fetchConfig();
+            
+            const blob = new Blob([markdown], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `meridian-fedramp-secure-configuration-${new Date().toISOString().split('T')[0]}.md`;
+            document.body.appendChild(a);
+            a.click();
+            
+            setTimeout(() => {
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 100);
+            
+            showSuccessMessage('✅ Configuration file downloaded successfully');
+            logAgencyAccess('secure_config_download');
+            
+        } catch (error) {
+            console.error('Download error:', error);
+            showErrorMessage('Failed to download configuration. Please try again.');
+        } finally {
+            hideLoadingMessage();
+        }
+    }
+
+    async viewConfigInBrowser() {
+        try {
+            showLoadingMessage('Loading secure configuration...');
+            
+            const markdown = this.configData || await this.fetchConfig();
+            
+            // Load marked.js if not already loaded
+            if (typeof marked === 'undefined') {
+                await this.loadMarkedLibrary();
+            }
+            
+            // Configure marked options
+            marked.setOptions({
+                breaks: true,
+                gfm: true,
+                headerIds: true,
+                mangle: false
+            });
+            
+            // Convert markdown to HTML
+            const htmlContent = marked.parse(markdown);
+            
+            // Show in modal
+            this.displayConfigModal(htmlContent);
+            
+            logAgencyAccess('secure_config_view');
+            
+        } catch (error) {
+            console.error('View error:', error);
+            showErrorMessage('Failed to load configuration. Please try again.');
+        } finally {
+            hideLoadingMessage();
+        }
+    }
+
+    async loadMarkedLibrary() {
+        return new Promise((resolve, reject) => {
+            if (typeof marked !== 'undefined') {
+                resolve();
+                return;
+            }
+            
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    displayConfigModal(htmlContent) {
+        let modal = document.getElementById('config-viewer-modal');
+        
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'config-viewer-modal';
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+        }
+        
+        modal.innerHTML = `
+            <div class="modal-content config-modal-content">
+                <div class="modal-header">
+                    <h3>📄 FedRAMP 20x Secure Configuration</h3>
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <button onclick="window.configManager.downloadConfig()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                            ⬇️ Download
+                        </button>
+                        <button class="close-btn" onclick="closeCustomModal('config-viewer-modal')">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body markdown-content">
+                    ${htmlContent}
+                </div>
+            </div>
+        `;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Global functions for config access
+async function viewSecureConfiguration() {
+    if (!window.fedRAMPAuth.isAuthenticated) {
+        showAccessRequiredModal('Secure Configuration Documentation', [
+            'Access FedRAMP 20x secure configuration standards',
+            'View detailed security implementation guidelines',
+            'Download configuration documentation',
+            'Review compliance requirements and best practices'
+        ]);
+    } else {
+        await window.configManager.viewConfigInBrowser();
+    }
+}
+
+async function downloadSecureConfiguration() {
+    if (!window.fedRAMPAuth.isAuthenticated) {
+        showAccessRequiredModal('Secure Configuration Documentation', [
+            'Download FedRAMP 20x secure configuration standards',
+            'Access detailed security implementation guidelines',
+            'Review compliance requirements',
+            'Integrate with your security documentation'
+        ]);
+    } else {
+        await window.configManager.downloadConfig();
+    }
+}
+
 
     class KSIDataSanitizer {
         static sanitizeForPublic(ksi) { 
@@ -6575,15 +6789,15 @@ async function loadQuarterlyReportData() {
                     <span class="metric-label">Authorization Status</span>
                 </div>
                 <div class="metric-public" data-status="trust-center-uptime">
-                    <span class="metric-value" style="color: #10b981;">🟢 99.9%</span>
-                    <span class="metric-label">Trust Center Uptime (30d)</span>
+                    <span class="metric-value" style="color: #9ca3af;">⚪ Loading...</span>
+                    <span class="metric-label">System Uptime</span>
                 </div>
             </div>
         </div>
 
         <!-- NEW: FedRAMP Marketplace & Company Information (FRR-ADS-01) -->
         <div class="trust-section fedramp-info-section">
-            <h3>�️ Official FedRAMP Information</h3>
+            <h3>🏛️ Official FedRAMP Information</h3>
             <div class="info-grid">
                 <div class="info-card">
                     <h4>📋 FedRAMP Authorization</h4>
@@ -6609,387 +6823,375 @@ async function loadQuarterlyReportData() {
 
                 <div class="info-card" data-status="system-availability">
                     <h4>📊 System Availability</h4>
-                    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                        <span style="display: inline-block; width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></span>
-                        <strong style="color: #10b981;">All Systems Operational</strong>
-                    </p>
-                    <p><strong>Trust Center Uptime:</strong> 99.9% (Last 30 days)</p>
-                    <p><strong>API Availability:</strong> 99.95% (Last 30 days)</p>
-                    <p><strong>Last Incident:</strong> None reported</p>
-                    <p style="margin-top: 0.75rem;">
-                        <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
-                            View Real-Time Status Dashboard →
-                        </a>
-                    </p>
+                    <p style="color: var(--text-secondary);">Loading real-time status...</p>
                 </div>
             </div>
         </div>
 
         <!-- FRR-ADS-03: Authorized Services & Impact Levels -->
-<div class="trust-section services-section">
-    <h3>🔍 Authorized Services & Impact Levels</h3>
-    
-    <!-- Overall Service Description (FRR-ADS-03) -->
-    <div class="service-overview">
-        <h4>Overall Service Description</h4>
-        <p>
-            <strong>Meridian Learning Management System (LMS) for Government</strong> is a FedRAMP Low Impact authorized 
-            Software-as-a-Service (SaaS) that provides comprehensive learning management, compliance tracking, and training 
-            delivery capabilities. The system enables federal agencies to manage all aspects of their training programs 
-            through a secure, web-based platform hosted on AWS infrastructure.
-        </p>
-        <p style="margin-top: 0.75rem;">
-            <strong>Deployment Model:</strong> Multi-tenant SaaS cloud service | 
-            <strong>Impact Level:</strong> Low (FIPS 199) | 
-            <strong>Service Model:</strong> Software as a Service (SaaS)
-        </p>
-    </div>
-
-    <!-- Detailed Service List (FRR-ADS-03) -->
-    <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Services Included in FedRAMP Authorization</h4>
-    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
-        The following services and features are included within the FedRAMP authorization boundary and available to federal customers:
-    </p>
-
-    <div class="services-grid">
-        <!-- Service 1: Course Management and Delivery -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Course Management and Delivery</h4>
-                <span class="impact-badge low">Low Impact</span>
+        <div class="trust-section services-section">
+            <h3>🔍 Authorized Services & Impact Levels</h3>
+            
+            <!-- Overall Service Description (FRR-ADS-03) -->
+            <div class="service-overview">
+                <h4>Overall Service Description</h4>
+                <p>
+                    <strong>Meridian Learning Management System (LMS) for Government</strong> is a FedRAMP Low Impact authorized 
+                    Software-as-a-Service (SaaS) that provides comprehensive learning management, compliance tracking, and training 
+                    delivery capabilities. The system enables federal agencies to manage all aspects of their training programs 
+                    through a secure, web-based platform hosted on AWS infrastructure.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    <strong>Deployment Model:</strong> Multi-tenant SaaS cloud service | 
+                    <strong>Impact Level:</strong> Low (FIPS 199) | 
+                    <strong>Service Model:</strong> Software as a Service (SaaS)
+                </p>
             </div>
-            <p class="service-description">
-                Create, organize, and deliver training courses including e-learning, instructor-led training, and blended learning programs
+
+            <!-- Detailed Service List (FRR-ADS-03) -->
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Services Included in FedRAMP Authorization</h4>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                The following services and features are included within the FedRAMP authorization boundary and available to federal customers:
             </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Course catalog and content library management</li>
-                <li>✓ SCORM, AICC, and xAPI compliant content support</li>
-                <li>✓ Video-based training and multimedia content delivery</li>
-                <li>✓ Instructor-led training (ILT) scheduling and management</li>
-                <li>✓ Self-paced and blended learning programs</li>
-                <li>✓ Mobile-responsive course player</li>
-                <li>✓ Course versioning and content updates</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Course materials, training videos, documents, SCORM packages, course metadata, learner progress data
-            </p>
+
+            <div class="services-grid">
+                <!-- Service 1: Course Management and Delivery -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Course Management and Delivery</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Create, organize, and deliver training courses including e-learning, instructor-led training, and blended learning programs
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Course catalog and content library management</li>
+                        <li>✓ SCORM, AICC, and xAPI compliant content support</li>
+                        <li>✓ Video-based training and multimedia content delivery</li>
+                        <li>✓ Instructor-led training (ILT) scheduling and management</li>
+                        <li>✓ Self-paced and blended learning programs</li>
+                        <li>✓ Mobile-responsive course player</li>
+                        <li>✓ Course versioning and content updates</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Course materials, training videos, documents, SCORM packages, course metadata, learner progress data
+                    </p>
+                </div>
+
+                <!-- Service 2: User Management and Authentication -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>User Management and Authentication</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Manage user accounts, roles, and secure access with support for single sign-on and multi-factor authentication
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ User account creation and management</li>
+                        <li>✓ Single Sign-On (SSO) via SAML 2.0</li>
+                        <li>✓ Multi-factor authentication (MFA) support</li>
+                        <li>✓ Role-based access control (RBAC)</li>
+                        <li>✓ User groups and organizational hierarchies</li>
+                        <li>✓ Self-service password reset</li>
+                        <li>✓ User profile management</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> User profiles (name, email, employee ID), authentication credentials, role assignments, organizational data
+                    </p>
+                </div>
+
+                <!-- Service 3: Assessment and Testing -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Assessment and Testing</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Create and deliver assessments, quizzes, exams, and surveys to measure learner competency and training effectiveness
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Quiz and exam creation tools (multiple question types)</li>
+                        <li>✓ Automated grading and scoring</li>
+                        <li>✓ Pre and post-training assessments</li>
+                        <li>✓ Surveys with branching logic</li>
+                        <li>✓ Question banks and randomization</li>
+                        <li>✓ Timed assessments and attempt limits</li>
+                        <li>✓ Competency tracking and skills gap analysis</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Assessment questions/answers, test scores, survey responses, competency results, performance data
+                    </p>
+                </div>
+
+                <!-- Service 4: Compliance Tracking and Reporting -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Compliance Tracking and Reporting</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Track training compliance requirements, generate regulatory reports, and monitor workforce readiness
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Automated compliance tracking and alerts</li>
+                        <li>✓ Dynamic learning assignment based on rules engine</li>
+                        <li>✓ Training transcript and certificate generation</li>
+                        <li>✓ Regulatory reporting (21 CFR Part 11 support)</li>
+                        <li>✓ Completion tracking and deadline management</li>
+                        <li>✓ Audit trail and electronic signatures</li>
+                        <li>✓ Manager dashboards for team compliance</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Training completion records, compliance status, certificates, audit logs, regulatory reports
+                    </p>
+                </div>
+
+                <!-- Service 5: Reporting and Analytics -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Reporting and Analytics</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Generate comprehensive reports and analyze training data with customizable dashboards and data exports
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Pre-built and custom report templates</li>
+                        <li>✓ Real-time analytics dashboards</li>
+                        <li>✓ Learning analytics and metrics (completion rates, time spent)</li>
+                        <li>✓ Scheduled and automated report delivery</li>
+                        <li>✓ Data export (CSV, Excel, PDF formats)</li>
+                        <li>✓ Trend analysis and historical reporting</li>
+                        <li>✓ Executive summary reports</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Aggregated training data, usage statistics, performance metrics, exported reports
+                    </p>
+                </div>
+
+                <!-- Service 6: Learning Record Store (LRS) -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Learning Record Store (LRS)</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Native xAPI-compliant learning record store for capturing and storing detailed learning activity data
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ xAPI (Tin Can API) statement capture and storage</li>
+                        <li>✓ Cross-platform learning activity tracking</li>
+                        <li>✓ Statement forwarding to external LRS</li>
+                        <li>✓ Learning experience data aggregation</li>
+                        <li>✓ xAPI-enabled content support</li>
+                        <li>✓ Detailed learning analytics from xAPI data</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> xAPI statements, learning activity records, experience data, interaction data
+                    </p>
+                </div>
+
+                <!-- Service 7: Career Development and Learning Paths -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Career Development and Learning Paths</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Enable employees to explore career paths, track professional development, and plan skill progression
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Career Explorer tool (career path visualization)</li>
+                        <li>✓ Learning path creation and assignment</li>
+                        <li>✓ Skills gap identification and recommendations</li>
+                        <li>✓ Individual development plan (IDP) tracking</li>
+                        <li>✓ Competency framework management</li>
+                        <li>✓ Performance management system integration</li>
+                        <li>✓ Mentorship and coaching program support</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Career progression data, skill inventories, development plans, competency assessments
+                    </p>
+                </div>
+
+                <!-- Service 8: Notifications and Communications -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Notifications and Communications</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Automated email notifications, reminders, and in-application messaging to keep learners engaged
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Automated course assignment notifications</li>
+                        <li>✓ Training deadline reminders and escalations</li>
+                        <li>✓ Course completion confirmations</li>
+                        <li>✓ In-app messaging and announcements</li>
+                        <li>✓ Customizable email templates</li>
+                        <li>✓ Scheduled notification campaigns</li>
+                        <li>✓ Manager notifications for team compliance</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Email addresses, notification content, delivery status, user communication preferences
+                    </p>
+                </div>
+
+                <!-- Service 9: API Access and Integrations -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>API Access and System Integrations</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        RESTful API access for integrating with HRIS, talent management, and other enterprise systems
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ REST API for user management and course enrollment</li>
+                        <li>✓ Reporting API for data extraction</li>
+                        <li>✓ Webhook support for real-time event notifications</li>
+                        <li>✓ OAuth 2.0 authentication for API access</li>
+                        <li>✓ HRIS/HCM system integration support</li>
+                        <li>✓ API documentation and developer resources</li>
+                        <li>✓ Rate limiting and usage monitoring</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> API requests/responses, integration data, authentication tokens, webhook payloads
+                    </p>
+                </div>
+
+                <!-- Service 10: Content Authoring Tools -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Content Authoring Tools</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Built-in tools for creating training content, assessments, and learning materials without external software
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Web-based course creation interface</li>
+                        <li>✓ Assessment and quiz builder</li>
+                        <li>✓ Content templates and reusable components</li>
+                        <li>✓ Multimedia upload and management</li>
+                        <li>✓ Content preview and testing tools</li>
+                        <li>✓ Version control for authored content</li>
+                        <li>✓ Content sharing and collaboration features</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Authored course content, content templates, multimedia files, version history
+                    </p>
+                </div>
+
+                <!-- Service 11: Administrative Console -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Administrative Console</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Comprehensive administrative interface for system configuration, user management, and platform oversight
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ System configuration and settings management</li>
+                        <li>✓ User and role administration</li>
+                        <li>✓ Course and content management</li>
+                        <li>✓ Learning rule configuration</li>
+                        <li>✓ Audit log viewing and monitoring</li>
+                        <li>✓ System health and usage dashboards</li>
+                        <li>✓ Bulk operations and data imports</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> System configuration, administrative actions, bulk import data, system logs
+                    </p>
+                </div>
+            </div>
+
+            <!-- Services NOT Included -->
+            <div class="excluded-services" style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+                <h4 style="color: #ef4444; margin-top: 0; margin-bottom: 1rem;">❌ Services NOT Included in Authorization</h4>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    The following are <strong>NOT</strong> included within the FedRAMP authorization boundary:
+                </p>
+                <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8; color: var(--text-secondary);">
+                    <li><strong>On-Premise Deployments:</strong> Self-hosted installations are not covered by this FedRAMP authorization</li>
+                    <li><strong>Private Cloud Deployments:</strong> Customer-specific private cloud instances require separate authorization</li>
+                    <li><strong>Custom Development Services:</strong> Bespoke software development outside the core platform</li>
+                    <li><strong>Third-Party Content Libraries:</strong> External content from partners (e.g., OpenSesame, Learnosity) is not within authorization boundary - customers must evaluate third-party services separately</li>
+                    <li><strong>Professional Services:</strong> Consulting, implementation, and training services (not software services)</li>
+                    <li><strong>Mobile Applications:</strong> Native mobile apps are not currently included in authorization (web-responsive interface is authorized)</li>
+                </ul>
+                <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
+                    <strong>Note:</strong> Customers requiring services outside the authorization boundary should contact 
+                    <a href="mailto:fedramp@meridianks.com" style="color: #ef4444;">fedramp@meridianks.com</a> to discuss alternative solutions.
+                </p>
+            </div>
+
+            <!-- Impact Level Summary -->
+            <div class="impact-level-note">
+                <h4>📌 Impact Level Classification (FIPS 199)</h4>
+                <p>
+                    <strong>All services listed above are classified as Low Impact</strong> based on the following security categorization:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Confidentiality: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Loss of confidentiality would have limited adverse effect. Training data does not include CUI, classified information, or sensitive PII.</p>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Integrity: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Unauthorized modification of training records would have limited impact on agency operations or mission.</p>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Availability: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Temporary unavailability would cause inconvenience but not critical mission impact to agency operations.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem;">
+                    <strong>Data Types Authorized:</strong> Training and learning records, course materials, user profiles (name, email, employee ID), 
+                    assessment results, compliance reports, completion certificates, and related training program data.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    <strong>Data Types NOT Authorized:</strong> Controlled Unclassified Information (CUI), classified information, 
+                    sensitive health information (HIPAA), financial PII, law enforcement sensitive data, or any data classified above Low impact.
+                </p>
+            </div>
+
+            <!-- Architecture and Boundary -->
+            <div class="deployment-options" style="background: rgba(59, 130, 246, 0.05); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--primary-500);">
+                <h4>🏗️ Service Architecture</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div>
+                        <strong>Deployment Model:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Multi-tenant SaaS (Shared Infrastructure)</p>
+                    </div>
+                    <div>
+                        <strong>Cloud Provider:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Amazon Web Services (AWS US-East-1)</p>
+                    </div>
+                    <div>
+                        <strong>Leveraged Authorization:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">AWS FedRAMP High (IaaS/PaaS)</p>
+                    </div>
+                    <div>
+                        <strong>Access Method:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">HTTPS web browser (port 443)</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Service 2: User Management and Authentication -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>User Management and Authentication</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Manage user accounts, roles, and secure access with support for single sign-on and multi-factor authentication
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ User account creation and management</li>
-                <li>✓ Single Sign-On (SSO) via SAML 2.0</li>
-                <li>✓ Multi-factor authentication (MFA) support</li>
-                <li>✓ Role-based access control (RBAC)</li>
-                <li>✓ User groups and organizational hierarchies</li>
-                <li>✓ Self-service password reset</li>
-                <li>✓ User profile management</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> User profiles (name, email, employee ID), authentication credentials, role assignments, organizational data
-            </p>
-        </div>
-
-        <!-- Service 3: Assessment and Testing -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Assessment and Testing</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Create and deliver assessments, quizzes, exams, and surveys to measure learner competency and training effectiveness
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Quiz and exam creation tools (multiple question types)</li>
-                <li>✓ Automated grading and scoring</li>
-                <li>✓ Pre and post-training assessments</li>
-                <li>✓ Surveys with branching logic</li>
-                <li>✓ Question banks and randomization</li>
-                <li>✓ Timed assessments and attempt limits</li>
-                <li>✓ Competency tracking and skills gap analysis</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Assessment questions/answers, test scores, survey responses, competency results, performance data
-            </p>
-        </div>
-
-        <!-- Service 4: Compliance Tracking and Reporting -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Compliance Tracking and Reporting</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Track training compliance requirements, generate regulatory reports, and monitor workforce readiness
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Automated compliance tracking and alerts</li>
-                <li>✓ Dynamic learning assignment based on rules engine</li>
-                <li>✓ Training transcript and certificate generation</li>
-                <li>✓ Regulatory reporting (21 CFR Part 11 support)</li>
-                <li>✓ Completion tracking and deadline management</li>
-                <li>✓ Audit trail and electronic signatures</li>
-                <li>✓ Manager dashboards for team compliance</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Training completion records, compliance status, certificates, audit logs, regulatory reports
-            </p>
-        </div>
-
-        <!-- Service 5: Reporting and Analytics -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Reporting and Analytics</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Generate comprehensive reports and analyze training data with customizable dashboards and data exports
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Pre-built and custom report templates</li>
-                <li>✓ Real-time analytics dashboards</li>
-                <li>✓ Learning analytics and metrics (completion rates, time spent)</li>
-                <li>✓ Scheduled and automated report delivery</li>
-                <li>✓ Data export (CSV, Excel, PDF formats)</li>
-                <li>✓ Trend analysis and historical reporting</li>
-                <li>✓ Executive summary reports</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Aggregated training data, usage statistics, performance metrics, exported reports
-            </p>
-        </div>
-
-        <!-- Service 6: Learning Record Store (LRS) -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Learning Record Store (LRS)</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Native xAPI-compliant learning record store for capturing and storing detailed learning activity data
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ xAPI (Tin Can API) statement capture and storage</li>
-                <li>✓ Cross-platform learning activity tracking</li>
-                <li>✓ Statement forwarding to external LRS</li>
-                <li>✓ Learning experience data aggregation</li>
-                <li>✓ xAPI-enabled content support</li>
-                <li>✓ Detailed learning analytics from xAPI data</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> xAPI statements, learning activity records, experience data, interaction data
-            </p>
-        </div>
-
-        <!-- Service 7: Career Development and Learning Paths -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Career Development and Learning Paths</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Enable employees to explore career paths, track professional development, and plan skill progression
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Career Explorer tool (career path visualization)</li>
-                <li>✓ Learning path creation and assignment</li>
-                <li>✓ Skills gap identification and recommendations</li>
-                <li>✓ Individual development plan (IDP) tracking</li>
-                <li>✓ Competency framework management</li>
-                <li>✓ Performance management system integration</li>
-                <li>✓ Mentorship and coaching program support</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Career progression data, skill inventories, development plans, competency assessments
-            </p>
-        </div>
-
-        <!-- Service 8: Notifications and Communications -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Notifications and Communications</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Automated email notifications, reminders, and in-application messaging to keep learners engaged
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Automated course assignment notifications</li>
-                <li>✓ Training deadline reminders and escalations</li>
-                <li>✓ Course completion confirmations</li>
-                <li>✓ In-app messaging and announcements</li>
-                <li>✓ Customizable email templates</li>
-                <li>✓ Scheduled notification campaigns</li>
-                <li>✓ Manager notifications for team compliance</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Email addresses, notification content, delivery status, user communication preferences
-            </p>
-        </div>
-
-        <!-- Service 9: API Access and Integrations -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>API Access and System Integrations</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                RESTful API access for integrating with HRIS, talent management, and other enterprise systems
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ REST API for user management and course enrollment</li>
-                <li>✓ Reporting API for data extraction</li>
-                <li>✓ Webhook support for real-time event notifications</li>
-                <li>✓ OAuth 2.0 authentication for API access</li>
-                <li>✓ HRIS/HCM system integration support</li>
-                <li>✓ API documentation and developer resources</li>
-                <li>✓ Rate limiting and usage monitoring</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> API requests/responses, integration data, authentication tokens, webhook payloads
-            </p>
-        </div>
-
-        <!-- Service 10: Content Authoring Tools -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Content Authoring Tools</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Built-in tools for creating training content, assessments, and learning materials without external software
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ Web-based course creation interface</li>
-                <li>✓ Assessment and quiz builder</li>
-                <li>✓ Content templates and reusable components</li>
-                <li>✓ Multimedia upload and management</li>
-                <li>✓ Content preview and testing tools</li>
-                <li>✓ Version control for authored content</li>
-                <li>✓ Content sharing and collaboration features</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> Authored course content, content templates, multimedia files, version history
-            </p>
-        </div>
-
-        <!-- Service 11: Administrative Console -->
-        <div class="service-card">
-            <div class="service-header">
-                <h4>Administrative Console</h4>
-                <span class="impact-badge low">Low Impact</span>
-            </div>
-            <p class="service-description">
-                Comprehensive administrative interface for system configuration, user management, and platform oversight
-            </p>
-            <h5>Included Features:</h5>
-            <ul class="service-features">
-                <li>✓ System configuration and settings management</li>
-                <li>✓ User and role administration</li>
-                <li>✓ Course and content management</li>
-                <li>✓ Learning rule configuration</li>
-                <li>✓ Audit log viewing and monitoring</li>
-                <li>✓ System health and usage dashboards</li>
-                <li>✓ Bulk operations and data imports</li>
-            </ul>
-            <p class="service-data-types">
-                <strong>Data Types:</strong> System configuration, administrative actions, bulk import data, system logs
-            </p>
-        </div>
-    </div>
-
-    <!-- Services NOT Included -->
-    <div class="excluded-services" style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
-        <h4 style="color: #ef4444; margin-top: 0; margin-bottom: 1rem;">❌ Services NOT Included in Authorization</h4>
-        <p style="color: var(--text-secondary); line-height: 1.7;">
-            The following are <strong>NOT</strong> included within the FedRAMP authorization boundary:
-        </p>
-        <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8; color: var(--text-secondary);">
-            <li><strong>On-Premise Deployments:</strong> Self-hosted installations are not covered by this FedRAMP authorization</li>
-            <li><strong>Private Cloud Deployments:</strong> Customer-specific private cloud instances require separate authorization</li>
-            <li><strong>Custom Development Services:</strong> Bespoke software development outside the core platform</li>
-            <li><strong>Third-Party Content Libraries:</strong> External content from partners (e.g., OpenSesame, Learnosity) is not within authorization boundary - customers must evaluate third-party services separately</li>
-            <li><strong>Professional Services:</strong> Consulting, implementation, and training services (not software services)</li>
-            <li><strong>Mobile Applications:</strong> Native mobile apps are not currently included in authorization (web-responsive interface is authorized)</li>
-        </ul>
-        <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
-            <strong>Note:</strong> Customers requiring services outside the authorization boundary should contact 
-            <a href="mailto:fedramp@meridianks.com" style="color: #ef4444;">fedramp@meridianks.com</a> to discuss alternative solutions.
-        </p>
-    </div>
-
-    <!-- Impact Level Summary -->
-    <div class="impact-level-note">
-        <h4>📌 Impact Level Classification (FIPS 199)</h4>
-        <p>
-            <strong>All services listed above are classified as Low Impact</strong> based on the following security categorization:
-        </p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
-                <strong style="color: var(--primary-500);">Confidentiality: Low</strong>
-                <p style="font-size: 0.875rem; margin-top: 0.5rem;">Loss of confidentiality would have limited adverse effect. Training data does not include CUI, classified information, or sensitive PII.</p>
-            </div>
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
-                <strong style="color: var(--primary-500);">Integrity: Low</strong>
-                <p style="font-size: 0.875rem; margin-top: 0.5rem;">Unauthorized modification of training records would have limited impact on agency operations or mission.</p>
-            </div>
-            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
-                <strong style="color: var(--primary-500);">Availability: Low</strong>
-                <p style="font-size: 0.875rem; margin-top: 0.5rem;">Temporary unavailability would cause inconvenience but not critical mission impact to agency operations.</p>
-            </div>
-        </div>
-        <p style="margin-top: 1rem;">
-            <strong>Data Types Authorized:</strong> Training and learning records, course materials, user profiles (name, email, employee ID), 
-            assessment results, compliance reports, completion certificates, and related training program data.
-        </p>
-        <p style="margin-top: 0.75rem;">
-            <strong>Data Types NOT Authorized:</strong> Controlled Unclassified Information (CUI), classified information, 
-            sensitive health information (HIPAA), financial PII, law enforcement sensitive data, or any data classified above Low impact.
-        </p>
-    </div>
-
-    <!-- Architecture and Boundary -->
-    <div class="deployment-options" style="background: rgba(59, 130, 246, 0.05); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--primary-500);">
-        <h4>🏗️ Service Architecture</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-            <div>
-                <strong>Deployment Model:</strong>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Multi-tenant SaaS (Shared Infrastructure)</p>
-            </div>
-            <div>
-                <strong>Cloud Provider:</strong>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Amazon Web Services (AWS US-East-1)</p>
-            </div>
-            <div>
-                <strong>Leveraged Authorization:</strong>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">AWS FedRAMP High (IaaS/PaaS)</p>
-            </div>
-            <div>
-                <strong>Access Method:</strong>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">HTTPS web browser (port 443)</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 
         <!-- EXISTING: Federal Agency Access Section -->
         <div class="trust-section access-promo">
@@ -7035,7 +7237,7 @@ async function loadQuarterlyReportData() {
 }
 
     function getAuthenticatedTrustCenterHTML(agencyInfo) {
-        return `
+    return `
     <div class="trust-center-container">
         <div class="trust-center-header authenticated">
             <h1>🛍️ Federal Agency Trust Center</h1>
@@ -7051,30 +7253,55 @@ async function loadQuarterlyReportData() {
             <p>You now have full access to our complete FedRAMP authorization package and technical documentation.</p>
         </div>
 
-        <div class="trust-grid">
-            <div class="trust-card featured">
-                <div class="trust-card-icon">📦</div>
-                <h4>Complete Authorization Package</h4>
-                <p>Download the complete technical authorization package including:</p>
-                <ul style="text-align: left; margin: 1rem 0; font-size: 0.9rem;">
-                    <li>KSI Technical Validations (unified + continuous)</li>
-                    <li>Vulnerability Assessments (VDR with remediation status)</li>
-                    <li>Technical Validation Logs (complete audit trail)</li>
-                    <li>Evidence Files (54 KSI validation outputs)</li>
-                    <li>3PAO Assessment Reports</li>
-                    <li>Supply Chain Risk Classification</li>
-                    <li>FedRAMP Marketplace Documentation</li>
-                    <li>Impact Level Justification</li>
-                </ul>
-                <button class="action-btn primary" onclick="downloadAuthorizationPackage()">
-                    📥 Download Authorization Package
-                </button>
-                <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.75rem;">
-                    <strong>Package size:</strong> ~50-150 MB | <strong>Format:</strong> ZIP archive<br>
-                        <strong>Updated:</strong> Every 24 hours via automated pipelines
-                </p>
+        <!-- PROMINENT DOWNLOAD SECTION -->
+        <div class="package-download-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%); border: 2px solid var(--primary-500); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center;">
+            <div style="display: inline-block; width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                📦
             </div>
+            <h2 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">Complete Authorization Package</h2>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Download the full FedRAMP authorization package including all technical validations, assessments, and compliance documentation.
+            </p>
+            
+            <button onclick="downloadAuthorizationPackage()" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); border: none; border-radius: 12px; color: white; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); transition: all 0.2s;">
+                📥 Download Authorization Package
+            </button>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto;">
+                    <div>
+                        <strong style="color: var(--primary-500);">Package Size:</strong><br>
+                        <span style="color: var(--text-secondary);">~50-150 MB</span>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-500);">Format:</strong><br>
+                        <span style="color: var(--text-secondary);">ZIP Archive</span>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-500);">Updated:</strong><br>
+                        <span style="color: var(--text-secondary);">Every 24 hours</span>
+                    </div>
+                </div>
+                
+                <details style="margin-top: 1rem; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--primary-500); padding: 0.5rem;">
+                        📋 What's included in the package?
+                    </summary>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-secondary); line-height: 1.8;">
+                        <li>KSI Technical Validations (unified + continuous)</li>
+                        <li>Vulnerability Assessments (VDR with remediation status)</li>
+                        <li>Technical Validation Logs (complete audit trail)</li>
+                        <li>Evidence Files (54 KSI validation outputs)</li>
+                        <li>3PAO Assessment Reports</li>
+                        <li>Supply Chain Risk Classification</li>
+                        <li>FedRAMP Marketplace Documentation</li>
+                        <li>Impact Level Justification</li>
+                    </ul>
+                </details>
+            </div>
+        </div>
 
+        <div class="trust-grid">
             <div class="trust-card">
                 <div class="trust-card-icon">📋</div>
                 <h4>Quarterly Reports</h4>
@@ -7101,6 +7328,20 @@ async function loadQuarterlyReportData() {
                     Export Validation Data
                 </button>
             </div>
+
+            <div class="trust-card">
+                <div class="trust-card-icon">⚙️</div>
+                <h4>Secure Configuration</h4>
+                <p>Access FedRAMP 20x secure configuration standards and implementation guidelines.</p>
+                <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                    <button class="action-btn" onclick="viewSecureConfiguration()" style="flex: 1;">
+                        👁️ View
+                    </button>
+                    <button class="action-btn" onclick="downloadSecureConfiguration()" style="flex: 1;">
+                        ⬇️ Download
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="agency-support" style="margin-top: 2rem; padding: 1.5rem; background: var(--card-bg); border-radius: 12px;">
@@ -7109,21 +7350,21 @@ async function loadQuarterlyReportData() {
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div>
                     <strong>FedRAMP Inquiries:</strong><br>
-                        <a href="mailto:fedramp@meridianks.com">fedramp@meridianks.com</a>
+                    <a href="mailto:fedramp@meridianks.com">fedramp@meridianks.com</a>
                 </div>
                 <div>
                     <strong>Security Team:</strong><br>
-                        <a href="mailto:security@meridianks.com">security@meridianks.com</a>
+                    <a href="mailto:security@meridianks.com">security@meridianks.com</a>
                 </div>
                 <div>
                     <strong>Technical Support:</strong><br>
-                        <a href="mailto:support@meridianks.com">support@meridianks.com</a>
+                    <a href="mailto:support@meridianks.com">support@meridianks.com</a>
                 </div>
             </div>
         </div>
     </div>
     `;
-    }
+}
 
     function renderKSICardTwoTier(ksi) {
         const isAuthenticated = window.fedRAMPAuth.isAuthenticated;
@@ -7805,103 +8046,105 @@ async function loadQuarterlyReportData() {
         }
     }
 
-    /**
-     * Download complete authorization package from private repository
-     * Requires authenticated federal access token
-     */
-    async function downloadAuthorizationPackage() {
-        const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+/**
+ * Download complete authorization package from private repository
+ * Requires authenticated federal access token
+ */
+async function downloadAuthorizationPackage() {
+    const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
 
     // Check authentication
     if (!token) {
         showErrorMessage('Please register with your federal email to download the authorization package.');
-    showRegistrationModal();
-    return;
-        }
+        showRegistrationModal();
+        return;
+    }
 
     try {
         showLoadingMessage('Preparing authorization package download...');
 
-    if (FEDRAMP_API_CONFIG.DEMO_MODE) {
-        // Demo mode - simulate download
-        console.log('📧 DEMO MODE: Simulating package download (backend not yet deployed)');
-                await new Promise(resolve => setTimeout(resolve, 2000));
+        if (FEDRAMP_API_CONFIG.DEMO_MODE) {
+            // Demo mode - simulate download
+            console.log('📧 DEMO MODE: Simulating package download (backend not yet deployed)');
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
-    showSuccessMessage('✓ Demo mode: In production, this will download the complete authorization package ZIP (~50-150MB) from AWS S3');
-    console.log('📦 Package would include: 10+ JSON files, 2 HTML files, evidence_v2/ with 54 KSI directories');
-                
-            } else {
-                // Production mode - request package download from AWS API
-                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
-        method: 'POST',
-    headers: {
-        'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
-                    },
-    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.PACKAGE_TIMEOUT)
-                });
+            showSuccessMessage('✅ Demo mode: In production, this will download the complete authorization package ZIP (~50-150MB) from AWS S3');
+            console.log('📦 Package would include: 10+ JSON files, 2 HTML files, evidence_v2/ with 54 KSI directories');
+            
+        } else {
+            // Production mode - request package download from AWS API
+            const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.PACKAGE_TIMEOUT)
+            });
 
-    if (response.ok) {
-                    // Get the ZIP file as blob
-                    const blob = await response.blob();
+            if (response.ok) {
+                // Get the ZIP file as blob
+                const blob = await response.blob();
 
-    // Extract filename from Content-Disposition header
-    const contentDisposition = response.headers.get('Content-Disposition');
-    let filename = 'meridian-authorization-package.zip';
-    if (contentDisposition) {
-                        const filenameMatch = contentDisposition.match(/filename="?(.+)"?/);
-    if (filenameMatch) {
-        filename = filenameMatch[1];
-                        }
-                    }
-
-    // Create download link and trigger download
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-
-                    // Cleanup
-                    setTimeout(() => {
-        document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-                    }, 100);
-
-    showSuccessMessage(`✓ Download started: ${filename}`);
-    logAgencyAccess('authorization_package_download', filename);
-                    
-                } else {
-                    // Handle error responses
-                    const errorData = await response.json().catch(() => ({ }));
-
-    if (response.status === 401) {
-        localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-    showErrorMessage('Your session has expired. Please register again.');
-                        setTimeout(() => window.location.reload(), 2000);
-                    } else if (response.status === 404) {
-        showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
-                    } else {
-        showErrorMessage(errorData.error || 'Failed to download authorization package.');
+                // Extract filename from Content-Disposition header or use default
+                const contentDisposition = response.headers.get('Content-Disposition');
+                let filename = 'meridian-fedramp-authorization-package.zip';
+                if (contentDisposition) {
+                    const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+                    if (filenameMatch && filenameMatch[1]) {
+                        filename = filenameMatch[1].replace(/['"]/g, '');
                     }
                 }
+
+                // Create download link and trigger download
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+
+                // Cleanup
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+
+                showSuccessMessage(`✅ Download started: ${filename}`);
+                logAgencyAccess('authorization_package_download', filename);
+                
+            } else {
+                // Handle error responses
+                const errorData = await response.json().catch(() => ({}));
+
+                if (response.status === 401) {
+                    localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+                    showErrorMessage('Your session has expired. Please register again.');
+                    setTimeout(() => window.location.reload(), 2000);
+                } else if (response.status === 404) {
+                    showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
+                } else if (response.status === 403) {
+                    showErrorMessage('Access denied. Please ensure your federal email is verified.');
+                } else {
+                    showErrorMessage(errorData.error || 'Failed to download authorization package. Please try again.');
+                }
             }
-            
-        } catch (error) {
+        }
+        
+    } catch (error) {
         console.error('Package download error:', error);
 
-    if (error.name === 'AbortError') {
-        showErrorMessage('Download request timed out. The package may be very large. Please try again.');
-            } else if (error.message.includes('Failed to fetch')) {
-        showErrorMessage('Network error during download. Please check your connection.');
-            } else {
-        showErrorMessage('Unable to download authorization package. Please try again.');
-            }
-        } finally {
-        hideLoadingMessage();
+        if (error.name === 'AbortError') {
+            showErrorMessage('Download request timed out. The package is large (~50-150MB). Please check your connection and try again.');
+        } else if (error.message.includes('Failed to fetch')) {
+            showErrorMessage('Network error during download. Please check your connection and try again.');
+        } else {
+            showErrorMessage('Unable to download authorization package. Please try again or contact support.');
         }
+    } finally {
+        hideLoadingMessage();
     }
+}
 
     // ====================================================================
     // NOTIFICATION SYSTEM & HELPER FUNCTIONS
@@ -8046,9 +8289,9 @@ async function loadQuarterlyReportData() {
     // COMPREHENSIVE STYLING
     // ====================================================================
     function addStyles() {
-        const style = document.createElement('style');
+    const style = document.createElement('style');
     style.textContent = `
-    /* Modal System */
+        /* Modal System */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
         .modal.active { display: flex; align-items: center; justify-content: center; }
         .modal-content { background: var(--bg-primary, #ffffff); padding: 2rem; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
@@ -8188,19 +8431,19 @@ async function loadQuarterlyReportData() {
         .service-data-types { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color, #e5e7eb); font-size: 0.8rem; color: var(--text-secondary, #6b7280); line-height: 1.6; }
         .service-data-types strong { color: var(--text-primary, #111827); }
         
-        /* NEW: Service Overview Box (FRR-ADS-03) */
+        /* Service Overview Box (FRR-ADS-03) */
         .service-overview { background: var(--bg-primary, #ffffff); border: 2px solid var(--primary-500, #3b82f6); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
         .service-overview h4 { color: var(--primary-500, #3b82f6); margin-top: 0; margin-bottom: 1rem; }
         .service-overview p { color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
         
-        /* NEW: Excluded Services Box (FRR-ADS-03) */
+        /* Excluded Services Box (FRR-ADS-03) */
         .excluded-services { background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
         .excluded-services h4 { color: #ef4444; margin-top: 0; margin-bottom: 1rem; }
         .excluded-services ul { margin: 1rem 0; padding-left: 2rem; line-height: 1.8; color: var(--text-secondary, #6b7280); }
         .excluded-services li { margin: 0.5rem 0; }
         .excluded-services p { color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
         
-        /* NEW: Deployment Options - Enhanced */
+        /* Deployment Options - Enhanced */
         .deployment-options { background: rgba(59, 130, 246, 0.05); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--primary-500, #3b82f6); }
         .deployment-options h4 { margin-top: 0; margin-bottom: 1rem; color: var(--text-primary, #111827); }
         .deployment-options p { color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; font-size: 0.875rem; }
@@ -8211,6 +8454,25 @@ async function loadQuarterlyReportData() {
         .impact-level-note p, .impact-level-note ul { color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
         .impact-level-note ul { padding-left: 2rem; }
         .impact-level-note li { margin: 0.5rem 0; }
+
+        /* Config Modal Styling */
+        .config-modal-content { max-width: 900px; width: 95%; max-height: 90vh; }
+        .markdown-content { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-primary); }
+        .markdown-content h1 { border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .markdown-content h2 { border-bottom: 1px solid var(--border-color); padding-bottom: 0.3rem; margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .markdown-content h3 { margin-top: 1.25rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+        .markdown-content code { background: var(--bg-accent, #f3f4f6); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: 'Courier New', monospace; }
+        .markdown-content pre { background: var(--bg-accent, #f3f4f6); padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color); }
+        .markdown-content pre code { background: none; padding: 0; }
+        .markdown-content ul, .markdown-content ol { padding-left: 2rem; margin: 1rem 0; }
+        .markdown-content li { margin: 0.5rem 0; }
+        .markdown-content blockquote { border-left: 4px solid var(--primary-500); padding-left: 1rem; margin: 1rem 0; color: var(--text-secondary); font-style: italic; }
+        .markdown-content table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        .markdown-content th, .markdown-content td { border: 1px solid var(--border-color); padding: 0.75rem; text-align: left; }
+        .markdown-content th { background: var(--bg-accent); font-weight: 600; }
+        .markdown-content a { color: var(--primary-500); text-decoration: none; }
+        .markdown-content a:hover { text-decoration: underline; }
+        .markdown-content img { max-width: 100%; height: auto; }
         
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -8227,15 +8489,16 @@ async function loadQuarterlyReportData() {
         }
     `;
     document.head.appendChild(style);
-    }
+}
 
     // ====================================================================
     // INITIALIZATION & INTEGRATION
     // ====================================================================
     async function initializeTwoTierSystem() {
         window.fedRAMPAuth = new FedRAMPAuth();
-    window.statusManager = new SystemStatusManager();
-
+        window.statusManager = new SystemStatusManager();
+        window.configManager = new SecureConfigManager(); 
+        
     addStyles();
 
     // INJECT MODAL HTML FIRST
@@ -8291,8 +8554,9 @@ async function loadQuarterlyReportData() {
     window.showLoadingMessage = showLoadingMessage;
     window.hideLoadingMessage = hideLoadingMessage;
     window.handleEmailVerification = handleEmailVerification;
-
-    // Add event listeners
+    window.viewSecureConfiguration = viewSecureConfiguration;
+    window.downloadSecureConfiguration = downloadSecureConfiguration;
+        
     const regForm = document.getElementById('agency-registration-form');
     if (regForm) regForm.addEventListener('submit', handleRegistration);
 
