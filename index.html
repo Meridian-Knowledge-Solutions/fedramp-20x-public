@@ -6276,104 +6276,77 @@ async function loadQuarterlyReportData() {
         try {
             console.log('Fetching system status from API...');
             const response = await fetch(
-            `${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.STATUS}`,
-            {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json'},
-                signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
-            }
-        );
+                `${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.STATUS}`,
+                {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'},
+                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+                }
+            );
 
-        if (response.ok) {
-            this.statusData = await response.json();
-            this.lastFetch = Date.now();
-            console.log('✅ System status fetched:', this.statusData);
-            return this.statusData;
-        } else {
-            console.error('Status API error:', response.status);
+            if (response.ok) {
+                this.statusData = await response.json();
+                this.lastFetch = Date.now();
+                console.log('✅ System status fetched:', this.statusData);
+                return this.statusData;
+            } else {
+                console.error('Status API error:', response.status);
+                return null;
+            }
+        } catch (error) {
+            console.error('Error fetching status:', error);
             return null;
         }
-    } catch (error) {
-        console.error('Error fetching status:', error);
-        
-        // Check if it's a CORS error
-        if (error.message.includes('Failed to fetch')) {
-            console.warn('⚠️ CORS error detected - backend needs CORS headers configured');
-            console.warn('Add Access-Control-Allow-Origin header to Lambda response');
-        }
-        
-        return null; // Return null instead of throwing
     }
-}
 
-getStatusIndicator() {
-    if (!this.statusData) return {color: '#9ca3af', text: 'Status Unavailable', icon: '⚪'};
-    
-    const uptime = parseFloat(this.statusData.uptime_percent || "0");
-    const errors = parseInt(this.statusData['5xx_requests'] || "0");
-    
-    if (errors > 0) {
-        return {color: '#ef4444', text: 'Service Issues Detected', icon: '🔴'};
-    } else if (uptime >= 99.9) {
-        return {color: '#10b981', text: 'All Systems Operational', icon: '🟢'};
-    } else if (uptime >= 99.0) {
-        return {color: '#f59e0b', text: 'Minor Issues', icon: '🟡'};
-    } else {
-        return {color: '#ef4444', text: 'Service Degradation', icon: '🔴'};
-    }
-}
-
-updateStatusUI() {
-    const statusIndicator = this.getStatusIndicator();
-    
-    // Update Trust Center uptime metric
-    const uptimeMetric = document.querySelector('[data-status="trust-center-uptime"]');
-    if (uptimeMetric) {
-        if (!this.statusData) {
-            uptimeMetric.innerHTML = `
-                <span class="metric-value" style="color: ${statusIndicator.color};">${statusIndicator.icon} ${statusIndicator.text}</span>
-                <span class="metric-label">System Status</span>
-            `;
+    getStatusIndicator() {
+        if (!this.statusData) return {color: '#9ca3af', text: 'Loading...', icon: '⚪'};
+        
+        const uptime = parseFloat(this.statusData.uptime_percent || "0");
+        const errors = parseInt(this.statusData['5xx_requests'] || "0");
+        
+        if (errors > 0) {
+            return {color: '#ef4444', text: 'Service Issues Detected', icon: '🔴'};
+        } else if (uptime >= 99.9) {
+            return {color: '#10b981', text: 'All Systems Operational', icon: '🟢'};
+        } else if (uptime >= 99.0) {
+            return {color: '#f59e0b', text: 'Minor Issues', icon: '🟡'};
         } else {
-            const uptime = parseFloat(this.statusData.uptime_percent || "0");
-            const start = new Date(this.statusData.time_range_start);
-            const end = new Date(this.statusData.time_range_end);
-            const durationMins = Math.round((end - start) / 60000);
-            
+            return {color: '#ef4444', text: 'Service Degradation', icon: '🔴'};
+        }
+    }
+
+    formatUptime(uptime) {
+        const uptimeNum = typeof uptime === 'string' ? parseFloat(uptime) : uptime;
+        return isNaN(uptimeNum) ? 'N/A' : `${uptimeNum.toFixed(2)}%`;
+    }
+
+    updateStatusUI() {
+        if (!this.statusData) return;
+        
+        const statusIndicator = this.getStatusIndicator();
+        const uptime = parseFloat(this.statusData.uptime_percent || "0");
+        const totalReqs = parseInt(this.statusData.total_requests || "0");
+        const errors = parseInt(this.statusData['5xx_requests'] || "0");
+        const avgLatency = this.statusData.avg_latency || 'N/A';
+        
+        // Calculate time range duration
+        const start = new Date(this.statusData.time_range_start);
+        const end = new Date(this.statusData.time_range_end);
+        const durationMins = Math.round((end - start) / 60000);
+
+        // Update Trust Center uptime metric
+        const uptimeMetric = document.querySelector('[data-status="trust-center-uptime"]');
+        if (uptimeMetric) {
             uptimeMetric.innerHTML = `
                 <span class="metric-value" style="color: ${statusIndicator.color};">${statusIndicator.icon} ${this.formatUptime(uptime)}</span>
                 <span class="metric-label">Uptime (Last ${durationMins}min)</span>
             `;
         }
-    }
 
-    // Update System Availability card
-    const availabilityCard = document.querySelector('[data-status="system-availability"]');
-    if (availabilityCard) {
-        if (!this.statusData) {
-            availabilityCard.innerHTML = `
-                <h4>📊 System Availability</h4>
-                <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                    <span style="display: inline-block; width: 12px; height: 12px; background: ${statusIndicator.color}; border-radius: 50%;"></span>
-                    <strong style="color: ${statusIndicator.color};">${statusIndicator.text}</strong>
-                </p>
-                <p style="color: var(--text-secondary); font-size: 0.875rem;">
-                    <em>Real-time status monitoring temporarily unavailable. System operational.</em>
-                </p>
-                <p style="margin-top: 0.75rem;">
-                    <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
-                        View Status Dashboard →
-                    </a>
-                </p>
-            `;
-        } else {
-            const uptime = parseFloat(this.statusData.uptime_percent || "0");
-            const totalReqs = parseInt(this.statusData.total_requests || "0");
-            const errors = parseInt(this.statusData['5xx_requests'] || "0");
-            const avgLatency = this.statusData.avg_latency || 'N/A';
-            const start = new Date(this.statusData.time_range_start);
-            const end = new Date(this.statusData.time_range_end);
-            const durationMins = Math.round((end - start) / 60000);
+        // Update System Availability card
+        const availabilityCard = document.querySelector('[data-status="system-availability"]');
+        if (availabilityCard) {
             const lastIncident = errors === 0 ? "None in monitoring period" : `${errors} errors detected`;
             
             availabilityCard.innerHTML = `
@@ -6395,6 +6368,69 @@ updateStatusUI() {
                 <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.5rem;">
                     <em>Last updated: ${end.toLocaleString()}</em>
                 </p>
+            `;
+        }
+    }
+
+    startAutoRefresh() {
+        // Refresh status every 5 minutes (matching Lambda schedule)
+        this.refreshTimer = setInterval(async () => {
+            console.log('Auto-refreshing system status...');
+            await this.fetchStatus();
+            this.updateStatusUI();
+        }, FEDRAMP_API_CONFIG.STATUS_REFRESH_INTERVAL);
+        }
+
+    stopAutoRefresh() {
+            if (this.refreshTimer) {
+        clearInterval(this.refreshTimer);
+    this.refreshTimer = null;
+            }
+        }
+
+    updateStatusUI() {
+            // Update all status elements in the page
+            const statusIndicator = this.getStatusIndicator();
+
+    // Update Trust Center uptime metric
+    const uptimeMetric = document.querySelector('[data-status="trust-center-uptime"]');
+    if (uptimeMetric && this.statusData) {
+                const uptime = parseFloat(this.statusData.uptime_percent || "99.9");
+    uptimeMetric.innerHTML = `
+    <span class="metric-value" style="color: ${statusIndicator.color};">${statusIndicator.icon} ${this.formatUptime(uptime)}</span>
+    <span class="metric-label">Trust Center Uptime (30d)</span>
+    `;
+            }
+
+    // Update System Availability card
+    const availabilityCard = document.querySelector('[data-status="system-availability"]');
+    if (availabilityCard && this.statusData) {
+                const uptime = parseFloat(this.statusData.uptime_percent || "99.9");
+    const totalRequests = this.statusData.total_requests !== "undefined" ?
+    parseInt(this.statusData.total_requests).toLocaleString() : "N/A";
+    const erroredRequests = this.statusData.errored_requests !== "undefined" ?
+    parseInt(this.statusData.errored_requests).toLocaleString() : "N/A";
+    const lastIncident = erroredRequests === "0" || erroredRequests === "N/A" ?
+    "None reported" : `${erroredRequests} errors in 30 days`;
+
+    availabilityCard.innerHTML = `
+    <h4>📊 System Availability</h4>
+    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span style="display: inline-block; width: 12px; height: 12px; background: ${statusIndicator.color}; border-radius: 50%;"></span>
+        <strong style="color: ${statusIndicator.color};">${statusIndicator.text}</strong>
+    </p>
+    <p><strong>Trust Center Uptime:</strong> ${this.formatUptime(uptime)} (Last 30 days)</p>
+    <p><strong>API Availability:</strong> ${this.formatUptime(uptime)} (Last 30 days)</p>
+    <p><strong>Total Requests:</strong> ${totalRequests}</p>
+    <p><strong>Last Incident:</strong> ${lastIncident}</p>
+    <p style="margin-top: 0.75rem;">
+        <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
+            View Real-Time Status Dashboard →
+        </a>
+    </p>
+    <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.5rem;">
+        <em>Last updated: ${this.statusData.last_updated ? new Date(this.statusData.last_updated).toLocaleString() : new Date().toLocaleString()}</em>
+    </p>
     `;
             }
 
@@ -7180,7 +7216,7 @@ async function downloadSecureConfiguration() {
                 </ul>
                 <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
                     <strong>Note:</strong> Customers requiring services outside the authorization boundary should contact 
-                    <a href="mailto:fedramp_20x@meridianks.com" style="color: #ef4444;">fedramp_20x@meridianks.com</a> to discuss alternative solutions.
+                    <a href="mailto:fedramp@meridianks.com" style="color: #ef4444;">fedramp@meridianks.com</a> to discuss alternative solutions.
                 </p>
             </div>
 
@@ -7273,11 +7309,11 @@ async function downloadSecureConfiguration() {
                 <div class="info-card">
                     <h4>📞 Contact Information</h4>
                     <p><strong>Security Team:</strong> security@meridianks.com</p>
-                    <p><strong>FedRAMP Support:</strong> fedramp_20x@meridianks.com</p>
+                    <p><strong>FedRAMP Support:</strong> fedramp@meridianks.com</p>
                     <p><strong>General Support:</strong> support@meridianks.com</p>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>`;
 }
 
@@ -7395,7 +7431,7 @@ async function downloadSecureConfiguration() {
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div>
                     <strong>FedRAMP Inquiries:</strong><br>
-                    <a href="mailto:fedramp_20x@meridianks.com">fedramp_20x@meridianks.com</a>
+                    <a href="mailto:fedramp@meridianks.com">fedramp@meridianks.com</a>
                 </div>
                 <div>
                     <strong>Security Team:</strong><br>
@@ -7815,7 +7851,7 @@ async function downloadSecureConfiguration() {
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     const subject = encodeURIComponent(`Quarterly Review Registration - ${agencyInfo?.agency}`);
     const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nEmail: ${agencyInfo?.email}\n\nPlease register us for the next quarterly review meeting per FRR-CCM-QR.\n\nSystem: ${agencyInfo?.system_name || 'N/A'}`);
-    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:fedramp@meridianks.com?subject=${subject}&body=${body}`);
     }
 
     function openAgencyFeedback() {
@@ -7823,7 +7859,7 @@ async function downloadSecureConfiguration() {
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     const subject = encodeURIComponent(`Agency Feedback - ${agencyInfo?.agency}`);
     const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nEmail: ${agencyInfo?.email}\n\nFeedback on authorization data and continuous monitoring per FRR-CCM-04:\n\n`);
-    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:fedramp@meridianks.com?subject=${subject}&body=${body}`);
     }
 
     function generateComplianceReport() {
@@ -7841,7 +7877,7 @@ async function downloadSecureConfiguration() {
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     const subject = encodeURIComponent(`Federal Agency Support Request - ${agencyInfo?.agency}`);
     const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nSystem: ${agencyInfo?.system_name}\n\nRequest Details:\n\n`);
-    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+    window.open(`mailto:fedramp@meridianks.com?subject=${subject}&body=${body}`);
     }
 
     function downloadEvidencePackage(ksiId) {
