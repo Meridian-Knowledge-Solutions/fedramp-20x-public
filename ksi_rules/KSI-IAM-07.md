@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-10-14 00:47
+**Last Check:** 2025-10-14 01:52
 
 **What it validates:** Implement a consistent identity management process
 
@@ -30,4 +30,4 @@ FAIL Insufficient account lifecycle management (40%): FAIL Service Oriented Arch
 - PASS Regular Access Reviews
 
 ---
-*Generated 2025-10-14 00:47 UTC*
+*Generated 2025-10-14 01:52 UTC*
