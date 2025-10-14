@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-10-14 15:45
+**Last Check:** 2025-10-14 18:40
 
 **What it validates:** Perform regularly scheduled backups
 
@@ -28,7 +28,7 @@
 
 PASS Excellent automated data lifecycle management (100%): PASS [Backup Retention] AWS Backup plans have explicit deletion lifecycles, ensuring recovery points are removed as required.
 - PASS [S3 Lifecycle] 1 S3 bucket(s) have active lifecycle policies to manage object expiration.
-- PASS [Log Retention] A strong log retention strategy is in place, with 94% of log groups having a defined retention period.
+- PASS [Log Retention] A strong log retention strategy is in place, with 91% of log groups having a defined retention period.
 
 ---
-*Generated 2025-10-14 15:45 UTC*
+*Generated 2025-10-14 18:40 UTC*

@@ -8,14 +8,14 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CMT-02](KSI-CMT-02.md): Use self-service templates and image repositories for provisioning
 - [PASS] [KSI-CMT-03](KSI-CMT-03.md): Use CI/CD pipelines for deploying changes
 - [PASS] [KSI-CMT-04](KSI-CMT-04.md): Consistently follow documented change management procedure (Hybrid Validation)
-- [PASS] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
+- [FAIL] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
 
 ## Cloud Native Architecture
 
 - [PASS] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
-- [FAIL] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
+- [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
@@ -96,4 +96,4 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-14 15:45 UTC*
+*Generated 2025-10-14 18:40 UTC*

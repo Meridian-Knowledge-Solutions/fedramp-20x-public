@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Change Management
-**Status:** PASS
-**Last Check:** 2025-10-14 15:45
+**Status:** FAIL
+**Last Check:** 2025-10-14 18:40
 
 **What it validates:** Evaluate risk and potential impact of any change (Hybrid Validation)
 
@@ -20,8 +20,8 @@
 
 ## Latest Results
 
-PASS Phase 2 Compliant (100%): Hybrid check passed. Findings: PASS [Live Check] Comprehensive risk procedure found in CodeCommit (12157 bytes).
-- PASS [Artifact] PASS Evidence of risk assessments: 1 commits with risk keywords
+FAIL Phase 2 Non-Compliant (50%): Hybrid check failed. Findings: PASS [Live Check] Comprehensive risk procedure found in CodeCommit (12157 bytes).
+- FAIL [Artifact] Report indicates no evidence of risk assessments was found.
 
 ---
-*Generated 2025-10-14 15:45 UTC*
+*Generated 2025-10-14 18:40 UTC*
