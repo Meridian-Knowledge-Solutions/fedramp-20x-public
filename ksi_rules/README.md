@@ -15,7 +15,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
-- [FAIL] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
+- [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
@@ -29,13 +29,13 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Identity and Access Management
 
-- [FAIL] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
+- [PASS] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Implement enterprise-wide identity federation
 - [PASS] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
 - [PASS] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
-- [FAIL] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
+- [PASS] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
 - [PASS] [KSI-IAM-06](KSI-IAM-06.md): Implement fine-grained automated actions on security events related to authentication and access control
-- [FAIL] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
+- [PASS] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
 
 ## Incident Reporting
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 51
-- **Failing:** 5
+- **Passing:** 55
+- **Failing:** 1
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-14 03:08 UTC*
+*Generated 2025-10-14 04:10 UTC*
