@@ -29,13 +29,13 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Identity and Access Management
 
-- [PASS] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
+- [FAIL] [KSI-IAM-01](KSI-IAM-01.md): Enforce phishing-resistant MFA for all user authentication
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Implement enterprise-wide identity federation
-- [FAIL] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
+- [PASS] [KSI-IAM-03](KSI-IAM-03.md): Implement least privilege access via role-based access control policies
 - [PASS] [KSI-IAM-04](KSI-IAM-04.md): Clearly define user roles and implement user-to-role mapping
 - [FAIL] [KSI-IAM-05](KSI-IAM-05.md): Separate duties between users
 - [PASS] [KSI-IAM-06](KSI-IAM-06.md): Implement fine-grained automated actions on security events related to authentication and access control
-- [PASS] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
+- [FAIL] [KSI-IAM-07](KSI-IAM-07.md): Implement a consistent identity management process
 
 ## Incident Reporting
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 52
-- **Failing:** 4
+- **Passing:** 51
+- **Failing:** 5
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-13 22:44 UTC*
+*Generated 2025-10-14 00:47 UTC*

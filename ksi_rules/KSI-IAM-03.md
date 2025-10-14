@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** FAIL
-**Last Check:** 2025-10-13 22:44
+**Status:** PASS
+**Last Check:** 2025-10-14 00:47
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -26,9 +26,9 @@
 
 ## Latest Results
 
-FAIL Immediate Failure: Insecure service authentication methods detected. CRITICAL: IAM user 'ReadOnly' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
-- CRITICAL: IAM user 'change_template_approver' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
-- CRITICAL: IAM user 'Terraform' is operating as a service account (no console password). This high-risk anti-pattern must be replaced with an IAM role.
+PASS Excellent role-based access control (80%): PASS [Roles] Excellent role-based foundation with 92 IAM roles available for secure, temporary credentials.
+- PASS [EC2 Security] Best practice followed: All 6 running instances use IAM Instance Profiles.
+- WARNING [IAM Hygiene] 1 IAM user(s) with console passwords exist. Transitioning to a fully federated model is recommended.
 
 ---
-*Generated 2025-10-13 22:44 UTC*
+*Generated 2025-10-14 00:47 UTC*

@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-10-13 22:44
+**Status:** FAIL
+**Last Check:** 2025-10-14 00:47
 
 **What it validates:** Implement a consistent identity management process
 
@@ -23,11 +23,11 @@
 
 ## Latest Results
 
-PASS Advanced automated account lifecycle management (100%): PASS Service Oriented Architecture
+FAIL Insufficient account lifecycle management (40%): FAIL Service Oriented Architecture
 - PASS Active Lifecycle Management
-- PASS Privilege Automation
-- PASS Automated Provisioning
+- FAIL Privilege Automation
+- FAIL Automated Provisioning
 - PASS Regular Access Reviews
 
 ---
-*Generated 2025-10-13 22:44 UTC*
+*Generated 2025-10-14 00:47 UTC*
