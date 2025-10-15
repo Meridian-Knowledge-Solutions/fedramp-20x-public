@@ -228,11 +228,11 @@ paths:
                         properties:
                           total_registered_agencies:
                             type: integer
-                          total_registered_agencies:
+                          active_agencies_30d:
                             type: integer
-                          total_registered_agencies:
+                          total_package_downloads_30d:
                             type: integer
-                          total_registered_agencies:
+                          total_api_calls_30d:
                             type: integer   
                   generated_at:
                     type: datetime
