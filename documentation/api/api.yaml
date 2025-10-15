@@ -147,8 +147,6 @@ paths:
                     type: string
                   5xx_requests:
                     type: string
-                  5xx_requests:
-                    type: string
                   time_range_start:
                     type: string
                     format: date
