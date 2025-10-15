@@ -32,16 +32,8 @@ paths:
                     type: string
         '502':
           description: "Bad Gateway."
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: "Internal Server Error. An unexpected error occurred while processing the request."
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'    
       description: >-
         An Token is needed to access some feature of the Trust Center. The
         Register API can be used to begin the registration process. The Verify
@@ -90,16 +82,8 @@ paths:
                     type: string
         '502':
           description: "Bad Gateway."
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
-          description: "Internal Server Error. An unexpected error occurred while processing the request."
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'    
+          description: "Internal Server Error. An unexpected error occurred while processing the request." 
       description: >-
         An Token is needed to access some feature of the Trust Center. The
         Verify API is used to complete the registration process and recieve the
