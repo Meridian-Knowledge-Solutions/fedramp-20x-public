@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Fedramp Trust Center
+  title: Meridian Fedramp Trust Center API Documentation
   version: 1.0.0
   description: ''
 servers:
@@ -8,15 +8,44 @@ servers:
 paths:
   /prod/register:
     post:
-      summary: POST /register
+      summary: Trust Center Registration
       tags: 
         - Trust Center Authentation
-      responses: {}
+      responses:
+        '200':
+          description: "Success. Verification token is returned"
+          content:
+            application/json:
+              success:
+                type: string
+                example: true
+              message:
+                type: string
+                example: Verification email sent
+              email:
+                type: string
+                format: email
+              next_steps:
+                type: string
+        '502':
+          description: "Bad Gateway."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Internal Server Error. An unexpected error occurred while processing the request."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'    
       description: >-
         An Token is needed to access some feature of the Trust Center. The
         Register API can be used to begin the registration process. The Verify
         API is needed to complete the registration process and recieve the
         token.
+
+        Email must be a .gov or .mil email address.
       requestBody:
         content:
           application/json:
@@ -32,10 +61,39 @@ paths:
                   type: string
   /prod/verify:
     post:
-      summary: POST /verify
+      summary: Trust Center Verification
       tags: 
         - Trust Center Authentation
-      responses: {}
+      responses:
+        '200':
+          description: "Success. Authentication token is returned."
+          content:
+            application/json:
+              success:
+                type: string
+                example: true
+              token:
+                type: string
+                example: eyJhb...u9XCA
+              agency:
+                type: string
+              message:
+                type: string
+                example: Email verified successfully
+              next_steps:
+                type: string
+        '502':
+          description: "Bad Gateway."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: "Internal Server Error. An unexpected error occurred while processing the request."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'    
       description: >-
         An Token is needed to access some feature of the Trust Center. The
         Verify API is used to complete the registration process and recieve the
@@ -49,6 +107,7 @@ paths:
               properties:
                 token:
                   type: string
+                  example: eyJlbWF...Jkd0jPg
   /prod/status:
     get:
       summary: GET /status
