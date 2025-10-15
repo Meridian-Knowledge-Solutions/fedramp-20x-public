@@ -149,10 +149,10 @@ paths:
                     type: string
                   time_range_start:
                     type: string
-                    format: date
+                    format: datetime
                   time_range_end:
                     type: string
-                    format: date
+                    format: datetime
         '502':
           description: "Bad Gateway."
         '500':
@@ -167,7 +167,7 @@ paths:
         '200':
           description: "Success. The baseline security config in formation is returned as a markdown file format."
           headers:
-            Content-Disposition:
+            Content-Type:
               description: "Indicates the file should be downloaded"
               schema:
                 type: string
@@ -184,35 +184,152 @@ paths:
       description: Return the Meridian Secure Configuration baselines in a Markdown format.
   /prod/fedramp/inventory:
     get:
-      summary: (PMO Only) GET /fedramp/inventory
+      summary: FedRAMP PMO inventory access (FRR-ADS-TC-05)
       tags: 
         - FedRAMP PMO
-      responses: {}
+      responses:
+        '200':
+          description: Provides FedRAMP with list of registered agencies and access statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  inventory:
+                    application/json:
+                      schema:
+                        type: object
+                        properties:
+                          agency:
+                            type: string
+                          email:
+                            type: string
+                            format: email
+                          contact:
+                            type: string
+                          system_name:
+                            type: string
+                          registration_date:
+                            type: string
+                            format: datetime
+                          status:
+                            type: string
+                          last_access:
+                            type: string
+                            format: datetime
+                          package_downloads_30d:
+                            type: integer
+                          total_access_count_30d:
+                            type: integer   
+                  summary:
+                    application/json:
+                      schema:
+                        type: object
+                        properties:
+                          total_registered_agencies:
+                            type: integer
+                          total_registered_agencies:
+                            type: integer
+                          total_registered_agencies:
+                            type: integer
+                          total_registered_agencies:
+                            type: integer   
+                  generated_at:
+                    type: datetime
+                  period_days:
+                    type: integer
+        '502':
+          description: "Bad Gateway."
+        '500':
+          description: "Internal Server Error. Internal server error generating inventory." 
       description: >-
         FedRAMP PMO Only Access
 
         Returns the required Fedramp Inventory in an JSON format, for
         FRR-ADS-TC-05. This contains a list of registered agencies and access
         statistics
+
+        Token is supplied by Meridian.
+      requestBody:
+        headers:
+            Authorization:
+              description: "Bearer Token "
+              schema:
+                type: string
+                example: "Bearer eyJhb...u9XCA"
   /prod/package:
     get:
-      summary: (Auth Required) GET /package
+      summary: Download the latest authorization package
       tags: 
         - Package Management
-      responses: {}
+      responses:
+        '200':
+          description: "Success. The authorization package is returned as a ZIP file."
+          headers:
+            Content-Disposition:
+              description: "Indicates the file should be downloaded as an attachment with a suggested filename."
+              schema:
+                type: string
+                example: "attachment; filename=\"meridian-authorization-package-v1.2.3.zip\""
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary # Indicates the response is a file
+        '401':
+          description: "Unauthorized. The provided authentication token is missing, invalid, or expired."
+        '502':
+          description: "Bad Gateway."
+        '500':
+          description: "Internal Server Error. Internal server error generating baseline security config." 
       description: |-
         Registered Fedramp Agencies Only
 
         Returns a Zip file of the Meridian Fedramp Authorization Package file.
+
+        Token is supplied from the Verify API Call.
+      requestBody:
+        headers:
+            Authorization:
+              description: "Bearer Token "
+              schema:
+                type: string
+                example: "Bearer eyJhb...u9XCA"
   /prod/api/data:
     get:
       summary: (Auth Required) GET /api/data
       tags: 
         - Package Management
-      responses: {}
+      responses:
+        '200':
+          description: "Success. The authorization package file is returned."
+          headers:
+            Content-Disposition:
+              description: "Indicates the file should be downloaded as an attachment."
+              schema:
+                type: string
+                example: "attachment;"
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary # Indicates the response is a file
+        '401':
+          description: "Unauthorized. The provided authentication token is missing, invalid, or expired."
+        '502':
+          description: "Bad Gateway."
+        '500':
+          description: "Internal Server Error. Internal server error generating baseline security config." 
       description: >-
         Registered Fedramp Agencies Only
 
 
         Provides the ability to return each of the individual files created in
         the Meridian Fedramp Authorization Package.
+      requestBody:
+        headers:
+            Authorization:
+              description: "Bearer Token "
+              schema:
+                type: string
+                example: "Bearer eyJhb...u9XCA"
