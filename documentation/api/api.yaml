@@ -9,7 +9,7 @@ paths:
   /prod/register:
     post:
       summary: POST /register
-      tags: []
+      tags: [Trust Center Authentation]
       responses: {}
       description: >-
         An Token is needed to access some feature of the Trust Center. The
@@ -32,7 +32,7 @@ paths:
   /prod/verify:
     post:
       summary: POST /verify
-      tags: []
+      tags: [Trust Center Authentation]
       responses: {}
       description: >-
         An Token is needed to access some feature of the Trust Center. The
