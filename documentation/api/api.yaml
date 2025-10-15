@@ -30,6 +30,16 @@ paths:
                     format: email
                   next_steps:
                     type: string
+        '400':
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Validation Error message
         '502':
           description: "Bad Gateway."
         '500':
@@ -80,10 +90,30 @@ paths:
                     example: Email verified successfully
                   next_steps:
                     type: string
+        '400':
+          description: "Validation Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Validation Error message
+        '404':
+          description: "Registrion Error"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Registration not found or already verified
         '502':
           description: "Bad Gateway."
         '500':
-          description: "Internal Server Error. An unexpected error occurred while processing the request." 
+          description: "Internal Server Error. Internal server error during registration." 
       description: >-
         An Token is needed to access some feature of the Trust Center. The
         Verify API is used to complete the registration process and recieve the
@@ -100,20 +130,65 @@ paths:
                   example: eyJlbWF...Jkd0jPg
   /prod/status:
     get:
-      summary: GET /status
-      tags: []
-      responses: {}
+      summary: API Status Details
+      tags: 
+        - Operational
+      responses:
+        '200':
+          description: Overall API Status Details, for the last hour"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uptime_percent:
+                    type: string
+                  total_requests:
+                    type: string
+                  5xx_requests:
+                    type: string
+                  5xx_requests:
+                    type: string
+                  time_range_start:
+                    type: string
+                    format: date
+                  time_range_end:
+                    type: string
+                    format: date
+        '502':
+          description: "Bad Gateway."
+        '500':
+          description: "Internal Server Error. Internal server error generating status." 
       description: Returns overall API health/status related data elements.
   /prod/config:
     get:
       summary: GET /config
-      tags: []
-      responses: {}
+      tags:
+        - Operational
+      responses:
+        '200':
+          description: "Success. The baseline security config in formation is returned as a markdown file format."
+          headers:
+            Content-Disposition:
+              description: "Indicates the file should be downloaded"
+              schema:
+                type: string
+                example: "text/markdown; charset=UTF-8"
+          content:
+            text/markdown:
+              schema:
+                type: string
+                example: Markdown Text
+        '502':
+          description: "Bad Gateway."
+        '500':
+          description: "Internal Server Error. Internal server error generating baseline security config." 
       description: Return the Meridian Secure Configuration baselines in a Markdown format.
   /prod/fedramp/inventory:
     get:
       summary: (PMO Only) GET /fedramp/inventory
-      tags: []
+      tags: 
+        - FedRAMP PMO
       responses: {}
       description: >-
         FedRAMP PMO Only Access
