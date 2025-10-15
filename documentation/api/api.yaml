@@ -9,7 +9,8 @@ paths:
   /prod/register:
     post:
       summary: POST /register
-      tags: [Trust Center Authentation]
+      tags: 
+        - Trust Center Authentation
       responses: {}
       description: >-
         An Token is needed to access some feature of the Trust Center. The
@@ -32,7 +33,8 @@ paths:
   /prod/verify:
     post:
       summary: POST /verify
-      tags: [Trust Center Authentation]
+      tags: 
+        - Trust Center Authentation
       responses: {}
       description: >-
         An Token is needed to access some feature of the Trust Center. The
@@ -73,7 +75,8 @@ paths:
   /prod/package:
     get:
       summary: (Auth Required) GET /package
-      tags: []
+      tags: 
+        - Package Management
       responses: {}
       description: |-
         Registered Fedramp Agencies Only
@@ -82,7 +85,8 @@ paths:
   /prod/api/data:
     get:
       summary: (Auth Required) GET /api/data
-      tags: []
+      tags: 
+        - Package Management
       responses: {}
       description: >-
         Registered Fedramp Agencies Only
