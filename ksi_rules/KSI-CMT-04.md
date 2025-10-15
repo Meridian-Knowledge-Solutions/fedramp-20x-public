@@ -1,28 +1,27 @@
-# KSI-CMT-04: Consistently follow documented change management procedure (Hybrid Validation)
+# KSI-CMT-04: Document and consistently follow change management
 
 ## Overview
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-10-15 03:17
+**Last Check:** 2025-10-15 05:00
 
-**What it validates:** Consistently follow documented change management procedure (Hybrid Validation)
+**What it validates:** Document and consistently follow change management
 
-**Why it matters:** Performs a hybrid check: 1) A live call to AWS CodeCommit to verify the change management document exists. 2) Reads the SCN workflow artifact to verify the procedure is being followed.
+**Why it matters:** Verifies that a change management procedure is documented and that the process is being followed by checking for stored Terraform plan files in S3.
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --commit-specifier main --file-path procedures/change-management-procedure.md`
-   *Live check for the change management procedure in CodeCommit.*
+1. `aws codecommit get-file --repository-name security-governance --file-path procedures/change-management-procedure.md`
+   *Check for the existence of the change management procedure document.*
 
-2. `test -f evidence_v2/KSI-CMT-04/ksi_compliance_report.json && cat evidence_v2/KSI-CMT-04/ksi_compliance_report.json || echo '{"error": "Compliance report artifact not found"}'`
-   *Reads the SCN artifact to find evidence of adherence (commit keyword analysis).*
+2. `aws s3 ls s3://mks-states/plans/ --recursive`
+   *Check S3 for stored Terraform plans as evidence that the change process is followed.*
 
 ## Latest Results
 
-PASS Phase 2 Compliant (100%): Hybrid check passed. Findings: PASS [Live Check] Comprehensive change procedure found in CodeCommit (8898 bytes).
-- PASS [Artifact] PASS Evidence of change process: 12 commits with keywords
-- PASS [Artifact] PASS Recent changes detected: 20 commits
+PASS Excellent change management process (100%): PASS [Documentation] Comprehensive change management procedure found (8898 bytes).
+- PASS [Evidence] Found 2 recent Terraform plan(s) in S3, proving the change process is followed.
 
 ---
-*Generated 2025-10-15 03:17 UTC*
+*Generated 2025-10-15 05:00 UTC*
