@@ -160,7 +160,7 @@ paths:
       description: Returns overall API health/status related data elements.
   /prod/config:
     get:
-      summary: GET /config
+      summary: Meridan Secure Baseline system configurations
       tags:
         - Operational
       responses:
@@ -259,7 +259,7 @@ paths:
                 example: "Bearer eyJhb...u9XCA"
   /prod/package:
     get:
-      summary: Download the latest authorization package
+      summary: Download the latest authorization package Zip file
       tags: 
         - Package Management
       responses:
@@ -297,7 +297,7 @@ paths:
                 example: "Bearer eyJhb...u9XCA"
   /prod/api/data:
     get:
-      summary: (Auth Required) GET /api/data
+      summary: Download the latest authorization package individual file
       tags: 
         - Package Management
       responses:
