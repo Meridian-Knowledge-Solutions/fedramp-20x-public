@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-10-15 06:40
+**Last Check:** 2025-10-15 12:41
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -26,4 +26,4 @@
 - FAIL No vulnerability disclosure program detected (1/14): PASS VDP maintenance activity: 1 updates
 
 ---
-*Generated 2025-10-15 06:40 UTC*
+*Generated 2025-10-15 12:41 UTC*
