@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Fedramp Trust Center
+  version: 1.0.0
+  description: ''
+servers:
+  - url: 7d7pdwb9t3.execute-api.us-east-1.amazonaws.com
+paths:
+  /prod/register:
+    post:
+      summary: POST /register
+      tags: []
+      responses: {}
+      description: >-
+        An Token is needed to access some feature of the Trust Center. The
+        Register API can be used to begin the registration process. The Verify
+        API is needed to complete the registration process and recieve the
+        token.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                agency:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                contact:
+                  type: string
+  /prod/verify:
+    post:
+      summary: POST /verify
+      tags: []
+      responses: {}
+      description: >-
+        An Token is needed to access some feature of the Trust Center. The
+        Verify API is used to complete the registration process and recieve the
+        token. The token required in this call is generated in the Register API
+        call.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+  /prod/status:
+    get:
+      summary: GET /status
+      tags: []
+      responses: {}
+      description: Returns overall API health/status related data elements.
+  /prod/config:
+    get:
+      summary: GET /config
+      tags: []
+      responses: {}
+      description: Return the Meridian Secure Configuration baselines in a Markdown format.
+  /prod/fedramp/inventory:
+    get:
+      summary: (PMO Only) GET /fedramp/inventory
+      tags: []
+      responses: {}
+      description: >-
+        FedRAMP PMO Only Access
+
+        Returns the required Fedramp Inventory in an JSON format, for
+        FRR-ADS-TC-05. This contains a list of registered agencies and access
+        statistics
+  /prod/package:
+    get:
+      summary: (Auth Required) GET /package
+      tags: []
+      responses: {}
+      description: |-
+        Registered Fedramp Agencies Only
+
+        Returns a Zip file of the Meridian Fedramp Authorization Package file.
+  /prod/api/data:
+    get:
+      summary: (Auth Required) GET /api/data
+      tags: []
+      responses: {}
+      description: >-
+        Registered Fedramp Agencies Only
+
+
+        Provides the ability to return each of the individual files created in
+        the Meridian Fedramp Authorization Package.
