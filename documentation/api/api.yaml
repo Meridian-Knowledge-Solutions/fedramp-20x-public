@@ -16,20 +16,20 @@ paths:
           description: "Success. Verification token is returned"
           content:
             application/json:
-            schema:
-              type: object
-              properties:
-                success:
-                  type: string
-                  example: true
-                message:
-                  type: string
-                  example: Verification email sent
-                email:
-                  type: string
-                  format: email
-                next_steps:
-                  type: string
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    example: true
+                  message:
+                    type: string
+                    example: Verification email sent
+                  email:
+                    type: string
+                    format: email
+                  next_steps:
+                    type: string
         '502':
           description: "Bad Gateway."
           content:
@@ -72,22 +72,22 @@ paths:
           description: "Success. Authentication token is returned."
           content:
             application/json:
-            schema:
-              type: object
-              properties:
-                success:
-                  type: string
-                  example: true
-                token:
-                  type: string
-                  example: eyJhb...u9XCA
-                agency:
-                  type: string
-                message:
-                  type: string
-                  example: Email verified successfully
-                next_steps:
-                  type: string
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: string
+                    example: true
+                  token:
+                    type: string
+                    example: eyJhb...u9XCA
+                  agency:
+                    type: string
+                  message:
+                    type: string
+                    example: Email verified successfully
+                  next_steps:
+                    type: string
         '502':
           description: "Bad Gateway."
           content:
