@@ -9047,7 +9047,7 @@ async function loadQuarterlyReportData() {
 <script>
 /**
  * Trust Center All-in-One Visual Enhancement Script
- * Version: 3.0.0 (Adapted for Meridian Trust Center HTML)
+ * Version: 3.1.0 (Fixes race condition by delaying initialization)
  *
  * This single script provides a complete visual overhaul, including
  * fonts, styles, and interactive effects with zero HTML modifications.
@@ -9292,26 +9292,41 @@ async function loadQuarterlyReportData() {
             });
         }, { threshold: 0.1 });
 
-        const elementsToAnimate = document.querySelectorAll(
-            '.trust-section, .ksi-section, .stat-card, .trust-card, .ksi-card, .access-card, .update-card'
-        );
-
-        elementsToAnimate.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+        // This function might run before the KSI cards are in the DOM.
+        // We'll repeatedly try to find them for a few seconds.
+        let attempts = 0;
+        const findElementsInterval = setInterval(() => {
+            const elementsToAnimate = document.querySelectorAll(
+                '.trust-section, .ksi-section, .stat-card, .trust-card, .ksi-card, .access-card, .update-card'
+            );
+            
+            if (elementsToAnimate.length > 0 || attempts > 20) { // Try for ~2 seconds
+                clearInterval(findElementsInterval);
+                elementsToAnimate.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    observer.observe(el);
+                });
+            }
+            attempts++;
+        }, 100); // Check every 100ms
     }
 
-    // Run initialization after the page is fully loaded
+    // ========== THE FIX IS HERE ==========
+    // Instead of running immediately on DOMContentLoaded, we wait a brief moment.
+    // This gives the main application script time to finish fetching data and building elements.
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        // Wait for the window 'load' event, which fires after all resources (including other scripts) are done.
+        window.addEventListener('load', () => setTimeout(init, 200));
     } else {
-        init();
+        // If the page is already fully loaded, just wait a brief moment.
+        setTimeout(init, 200);
     }
 
 })();
 </script>
+
+    
 </body>
 </html>
