@@ -7614,64 +7614,69 @@ async function loadQuarterlyReportData() {
     }
 
     function showWhyTwoTier(ksiId) {
-    // First, try to find the KSI from multiple possible sources
-    let ksi = null;
-    
-    // Try window.allKsis first (main source)
-    if (window.allKsis && Array.isArray(window.allKsis)) {
-        ksi = window.allKsis.find(k => (k.id || k.ksi_id) === ksiId);
-    }
-    
-    // If not found, try window.filteredKsis (filtered view)
-    if (!ksi && window.filteredKsis && Array.isArray(window.filteredKsis)) {
-        ksi = window.filteredKsis.find(k => (k.id || k.ksi_id) === ksiId);
-    }
-    
-    // If still not found, try to extract from the DOM card itself
-    if (!ksi) {
-        const ksiCard = document.querySelector(`[data-ksi-id="${ksiId}"]`);
-        if (ksiCard) {
-            // Try to reconstruct basic KSI info from the card
-            ksi = {
-                ksi_id: ksiId,
-                id: ksiId,
-                category: ksiCard.querySelector('.ksi-category')?.textContent || 'General',
-                description: ksiCard.querySelector('.ksi-description-public')?.textContent || 'Security control validation',
-                status: ksiCard.dataset.status || 'unknown',
-                assertion: ksiCard.dataset.status || 'unknown',
-                commands_executed: 0,
-                successful_commands: 0,
-                assertion_reason: 'Technical assessment completed - detailed findings require federal access.'
-            };
-            console.log('Reconstructed KSI from DOM:', ksi);
-        }
-    }
-    
-    if (!ksi) {
-        console.error('KSI not found:', ksiId);
-        // Show a fallback modal with limited info
-        showFallbackWhyModal(ksiId);
-        return;
-    }
+        console.log('showWhyTwoTier called for:', ksiId);
+        console.log('Authentication status:', window.fedRAMPAuth.isAuthenticated);
+        console.log('Available KSI data sources:', {
+            allKsis: window.allKsis ? window.allKsis.length : 0,
+            filteredKsis: window.filteredKsis ? window.filteredKsis.length : 0
+        });
 
-    if (window.fedRAMPAuth.isAuthenticated) {
-        // Use original detailed modal if available
-        if (window.originalShowWhyModal || window.showWhy) {
-            // Pass the KSI object to the original function if it expects it
-            try {
-                (window.originalShowWhyModal || window.showWhy)(ksiId);
-            } catch (e) {
-                console.error('Error calling original why modal:', e);
-                // Fall back to our detailed modal
-                showDetailedWhyModal(ksi);
-            }
-        } else {
-            showDetailedWhyModal(ksi);
+        // First, try to find the KSI from multiple possible sources
+        let ksi = null;
+
+        // Try window.allKsis first (main source)
+        if (window.allKsis && Array.isArray(window.allKsis)) {
+            ksi = window.allKsis.find(k => (k.id || k.ksi_id) === ksiId);
+            if (ksi) console.log('Found KSI in window.allKsis');
         }
-    } else {
-        showPublicWhyModal(ksi);
+
+        // If not found, try window.filteredKsis (filtered view)
+        if (!ksi && window.filteredKsis && Array.isArray(window.filteredKsis)) {
+            ksi = window.filteredKsis.find(k => (k.id || k.ksi_id) === ksiId);
+            if (ksi) console.log('Found KSI in window.filteredKsis');
+        }
+
+        // If still not found, try to extract from the DOM card itself
+        if (!ksi) {
+            console.log('KSI not found in data, attempting DOM reconstruction...');
+            const ksiCard = document.querySelector(`[data-ksi-id="${ksiId}"]`);
+            if (ksiCard) {
+                // Try to reconstruct basic KSI info from the card
+                ksi = {
+                    ksi_id: ksiId,
+                    id: ksiId,
+                    category: ksiCard.querySelector('.ksi-category')?.textContent || 'General',
+                    description: ksiCard.querySelector('.ksi-description-public')?.textContent || 'Security control validation',
+                    status: ksiCard.dataset.status || 'unknown',
+                    assertion: ksiCard.dataset.status || 'unknown',
+                    commands_executed: 0,
+                    successful_commands: 0,
+                    assertion_reason: 'Technical assessment completed - detailed findings require federal access.',
+                    requirement: ksiCard.querySelector('.ksi-description-public')?.textContent || 'Security control validation'
+                };
+                console.log('Reconstructed KSI from DOM:', ksi);
+            }
+        }
+
+        if (!ksi) {
+            console.error('KSI not found:', ksiId);
+            // Show a fallback modal with limited info
+            showFallbackWhyModal(ksiId);
+            return;
+        }
+
+        console.log('KSI data loaded:', ksi);
+
+        if (window.fedRAMPAuth.isAuthenticated) {
+            // For authenticated users, use our enhanced detailed modal
+            // This ensures we have full control over the display
+            console.log('Showing authenticated detailed modal');
+            showDetailedWhyModal(ksi);
+        } else {
+            console.log('Showing public modal');
+            showPublicWhyModal(ksi);
+        }
     }
-}
 
 
 
