@@ -7614,110 +7614,26 @@ async function loadQuarterlyReportData() {
     }
 
     function showWhyTwoTier(ksiId) {
-        console.log('=== showWhyTwoTier DEBUG ===');
-        console.log('Requested KSI ID:', ksiId);
-        console.log('Authentication status:', window.fedRAMPAuth.isAuthenticated);
-        console.log('Available data sources:', {
-            allKsis: window.allKsis ? window.allKsis.length : 0,
-            filteredKsis: window.filteredKsis ? window.filteredKsis.length : 0
-        });
-        
-        // Debug: Check what cards exist in DOM
-        const allCards = document.querySelectorAll('[data-ksi-id]');
-        console.log('Cards in DOM with data-ksi-id:', allCards.length);
-        if (allCards.length > 0) {
-            console.log('Sample card IDs:', Array.from(allCards).slice(0, 5).map(c => c.dataset.ksiId));
-        }
-
-        // First, try to find the KSI from multiple possible sources
-        let ksi = null;
-
-        // Try window.allKsis first (main source)
-        if (window.allKsis && Array.isArray(window.allKsis)) {
-            ksi = window.allKsis.find(k => (k.id || k.ksi_id) === ksiId);
-            if (ksi) console.log('✅ Found KSI in window.allKsis');
-        }
-
-        // If not found, try window.filteredKsis (filtered view)
-        if (!ksi && window.filteredKsis && Array.isArray(window.filteredKsis)) {
-            ksi = window.filteredKsis.find(k => (k.id || k.ksi_id) === ksiId);
-            if (ksi) console.log('✅ Found KSI in window.filteredKsis');
-        }
-
-        // If still not found, try to get from the DOM card's data attribute (best fallback)
-        if (!ksi) {
-            console.log('KSI not found in arrays, trying DOM reconstruction...');
-            
-            // Try multiple selectors
-            const selectors = [
-                `[data-ksi-id="${ksiId}"]`,
-                `.ksi-card[data-ksi-id="${ksiId}"]`,
-                `[data-ksi="${ksiId}"]`,
-                `#${ksiId}`
-            ];
-            
-            let ksiCard = null;
-            for (const selector of selectors) {
-                ksiCard = document.querySelector(selector);
-                if (ksiCard) {
-                    console.log(`✅ Found card with selector: ${selector}`);
-                    break;
-                }
-            }
-            
-            if (ksiCard) {
-                // First try to get from stored JSON data attribute
-                const ksiDataAttr = ksiCard.getAttribute('data-ksi-data');
-                if (ksiDataAttr) {
-                    try {
-                        ksi = JSON.parse(ksiDataAttr);
-                        console.log('✅ Reconstructed KSI from data-ksi-data attribute');
-                    } catch (e) {
-                        console.error('Failed to parse data-ksi-data:', e);
-                    }
-                }
-                
-                // If that fails, reconstruct from DOM elements
-                if (!ksi) {
-                    const categoryEl = ksiCard.querySelector('.ksi-category, .category');
-                    const descEl = ksiCard.querySelector('.ksi-description, .ksi-description-public, .description');
-                    const statusEl = ksiCard.querySelector('.ksi-status-bar, .status');
-                    
-                    ksi = {
-                        ksi_id: ksiId,
-                        id: ksiId,
-                        category: categoryEl ? categoryEl.textContent.trim() : 'General',
-                        description: descEl ? descEl.textContent.trim() : 'Security control validation',
-                        requirement: descEl ? descEl.textContent.trim() : 'Security control validation',
-                        status: ksiCard.dataset.status || 'unknown',
-                        assertion: ksiCard.dataset.status || 'unknown',
-                        commands_executed: parseInt(ksiCard.querySelector('.metric-value')?.textContent) || 0,
-                        successful_commands: 0,
-                        assertion_reason: 'Technical assessment completed. View CLI details for complete findings.',
-                        validation_method: 'Automated CLI + Evidence Collection'
-                    };
-                    console.log('✅ Reconstructed KSI from DOM elements');
-                }
-            } else {
-                console.error('❌ Card not found with any selector for KSI:', ksiId);
-            }
-        }
-
-        if (!ksi) {
-            console.error('❌ KSI data could not be loaded for:', ksiId);
-            showFallbackWhyModal(ksiId);
-            return;
-        }
-
-        console.log('✅ KSI data loaded successfully:', ksi);
-        console.log('===========================');
-
-        if (window.fedRAMPAuth.isAuthenticated) {
-            console.log('Showing authenticated detailed modal');
-            showDetailedWhyModal(ksi);
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            // Unauthenticated - show access required modal
+            showAccessRequiredModal('Technical Assessment Details', [
+                'View complete technical findings and root cause analysis',
+                'Access detailed CLI command execution logs',
+                'Review specific remediation plans and timelines',
+                'Download evidence packages for compliance',
+                'Integrate with your agency\'s GRC tools'
+            ]);
         } else {
-            console.log('Showing public modal');
-            showPublicWhyModal(ksi);
+            // Authenticated - just call the original working function
+            if (window.originalShowWhyFunction) {
+                window.originalShowWhyFunction(ksiId);
+            } else if (window.originalShowWhyModalFunction) {
+                window.originalShowWhyModalFunction(ksiId);
+            } else {
+                // Fallback if somehow the original wasn't preserved
+                console.error('Original showWhy function not found');
+                alert('Unable to load technical details. Please refresh the page.');
+            }
         }
     }
 
