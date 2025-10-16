@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-10-16 06:43
+**Last Check:** 2025-10-16 12:43
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
 
@@ -40,10 +40,10 @@
 
 PASS Foundational immutable practices (58%): PASS Least Privilege: AdministratorAccess is properly restricted to AWS-managed infrastructure roles.
 - PASS Network Security: No sensitive ports are exposed to the internet.
-- PASS Serverless Adoption: 19 Lambda functions are in use (inherently immutable).
+- PASS Serverless Adoption: 18 Lambda functions are in use (inherently immutable).
 - WARNING EC2 Standardization: No Launch Templates found for 6 running instance(s).
 - WARNING EC2 Immutable Scaling: No Auto Scaling Groups found for 6 running instance(s).
 - FAIL EC2 IaC Management: None of the 6 running instance(s) have IaC tags.
 
 ---
-*Generated 2025-10-16 06:43 UTC*
+*Generated 2025-10-16 12:43 UTC*

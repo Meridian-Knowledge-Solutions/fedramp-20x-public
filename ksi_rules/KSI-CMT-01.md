@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-10-16 06:43
+**Last Check:** 2025-10-16 12:43
 
 **What it validates:** Document a change management policy for all system modifications
 
@@ -43,7 +43,7 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Multi-region modification coverage: 1 trails across all regions
 - PASS Tamper-resistant modification logs: 1 encrypted CloudTrail trails
 - INFO AWS Config not configured (acceptable for low-impact pilot environments)
-- PASS Comprehensive event logging: 33 log groups (20 application, 2 system, 11 AWS services)
+- PASS Comprehensive event logging: 31 log groups (18 application, 2 system, 11 AWS services)
 - PASS Real-time modification detection: 4 EventBridge rules for change monitoring
 - PASS Modification alerting: 7 CloudWatch alarms for change detection
 - PASS Modification notification infrastructure: 9 SNS topics for stakeholder alerts
@@ -53,4 +53,4 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Advanced organization features: SCPs for modification policy enforcement
 
 ---
-*Generated 2025-10-16 06:43 UTC*
+*Generated 2025-10-16 12:43 UTC*
