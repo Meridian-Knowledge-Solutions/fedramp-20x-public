@@ -45,7 +45,7 @@ paths:
         '500':
           description: "Internal Server Error. An unexpected error occurred while processing the request."
       description: >-
-        An Token is needed to access some feature of the Trust Center. The
+        A Token is needed to access some feature of the Trust Center. The
         Register API can be used to begin the registration process. The Verify
         API is needed to complete the registration process and recieve the
         token.
@@ -115,7 +115,7 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error during registration." 
       description: >-
-        An Token is needed to access some feature of the Trust Center. The
+        A Token is needed to access some feature of the Trust Center. The
         Verify API is used to complete the registration process and recieve the
         token. The token required in this call is generated in the Register API
         call.
@@ -243,13 +243,13 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error generating inventory." 
       description: >-
-        FedRAMP PMO Only Access
+        ## FedRAMP PMO Only Access
 
         Returns the required Fedramp Inventory in an JSON format, for
         FRR-ADS-TC-05. This contains a list of registered agencies and access
         statistics
 
-        Token is supplied by Meridian.
+        **Token is supplied by Meridian.**
       requestBody:
         headers:
             Authorization:
@@ -283,11 +283,11 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error generating baseline security config." 
       description: |-
-        Registered Fedramp Agencies Only
+        ##Registered Fedramp Agencies Only
 
         Returns a Zip file of the Meridian Fedramp Authorization Package file.
 
-        Token is supplied from the Verify API Call.
+        **Token is supplied from the Verify API Call.**
       requestBody:
         headers:
             Authorization:
@@ -322,12 +322,12 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error generating baseline security config." 
       description: >-
-        Registered Fedramp Agencies Only
+        ##Registered Fedramp Agencies Only
 
         Provides the ability to return each of the individual files created in
         the Meridian Fedramp Authorization Package per FRR-ADS-TC-03
 
-        Available Filenames
+        **Available Filenames**
          - 3pao_audit_report.json
          - assessed_vulnerabilities_integrated.json
          - assessed_vulnerabilities.json
