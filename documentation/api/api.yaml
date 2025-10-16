@@ -248,6 +248,7 @@ paths:
         Returns the required Fedramp Inventory in an JSON format, for
         FRR-ADS-TC-05. This contains a list of registered agencies and access
         statistics
+        
 
         **Token is supplied by Meridian.**
       requestBody:
@@ -283,7 +284,7 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error generating baseline security config." 
       description: |-
-        ##Registered Fedramp Agencies Only
+        ## Registered Fedramp Agencies Only
 
         Returns a Zip file of the Meridian Fedramp Authorization Package file.
 
@@ -322,10 +323,12 @@ paths:
         '500':
           description: "Internal Server Error. Internal server error generating baseline security config." 
       description: >-
-        ##Registered Fedramp Agencies Only
+        ## Registered Fedramp Agencies Only
+
 
         Provides the ability to return each of the individual files created in
         the Meridian Fedramp Authorization Package per FRR-ADS-TC-03
+
 
         **Available Filenames**
          - 3pao_audit_report.json
