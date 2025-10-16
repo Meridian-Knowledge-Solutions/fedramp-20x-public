@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-10-16 00:53
+**Last Check:** 2025-10-16 03:18
 
 **What it validates:** Clearly define user roles and implement user-to-role mapping
 
@@ -30,10 +30,10 @@
 ## Latest Results
 
 PASS Excellent role-based authorization model (100%): PASS [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.
-- PASS [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).
+- PASS [Role Mapping] Found 3 distinct permission sets (e.g., ReadOnlyAccess, AdministratorAccess, Development).
 - INFO The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.
 - PASS [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.
 - PASS [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.
 
 ---
-*Generated 2025-10-16 00:53 UTC*
+*Generated 2025-10-16 03:18 UTC*
