@@ -6368,56 +6368,6 @@ async function loadQuarterlyReportData() {
             }
         }
 
-    updateStatusUI() {
-            // Update all status elements in the page
-            const statusIndicator = this.getStatusIndicator();
-
-    // Update Trust Center uptime metric
-    const uptimeMetric = document.querySelector('[data-status="trust-center-uptime"]');
-    if (uptimeMetric && this.statusData) {
-                const uptime = parseFloat(this.statusData.uptime_percent || "99.9");
-    uptimeMetric.innerHTML = `
-    <span class="metric-value" style="color: ${statusIndicator.color};">${statusIndicator.icon} ${this.formatUptime(uptime)}</span>
-    <span class="metric-label">Trust Center Uptime (30d)</span>
-    `;
-            }
-
-    // Update System Availability card
-    const availabilityCard = document.querySelector('[data-status="system-availability"]');
-    if (availabilityCard && this.statusData) {
-                const uptime = parseFloat(this.statusData.uptime_percent || "99.9");
-    const totalRequests = this.statusData.total_requests !== "undefined" ?
-    parseInt(this.statusData.total_requests).toLocaleString() : "N/A";
-    const erroredRequests = this.statusData.errored_requests !== "undefined" ?
-    parseInt(this.statusData.errored_requests).toLocaleString() : "N/A";
-    const lastIncident = erroredRequests === "0" || erroredRequests === "N/A" ?
-    "None reported" : `${erroredRequests} errors in 30 days`;
-
-    availabilityCard.innerHTML = `
-    <h4>📊 System Availability</h4>
-    <p style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-        <span style="display: inline-block; width: 12px; height: 12px; background: ${statusIndicator.color}; border-radius: 50%;"></span>
-        <strong style="color: ${statusIndicator.color};">${statusIndicator.text}</strong>
-    </p>
-    <p><strong>Trust Center Uptime:</strong> ${this.formatUptime(uptime)} (Last 30 days)</p>
-    <p><strong>API Availability:</strong> ${this.formatUptime(uptime)} (Last 30 days)</p>
-    <p><strong>Total Requests:</strong> ${totalRequests}</p>
-    <p><strong>Last Incident:</strong> ${lastIncident}</p>
-    <p style="margin-top: 0.75rem;">
-        <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
-            View Real-Time Status Dashboard →
-        </a>
-    </p>
-    <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.5rem;">
-        <em>Last updated: ${this.statusData.last_updated ? new Date(this.statusData.last_updated).toLocaleString() : new Date().toLocaleString()}</em>
-    </p>
-    `;
-            }
-
-    console.log('✅ Status UI updated with real-time data');
-        }
-    }
-
 
     // ====================================================================
     // SECURE CONFIGURATION MANAGEMENT (FedRAMP 20x Standard)
@@ -8062,7 +8012,7 @@ async function loadQuarterlyReportData() {
 
     /**
      * Handle federal agency registration with email verification
-     * Updated to support verification flow from Ticket #1
+     * Updated to support verification flow 
      */
     async function handleRegistration(e) {
         e.preventDefault();
@@ -8292,7 +8242,7 @@ async function loadQuarterlyReportData() {
         } else {
             // Production mode - request package download from AWS API
             const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
-        method: 'POST',
+        method: 'GET',
     headers: {
         'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
