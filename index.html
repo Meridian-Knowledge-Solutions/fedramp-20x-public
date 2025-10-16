@@ -6341,9 +6341,6 @@ async function loadQuarterlyReportData() {
     <p><strong>Server Errors (5xx):</strong> ${errors}</p>
     <p><strong>Last Incident:</strong> ${lastIncident}</p>
     <p style="margin-top: 0.75rem;">
-        <a href="https://status.meridianks.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-500); text-decoration: none; font-size: 0.875rem;">
-            View Real-Time Dashboard →
-        </a>
     </p>
     <p style="font-size: 0.75rem; color: var(--text-tertiary); margin-top: 0.5rem;">
         <em>Last updated: ${end.toLocaleString()}</em>
@@ -8916,6 +8913,12 @@ async function loadQuarterlyReportData() {
                 Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.
             </p>
 
+            <div style="background: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">
+                <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);">How to "Log In" or Re-Register</h4>
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                    If you have logged out, cleared your browser cache, or your session has expired, <strong>simply use this same form to re-register.</strong> You will receive a new verification link to grant you a fresh, secure session.
+                </p>
+            </div>
             <form id="agency-registration-form">
                 <div class="form-group">
                     <label for="agency">Federal Agency Name *</label>
