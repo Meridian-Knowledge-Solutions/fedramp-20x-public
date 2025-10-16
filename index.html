@@ -6167,7 +6167,7 @@ async function loadQuarterlyReportData() {
 </div>
 
 <script>
-// ====================================================================
+    // ====================================================================
     // SCRIPT START - COMPLETE TWO-TIER IMPLEMENTATION WITH EMAIL VERIFICATION & STATUS MONITORING
     // ====================================================================
     (function() {
@@ -6367,6 +6367,7 @@ async function loadQuarterlyReportData() {
     this.refreshTimer = null;
             }
         }
+    }
 
 
     // ====================================================================
@@ -6375,168 +6376,168 @@ async function loadQuarterlyReportData() {
 
     class SecureConfigManager {
         constructor() {
-            this.configData = null;
-            this.tenantConfigData = null;
-            this.lastFetch = null;
+        this.configData = null;
+    this.tenantConfigData = null;
+    this.lastFetch = null;
         }
-        async fetchPublicConfig() {
+    async fetchPublicConfig() {
             try {
-                console.log('Fetching public secure configuration from API...');
-                const response = await fetch(
-                    `${FEDRAMP_API_CONFIG.BASE_URL}/config`, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
+        console.log('Fetching public secure configuration from API...');
+    const response = await fetch(
+    `${FEDRAMP_API_CONFIG.BASE_URL}/config`, {
+        method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
                         },
-                        signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
                     }
-                );
-                if (response.ok) {
-                    this.configData = await response.text();
-                    this.lastFetch = Date.now();
-                    console.log('✅ Public secure configuration fetched successfully');
-                    return this.configData;
+    );
+    if (response.ok) {
+        this.configData = await response.text();
+    this.lastFetch = Date.now();
+    console.log('✅ Public secure configuration fetched successfully');
+    return this.configData;
                 } else {
-                    console.error('Config API error:', response.status);
-                    throw new Error('Failed to fetch configuration');
+        console.error('Config API error:', response.status);
+    throw new Error('Failed to fetch configuration');
                 }
             } catch (error) {
-                console.error('Error fetching public configuration:', error);
-                throw error;
+        console.error('Error fetching public configuration:', error);
+    throw error;
             }
         }
-        async fetchTenantConfig() {
+    async fetchTenantConfig() {
             const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-            if (!token) {
+    if (!token) {
                 throw new Error('Authentication required for tenant-specific configuration');
             }
-            try {
-                console.log('Fetching tenant-specific configuration from API...');
-                const response = await fetch(
-                    `${FEDRAMP_API_CONFIG.BASE_URL}/config/tenant`, {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
+    try {
+        console.log('Fetching tenant-specific configuration from API...');
+    const response = await fetch(
+    `${FEDRAMP_API_CONFIG.BASE_URL}/config/tenant`, {
+        method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
                         },
-                        signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
                     }
-                );
-                if (response.ok) {
-                    this.tenantConfigData = await response.text();
-                    console.log('✅ Tenant-specific configuration fetched successfully');
-                    return this.tenantConfigData;
+    );
+    if (response.ok) {
+        this.tenantConfigData = await response.text();
+    console.log('✅ Tenant-specific configuration fetched successfully');
+    return this.tenantConfigData;
                 } else {
-                    console.error('Tenant config API error:', response.status);
-                    throw new Error('Failed to fetch tenant configuration');
+        console.error('Tenant config API error:', response.status);
+    throw new Error('Failed to fetch tenant configuration');
                 }
             } catch (error) {
-                console.error('Error fetching tenant configuration:', error);
-                throw error;
+        console.error('Error fetching tenant configuration:', error);
+    throw error;
             }
         }
-        async downloadConfig(isPublic = true) {
+    async downloadConfig(isPublic = true) {
             try {
-                showLoadingMessage('Preparing configuration download...');
-                const markdown = isPublic ?
-                    (this.configData || await this.fetchPublicConfig()) :
-                    (this.tenantConfigData || await this.fetchTenantConfig());
-                const blob = new Blob([markdown], {
-                    type: 'text/markdown'
+        showLoadingMessage('Preparing configuration download...');
+    const markdown = isPublic ?
+    (this.configData || await this.fetchPublicConfig()) :
+    (this.tenantConfigData || await this.fetchTenantConfig());
+    const blob = new Blob([markdown], {
+        type: 'text/markdown'
                 });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                const filename = isPublic ?
-                    `fedramp-20x-secure-configuration-${new Date().toISOString().split('T')[0]}.md` :
-                    `fedramp-20x-tenant-configuration-${new Date().toISOString().split('T')[0]}.md`;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const filename = isPublic ?
+    `fedramp-20x-secure-configuration-${new Date().toISOString().split('T')[0]}.md` :
+    `fedramp-20x-tenant-configuration-${new Date().toISOString().split('T')[0]}.md`;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
                 setTimeout(() => {
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    URL.revokeObjectURL(url);
                 }, 100);
-                showSuccessMessage('✅ Configuration file downloaded successfully');
-                logAgencyAccess(isPublic ? 'public_config_download' : 'tenant_config_download');
+    showSuccessMessage('✅ Configuration file downloaded successfully');
+    logAgencyAccess(isPublic ? 'public_config_download' : 'tenant_config_download');
             } catch (error) {
-                console.error('Download error:', error);
-                showErrorMessage('Failed to download configuration. Please try again.');
+        console.error('Download error:', error);
+    showErrorMessage('Failed to download configuration. Please try again.');
             } finally {
-                hideLoadingMessage();
+        hideLoadingMessage();
             }
         }
-        async viewConfigInBrowser(isPublic = true) {
+    async viewConfigInBrowser(isPublic = true) {
             try {
-                showLoadingMessage('Loading secure configuration...');
-                const markdown = isPublic ?
-                    (this.configData || await this.fetchPublicConfig()) :
-                    (this.tenantConfigData || await this.fetchTenantConfig());
-                // Load marked.js if not already loaded
-                if (typeof marked === 'undefined') {
-                    await this.loadMarkedLibrary();
+        showLoadingMessage('Loading secure configuration...');
+    const markdown = isPublic ?
+    (this.configData || await this.fetchPublicConfig()) :
+    (this.tenantConfigData || await this.fetchTenantConfig());
+    // Load marked.js if not already loaded
+    if (typeof marked === 'undefined') {
+        await this.loadMarkedLibrary();
                 }
-                // Configure marked options
-                marked.setOptions({
-                    breaks: true,
-                    gfm: true,
-                    headerIds: true,
-                    mangle: false
+    // Configure marked options
+    marked.setOptions({
+        breaks: true,
+    gfm: true,
+    headerIds: true,
+    mangle: false
                 });
-                // Convert markdown to HTML
-                const htmlContent = marked.parse(markdown);
-                // Show in modal
-                this.displayConfigModal(htmlContent, isPublic);
-                logAgencyAccess(isPublic ? 'public_config_view' : 'tenant_config_view');
+    // Convert markdown to HTML
+    const htmlContent = marked.parse(markdown);
+    // Show in modal
+    this.displayConfigModal(htmlContent, isPublic);
+    logAgencyAccess(isPublic ? 'public_config_view' : 'tenant_config_view');
             } catch (error) {
-                console.error('View error:', error);
-                showErrorMessage('Failed to load configuration. Please try again.');
+        console.error('View error:', error);
+    showErrorMessage('Failed to load configuration. Please try again.');
             } finally {
-                hideLoadingMessage();
+        hideLoadingMessage();
             }
         }
-        async loadMarkedLibrary() {
+    async loadMarkedLibrary() {
             return new Promise((resolve, reject) => {
                 if (typeof marked !== 'undefined') {
-                    resolve();
-                    return;
+        resolve();
+    return;
                 }
-                const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
             });
         }
-        displayConfigModal(htmlContent, isPublic) {
-            let modal = document.getElementById('config-viewer-modal');
-            if (!modal) {
-                modal = document.createElement('div');
-                modal.id = 'config-viewer-modal';
-                modal.className = 'modal';
-                document.body.appendChild(modal);
+    displayConfigModal(htmlContent, isPublic) {
+        let modal = document.getElementById('config-viewer-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+    modal.id = 'config-viewer-modal';
+    modal.className = 'modal';
+    document.body.appendChild(modal);
             }
-            const title = isPublic ?
-                '📄 FedRAMP 20x Secure Configuration Standards' :
-                '📄 Tenant-Specific Secure Configuration';
-            modal.innerHTML = `
-            <div class="modal-content config-modal-content">
-                <div class="modal-header">
-                    <h3>${title}</h3>
-                    <div style="display: flex; gap: 0.5rem; align-items: center;">
-                        <button onclick="window.configManager.downloadConfig(${isPublic})" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                            ⬇️ Download
-                        </button>
-                        <button class="close-btn" onclick="closeCustomModal('config-viewer-modal')">&times;</button>
-                    </div>
-                </div>
-                <div class="modal-body markdown-content">
-                    ${htmlContent}
-                </div>
+    const title = isPublic ?
+    '📄 FedRAMP 20x Secure Configuration Standards' :
+    '📄 Tenant-Specific Secure Configuration';
+    modal.innerHTML = `
+    <div class="modal-content config-modal-content">
+        <div class="modal-header">
+            <h3>${title}</h3>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button onclick="window.configManager.downloadConfig(${isPublic})" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ⬇️ Download
+                </button>
+                <button class="close-btn" onclick="closeCustomModal('config-viewer-modal')">&times;</button>
             </div>
-        `;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        </div>
+        <div class="modal-body markdown-content">
+            ${htmlContent}
+        </div>
+    </div>
+    `;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
         }
     }
 
@@ -6550,26 +6551,26 @@ async function loadQuarterlyReportData() {
     // Tenant-specific config access (authentication required)
     async function viewSecureConfiguration() {
         if (!window.fedRAMPAuth.isAuthenticated) {
-            showAccessRequiredModal('Tenant-Specific Secure Configuration', [
-                'Access your agency-specific secure configuration',
-                'View customized security implementation guidelines',
-                'Download tenant-specific configuration documentation',
-                'Review compliance requirements for your deployment'
-            ]);
+        showAccessRequiredModal('Tenant-Specific Secure Configuration', [
+            'Access your agency-specific secure configuration',
+            'View customized security implementation guidelines',
+            'Download tenant-specific configuration documentation',
+            'Review compliance requirements for your deployment'
+        ]);
         } else {
-            await window.configManager.viewConfigInBrowser(false);
+        await window.configManager.viewConfigInBrowser(false);
         }
     }
     async function downloadSecureConfiguration() {
         if (!window.fedRAMPAuth.isAuthenticated) {
-            showAccessRequiredModal('Tenant-Specific Secure Configuration', [
-                'Download your agency-specific secure configuration',
-                'Access customized security implementation guidelines',
-                'Review compliance requirements',
-                'Integrate with your security documentation'
-            ]);
+        showAccessRequiredModal('Tenant-Specific Secure Configuration', [
+            'Download your agency-specific secure configuration',
+            'Access customized security implementation guidelines',
+            'Review compliance requirements',
+            'Integrate with your security documentation'
+        ]);
         } else {
-            await window.configManager.downloadConfig(false);
+        await window.configManager.downloadConfig(false);
         }
     }
 
@@ -6868,7 +6869,7 @@ async function loadQuarterlyReportData() {
                 <div style="flex: 1;">
                     <h3 style="margin: 0 0 0.5rem 0;">FedRAMP 20x Secure Configuration Standards</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
-                        Access our public secure configuration documentation based on FedRAMP 20x standards. This human-readable guide provides 
+                        Access our public secure configuration documentation based on FedRAMP 20x standards. This human-readable guide provides
                         comprehensive security configuration guidelines, best practices, and implementation requirements.
                     </p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
@@ -7287,7 +7288,6 @@ async function loadQuarterlyReportData() {
             </div>
         </div>
 
-        <!-- Add System Status Section for Authenticated Users -->
         <div class="compliance-summary-public">
             <h3>📋 System Status Overview</h3>
             <div class="compliance-metrics-public">
@@ -7404,7 +7404,6 @@ async function loadQuarterlyReportData() {
                 </div>
             </div>
 
-            <!-- Add System Availability Card for Authenticated Users -->
             <div class="trust-card" data-status="system-availability">
                 <div class="trust-card-icon">📊</div>
                 <h4>System Availability</h4>
@@ -7556,11 +7555,11 @@ async function loadQuarterlyReportData() {
     } else {
         // Authenticated - call the ORIGINAL showWhyModal function
         if (typeof window.originalShowWhyModal === 'function') {
-            window.originalShowWhyModal(ksiId); 
+        window.originalShowWhyModal(ksiId); 
         } else {
-            console.error('originalShowWhyModal function not found. Could not display details.');
-            // As a fallback call a simplified modal
-            showFallbackWhyModal(ksiId);
+        console.error('originalShowWhyModal function not found. Could not display details.');
+    // As a fallback call a simplified modal
+    showFallbackWhyModal(ksiId);
         }
     }
 }
@@ -7568,12 +7567,12 @@ async function loadQuarterlyReportData() {
 
 
     function showFallbackWhyModal(ksiId) {
-    let modal = document.getElementById('why-modal');
+        let modal = document.getElementById('why-modal');
     let isTemporary = false;
 
     if (!modal) {
         modal = createTemporaryModal('why-modal');
-        isTemporary = true;
+    isTemporary = true;
     }
 
     const titleElement = modal.querySelector('.why-modal-title') || modal.querySelector('h3');
@@ -7581,13 +7580,13 @@ async function loadQuarterlyReportData() {
 
     if (window.fedRAMPAuth.isAuthenticated) {
         const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-        
-        if (titleElement) {
-            titleElement.innerHTML = `🔍 Technical Assessment: ${ksiId}`;
+
+    if (titleElement) {
+        titleElement.innerHTML = `🔍 Technical Assessment: ${ksiId}`;
         }
 
-        if (bodyElement) {
-            bodyElement.innerHTML = `
+    if (bodyElement) {
+        bodyElement.innerHTML = `
                 <div class="authenticated-header">
                     <span class="agency-badge">🛏️ ${agencyInfo.agency}</span>
                     <span class="access-level">Authenticated Federal Access</span>
@@ -7619,11 +7618,11 @@ async function loadQuarterlyReportData() {
         }
     } else {
         if (titleElement) {
-            titleElement.innerHTML = `📋 Assessment Summary: ${ksiId}`;
+        titleElement.innerHTML = `📋 Assessment Summary: ${ksiId}`;
         }
 
-        if (bodyElement) {
-            bodyElement.innerHTML = `
+    if (bodyElement) {
+        bodyElement.innerHTML = `
                 <div class="public-assessment-summary">
                     <div class="assessment-details">
                         <h4>📋 Control Assessment</h4>
@@ -7644,7 +7643,7 @@ async function loadQuarterlyReportData() {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-}        
+}
 
     function showPublicWhyModal(ksi) {
         const publicData = KSIDataSanitizer.sanitizeForPublic(ksi);
@@ -7833,7 +7832,7 @@ async function loadQuarterlyReportData() {
             <button class="close-btn" onclick="closeTemporaryModal('${id}')">&times;</button>
         </div>
         <div class="modal-body why-modal-body">
-            </div>
+        </div>
     </div>
     `;
     document.body.appendChild(modal);
@@ -8012,7 +8011,7 @@ async function loadQuarterlyReportData() {
 
     /**
      * Handle federal agency registration with email verification
-     * Updated to support verification flow 
+     * Updated to support verification flow from Ticket #1
      */
     async function handleRegistration(e) {
         e.preventDefault();
@@ -8664,7 +8663,7 @@ async function loadQuarterlyReportData() {
     // ====================================================================
 
     async function initializeTwoTierSystem() {
-    window.fedRAMPAuth = new FedRAMPAuth();
+        window.fedRAMPAuth = new FedRAMPAuth();
     window.statusManager = new SystemStatusManager();
     window.configManager = new SecureConfigManager();
 
@@ -8683,8 +8682,8 @@ async function loadQuarterlyReportData() {
     if (verifyToken) {
         // User clicked verification link from email
         console.log('Email verification token detected in URL');
-        handleEmailVerification(verifyToken);
-        return; // Stop here, verification flow will handle navigation
+    handleEmailVerification(verifyToken);
+    return; // Stop here, verification flow will handle navigation
     }
 
     // Preserve original functions from the main HTML file
@@ -8701,8 +8700,8 @@ async function loadQuarterlyReportData() {
     window.viewFailedReport = viewFailedReport;
     window.renderKsis = function() {
         const grid = document.getElementById('ksi-grid');
-        if (grid && window.filteredKsis) {
-            grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
+    if (grid && window.filteredKsis) {
+        grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
         }
     };
     window.showWhyModal = showWhyTwoTier;
@@ -8736,7 +8735,7 @@ async function loadQuarterlyReportData() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('modal')) {
             const modalId = e.target.id;
-            if (modalId) closeCustomModal(modalId);
+    if (modalId) closeCustomModal(modalId);
         }
     });
 
@@ -8744,8 +8743,8 @@ async function loadQuarterlyReportData() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const activeModal = document.querySelector('.modal.active');
-            if (activeModal) {
-                closeCustomModal(activeModal.id);
+    if (activeModal) {
+        closeCustomModal(activeModal.id);
             }
         }
     });
@@ -8762,9 +8761,9 @@ async function loadQuarterlyReportData() {
     // Also try to wait a bit for the main page to load its data
     setTimeout(() => {
         ensureKSIDataLoaded();
-        // Re-render if we now have data
-        if (window.filteredKsis && window.renderKsis) {
-            window.renderKsis();
+    // Re-render if we now have data
+    if (window.filteredKsis && window.renderKsis) {
+        window.renderKsis();
         }
     }, 1000);
 
@@ -9022,7 +9021,7 @@ async function loadQuarterlyReportData() {
             </p>
 
             <ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;">
-                </ul>
+            </ul>
 
             <div style="margin-top: 2rem; display: flex; gap: 1rem;">
                 <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary" style="flex: 1;">
