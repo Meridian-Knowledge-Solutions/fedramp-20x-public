@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3255,9 +3255,6 @@ td {
                     </div>
                 </div>
                 <div class="header-right">
-                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
-                        <span id="theme-icon">🌙</span>
-                    </button>
                     <div class="status-badge">
                         <span>🛡️</span>
                         <span>Authorized - Limited Pilot Authorization</span>
@@ -5495,21 +5492,6 @@ function viewVDRDashboard() {
             }
         }
 
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            document.getElementById('theme-icon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        }
-
-        function initializeTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            document.getElementById('theme-icon').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        }
 
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(tab => {
@@ -5840,7 +5822,6 @@ async function loadQuarterlyReportData() {
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Enhanced FedRAMP 20x Trust Center Loading...');
-            initializeTheme();
             initializeDashboard();
             setTimeout(loadQuarterlyReportData, 500);
             
