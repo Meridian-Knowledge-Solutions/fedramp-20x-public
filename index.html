@@ -7624,14 +7624,11 @@ async function loadQuarterlyReportData() {
                 'Integrate with your agency\'s GRC tools'
             ]);
         } else {
-            // Authenticated - just call the original working function
-            if (window.originalShowWhyFunction) {
-                window.originalShowWhyFunction(ksiId);
-            } else if (window.originalShowWhyModalFunction) {
-                window.originalShowWhyModalFunction(ksiId);
+            // Authenticated - call the globally available showWhyModal function from the main HTML
+            if (typeof showWhyModal === 'function') {
+                showWhyModal(ksiId);
             } else {
-                // Fallback if somehow the original wasn't preserved
-                console.error('Original showWhy function not found');
+                console.error('showWhyModal function not found in global scope');
                 alert('Unable to load technical details. Please refresh the page.');
             }
         }
