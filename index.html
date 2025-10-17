@@ -9952,7 +9952,6 @@ async function loadQuarterlyReportData() {
     (function() {
         'use strict';
 
-        // Run all modernization tasks after the page content is loaded
         document.addEventListener('DOMContentLoaded', function() {
             addFontAwesome();
             replacePageIcons();
@@ -9963,7 +9962,7 @@ async function loadQuarterlyReportData() {
          * 1. Dynamically adds the Font Awesome CSS to the <head>
          */
         function addFontAwesome() {
-            if (document.querySelector('link[href*="font-awesome"]')) return; // Don't add if it already exists
+            if (document.querySelector('link[href*="font-awesome"]')) return;
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css';
@@ -9978,41 +9977,27 @@ async function loadQuarterlyReportData() {
          * 2. Scans the document and replaces emojis with professional icons.
          */
         function replacePageIcons() {
-            // This map defines which emoji gets replaced by which icon.
             const iconMap = {
-                '🛡️': '<i class="fa-solid fa-shield-halved fa-fw"></i>',
-                '⏰': '<i class="fa-solid fa-clock fa-fw"></i>',
-                '🚀': '<i class="fa-solid fa-rocket fa-fw"></i>',
-                '🔄': '<i class="fa-solid fa-arrows-rotate fa-fw"></i>',
-                '📊': '<i class="fa-solid fa-chart-bar fa-fw"></i>',
-                '🔍': '<i class="fa-solid fa-magnifying-glass fa-fw"></i>',
+                '🛡️': '<i class="fa-solid fa-shield-halved fa-fw"></i>', '⏰': '<i class="fa-solid fa-clock fa-fw"></i>',
+                '🚀': '<i class="fa-solid fa-rocket fa-fw"></i>', '🔄': '<i class="fa-solid fa-arrows-rotate fa-fw"></i>',
+                '📊': '<i class="fa-solid fa-chart-bar fa-fw"></i>', '🔍': '<i class="fa-solid fa-magnifying-glass fa-fw"></i>',
                 '✅': '<i class="fa-solid fa-check-circle" style="color: var(--success-500);"></i>',
                 '❌': '<i class="fa-solid fa-times-circle" style="color: var(--danger-500);"></i>',
                 '🟡': '<i class="fa-solid fa-exclamation-triangle" style="color: var(--warning-500);"></i>',
                 '📈': '<i class="fa-solid fa-arrow-trend-up" style="color: var(--info-500);"></i>',
-                '🤔': '<i class="fa-solid fa-lightbulb fa-fw"></i>',
-                '⚡': '<i class="fa-solid fa-bolt fa-fw"></i>',
-                '🐛': '<i class="fa-solid fa-bug fa-fw"></i>',
-                '🔷': '<i class="fa-solid fa-cubes fa-fw"></i>',
-                '📋': '<i class="fa-solid fa-clipboard-list fa-fw"></i>',
-                '🔒': '<i class="fa-solid fa-lock fa-fw"></i>',
-                '🔐': '<i class="fa-solid fa-key fa-fw"></i>',
-                '🔧': '<i class="fa-solid fa-wrench fa-fw"></i>',
-                '🚨': '<i class="fa-solid fa-triangle-exclamation fa-fw"></i>',
-                '🗓️': '<i class="fa-solid fa-calendar-alt fa-fw"></i>',
-                '🎯': '<i class="fa-solid fa-bullseye fa-fw"></i>',
-                '🔗': '<i class="fa-solid fa-link fa-fw"></i>',
-                '💬': '<i class="fa-solid fa-comments fa-fw"></i>',
-                '🎪': '<i class="fa-solid fa-users fa-fw"></i>',
-                '📄': '<i class="fa-solid fa-file-lines fa-fw"></i>',
-                '🏛️': '<i class="fa-solid fa-landmark fa-fw"></i>',
-                '📦': '<i class="fa-solid fa-box-archive fa-fw"></i>',
-                '📥': '<i class="fa-solid fa-download fa-fw"></i>',
+                '🤔': '<i class="fa-solid fa-lightbulb fa-fw"></i>', '⚡': '<i class="fa-solid fa-bolt fa-fw"></i>',
+                '🐛': '<i class="fa-solid fa-bug fa-fw"></i>', '🔷': '<i class="fa-solid fa-cubes fa-fw"></i>',
+                '📋': '<i class="fa-solid fa-clipboard-list fa-fw"></i>', '🔒': '<i class="fa-solid fa-lock fa-fw"></i>',
+                '🔐': '<i class="fa-solid fa-key fa-fw"></i>', '🔧': '<i class="fa-solid fa-wrench fa-fw"></i>',
+                '🚨': '<i class="fa-solid fa-triangle-exclamation fa-fw"></i>', '🗓️': '<i class="fa-solid fa-calendar-alt fa-fw"></i>',
+                '🎯': '<i class="fa-solid fa-bullseye fa-fw"></i>', '🔗': '<i class="fa-solid fa-link fa-fw"></i>',
+                '💬': '<i class="fa-solid fa-comments fa-fw"></i>', '🎪': '<i class="fa-solid fa-users fa-fw"></i>',
+                '📄': '<i class="fa-solid fa-file-lines fa-fw"></i>', '🏛️': '<i class="fa-solid fa-landmark fa-fw"></i>',
+                '📦': '<i class="fa-solid fa-box-archive fa-fw"></i>', '📥': '<i class="fa-solid fa-download fa-fw"></i>',
             };
 
             let bodyHtml = document.body.innerHTML;
             for (const [emoji, iconTag] of Object.entries(iconMap)) {
-                // Use a regular expression to replace all instances of the emoji
                 bodyHtml = bodyHtml.replaceAll(emoji, iconTag);
             }
             document.body.innerHTML = bodyHtml;
@@ -10030,7 +10015,6 @@ async function loadQuarterlyReportData() {
                 return;
             }
 
-            // The animation function
             const animateValue = (obj, start, end, duration) => {
                 let startTimestamp = null;
                 const step = (timestamp) => {
@@ -10048,10 +10032,8 @@ async function loadQuarterlyReportData() {
                 };
                 window.requestAnimationFrame(step);
             };
-
-            // Our new function that wraps the old one
+            
             window.updateMetrics = function() {
-                // Temporarily replace textContent to grab the final values from the original function
                 const tempStore = {};
                 const ids = ['overall-score', 'passed-count', 'failed-count', 'warning-count', 'info-count'];
                 const elements = ids.map(id => document.getElementById(id));
@@ -10061,20 +10043,20 @@ async function loadQuarterlyReportData() {
                         Object.defineProperty(el, 'textContent', {
                             get: function() { return this.innerHTML; },
                             set: function(value) {
-                                tempStore[this.id] = value.replace('%', '');
+                                // *** THIS IS THE FIX ***
+                                // Convert value to a string before using .replace()
+                                tempStore[this.id] = String(value).replace('%', '');
                             },
                             configurable: true
                         });
                     }
                 });
                 
-                // Run the original function, which will populate our tempStore
                 originalUpdateMetrics.apply(this, arguments);
 
-                // Restore the original textContent property and animate
                 elements.forEach(el => {
                     if (el) {
-                        delete el.textContent; // Restore default behavior
+                        delete el.textContent;
                         const endValue = parseFloat(tempStore[el.id]) || 0;
                         animateValue(el, 0, endValue, 1500);
                     }
