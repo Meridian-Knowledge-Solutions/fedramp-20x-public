@@ -8213,99 +8213,87 @@ async function loadQuarterlyReportData() {
         }
     }
 
-    /**
-     * Download complete authorization package from private repository
-     * Requires authenticated federal access token
-     */
-    async function downloadAuthorizationPackage() {
+/**
+ * Download complete authorization package from private repository via pre-signed URL.
+ * Requires authenticated federal access token.
+ */
+async function downloadAuthorizationPackage() {
     const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
 
     // Check authentication
     if (!token) {
         showErrorMessage('Please register with your federal email to download the authorization package.');
-    showRegistrationModal();
-    return;
+        showRegistrationModal();
+        return;
     }
 
     try {
-        showLoadingMessage('Preparing authorization package download...');
+        // Step 1: Request the pre-signed URL from your API
+        showLoadingMessage('Requesting secure download link...');
 
-    if (FEDRAMP_API_CONFIG.DEMO_MODE) {
-        // Demo mode - simulate download
-        console.log('📧 DEMO MODE: Simulating package download (backend not yet deployed)');
-            await new Promise(resolve => setTimeout(resolve, 2000));
+        const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+                // The 'Content-Type' header is correctly removed
+            },
+            signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT) // Use shorter timeout for the API call
+        });
 
-    showSuccessMessage('✅ Demo mode: In production, this will download the complete authorization package ZIP (~50-150MB) from AWS S3');
-    console.log('📦 Package would include: 10+ JSON files, 2 HTML files, evidence_v2/ with 54 KSI directories');
-            
-        } else {
-            // Production mode - request package download from AWS API
-            const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
-        method: 'GET',
-    headers: {
-        'Authorization': `Bearer ${token}`,
-                },
-    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.PACKAGE_TIMEOUT)
-            });
+        if (response.ok) {
+            // The API now returns JSON, not a blob
+            const data = await response.json();
 
-    if (response.ok) {
-                // Get the ZIP file as blob
-                const blob = await response.blob();
+            // Check if the JSON response contains the pre-signed URL
+            if (data.url) {
+                showLoadingMessage('Download starting...');
 
-    // Extract filename from Content-Disposition header or use default
-    const contentDisposition = response.headers.get('Content-Disposition');
-    let filename = 'meridian-fedramp-authorization-package.zip';
-    if (contentDisposition) {
-                    const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
-    if (filenameMatch && filenameMatch[1]) {
-        filename = filenameMatch[1].replace(/['"]/g, '');
-                    }
-                }
-
-    // Create download link and trigger download
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
+                // Step 2: Use the pre-signed URL to trigger the download
+                // We create a temporary link to initiate the download.
+                // This is better than window.location.href as it doesn't navigate away.
+                const a = document.createElement('a');
+                a.href = data.url; // Use the URL from the API response
+                a.download = 'meridian-fedramp-authorization-package.zip'; // Set a default filename
+                document.body.appendChild(a);
+                a.click();
 
                 // Cleanup
                 setTimeout(() => {
-        document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
                 }, 100);
 
-    showSuccessMessage(`✅ Download started: ${filename}`);
-    logAgencyAccess('authorization_package_download', filename);
-                
-            } else {
-                // Handle error responses
-                const errorData = await response.json().catch(() => ({ }));
+                showSuccessMessage(`✅ Download started: ${a.download}`);
+                logAgencyAccess('authorization_package_download', a.download);
 
-    if (response.status === 401) {
-        localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-    showErrorMessage('Your session has expired. Please register again.');
-                    setTimeout(() => window.location.reload(), 2000);
-                } else if (response.status === 404) {
-        showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
-                } else if (response.status === 403) {
-        showErrorMessage('Access denied. Please ensure your federal email is verified.');
-                } else {
-        showErrorMessage(errorData.error || 'Failed to download authorization package. Please try again.');
-                }
+            } else {
+                // The JSON was valid but didn't contain a URL
+                console.error('API response is missing the pre-signed URL.', data);
+                showErrorMessage('Failed to retrieve download link from the server.');
+            }
+
+        } else {
+            // Handle error responses from the API
+            const errorData = await response.json().catch(() => ({}));
+
+            if (response.status === 401) {
+                localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+                showErrorMessage('Your session has expired. Please register again.');
+                setTimeout(() => window.location.reload(), 2000);
+            } else if (response.status === 404) {
+                showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
+            } else if (response.status === 403) {
+                showErrorMessage('Access denied. Please ensure your federal email is verified.');
+            } else {
+                showErrorMessage(errorData.error || 'Failed to get download link. Please try again.');
             }
         }
-        
+
     } catch (error) {
         console.error('Package download error:', error);
-
-    if (error.name === 'AbortError') {
-        showErrorMessage('Download request timed out. The package is large (~50-150MB). Please check your connection and try again.');
-        } else if (error.message.includes('Failed to fetch')) {
-        showErrorMessage('Network error during download. Please check your connection and try again.');
+        if (error.name === 'AbortError') {
+            showErrorMessage('Request for download link timed out. Please check your connection and try again.');
         } else {
-        showErrorMessage('Unable to download authorization package. Please try again or contact support.');
+            showErrorMessage('Unable to download authorization package. Please try again or contact support at fedramp_20x@meridianks.com.');
         }
     } finally {
         hideLoadingMessage();
