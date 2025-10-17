@@ -8244,7 +8244,6 @@ async function loadQuarterlyReportData() {
         method: 'GET',
     headers: {
         'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
                 },
     signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.PACKAGE_TIMEOUT)
             });
