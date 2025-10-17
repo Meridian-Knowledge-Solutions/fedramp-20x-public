@@ -248,7 +248,7 @@ paths:
         Returns the required Fedramp Inventory in an JSON format, for
         FRR-ADS-TC-05. This contains a list of registered agencies and access
         statistics
-        
+
 
         **Token is supplied by Meridian.**
       requestBody:
@@ -260,23 +260,22 @@ paths:
                 example: "Bearer eyJhb...u9XCA"
   /prod/package:
     get:
-      summary: Download the latest authorization package Zip file
+      summary: Access the latest authorization package Zip file
       tags: 
         - Package Management
       responses:
         '200':
-          description: "Success. The authorization package is returned as a ZIP file."
+          description: "Success. The access to the authorization package ZIP file is granted and URL returned"
           headers:
-            Content-Disposition:
-              description: "Indicates the file should be downloaded as an attachment with a suggested filename."
+            Content-Type:
               schema:
                 type: string
-                example: "attachment; filename=\"meridian-authorization-package-v1.2.3.zip\""
+                example: "application/json"
           content:
-            application/zip:
+            application/json:
               schema:
                 type: string
-                format: binary # Indicates the response is a file
+                example: URL to download the ZIP File
         '401':
           description: "Unauthorized. The provided authentication token is missing, invalid, or expired."
         '502':
@@ -286,7 +285,8 @@ paths:
       description: |-
         ## Registered Fedramp Agencies Only
 
-        Returns a Zip file of the Meridian Fedramp Authorization Package file.
+        Returns a url to the  Zip file of the Meridian Fedramp Authorization Package file.
+        The URL is only available for 2 minutes. After this time a new API call is required to retrieve a new URL.
 
         **Token is supplied from the Verify API Call.**
       requestBody:
