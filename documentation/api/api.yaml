@@ -10,7 +10,7 @@ paths:
     post:
       summary: Trust Center Registration
       tags: 
-        - Trust Center Authentation
+        - Trust Center Authentication
       responses:
         '200':
           description: "Success. Verification token is returned"
