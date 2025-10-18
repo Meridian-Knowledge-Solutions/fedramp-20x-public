@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-10-17 18:50
+**Last Check:** 2025-10-18 03:18
 
 **What it validates:** Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
 
@@ -39,4 +39,4 @@ PASS Sufficient technical capability for recovery objectives for Moderate baseli
 - PASS Backup vault configured.
 
 ---
-*Generated 2025-10-17 18:50 UTC*
+*Generated 2025-10-18 03:18 UTC*
