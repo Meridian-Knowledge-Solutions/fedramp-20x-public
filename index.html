@@ -4049,7 +4049,7 @@ async function getSCNStatus() {
         </div>
     </div>
 
-    <script>
+    >
         // ✅ GLOBAL VARIABLES: Enhanced for multi-level POA&M system
         let allKsis = [];
         let filteredKsis = [];
@@ -6187,7 +6187,7 @@ async function loadQuarterlyReportData() {
 
     // API endpoints
     ENDPOINTS: {
-        REGISTER: '/register',
+    REGISTER: '/register',
     VERIFY: '/verify',
     PACKAGE: '/package',
     DATA: '/api/data',
@@ -6375,208 +6375,208 @@ async function loadQuarterlyReportData() {
     // ====================================================================
 
     class SecureConfigManager {
-    constructor() {
+        constructor() {
         this.configData = null;
-        this.tenantConfigData = null;
-        this.lastFetch = null;
+    this.tenantConfigData = null;
+    this.lastFetch = null;
     }
     async fetchPublicConfig() {
         try {
-            console.log('Fetching public secure configuration from API...');
-            const response = await fetch(
-                `${FEDRAMP_API_CONFIG.BASE_URL}/config`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
+        console.log('Fetching public secure configuration from API...');
+    const response = await fetch(
+    `${FEDRAMP_API_CONFIG.BASE_URL}/config`, {
+        method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
                     },
-                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
                 }
-            );
-            if (response.ok) {
-                this.configData = await response.text();
-                this.lastFetch = Date.now();
-                console.log('✅ Public secure configuration fetched successfully');
-                return this.configData;
+    );
+    if (response.ok) {
+        this.configData = await response.text();
+    this.lastFetch = Date.now();
+    console.log('✅ Public secure configuration fetched successfully');
+    return this.configData;
             } else {
-                console.error('Config API error:', response.status);
-                throw new Error('Failed to fetch configuration');
+        console.error('Config API error:', response.status);
+    throw new Error('Failed to fetch configuration');
             }
         } catch (error) {
-            console.error('Error fetching public configuration:', error);
-            throw error;
+        console.error('Error fetching public configuration:', error);
+    throw error;
         }
     }
     async fetchTenantConfig() {
         const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-        if (!token) {
+    if (!token) {
             throw new Error('Authentication required for tenant-specific configuration');
         }
-        try {
-            console.log('Fetching tenant-specific configuration from API...');
-            const response = await fetch(
-                `${FEDRAMP_API_CONFIG.BASE_URL}/config/tenant`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+    try {
+        console.log('Fetching tenant-specific configuration from API...');
+    const response = await fetch(
+    `${FEDRAMP_API_CONFIG.BASE_URL}/config/tenant`, {
+        method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
                     },
-                    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
                 }
-            );
-            if (response.ok) {
-                this.tenantConfigData = await response.text();
-                console.log('✅ Tenant-specific configuration fetched successfully');
-                return this.tenantConfigData;
+    );
+    if (response.ok) {
+        this.tenantConfigData = await response.text();
+    console.log('✅ Tenant-specific configuration fetched successfully');
+    return this.tenantConfigData;
             } else {
-                console.error('Tenant config API error:', response.status);
-                throw new Error('Failed to fetch tenant configuration');
+        console.error('Tenant config API error:', response.status);
+    throw new Error('Failed to fetch tenant configuration');
             }
         } catch (error) {
-            console.error('Error fetching tenant configuration:', error);
-            throw error;
+        console.error('Error fetching tenant configuration:', error);
+    throw error;
         }
     }
     async downloadConfig(isPublic = true) {
         try {
-            showLoadingMessage('Preparing configuration download...');
-            const markdown = isPublic ?
-                (this.configData || await this.fetchPublicConfig()) :
-                (this.tenantConfigData || await this.fetchTenantConfig());
-            const blob = new Blob([markdown], {
-                type: 'text/markdown'
+        showLoadingMessage('Preparing configuration download...');
+    const markdown = isPublic ?
+    (this.configData || await this.fetchPublicConfig()) :
+    (this.tenantConfigData || await this.fetchTenantConfig());
+    const blob = new Blob([markdown], {
+        type: 'text/markdown'
             });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            const filename = isPublic ?
-                `fedramp-20x-secure-configuration-${new Date().toISOString().split('T')[0]}.md` :
-                `fedramp-20x-tenant-configuration-${new Date().toISOString().split('T')[0]}.md`;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const filename = isPublic ?
+    `fedramp-20x-secure-configuration-${new Date().toISOString().split('T')[0]}.md` :
+    `fedramp-20x-tenant-configuration-${new Date().toISOString().split('T')[0]}.md`;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
             setTimeout(() => {
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    URL.revokeObjectURL(url);
             }, 100);
-            showSuccessMessage('✅ Configuration file downloaded successfully');
-            logAgencyAccess(isPublic ? 'public_config_download' : 'tenant_config_download');
+    showSuccessMessage('✅ Configuration file downloaded successfully');
+    logAgencyAccess(isPublic ? 'public_config_download' : 'tenant_config_download');
         } catch (error) {
-            console.error('Download error:', error);
-            showErrorMessage('Failed to download configuration. Please try again.');
+        console.error('Download error:', error);
+    showErrorMessage('Failed to download configuration. Please try again.');
         } finally {
-            hideLoadingMessage();
+        hideLoadingMessage();
         }
     }
     async viewConfigInBrowser(isPublic = true) {
         try {
-            showLoadingMessage('Loading secure configuration...');
-            const markdown = isPublic ?
-                (this.configData || await this.fetchPublicConfig()) :
-                (this.tenantConfigData || await this.fetchTenantConfig());
-            if (typeof marked === 'undefined') {
-                await this.loadMarkedLibrary();
+        showLoadingMessage('Loading secure configuration...');
+    const markdown = isPublic ?
+    (this.configData || await this.fetchPublicConfig()) :
+    (this.tenantConfigData || await this.fetchTenantConfig());
+    if (typeof marked === 'undefined') {
+        await this.loadMarkedLibrary();
             }
-            marked.setOptions({
-                breaks: true,
-                gfm: true,
-                headerIds: true,
-                mangle: false
+    marked.setOptions({
+        breaks: true,
+    gfm: true,
+    headerIds: true,
+    mangle: false
             });
-            const htmlContent = marked.parse(markdown);
-            this.displayConfigModal(htmlContent, isPublic);
-            logAgencyAccess(isPublic ? 'public_config_view' : 'tenant_config_view');
+    const htmlContent = marked.parse(markdown);
+    this.displayConfigModal(htmlContent, isPublic);
+    logAgencyAccess(isPublic ? 'public_config_view' : 'tenant_config_view');
         } catch (error) {
-            console.error('View error:', error);
-            showErrorMessage('Failed to load configuration. Please try again.');
+        console.error('View error:', error);
+    showErrorMessage('Failed to load configuration. Please try again.');
         } finally {
-            hideLoadingMessage();
+        hideLoadingMessage();
         }
     }
     async loadMarkedLibrary() {
         return new Promise((resolve, reject) => {
             if (typeof marked !== 'undefined') {
-                resolve();
-                return;
+        resolve();
+    return;
             }
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
-            script.onload = resolve;
-            script.onerror = reject;
-            document.head.appendChild(script);
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
         });
     }
 
     displayConfigModal(htmlContent, isPublic) {
         let modal = document.getElementById('config-viewer-modal');
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'config-viewer-modal';
-            modal.className = 'modal';
-            document.body.appendChild(modal);
+    if (!modal) {
+        modal = document.createElement('div');
+    modal.id = 'config-viewer-modal';
+    modal.className = 'modal';
+    document.body.appendChild(modal);
         }
-        const title = isPublic ?
-            '📄 FedRAMP 20x Secure Configuration Standards' :
-            '📄 Tenant-Specific Secure Configuration';
+    const title = isPublic ?
+    '📄 FedRAMP 20x Secure Configuration Standards' :
+    '📄 Tenant-Specific Secure Configuration';
 
-        window.tempConfigContent = { html: htmlContent, title: title };
+    window.tempConfigContent = {html: htmlContent, title: title };
 
-        modal.innerHTML = `
-        <div class="modal-content config-modal-content" style="max-width: 90vw; max-height: 90vh;">
-            <div class="modal-header">
-                <h3>${title}</h3>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <button onclick="window.configManager.downloadConfig(${isPublic})" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                        ⬇️ Download
-                    </button>
-                    <button onclick="window.configManager.openConfigInNewWindow()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                        ↗️ Open in New Window
-                    </button>
-                    <button class="close-btn" onclick="closeCustomModal('config-viewer-modal')">&times;</button>
-                </div>
-            </div>
-            <div class="modal-body markdown-content">
-                ${htmlContent}
+    modal.innerHTML = `
+    <div class="modal-content config-modal-content" style="max-width: 90vw; max-height: 90vh;">
+        <div class="modal-header">
+            <h3>${title}</h3>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button onclick="window.configManager.downloadConfig(${isPublic})" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ⬇️ Download
+                </button>
+                <button onclick="window.configManager.openConfigInNewWindow()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ↗️ Open in New Window
+                </button>
+                <button class="close-btn" onclick="closeCustomModal('config-viewer-modal')">&times;</button>
             </div>
         </div>
-        `;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        <div class="modal-body markdown-content">
+            ${htmlContent}
+        </div>
+    </div>
+    `;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
     }
 
-    
+
     openConfigInNewWindow() {
         if (window.tempConfigContent) {
-            const { html, title } = window.tempConfigContent;
-            const newWindow = window.open("", "_blank");
+            const {html, title} = window.tempConfigContent;
+    const newWindow = window.open("", "_blank");
 
-            newWindow.document.write(`
-                <html>
-                    <head>
-                        <title>${title}</title>
-                        <style>
-                            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-                            .markdown-content { max-width: 800px; margin: auto; }
-                            h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-                            code { background-color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
-                            pre { background-color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
-                            table { border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-                            th, td { border: 1px solid #dfe2e5; padding: 8px 15px; }
-                            th { font-weight: 600; }
-                            a { color: #0366d6; text-decoration: none; }
-                            a:hover { text-decoration: underline; }
-                        </style>
-                    </head>
-                    <body>
-                        <div class="markdown-content">${html}</div>
-                    </body>
-                </html>
-            `);
-            newWindow.document.close();
-            closeCustomModal('config-viewer-modal');
+    newWindow.document.write(`
+    <html>
+        <head>
+            <title>${title}</title>
+            <style>
+                body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+                .markdown-content {max - width: 800px; margin: auto; }
+                h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+                code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+                pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+                table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+                th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
+                th {font - weight: 600; }
+                a {color: #0366d6; text-decoration: none; }
+                a:hover {text - decoration: underline; }
+            </style>
+        </head>
+        <body>
+            <div class="markdown-content">${html}</div>
+        </body>
+    </html>
+    `);
+    newWindow.document.close();
+    closeCustomModal('config-viewer-modal');
         }
     }
-}
-
+    
+    // *** START CORRECTION: MOVED METHODS INSIDE THE CLASS ***
 
     // ADDED NEW METHODS INSIDE the SecureConfigManager class 
 
@@ -6586,53 +6586,53 @@ async function loadQuarterlyReportData() {
     async fetchAndDisplayQuarterlyReport() {
         // --- Configuration: Ideally get this from an API or config ---
         const reportBaseName = 'ongoing_authorization_report_Q4_2025'; // Hardcoded for now
-        const reportPath = 'quarterly_reports/'; // Relative path
-        const mdFilename = `${reportBaseName}.md`;
-        const jsonFilename = `${reportBaseName}.json`;
-        // --- End Configuration ---
+    const reportPath = 'quarterly_reports/'; // Relative path
+    const mdFilename = `${reportBaseName}.md`;
+    const jsonFilename = `${reportBaseName}.json`;
+    // --- End Configuration ---
 
-        showLoadingMessage('Loading quarterly report...');
-        try {
+    showLoadingMessage('Loading quarterly report...');
+    try {
             // Fetch both files concurrently
             const [mdResponse, jsonResponse] = await Promise.all([
-                fetch(reportPath + mdFilename),
-                fetch(reportPath + jsonFilename)
-            ]);
+    fetch(reportPath + mdFilename),
+    fetch(reportPath + jsonFilename)
+    ]);
 
-            if (!mdResponse.ok) {
+    if (!mdResponse.ok) {
                 throw new Error(`Failed to load Markdown report (${mdResponse.status}): ${mdFilename}`);
             }
-            if (!jsonResponse.ok) {
+    if (!jsonResponse.ok) {
                 throw new Error(`Failed to load JSON report (${jsonResponse.status}): ${jsonFilename}`);
             }
 
-            const markdownContent = await mdResponse.text();
-            const jsonContent = await jsonResponse.text(); // Keep as text for download
+    const markdownContent = await mdResponse.text();
+    const jsonContent = await jsonResponse.text(); // Keep as text for download
 
-            // Load marked.js if needed
-            if (typeof marked === 'undefined') {
-                await this.loadMarkedLibrary();
+    // Load marked.js if needed
+    if (typeof marked === 'undefined') {
+        await this.loadMarkedLibrary();
             }
-            marked.setOptions({ breaks: true, gfm: true, headerIds: true, mangle: false });
-            const htmlContent = marked.parse(markdownContent);
+    marked.setOptions({breaks: true, gfm: true, headerIds: true, mangle: false });
+    const htmlContent = marked.parse(markdownContent);
 
-            // Store content temporarily for modal actions
-            window.tempQuarterlyReportContent = {
-                html: htmlContent,
-                markdown: markdownContent,
-                json: jsonContent,
-                mdFilename: mdFilename,
-                jsonFilename: jsonFilename,
-                title: `Quarterly Report: ${reportBaseName}`
+    // Store content temporarily for modal actions
+    window.tempQuarterlyReportContent = {
+        html: htmlContent,
+    markdown: markdownContent,
+    json: jsonContent,
+    mdFilename: mdFilename,
+    jsonFilename: jsonFilename,
+    title: `Quarterly Report: ${reportBaseName}`
             };
 
-            this.displayQuarterlyReportModal(htmlContent);
+    this.displayQuarterlyReportModal(htmlContent);
 
         } catch (error) {
-            console.error('Error fetching quarterly report:', error);
-            showErrorMessage(`Failed to load quarterly report: ${error.message}`);
+        console.error('Error fetching quarterly report:', error);
+    showErrorMessage(`Failed to load quarterly report: ${error.message}`);
         } finally {
-            hideLoadingMessage();
+        hideLoadingMessage();
         }
     }
 
@@ -6641,39 +6641,39 @@ async function loadQuarterlyReportData() {
      */
     displayQuarterlyReportModal(htmlContent) {
         let modal = document.getElementById('quarterly-report-modal');
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'quarterly-report-modal';
-            modal.className = 'modal';
-            document.body.appendChild(modal);
+    if (!modal) {
+        modal = document.createElement('div');
+    modal.id = 'quarterly-report-modal';
+    modal.className = 'modal';
+    document.body.appendChild(modal);
         }
 
-        const { title } = window.tempQuarterlyReportContent || { title: 'Quarterly Report Viewer' };
+    const {title} = window.tempQuarterlyReportContent || {title: 'Quarterly Report Viewer' };
 
-        modal.innerHTML = `
-        <div class="modal-content config-modal-content" style="max-width: 90vw; max-height: 90vh;">
-            <div class="modal-header">
-                <h3>${title}</h3>
-                <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-                    <button onclick="window.configManager.openQuarterlyReportInNewWindow()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                        ↗️ Open MD in New Window
-                    </button>
-                     <button onclick="window.configManager.downloadQuarterlyReportFile('markdown')" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                        ⬇️ Download MD
-                    </button>
-                    <button onclick="window.configManager.downloadQuarterlyReportFile('json')" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                        ⬇️ Download JSON
-                    </button>
-                    <button class="close-btn" onclick="closeCustomModal('quarterly-report-modal')">&times;</button>
-                </div>
-            </div>
-            <div class="modal-body markdown-content">
-                ${htmlContent}
+    modal.innerHTML = `
+    <div class="modal-content config-modal-content" style="max-width: 90vw; max-height: 90vh;">
+        <div class="modal-header">
+            <h3>${title}</h3>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+                <button onclick="window.configManager.openQuarterlyReportInNewWindow()" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ↗️ Open MD in New Window
+                </button>
+                <button onclick="window.configManager.downloadQuarterlyReportFile('markdown')" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ⬇️ Download MD
+                </button>
+                <button onclick="window.configManager.downloadQuarterlyReportFile('json')" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                    ⬇️ Download JSON
+                </button>
+                <button class="close-btn" onclick="closeCustomModal('quarterly-report-modal')">&times;</button>
             </div>
         </div>
-        `;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        <div class="modal-body markdown-content">
+            ${htmlContent}
+        </div>
+    </div>
+    `;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
     }
 
     /**
@@ -6681,35 +6681,35 @@ async function loadQuarterlyReportData() {
      */
     openQuarterlyReportInNewWindow() {
         if (window.tempQuarterlyReportContent) {
-            const { html, title } = window.tempQuarterlyReportContent;
-            const newWindow = window.open("", "_blank");
-            newWindow.document.write(`
-                <html>
-                    <head>
-                        <title>${title}</title>
-                        <style>
+            const {html, title} = window.tempQuarterlyReportContent;
+    const newWindow = window.open("", "_blank");
+    newWindow.document.write(`
+    <html>
+        <head>
+            <title>${title}</title>
+            <style>
                             /* Reusing styles from openConfigInNewWindow */
-                            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-                            .markdown-content { max-width: 800px; margin: auto; }
-                            h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-                            code { background-color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
-                            pre { background-color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
-                            table { border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-                            th, td { border: 1px solid #dfe2e5; padding: 8px 15px; }
-                            th { font-weight: 600; }
-                            a { color: #0366d6; text-decoration: none; }
-                            a:hover { text-decoration: underline; }
-                        </style>
-                    </head>
-                    <body>
-                        <div class="markdown-content">${html}</div>
-                    </body>
-                </html>
-            `);
-            newWindow.document.close();
-            closeCustomModal('quarterly-report-modal'); // Close modal after opening
+                body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+                .markdown-content {max - width: 800px; margin: auto; }
+                h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+                code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+                pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+                table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+                th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
+                th {font - weight: 600; }
+                a {color: #0366d6; text-decoration: none; }
+                a:hover {text - decoration: underline; }
+            </style>
+        </head>
+        <body>
+            <div class="markdown-content">${html}</div>
+        </body>
+    </html>
+    `);
+    newWindow.document.close();
+    closeCustomModal('quarterly-report-modal'); // Close modal after opening
         } else {
-             showErrorMessage('Report content not found to open in new window.');
+        showErrorMessage('Report content not found to open in new window.');
         }
     }
 
@@ -6718,48 +6718,50 @@ async function loadQuarterlyReportData() {
      */
     downloadQuarterlyReportFile(fileType) {
         if (!window.tempQuarterlyReportContent) {
-            showErrorMessage('Report content not found for download.');
-            return;
+        showErrorMessage('Report content not found for download.');
+    return;
         }
 
-        const { markdown, json, mdFilename, jsonFilename } = window.tempQuarterlyReportContent;
-        let content, filename, mimeType;
+    const {markdown, json, mdFilename, jsonFilename} = window.tempQuarterlyReportContent;
+    let content, filename, mimeType;
 
-        if (fileType === 'markdown') {
-            content = markdown;
-            filename = mdFilename;
-            mimeType = 'text/markdown;charset=utf-8';
-            logAgencyAccess('quarterly_report_download_md', filename);
+    if (fileType === 'markdown') {
+        content = markdown;
+    filename = mdFilename;
+    mimeType = 'text/markdown;charset=utf-8';
+    logAgencyAccess('quarterly_report_download_md', filename);
         } else if (fileType === 'json') {
-            content = json; // Use the raw JSON text
-            filename = jsonFilename;
-            mimeType = 'application/json;charset=utf-8';
-             logAgencyAccess('quarterly_report_download_json', filename);
+        content = json; // Use the raw JSON text
+    filename = jsonFilename;
+    mimeType = 'application/json;charset=utf-8';
+    logAgencyAccess('quarterly_report_download_json', filename);
         } else {
-            showErrorMessage('Invalid file type requested for download.');
-            return;
+        showErrorMessage('Invalid file type requested for download.');
+    return;
         }
 
-        try {
-            const blob = new Blob([content], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
+    try {
+            const blob = new Blob([content], {type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
 
             setTimeout(() => {
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-                 showSuccessMessage(`✅ Started downloading ${filename}`);
+        document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showSuccessMessage(`✅ Started downloading ${filename}`);
             }, 100);
 
         } catch (error) {
-            console.error(`Error downloading ${fileType} report:`, error);
-            showErrorMessage(`Failed to initiate download for ${filename}.`);
+        console.error(`Error downloading ${fileType} report:`, error);
+    showErrorMessage(`Failed to initiate download for ${filename}.`);
         }
     }
+} // *** END CORRECTION: CLASS CLOSING BRACE MOVED HERE ***
+
 
     // Public config access (no authentication required)
     async function viewPublicSecureConfiguration() {
@@ -6811,7 +6813,7 @@ async function loadQuarterlyReportData() {
 
     static sanitizeCategory(c) { 
             const categoryMap = {
-    'Identity and Access Management': 'Authentication & Access',
+        'Identity and Access Management': 'Authentication & Access',
     'Cloud Native Architecture': 'Infrastructure Security',
     'Service Configuration': 'Configuration Management',
     'Monitoring, Logging, Auditing': 'Security Monitoring',
@@ -8100,7 +8102,7 @@ async function loadQuarterlyReportData() {
     }
 
     async function viewQuarterlyReports() {
-    logAgencyAccess('quarterly_reports_access');
+        logAgencyAccess('quarterly_reports_access');
     if (!window.fedRAMPAuth.isAuthenticated) {
         showAccessRequiredModal('Quarterly Authorization Reports', [
             'Access detailed RFC-0016 compliance reports',
@@ -8438,87 +8440,87 @@ async function loadQuarterlyReportData() {
         }
     }
 
-/**
- * Download complete authorization package from private repository via pre-signed URL.
- * Requires authenticated federal access token.
- */
-async function downloadAuthorizationPackage() {
+    /**
+     * Download complete authorization package from private repository via pre-signed URL.
+     * Requires authenticated federal access token.
+     */
+    async function downloadAuthorizationPackage() {
     const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
 
     // Check authentication
     if (!token) {
         showErrorMessage('Please register with your federal email to download the authorization package.');
-        showRegistrationModal();
-        return;
+    showRegistrationModal();
+    return;
     }
 
     try {
         // Step 1: Request the pre-signed URL from your API
         showLoadingMessage('Requesting secure download link...');
 
-        const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
+    const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
+        method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${token}`
                 // The 'Content-Type' header is correctly removed
             },
-            signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT) // Use shorter timeout for the API call
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT) // Use shorter timeout for the API call
         });
 
-        if (response.ok) {
+    if (response.ok) {
             // The API now returns JSON, not a blob
             const data = await response.json();
 
-            // Check if the JSON response contains the pre-signed URL
-            if (data.url) {
-                showLoadingMessage('Download starting...');
+    // Check if the JSON response contains the pre-signed URL
+    if (data.url) {
+        showLoadingMessage('Download starting...');
 
-                // Step 2: Use the pre-signed URL to trigger the download
-                // We create a temporary link to initiate the download.
-                // This is better than window.location.href as it doesn't navigate away.
-                const a = document.createElement('a');
-                a.href = data.url; // Use the URL from the API response
-                a.download = 'meridian-fedramp-authorization-package.zip'; // Set a default filename
-                document.body.appendChild(a);
-                a.click();
+    // Step 2: Use the pre-signed URL to trigger the download
+    // We create a temporary link to initiate the download.
+    // This is better than window.location.href as it doesn't navigate away.
+    const a = document.createElement('a');
+    a.href = data.url; // Use the URL from the API response
+    a.download = 'meridian-fedramp-authorization-package.zip'; // Set a default filename
+    document.body.appendChild(a);
+    a.click();
 
                 // Cleanup
                 setTimeout(() => {
-                    document.body.removeChild(a);
+        document.body.removeChild(a);
                 }, 100);
 
-                showSuccessMessage(`✅ Download started: ${a.download}`);
-                logAgencyAccess('authorization_package_download', a.download);
+    showSuccessMessage(`✅ Download started: ${a.download}`);
+    logAgencyAccess('authorization_package_download', a.download);
 
             } else {
-                // The JSON was valid but didn't contain a URL
-                console.error('API response is missing the pre-signed URL.', data);
-                showErrorMessage('Failed to retrieve download link from the server.');
+        // The JSON was valid but didn't contain a URL
+        console.error('API response is missing the pre-signed URL.', data);
+    showErrorMessage('Failed to retrieve download link from the server.');
             }
 
         } else {
             // Handle error responses from the API
-            const errorData = await response.json().catch(() => ({}));
+            const errorData = await response.json().catch(() => ({ }));
 
-            if (response.status === 401) {
-                localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-                showErrorMessage('Your session has expired. Please register again.');
+    if (response.status === 401) {
+        localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+    showErrorMessage('Your session has expired. Please register again.');
                 setTimeout(() => window.location.reload(), 2000);
             } else if (response.status === 404) {
-                showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
+        showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
             } else if (response.status === 403) {
-                showErrorMessage('Access denied. Please ensure your federal email is verified.');
+        showErrorMessage('Access denied. Please ensure your federal email is verified.');
             } else {
-                showErrorMessage(errorData.error || 'Failed to get download link. Please try again.');
+        showErrorMessage(errorData.error || 'Failed to get download link. Please try again.');
             }
         }
 
     } catch (error) {
         console.error('Package download error:', error);
-        if (error.name === 'AbortError') {
-            showErrorMessage('Request for download link timed out. Please check your connection and try again.');
+    if (error.name === 'AbortError') {
+        showErrorMessage('Request for download link timed out. Please check your connection and try again.');
         } else {
-            showErrorMessage('Unable to download authorization package. Please try again or contact support at fedramp_20x@meridianks.com.');
+        showErrorMessage('Unable to download authorization package. Please try again or contact support at fedramp_20x@meridianks.com.');
         }
     } finally {
         hideLoadingMessage();
@@ -8969,7 +8971,7 @@ async function downloadAuthorizationPackage() {
 
     // IMPORTANT: Ensure KSI data is loaded
     ensureKSIDataLoaded();
-    
+
     // Also try to wait a bit for the main page to load its data
     setTimeout(() => {
         ensureKSIDataLoaded();
@@ -9013,50 +9015,50 @@ async function downloadAuthorizationPackage() {
     // Check if KSI data needs to be loaded from the page
     if (!window.allKsis || !Array.isArray(window.allKsis)) {
         console.log('Attempting to load KSI data...');
-        
-        // Try to get KSI data from various possible sources
-        // Option 1: Check if loadKSIs function exists and call it
-        if (typeof window.loadKSIs === 'function') {
-            window.loadKSIs();
+
+    // Try to get KSI data from various possible sources
+    // Option 1: Check if loadKSIs function exists and call it
+    if (typeof window.loadKSIs === 'function') {
+        window.loadKSIs();
         }
-        
-        // Option 2: Check if the data is in a script tag or data attribute
-        const ksiDataScript = document.querySelector('script[type="application/json"][id*="ksi"]');
-        if (ksiDataScript) {
+
+    // Option 2: Check if the data is in a script tag or data attribute
+    const ksiDataScript = document.querySelector('script[type="application/json"][id*="ksi"]');
+    if (ksiDataScript) {
             try {
-                window.allKsis = JSON.parse(ksiDataScript.textContent);
-                console.log('Loaded KSI data from script tag:', window.allKsis.length, 'items');
+        window.allKsis = JSON.parse(ksiDataScript.textContent);
+    console.log('Loaded KSI data from script tag:', window.allKsis.length, 'items');
             } catch (e) {
-                console.error('Failed to parse KSI data from script:', e);
+        console.error('Failed to parse KSI data from script:', e);
             }
         }
-        
-        // Option 3: Try to fetch from an API endpoint if available
-        if (!window.allKsis && window.FEDRAMP_API_CONFIG && !window.FEDRAMP_API_CONFIG.DEMO_MODE) {
-            fetch(`${window.FEDRAMP_API_CONFIG.BASE_URL}${window.FEDRAMP_API_CONFIG.ENDPOINTS.DATA}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data && data.ksis) {
-                        window.allKsis = data.ksis;
-                        window.filteredKsis = data.ksis;
-                        console.log('Loaded KSI data from API:', window.allKsis.length, 'items');
-                        // Re-render if needed
-                        if (window.renderKsis) {
-                            window.renderKsis();
-                        }
+
+    // Option 3: Try to fetch from an API endpoint if available
+    if (!window.allKsis && window.FEDRAMP_API_CONFIG && !window.FEDRAMP_API_CONFIG.DEMO_MODE) {
+        fetch(`${window.FEDRAMP_API_CONFIG.BASE_URL}${window.FEDRAMP_API_CONFIG.ENDPOINTS.DATA}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.ksis) {
+                    window.allKsis = data.ksis;
+                    window.filteredKsis = data.ksis;
+                    console.log('Loaded KSI data from API:', window.allKsis.length, 'items');
+                    // Re-render if needed
+                    if (window.renderKsis) {
+                        window.renderKsis();
                     }
-                })
-                .catch(error => {
-                    console.error('Failed to load KSI data from API:', error);
-                });
+                }
+            })
+            .catch(error => {
+                console.error('Failed to load KSI data from API:', error);
+            });
         }
     }
-    
+
     // Also ensure filteredKsis is set if allKsis exists
     if (window.allKsis && !window.filteredKsis) {
         window.filteredKsis = window.allKsis;
     }
-}    
+}
 
     function addAuthenticationIndicator() {
         if (!window.fedRAMPAuth.isAuthenticated) return;
