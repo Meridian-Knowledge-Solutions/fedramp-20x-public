@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Cloud Native Architecture
-**Status:** PASS
-**Last Check:** 2025-10-20 06:48
+**Status:** FAIL
+**Last Check:** 2025-10-20 12:50
 
 **What it validates:** Use automated services to persistently assess and enforce secure operations
 
@@ -29,10 +29,10 @@
 
 ## Latest Results
 
-Excellent measurement posture (75%): Basic framework: 1 Security Hub standard(s)
-- Extensive instrumentation: 327 Config rules
+No active measurement capability (42%): Basic framework: 1 Security Hub standard(s)
+- No measurement instruments (Config rules not deployed)
 - Active measurement: Config recorder capturing data
 - Limited visibility: No central aggregation
 
 ---
-*Generated 2025-10-20 06:48 UTC*
+*Generated 2025-10-20 12:50 UTC*

@@ -19,7 +19,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
-- [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
+- [FAIL] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
 
 ## Cybersecurity Education
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 55
-- **Failing:** 1
+- **Passing:** 54
+- **Failing:** 2
 - **Not Tested:** 0
 
 ---
-*Generated 2025-10-20 06:48 UTC*
+*Generated 2025-10-20 12:50 UTC*
