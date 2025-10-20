@@ -6180,9 +6180,9 @@ async function loadQuarterlyReportData() {
     // PHASE 1: API CONFIGURATION & AUTHENTICATION
     // ====================================================================
 
-    // API Configuration 
+    // API Configuration
     const FEDRAMP_API_CONFIG = {
-        // Base URL from AWS CloudFormation output 
+        // Base URL from AWS CloudFormation output
         BASE_URL: 'https://7d7pdwb9t3.execute-api.us-east-1.amazonaws.com/prod',
 
     // API endpoints
@@ -6202,45 +6202,45 @@ async function loadQuarterlyReportData() {
     // Token storage key
     TOKEN_KEY: 'fedRAMPAccessToken',
 
-    // Demo mode flag 
+    // Demo mode flag
     DEMO_MODE: false
     };
 
     class FedRAMPAuth {
         constructor() {
         this.token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-    this.isAuthenticated = this.validateToken(); 
+    this.isAuthenticated = this.validateToken();
         }
 
-    validateToken() { 
+    validateToken() {
             if (!this.token) return false;
-    try { 
-                const payload = JSON.parse(atob(this.token.split('.')[1])); 
-                return payload.exp > Date.now() / 1000; 
+    try {
+                const payload = JSON.parse(atob(this.token.split('.')[1]));
+                return payload.exp > Date.now() / 1000;
             } catch {
         localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-    return false; 
-            } 
+    return false;
+            }
         }
 
-    getAgencyInfo() { 
+    getAgencyInfo() {
             if (!this.isAuthenticated) return null;
-    try { 
+    try {
                 const payload = JSON.parse(atob(this.token.split('.')[1]));
     return {
         agency: payload.agency,
     email: payload.email,
     contact: payload.contact,
-    system_name: payload.system_name 
-                }; 
-            } catch { 
-                return null; 
-            } 
+    system_name: payload.system_name
+                };
+            } catch {
+                return null;
+            }
         }
 
     logout() {
         localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
-    window.location.reload(); 
+    window.location.reload();
         }
     }
 
@@ -6287,7 +6287,7 @@ async function loadQuarterlyReportData() {
 
     const uptime = parseFloat(this.statusData.uptime_percent || "0");
     const errors = parseInt(this.statusData['5xx_requests'] || "0");
-        
+
         if (errors > 0) {
             return {color: '#ef4444', text: 'Service Issues Detected', icon: '🔴'};
         } else if (uptime >= 99.9) {
@@ -6543,7 +6543,7 @@ async function loadQuarterlyReportData() {
         document.body.style.overflow = 'hidden';
     }
 
-    // ✅ CORRECT: No "function" keyword, making it a valid class method.
+    // ✅ CORRECTED: Added the missing closing brace for the class
     openConfigInNewWindow() {
         if (window.tempConfigContent) {
             const { html, title } = window.tempConfigContent;
@@ -6575,7 +6575,7 @@ async function loadQuarterlyReportData() {
             closeCustomModal('config-viewer-modal');
         }
     }
-}
+} // <--- THIS BRACE WAS MISSING
 
     // Public config access (no authentication required)
     async function viewPublicSecureConfiguration() {
@@ -6611,7 +6611,7 @@ async function loadQuarterlyReportData() {
     }
 
     class KSIDataSanitizer {
-        static sanitizeForPublic(ksi) { 
+        static sanitizeForPublic(ksi) {
             const s = this.mapStatusForPublic(ksi.status || ksi.assertion);
     return {
         id: ksi.ksi_id || ksi.id,
@@ -6622,10 +6622,10 @@ async function loadQuarterlyReportData() {
     commands_executed: ksi.commands_executed || 0,
                 success_rate: ksi.commands_executed > 0 ?
     Math.round(((ksi.successful_commands || 0) / ksi.commands_executed) * 100) : 0
-            }; 
+            };
         }
 
-    static sanitizeCategory(c) { 
+    static sanitizeCategory(c) {
             const categoryMap = {
     'Identity and Access Management': 'Authentication & Access',
     'Cloud Native Architecture': 'Infrastructure Security',
@@ -6638,10 +6638,10 @@ async function loadQuarterlyReportData() {
     'Policy & Inventory': 'Governance',
     'Cybersecurity Education': 'Security Training'
             };
-    return categoryMap[c] || c || 'General Security'; 
+    return categoryMap[c] || c || 'General Security';
         }
 
-    static sanitizeDescription(r) { 
+    static sanitizeDescription(r) {
             if (!r) return "Security control validation";
     const mappings = {
         'mfa': "Multi-factor authentication controls",
@@ -6653,10 +6653,10 @@ async function loadQuarterlyReportData() {
     'authentication': "Authentication controls",
     'authorization': "Authorization controls"
             };
-    for (const [k, v] of Object.entries(mappings)) { 
-                if (r.toLowerCase().includes(k)) return v; 
+    for (const [k, v] of Object.entries(mappings)) {
+                if (r.toLowerCase().includes(k)) return v;
             }
-    return "Security control validation"; 
+    return "Security control validation";
         }
 
     static sanitizeAssertionReason(reason) {
@@ -6682,7 +6682,7 @@ async function loadQuarterlyReportData() {
     return sanitized || "Security enhancement in progress per FedRAMP requirements";
         }
 
-    static mapStatusForPublic(a) { 
+    static mapStatusForPublic(a) {
             const k = String(a).toLowerCase();
     return {
         'true': {status: 'compliant', text: 'Compliant' },
@@ -6690,8 +6690,8 @@ async function loadQuarterlyReportData() {
     'false': {status: 'enhancement', text: 'Enhancement Required' },
     'failed': {status: 'enhancement', text: 'Enhancement Required' },
     'warning': {status: 'monitoring', text: 'Low Risk' },
-    'info': {status: 'improvement', text: 'Improvement Opportunity' } 
-            }[k] || {status: 'enhancement', text: 'Enhancement Required' }; 
+    'info': {status: 'improvement', text: 'Improvement Opportunity' }
+            }[k] || {status: 'enhancement', text: 'Enhancement Required' };
         }
     }
 
@@ -6700,47 +6700,45 @@ async function loadQuarterlyReportData() {
     // ====================================================================
 
     function removeRedundantSections() {
-        // Remove quarterly reports section from main dashboard
+        // RE-ADD THIS SECTION
         const quarterlySection = document.getElementById('quarterly-reports-section');
-    if (quarterlySection) {
-        quarterlySection.remove();
-    console.log('Removed redundant quarterly reports section from dashboard');
+        if (quarterlySection) {
+            quarterlySection.remove();
+            console.log('Removed redundant quarterly reports section from dashboard');
         }
 
-    // Remove any buttons that reference the quarterly reports section
-    const quarterlyButtons = document.querySelectorAll('button[onclick*="quarterly-reports-section"]');
+        // Remove any buttons that reference the quarterly reports section
+        const quarterlyButtons = document.querySelectorAll('button[onclick*="quarterly-reports-section"]');
         quarterlyButtons.forEach(button => {
             const card = button.closest('.access-card');
-    if (card) {
-        card.remove();
-    console.log('Removed redundant quarterly reports access card');
+            if (card) {
+                card.remove();
+                console.log('Removed redundant quarterly reports access card');
             }
         });
 
-    // Remove scrollToTrustSection references to quarterly reports
-    const scrollButtons = document.querySelectorAll('button[onclick*="scrollToTrustSection"]');
+        // Remove scrollToTrustSection references to quarterly reports
+        const scrollButtons = document.querySelectorAll('button[onclick*="scrollToTrustSection"]');
         scrollButtons.forEach(button => {
             if (button.onclick && button.onclick.toString().includes('quarterly-reports-section')) {
                 const card = button.closest('.access-card');
-    if (card) {
-        card.remove();
-    console.log('Removed quarterly reports scroll button');
+                if (card) {
+                    card.remove();
+                    console.log('Removed quarterly reports scroll button');
                 }
             }
         });
+        // END OF RE-ADDED SECTION
 
-    // Remove federal agency access request forms (redundant with registration modal)
-    const agencyFormSection = document.getElementById('agency-form-section');
-    if (agencyFormSection) {
-        agencyFormSection.remove();
-    console.log('Removed redundant federal agency access request form');
+        const agencyFormSection = document.getElementById('agency-form-section');
+        if (agencyFormSection) {
+            agencyFormSection.remove();
+            console.log('Removed redundant federal agency access request form');
         }
-
-    // Remove security incident reporting section (not core to authorization data sharing)
-    const incidentSection = document.getElementById('incident-section');
-    if (incidentSection) {
-        incidentSection.remove();
-    console.log('Removed redundant security incident reporting section');
+        const incidentSection = document.getElementById('incident-section');
+        if (incidentSection) {
+            incidentSection.remove();
+            console.log('Removed redundant security incident reporting section');
         }
     }
 
@@ -6759,6 +6757,41 @@ async function loadQuarterlyReportData() {
     }
 
     function getPublicTrustCenterHTML() {
+const publicQuarterlySection = `
+        <div class="trust-section" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%); border: 2px solid rgba(139, 92, 246, 0.2); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2.5rem;">📋</div>
+                <div>
+                    <h2 style="margin: 0;">Quarterly Authorization Reports</h2>
+                    <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">RFC-0016 Collaborative Continuous Monitoring</p>
+                </div>
+            </div>
+            <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+                    We provide <strong>Ongoing Authorization Reports</strong> every 3 months per FRR-CCM-01, covering changes to authorization data,
+                    accepted weaknesses, planned updates, and security recommendations. These reports are available to all federal agencies.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="padding: 1rem; background: rgba(139, 92, 246, 0.05); border-radius: 8px; border-left: 3px solid var(--primary-500);">
+                        <strong style="color: var(--text-primary); display: block; margin-bottom: 0.5rem;">Next Report</strong>
+                        <span id="next-report-date" style="color: var(--text-secondary);">Loading...</span>
+                    </div>
+                    <div style="padding: 1rem; background: rgba(139, 92, 246, 0.05); border-radius: 8px; border-left: 3px solid var(--primary-500);">
+                        <strong style="color: var(--text-primary); display: block; margin-bottom: 0.5rem;">Next Quarterly Review</strong>
+                        <span id="next-quarterly-review" style="color: var(--text-secondary);">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div style="background: rgba(239, 246, 255, 0.5); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; border-left: 3px solid var(--info-500);">
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                    <strong>📌 Public Information:</strong> Report schedules and high-level summaries are publicly available per FRR-CCM-03 and FRR-CCM-QR-05.
+                    <strong>Authenticated federal agencies</strong> can download complete reports and register for quarterly review meetings.
+                </p>
+            </div>
+            <button onclick="showRegistrationModal()" class="btn-primary" style="width: 100%;">
+                🔓 Register for Full Report Access
+            </button>
+        </div>`;
     return `
     <div class="trust-center-container">
         <div class="trust-center-header">
@@ -6866,6 +6899,8 @@ async function loadQuarterlyReportData() {
                 Requires verified .gov or .mil email address
             </p>
         </div>
+
+        ${publicQuarterlySection}
 
         <div class="trust-section fedramp-info-section">
             <h3>🏛️ Official FedRAMP Information</h3>
@@ -7313,6 +7348,113 @@ async function loadQuarterlyReportData() {
 }
 
     function getAuthenticatedTrustCenterHTML(agencyInfo) {
+const quarterlyReportsSection = `
+        <div class="trust-section" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%); border: 2px solid rgba(99, 102, 241, 0.3); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="font-size: 2.5rem;">📋</div>
+                <div>
+                    <h2 style="margin: 0;">Quarterly Reports & Agency Collaboration</h2>
+                    <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">RFC-0016 Collaborative Continuous Monitoring</p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                                <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem;">📄</span>
+                        <h4 style="margin: 0;">Current Ongoing Authorization Report</h4>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+                        Download the latest quarterly authorization report per FRR-CCM-01, covering changes, accepted weaknesses, and planned updates.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <button onclick="downloadCurrentReport()" class="btn-primary" style="width: 100%;">
+                            📥 Download Q4 2025 Report
+                        </button>
+                        <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/tree/master/quarterly_reports" class="btn-secondary" style="text-align: center; text-decoration: none; display: block;">
+                            📚 View Report Archive
+                        </a>
+                    </div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                        <p style="font-size: 0.875rem; color: var(--text-tertiary); margin: 0;">
+                            <strong>Next Report:</strong> <span id="next-report-date-auth">Loading...</span>
+                        </p>
+                    </div>
+                </div>
+                <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem;">💬</span>
+                        <h4 style="margin: 0;">Agency Feedback Mechanism</h4>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+                        Submit questions and feedback asynchronously per FRR-CCM-04. Your feedback is shared with FedRAMP but not with other agencies without your approval.
+                    </p>
+                    <button onclick="openAgencyFeedback()" class="btn-primary" style="width: 100%;">
+                        📝 Submit Agency Feedback
+                    </button>
+                    <div style="margin-top: 1rem; padding: 0.75rem; background: rgba(239, 246, 255, 0.5); border-radius: 8px; border-left: 3px solid var(--info-500);">
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                            <strong>Note:</strong> Feedback is confidential per FRR-CCM-05 and shared only with FedRAMP unless you approve wider distribution.
+                        </p>
+                    </div>
+                </div>
+                <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span style="font-size: 1.5rem;">🎪</span>
+                        <h4 style="margin: 0;">Quarterly Review Meetings</h4>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+                        Register for synchronous quarterly reviews per FRR-CCM-QR-01. These meetings occur 3-14 days after report release per FRR-CCM-QR-02.
+                    </p>
+                    <button onclick="registerForReview()" class="btn-primary" style="width: 100%;">
+                        📅 Register for Next Review
+                    </button>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                        <p style="font-size: 0.875rem; color: var(--text-tertiary); margin: 0;">
+                            <strong>Next Review:</strong> <span id="next-quarterly-review-auth">Loading...</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <details style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 255, 255, 0.5); border-radius: 8px;">
+                <summary style="cursor: pointer; font-weight: 600; color: var(--primary-500); user-select: none;">
+                    📊 What's included in Ongoing Authorization Reports? (FRR-CCM-01)
+                </summary>
+                <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div>
+                        <h5 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">📄 Changes to Authorization Data</h5>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">
+                            <li>System architecture updates</li>
+                            <li>Security control modifications</li>
+                            <li>Compliance status changes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">🔮 Planned Changes (Next 3 Months)</h5>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">
+                            <li>Infrastructure upgrades</li>
+                            <li>Security enhancements</li>
+                            <li>Compliance milestones</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">⚠️ Accepted Weaknesses</h5>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">
+                            <li>Risk-accepted findings</li>
+                            <li>POA&M tracking</li>
+                            <li>Remediation timelines</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">🎯 Best Practices & Recommendations</h5>
+                        <ul style="margin: 0; padding-left: 1.5rem; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">
+                            <li>Configuration guidance</li>
+                            <li>Security recommendations</li>
+                            <li>Usage best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+        </div>`;
     return `
     <div class="trust-center-container">
         <div class="trust-center-header authenticated">
@@ -7397,6 +7539,8 @@ async function loadQuarterlyReportData() {
                 </details>
             </div>
         </div>
+
+        ${quarterlyReportsSection}
 
         <div class="trust-grid">
             <div class="trust-card">
@@ -7591,7 +7735,7 @@ async function loadQuarterlyReportData() {
     } else {
         // Authenticated - call the ORIGINAL showWhyModal function
         if (typeof window.originalShowWhyModal === 'function') {
-        window.originalShowWhyModal(ksiId); 
+        window.originalShowWhyModal(ksiId);
         } else {
         console.error('originalShowWhyModal function not found. Could not display details.');
     // As a fallback call a simplified modal
@@ -7627,7 +7771,7 @@ async function loadQuarterlyReportData() {
                     <span class="agency-badge">⚖️ ${agencyInfo.agency}</span>
                     <span class="access-level">Authenticated Federal Access</span>
                 </div>
-                
+
                 <div class="technical-summary">
                     <h4>⚠️ Data Loading Issue</h4>
                     <p>The detailed assessment data for <strong>${ksiId}</strong> is currently loading or unavailable.</p>
@@ -7638,15 +7782,15 @@ async function loadQuarterlyReportData() {
                         <li>The KSI ID format has changed</li>
                     </ul>
                 </div>
-                
+
                 <div class="technical-actions" style="margin-top: 1.5rem;">
                     <button onclick="location.reload()" class="btn-secondary">🔄 Refresh Page</button>
                     <button onclick="closeTemporaryModal('why-modal')" class="btn-secondary">Close</button>
                 </div>
-                
+
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
                     <p style="font-size: 0.875rem; color: var(--text-tertiary);">
-                        If this issue persists, please contact 
+                        If this issue persists, please contact
                         <a href="mailto:fedramp_20x@meridianks.com" style="color: var(--primary-500);">fedramp_20x@meridianks.com</a>
                     </p>
                 </div>
@@ -7667,7 +7811,7 @@ async function loadQuarterlyReportData() {
                         <p style="margin-top: 1rem;">Complete technical details are available to registered federal agencies.</p>
                     </div>
                 </div>
-                
+
                 <div class="agency-access-upgrade">
                     <h4>🔒 Federal Agency Access Required</h4>
                     <p>Register to view detailed technical findings and assessment data.</p>
@@ -7709,7 +7853,7 @@ async function loadQuarterlyReportData() {
                             ${getStatusIcon(statusInfo.status)} ${statusInfo.text}
                         </div>
                     </div>
-                    
+
                     <div class="assessment-details">
                         <h4>📋 Control Assessment</h4>
                         <p><strong>Control Area:</strong> ${publicData.description}</p>
@@ -7717,13 +7861,13 @@ async function loadQuarterlyReportData() {
                         <p><strong>Assessment Status:</strong> ${KSIDataSanitizer.sanitizeAssertionReason(ksi.assertion_reason)}</p>
                         <p><strong>Validation Tests:</strong> ${publicData.commands_executed} automated tests executed</p>
                     </div>
-                    
+
                     <div class="enhancement-note">
                         <h4>📈 Continuous Improvement</h4>
                         <p>This control is part of our ongoing security enhancement program following FedRAMP requirements and industry best practices. Regular validation ensures consistent security posture.</p>
                     </div>
                 </div>
-                
+
                 <div class="agency-access-upgrade">
                     <h4>🔒 Federal Agency Access Required</h4>
                     <p>Register to view detailed technical findings, CLI commands, and remediation evidence.</p>
@@ -7766,7 +7910,7 @@ async function loadQuarterlyReportData() {
                     <span class="agency-badge">🇺🇸 ${agencyInfo.agency}</span>
                     <span class="access-level">Authenticated Federal Access</span>
                 </div>
-                
+
                 <div class="technical-summary">
                     <h4>🎯 Technical Assessment Details</h4>
                     <p><strong>Requirement:</strong> ${ksi.requirement || ksi.description}</p>
@@ -7775,14 +7919,14 @@ async function loadQuarterlyReportData() {
                     <p><strong>Commands Executed:</strong> ${ksi.commands_executed || 0}</p>
                     <p><strong>Success Rate:</strong> ${ksi.commands_executed > 0 ? Math.round(((ksi.successful_commands || 0) / ksi.commands_executed) * 100) : 0}%</p>
                 </div>
-                
+
                 <div class="technical-findings">
                     <h4>📋 Assessment Findings</h4>
                     <div class="finding-content">
                         ${ksi.assertion_reason || 'Technical assessment completed - detailed findings available in CLI output.'}
                     </div>
                 </div>
-                
+
                 <div class="technical-actions">
                     <button onclick="showCLITwoTier('${ksi.ksi_id || ksi.id}')" class="btn-secondary">⚡ View CLI Details</button>
                     <button onclick="createIssueTwoTier('${ksi.ksi_id || ksi.id}')" class="btn-secondary">📋 Create Issue</button>
@@ -7925,6 +8069,76 @@ async function loadQuarterlyReportData() {
         }
     }
 
+async function downloadCurrentReport() {
+    // Add authentication check
+    if (!window.fedRAMPAuth.isAuthenticated) {
+        showAccessRequiredModal('Download Quarterly Report', [
+            'Access current and historical quarterly reports',
+            'Download reports in human-readable (Markdown) format',
+            'Review all accepted weaknesses and planned changes'
+        ]);
+        return;
+    }
+
+    try {
+        logAgencyAccess('ongoing_authorization_report_download', 'Q4_2025');
+        const reportUrl = 'https://raw.githubusercontent.com/Meridian-Knowledge-Solutions/fedramp-20x-public/master/quarterly_reports/ongoing_authorization_report_Q4_2025.md';
+
+        // Create a dynamic link with the 'download' attribute
+        const a = document.createElement('a');
+        a.href = reportUrl;
+        a.download = 'ongoing_authorization_report_Q4_2025.md'; // This attribute forces download
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        showSuccessMessage('✅ Report download started');
+
+    } catch (error) {
+        console.error('Report download error:', error);
+        showErrorMessage('Failed to start report download. Please check your connection.');
+    }
+}
+
+async function loadQuarterlyReportData() {
+    try {
+        // FRR-CCM-03 & FRR-CCM-QR-05: Fetch from public GitHub repository
+        const response = await fetch('https://raw.githubusercontent.com/Meridian-Knowledge-Solutions/fedramp-20x-public/master/trust_center/next_report_date.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        // Update Next Ongoing Authorization Report date (FRR-CCM-03)
+        if (data.next_ongoing_report) {
+            const reportDate = new Date(data.next_ongoing_report + 'T00:00:00Z');
+            const reportDateElement = document.getElementById('next-report-date');
+            if (reportDateElement) {
+                reportDateElement.textContent = reportDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    timeZone: 'UTC'
+                });
+            }
+        }
+        // Update Next Quarterly Review date (FRR-CCM-QR-05)
+        if (data.next_quarterly_review) {
+            const reviewElement = document.getElementById('next-quarterly-review');
+            if (reviewElement) {
+                reviewElement.textContent = data.next_quarterly_review + ' at 2:00 PM ET';
+            }
+        }
+        console.log('✅ Quarterly report schedule loaded from public repository');
+    } catch (error) {
+        console.error('Could not load quarterly report schedule:', error);
+        const reportDateElement = document.getElementById('next-report-date');
+        const reviewElement = document.getElementById('next-quarterly-review');
+        if (reportDateElement) reportDateElement.textContent = 'Check back soon';
+        if (reviewElement) reviewElement.textContent = 'Schedule pending';
+    }
+}
+
     function exportValidationData() {
         logAgencyAccess('validation_data_export');
     if (window.allKsis) {
@@ -7977,12 +8191,68 @@ async function loadQuarterlyReportData() {
     }
 
     function openAgencyFeedback() {
+        // Add authentication check
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            showAccessRequiredModal('Submit Agency Feedback', [
+                'Provide asynchronous feedback on compliance data',
+                'Ask questions about security controls',
+                'Collaborate directly with the provider security team'
+            ]);
+            return;
+        }
+
         logAgencyAccess('agency_feedback_submission');
-    const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-    const subject = encodeURIComponent(`Agency Feedback - ${agencyInfo?.agency}`);
-    const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nEmail: ${agencyInfo?.email}\n\nFeedback on authorization data and continuous monitoring per FRR-CCM-04:\n\n`);
-    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+        const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+
+        if (!agencyInfo) {
+            // This shouldn't happen if auth passed, but as a fallback:
+            showErrorMessage('You must be registered to submit feedback.');
+            return;
+        }
+
+        const subject = encodeURIComponent(`Agency Feedback - ${agencyInfo.agency}`);
+        const body = encodeURIComponent(
+            `Agency: ${agencyInfo.agency}\n` +
+            `Contact: ${agencyInfo.contact}\n` +
+            `Email: ${agencyInfo.email}\n\n` +
+            `Feedback on authorization data and continuous monitoring per FRR-CCM-04:\n\n`
+        );
+
+        // Create a temporary link to trigger the mailto
+        const a = document.createElement('a');
+        a.href = `mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`;
+        a.style.display = 'none'; // Hide it
+        document.body.appendChild(a);
+        a.click(); // Click it
+        document.body.removeChild(a); // Clean up
     }
+
+function registerForReview() {
+    if (!window.fedRAMPAuth.isAuthenticated) {
+        showAccessRequiredModal('Quarterly Review Registration', [
+            'Register for synchronous quarterly review meetings',
+            'Discuss authorization reports with provider team',
+            'Ask questions in real-time with other agencies',
+            'Receive calendar invite and meeting materials'
+        ]);
+        return;
+    }
+    logAgencyAccess('quarterly_review_registration');
+    const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+    const subject = encodeURIComponent(`Quarterly Review Registration - ${agencyInfo.agency}`);
+    const body = encodeURIComponent(
+        `Agency: ${agencyInfo.agency}\n` +
+        `Contact: ${agencyInfo.contact}\n` +
+        `Email: ${agencyInfo.email}\n` +
+        `System: ${agencyInfo.system_name || 'N/A'}\n\n` +
+        `Please register us for the next quarterly review meeting per FRR-CCM-QR.\n\n` +
+        `We would like to receive:\n` +
+        `- Calendar invitation for the meeting\n` +
+        `- Pre-meeting materials and agenda\n` +
+        `- Instructions for joining the virtual meeting\n`
+    );
+    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+}
 
     function generateComplianceReport() {
         logAgencyAccess('compliance_report_generation');
@@ -8026,15 +8296,15 @@ async function loadQuarterlyReportData() {
     // ====================================================================
     function showRegistrationModal() {
         document.getElementById('registration-modal').classList.add('active');
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
     }
 
-    function closeCustomModal(id) { 
+    function closeCustomModal(id) {
         const el = document.getElementById(id);
     if(el) el.classList.remove('active');
     if (!document.querySelector('.modal.active')) {
-        document.body.style.overflow = ''; 
-        } 
+        document.body.style.overflow = '';
+        }
     }
 
     function showAccessRequiredModal(feature, benefits) {
@@ -8089,7 +8359,7 @@ async function loadQuarterlyReportData() {
     showSuccessMessage('✓ Email verified (demo auto-verify)! Loading federal agency dashboard...');
                     setTimeout(() => window.location.reload(), 1500);
                 }, 3000);
-                
+
             } else {
                 // Production mode - call AWS registration API
                 // This now sends verification email instead of immediate token
@@ -8121,13 +8391,13 @@ async function loadQuarterlyReportData() {
     );
 
     console.log('Registration initiated - verification email sent');
-                    
+
                 } else {
                     const errorMessage = result.error || result.message || 'Registration failed. Please try again.';
     showErrorMessage(errorMessage);
                 }
             }
-            
+
         } catch (error) {
         console.error('Registration error:', error);
 
@@ -8175,9 +8445,9 @@ async function loadQuarterlyReportData() {
 
     // Clean up URL
     window.history.replaceState({ }, document.title, window.location.pathname);
-                
+
                 setTimeout(() => window.location.reload(), 2000);
-                
+
             } else {
                 // Production mode - call AWS verification API
                 const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.VERIFY}`, {
@@ -8203,7 +8473,7 @@ async function loadQuarterlyReportData() {
 
                     // Reload to show authenticated view
                     setTimeout(() => window.location.reload(), 2000);
-                    
+
                 } else {
                     const errorMessage = result.error || 'Verification failed';
 
@@ -8227,7 +8497,7 @@ async function loadQuarterlyReportData() {
                     }, 5000);
                 }
             }
-            
+
         } catch (error) {
         console.error('Verification error:', error);
 
@@ -8243,7 +8513,7 @@ async function loadQuarterlyReportData() {
             setTimeout(() => {
         window.location.href = window.location.pathname;
             }, 5000);
-            
+
         } finally {
         hideLoadingMessage();
         }
@@ -8780,7 +9050,7 @@ async function downloadAuthorizationPackage() {
 
     // IMPORTANT: Ensure KSI data is loaded
     ensureKSIDataLoaded();
-    
+
     // Also try to wait a bit for the main page to load its data
     setTimeout(() => {
         ensureKSIDataLoaded();
@@ -8809,6 +9079,32 @@ async function downloadAuthorizationPackage() {
         window.statusManager.stopAutoRefresh();
     });
 
+    // Register RFC-0016 compliance functions
+    window.downloadCurrentReport = downloadCurrentReport;
+    window.loadQuarterlyReportData = loadQuarterlyReportData;
+    window.openAgencyFeedback = openAgencyFeedback;
+    window.registerForReview = registerForReview;
+
+    // Load quarterly report data on initialization
+    await loadQuarterlyReportData();
+
+    // Update authenticated view dates if user is logged in
+    if (window.fedRAMPAuth.isAuthenticated) {
+        setTimeout(() => {
+            const authDateElement = document.getElementById('next-report-date-auth');
+            const authReviewElement = document.getElementById('next-quarterly-review-auth');
+            const publicDateElement = document.getElementById('next-report-date');
+            const publicReviewElement = document.getElementById('next-quarterly-review');
+            if (authDateElement && publicDateElement) {
+                authDateElement.textContent = publicDateElement.textContent;
+            }
+            if (authReviewElement && publicReviewElement) {
+                authReviewElement.textContent = publicReviewElement.textContent;
+            }
+        }, 500);
+    }
+    console.log('✅ RFC-0016 compliance functions initialized');
+
     console.log('🚀 Two-Tier FedRAMP System with Email Verification & Status Monitoring Initialized');
     console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated);
     console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED (Update BASE_URL when backend ready)' : 'DISABLED');
@@ -8824,13 +9120,13 @@ async function downloadAuthorizationPackage() {
     // Check if KSI data needs to be loaded from the page
     if (!window.allKsis || !Array.isArray(window.allKsis)) {
         console.log('Attempting to load KSI data...');
-        
+
         // Try to get KSI data from various possible sources
         // Option 1: Check if loadKSIs function exists and call it
         if (typeof window.loadKSIs === 'function') {
             window.loadKSIs();
         }
-        
+
         // Option 2: Check if the data is in a script tag or data attribute
         const ksiDataScript = document.querySelector('script[type="application/json"][id*="ksi"]');
         if (ksiDataScript) {
@@ -8841,7 +9137,7 @@ async function downloadAuthorizationPackage() {
                 console.error('Failed to parse KSI data from script:', e);
             }
         }
-        
+
         // Option 3: Try to fetch from an API endpoint if available
         if (!window.allKsis && window.FEDRAMP_API_CONFIG && !window.FEDRAMP_API_CONFIG.DEMO_MODE) {
             fetch(`${window.FEDRAMP_API_CONFIG.BASE_URL}${window.FEDRAMP_API_CONFIG.ENDPOINTS.DATA}`)
@@ -8862,12 +9158,12 @@ async function downloadAuthorizationPackage() {
                 });
         }
     }
-    
+
     // Also ensure filteredKsis is set if allKsis exists
     if (window.allKsis && !window.filteredKsis) {
         window.filteredKsis = window.allKsis;
     }
-}    
+}
 
     function addAuthenticationIndicator() {
         if (!window.fedRAMPAuth.isAuthenticated) return;
@@ -9065,8 +9361,7 @@ async function downloadAuthorizationPackage() {
     `;
 
     console.log('✓ Modal HTML injected/updated');
-    }
-    
+    }    
 })();
 </script>
 
