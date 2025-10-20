@@ -8151,97 +8151,39 @@ const quarterlyReportsSection = `
     document.body.style.overflow = 'hidden';
     }
 
-    // Helper function to open report in new window (add this too)
+    // Helper function to open report in new window (CORRECTED AGAIN FOR CSS SPACING)
     function openReportInNewWindow() {
          if (window.tempReportContent) {
-            const {html, title} = window.tempReportContent;
-    const newWindow = window.open("", "_blank");
-    // Reuse config styles for simplicity
-    newWindow.document.write(\`
-    <html>
-        <head>
-            <title>\${title}</title>
-            <style>
-                body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-                .markdown-content {max - width: 800px; margin: auto; } h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; } code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; } pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; } table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; } th, td {border: 1px solid #dfe2e5; padding: 8px 15px; } th {font - weight: 600; } a {color: #0366d6; text-decoration: none; } a:hover {text - decoration: underline; }
-            </style>
-        </head>
-        <body><div class="markdown-content">\${html}</div></body>
-    </html>
-    \`);
-    newWindow.document.close();
-    closeCustomModal('report-viewer-modal');
+            const { html, title } = window.tempReportContent;
+            const newWindow = window.open("", "_blank");
+
+            // Define CSS separately WITH CORRECT SPACING
+            const reportStyles = `
+                body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+                .markdown-content { max-width: 800px; margin: auto; }
+                h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+                code { background-color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+                pre { background-color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+                table { border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+                th, td { border: 1px solid #dfe2e5; padding: 8px 15px; }
+                th { font-weight: 600; }
+                a { color: #0366d6; text-decoration: none; }
+                a:hover { text-decoration: underline; }
+            `;
+            // Write the HTML structure correctly using the CSS string
+            newWindow.document.write(\`
+                <html>
+                    <head>
+                        <title>\${title}</title>
+                        <style>\${reportStyles}</style>
+                    </head>
+                    <body><div class="markdown-content">\${html}</div></body>
+                </html>
+            \`);
+            newWindow.document.close();
+            closeCustomModal('report-viewer-modal');
         }
     }
-
-    async function downloadCurrentReport(isMarkdown = false) {
-    // Add authentication check
-    if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('Download Quarterly Report', [
-            'Access current and historical quarterly reports',
-            'Download reports in machine-readable (JSON) or human-readable (Markdown) format',
-            'Review all accepted weaknesses and planned changes'
-        ]);
-    return;
-    }
-
-    // Determine which file to download
-    const fileExtension = isMarkdown ? 'md' : 'json';
-    const reportBaseName = 'ongoing_authorization_report_Q4_2025'; // Assume latest is always named this for now
-    const reportFileName = `${reportBaseName}.${fileExtension}`;
-    const reportUrl = `https://raw.githubusercontent.com/Meridian-Knowledge-Solutions/fedramp-20x-public/master/quarterly_reports/${reportFileName}`;
-    const logAction = isMarkdown ? 'download_quarterly_report_md' : 'download_quarterly_report_json';
-
-    try {
-        logAgencyAccess(logAction, 'current');
-    showLoadingMessage(`Preparing ${fileExtension.toUpperCase()} report download...`);
-
-    // Use fetch for JSON to handle potential errors, direct link for MD
-    if (isMarkdown) {
-            const a = document.createElement('a');
-    a.href = reportUrl;
-    a.download = reportFileName;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showSuccessMessage(`✅ Markdown Report download started`);
-        } else {
-             // Fetch JSON content to ensure it exists and create blob
-             const response = await fetch(reportUrl);
-    if (!response.ok) {
-                 // Handle case where JSON might not exist yet
-                 if (response.status === 404) {
-                      throw new Error(`JSON version not found at ${reportUrl}`);
-                 }
-    throw new Error(`Failed to fetch JSON report: ${response.status}`);
-             }
-    const reportContent = await response.text(); // Get as text first
-    const blob = new Blob([reportContent], {type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = reportFileName;
-    document.body.appendChild(a);
-    a.click();
-             setTimeout(() => {
-        document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-             }, 100);
-    showSuccessMessage(`✅ JSON Report download started`);
-        }
-
-    } catch (error) {
-        console.error('Report download error:', error);
-    showErrorMessage(`Failed to start ${fileExtension.toUpperCase()} report download. ${error.message}`);
-    } finally {
-        hideLoadingMessage();
-    // Close modal if downloading MD from within modal
-    if (isMarkdown && document.getElementById('report-viewer-modal')?.classList.contains('active')) {
-        closeCustomModal('report-viewer-modal');
-         }
-    }
-}
 
 
     async function loadQuarterlyReportData() {
