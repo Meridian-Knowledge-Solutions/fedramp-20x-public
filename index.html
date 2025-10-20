@@ -6910,7 +6910,7 @@ async function loadQuarterlyReportData() {
                     </p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                         <button onclick="viewPublicSecureConfiguration()" class="btn-primary">
-                            👁️ View Configuration Standards
+                            📄View Configuration Standards
                         </button>
                         <button onclick="downloadPublicSecureConfiguration()" class="btn-secondary">
                             ⬇️ Download Markdown
@@ -7295,7 +7295,7 @@ async function loadQuarterlyReportData() {
             <h3>📋 Public Authorization Information</h3>
             <div class="info-grid">
                 <div class="info-card">
-                    <h4>🛍️ Service Information</h4>
+                    <h4>🇺🇸 Service Information</h4>
                     <p><strong>Service Name:</strong> Meridian LMS for Government</p>
                     <p><strong>Service Model:</strong> Software as a Service (SaaS)</p>
                     <p><strong>Deployment Model:</strong> Public Cloud</p>
@@ -7316,7 +7316,7 @@ async function loadQuarterlyReportData() {
     return `
     <div class="trust-center-container">
         <div class="trust-center-header authenticated">
-            <h1>🛏️ Federal Agency Trust Center</h1>
+            <h1>⚖️ Federal Agency Trust Center</h1>
             <p class="trust-center-subtitle">Authenticated Access for: <strong>${agencyInfo.agency}</strong></p>
             <div class="auth-info">
                 <span class="auth-badge">✅ Authenticated Federal Access</span>
@@ -7432,7 +7432,7 @@ async function loadQuarterlyReportData() {
                 <p>Access your agency-specific secure configuration standards and implementation guidelines customized for your deployment.</p>
                 <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
                     <button class="action-btn" onclick="viewSecureConfiguration()" style="flex: 1;">
-                        👁️ View
+                        📄View
                     </button>
                     <button class="action-btn" onclick="downloadSecureConfiguration()" style="flex: 1;">
                         ⬇️ Download
@@ -7457,7 +7457,7 @@ async function loadQuarterlyReportData() {
                     </p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                         <a href="https://meridian-knowledge-solutions.github.io/fedramp-20x-public/documentation/api/" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                            👁️ View API Documentation
+                            📄View API Documentation
                         </a>
                     </div>
                 </div>
@@ -7501,7 +7501,7 @@ async function loadQuarterlyReportData() {
             </div>
             ${!isAuthenticated ?
                 `<div class="access-indicator" title="Full details require federal access">🔒</div>` :
-                `<div class="auth-indicator" title="Authenticated Federal Access">🛍️</div>`
+                `<div class="auth-indicator" title="Authenticated Federal Access">🇺🇸</div>`
             }
         </div>
 
@@ -7624,7 +7624,7 @@ async function loadQuarterlyReportData() {
     if (bodyElement) {
         bodyElement.innerHTML = `
                 <div class="authenticated-header">
-                    <span class="agency-badge">🛏️ ${agencyInfo.agency}</span>
+                    <span class="agency-badge">⚖️ ${agencyInfo.agency}</span>
                     <span class="access-level">Authenticated Federal Access</span>
                 </div>
                 
@@ -7763,7 +7763,7 @@ async function loadQuarterlyReportData() {
     if (bodyElement) {
         bodyElement.innerHTML = `
                 <div class="authenticated-header">
-                    <span class="agency-badge">🛍️ ${agencyInfo.agency}</span>
+                    <span class="agency-badge">🇺🇸 ${agencyInfo.agency}</span>
                     <span class="access-level">Authenticated Federal Access</span>
                 </div>
                 
@@ -8889,7 +8889,7 @@ async function downloadAuthorizationPackage() {
 
     indicator.innerHTML = `
     <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 100%); border-radius: 12px; border: 1px solid rgba(16,185,129,0.2); margin-bottom: 1.5rem;">
-        <span class="agency-badge">🛍️ ${agencyInfo.agency}</span>
+        <span class="agency-badge">🇺🇸 ${agencyInfo.agency}</span>
         <span style="color: var(--success-600, #059669); font-size: 0.875rem; font-weight: 600;">Authenticated Federal Access</span>
         <button onclick="window.fedRAMPAuth.logout()" style="background: transparent; border: 2px solid rgba(16,185,129,0.3); color: var(--success-600, #059669); padding: 0.25rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; margin-left: auto;">Logout</button>
     </div>
@@ -8930,7 +8930,7 @@ async function downloadAuthorizationPackage() {
     registrationModal.innerHTML = `
     <div class="modal-content">
         <div class="modal-header">
-            <h3>🛍️ Federal Agency Registration</h3>
+            <h3>🇺🇸 Federal Agency Registration</h3>
             <button class="close-btn" onclick="closeCustomModal('registration-modal')">&times;</button>
         </div>
 
@@ -10021,7 +10021,7 @@ async function downloadAuthorizationPackage() {
                 '📦': '<i class="fa-solid fa-box-archive fa-fw"></i>', '📥': '<i class="fa-solid fa-download fa-fw"></i>',
                 '🔮': '<i class="fa-solid fa-wand-magic-sparkles fa-fw"></i>', '⚠️': '<i class="fa-solid fa-triangle-exclamation fa-fw" style="color: var(--warning-500);"></i>',
                 '📌': '<i class="fa-solid fa-thumbtack fa-fw"></i>', '🏗️': '<i class="fa-solid fa-building-flag fa-fw"></i>',
-                '🛍️': '<i class="fa-solid fa-bag-shopping fa-fw"></i>', '📞': '<i class="fa-solid fa-phone fa-fw"></i>'
+                '🇺🇸': '<i class="fa-solid fa-bag-shopping fa-fw"></i>', '📞': '<i class="fa-solid fa-phone fa-fw"></i>'
             };
 
             let bodyHtml = document.body.innerHTML;
