@@ -8390,83 +8390,70 @@ const quarterlyReportsSection = `
             { // --- Registration Modal ---
                 id: 'registration-modal',
                 title: '🇺🇸 Federal Agency Registration',
-                body: \`
-                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
-                        Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.
-                    </p>
-                    <div style="background: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">
-                        <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);">How to "Log In" or Re-Register</h4>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            If you have logged out, cleared your browser cache, or your session has expired, <strong>simply use this same form to re-register.</strong> You will receive a new verification link to grant you a fresh, secure session.
-                        </p>
-                    </div>
-                    <form id="agency-registration-form">
-                        <div class="form-group"> <label for="agency">Federal Agency Name *</label> <input type="text" id="agency" name="agency" required placeholder="e.g., Department of Defense" /> </div>
-                        <div class="form-group"> <label for="email">Official Email Address *</label> <input type="email" id="email" name="email" required pattern=".*\\.(gov|mil|fed\\.us)$" placeholder="your.name@agency.gov" title="Must be a .gov, .mil, or .fed.us email address" /> <small>Must end with .gov, .mil, or .fed.us</small> </div>
-                        <div class="form-group"> <label for="contact">Contact Name *</label> <input type="text" id="contact" name="contact" required placeholder="John Doe" /> </div>
-                        <div class="form-group"> <label for="system_name">System/Project Name (Optional)</label> <input type="text" id="system_name" name="system_name" placeholder="e.g., DOD Cloud Migration Project" /> </div>
-                        <div class="form-group"> <label for="purpose">Purpose (Optional)</label> <textarea id="purpose" name="purpose" rows="3" placeholder="Brief description of why you need access..."></textarea> </div>
-                        <div class="form-actions"> <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Register & Send Verification Email</button> </div>
-                    </form>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.875rem; color: var(--text-tertiary);">
-                        <p><strong>What happens next:</strong></p>
-                        <ol style="margin: 0.5rem 0 0 1.5rem; padding: 0; line-height: 1.6;"> <li>Email sent</li> <li>Click link (valid 24 hrs)</li> <li>Access activated</li> <li>Download package</li> </ol>
-                    </div>
-                \`
+                body:
+                    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary);">' +
+                        'Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.' +
+                    '</p>' +
+                    '<div style="background: var(--bg-accent, #f9fafb); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">' +
+                        '<h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary, #111827);">How to "Log In" or Re-Register</h4>' +
+                        '<p style="color: var(--text-secondary, #6b7280); line-height: 1.6;">' +
+                            'If you have logged out, cleared your browser cache, or your session has expired, <strong>simply use this same form to re-register.</strong> You will receive a new verification link to grant you a fresh, secure session.' +
+                        '</p>' +
+                    '</div>' +
+                    '<form id="agency-registration-form">' +
+                        '<div class="form-group"> <label for="agency">Federal Agency Name *</label> <input type="text" id="agency" name="agency" required placeholder="e.g., Department of Defense" /> </div>' +
+                        '<div class="form-group"> <label for="email">Official Email Address *</label> <input type="email" id="email" name="email" required pattern=".*\\.(gov|mil|fed\\.us)$" placeholder="your.name@agency.gov" title="Must be a .gov, .mil, or .fed.us email address" /> <small>Must end with .gov, .mil, or .fed.us</small> </div>' +
+                        '<div class="form-group"> <label for="contact">Contact Name *</label> <input type="text" id="contact" name="contact" required placeholder="John Doe" /> </div>' +
+                        '<div class="form-group"> <label for="system_name">System/Project Name (Optional)</label> <input type="text" id="system_name" name="system_name" placeholder="e.g., DOD Cloud Migration Project" /> </div>' +
+                        '<div class="form-group"> <label for="purpose">Purpose (Optional)</label> <textarea id="purpose" name="purpose" rows="3" placeholder="Brief description of why you need access..."></textarea> </div>' +
+                        '<div class="form-actions"> <button type="button" onclick="closeCustomModal(\'registration-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Register & Send Verification Email</button> </div>' +
+                    '</form>' +
+                    '<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e5e7eb); font-size: 0.875rem; color: var(--text-tertiary, #9ca3af);">' +
+                        '<p><strong>What happens next:</strong></p>' +
+                        '<ol style="margin: 0.5rem 0 0 1.5rem; padding: 0; line-height: 1.6;"> <li>Email sent</li> <li>Click link (valid 24 hrs)</li> <li>Access activated</li> <li>Download package</li> </ol>' +
+                    '</div>'
             },
             { // --- Access Required Modal ---
                 id: 'access-required-modal',
                 title: '🔒 Federal Agency Access Required',
-                body: \`
-                    <h4 class="feature-name" style="color: var(--primary-500); margin-bottom: 1rem;">Feature Access</h4>
-                    <p style="margin-bottom: 1rem;">This feature requires authenticated federal agency access. Register to unlock:</p>
-                    <ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;"></ul>
-                    <div style="margin-top: 2rem; display: flex; gap: 1rem;"> <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary" style="flex: 1;">Cancel</button> <button onclick="closeCustomModal('access-required-modal'); showRegistrationModal();" class="btn-primary" style="flex: 2;">Register Now</button> </div>
-                \`
+                body:
+                    '<h4 class="feature-name" style="color: var(--primary-500, #3b82f6); margin-bottom: 1rem;">Feature Access</h4>' +
+                    '<p style="margin-bottom: 1rem;">This feature requires authenticated federal agency access. Register to unlock:</p>' +
+                    '<ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;"></ul>' + // Content filled dynamically
+                    '<div style="margin-top: 2rem; display: flex; gap: 1rem;"> <button type="button" onclick="closeCustomModal(\'access-required-modal\')" class="btn-secondary" style="flex: 1;">Cancel</button> <button type="button" onclick="closeCustomModal(\'access-required-modal\'); showRegistrationModal();" class="btn-primary" style="flex: 2;">Register Now</button> </div>'
             },
             { // --- Feedback Modal ---
                  id: 'feedback-modal',
                  title: '📝 Submit Agency Feedback (FRR-CCM-04)',
-                 body: \`
-                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Submit feedback/questions via your email client. Shared with FedRAMP, kept confidential otherwise (FRR-CCM-05).</p>
-                    <form id="agency-feedback-form">
-                        <div class="form-group"> <label for="feedback-agency">Agency Name *</label> <input type="text" id="feedback-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                        <div class="form-group"> <label for="feedback-contact">Contact Name *</label> <input type="text" id="feedback-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                        <div class="form-group"> <label for="feedback-email">Your Email *</label> <input type="email" id="feedback-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                        <div class="form-group"> <label for="feedback-subject">Subject *</label> <input type="text" id="feedback-subject" name="subject" required value="Agency Feedback - Authorization Data" /> </div>
-                        <div class="form-group"> <label for="feedback-message">Feedback / Question *</label> <textarea id="feedback-message" name="message" rows="5" required placeholder="Enter your feedback or question here..."></textarea> </div>
-                        <div class="form-actions"> <button type="button" onclick="closeCustomModal('feedback-modal')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Email</button> </div>
-                    </form>
-                 \`
+                 body:
+                    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary, #6b7280);">Submit feedback/questions via your email client. Shared with FedRAMP, kept confidential otherwise (FRR-CCM-05).</p>' +
+                    '<form id="agency-feedback-form">' +
+                        '<div class="form-group"> <label for="feedback-agency">Agency Name *</label> <input type="text" id="feedback-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="feedback-contact">Contact Name *</label> <input type="text" id="feedback-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="feedback-email">Your Email *</label> <input type="email" id="feedback-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="feedback-subject">Subject *</label> <input type="text" id="feedback-subject" name="subject" required value="Agency Feedback - Authorization Data" /> </div>' +
+                        '<div class="form-group"> <label for="feedback-message">Feedback / Question *</label> <textarea id="feedback-message" name="message" rows="5" required placeholder="Enter your feedback or question here..."></textarea> </div>' +
+                        '<div class="form-actions"> <button type="button" onclick="closeCustomModal(\'feedback-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Email</button> </div>' +
+                    '</form>'
             },
              { // --- Review Registration Modal ---
                  id: 'review-registration-modal',
                  title: '📅 Register for Quarterly Review Meeting',
-                 body: \`
-                    <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Register for the upcoming Quarterly Review (FRR-CCM-QR-01). You'll receive a calendar invite via email.</p>
-                    <form id="review-registration-form">
-                        <p style="font-weight: bold; margin-bottom: 1rem;">Confirm Agency Details:</p>
-                        <div class="form-group"> <label for="review-agency">Agency Name</label> <input type="text" id="review-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                        <div class="form-group"> <label for="review-contact">Primary Contact</label> <input type="text" id="review-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                         <div class="form-group"> <label for="review-email">Contact Email (for invite)</label> <input type="email" id="review-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>
-                         <div class="form-group"> <label for="review-attendees">Additional Attendee Emails (Optional)</label> <textarea id="review-attendees" name="attendees" rows="3" placeholder="Add emails, separated by commas or new lines..."></textarea> <small>Separate emails with commas or new lines.</small> </div>
-                        <div class="form-actions" style="margin-top: 2rem;"> <button type="button" onclick="closeCustomModal('review-registration-modal')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Registration Email</button> </div>
-                    </form>
-                 \`
+                 body:
+                    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary, #6b7280);">Register for the upcoming Quarterly Review (FRR-CCM-QR-01). You\'ll receive a calendar invite via email.</p>' + // Escaped 'You'll'
+                    '<form id="review-registration-form">' +
+                        '<p style="font-weight: bold; margin-bottom: 1rem;">Confirm Agency Details:</p>' +
+                        '<div class="form-group"> <label for="review-agency">Agency Name</label> <input type="text" id="review-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="review-contact">Primary Contact</label> <input type="text" id="review-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="review-email">Contact Email (for invite)</label> <input type="email" id="review-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;"/> </div>' +
+                        '<div class="form-group"> <label for="review-attendees">Additional Attendee Emails (Optional)</label> <textarea id="review-attendees" name="attendees" rows="3" placeholder="Add emails, separated by commas or new lines..."></textarea> <small>Separate emails with commas or new lines.</small> </div>' +
+                        '<div class="form-actions" style="margin-top: 2rem;"> <button type="button" onclick="closeCustomModal(\'review-registration-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Registration Email</button> </div>' +
+                    '</form>'
             },
-            { // --- Config Viewer Modal ---
-                 id: 'config-viewer-modal',
-                 // Title and content are set dynamically by displayConfigModal
-            },
-            { // --- Report Viewer Modal ---
-                 id: 'report-viewer-modal',
-                 // Title and content are set dynamically by displayReportModal
-            },
-            { // --- Why Modal ---
-                 id: 'why-modal',
-                 // Title and content are set dynamically by showWhy functions
-            }
-            // Add other potential modals here if needed
+            // --- Placeholders for dynamically filled modals ---
+            { id: 'config-viewer-modal', title: 'Configuration' },
+            { id: 'report-viewer-modal', title: 'Report' },
+            { id: 'why-modal', title: 'Details' }
         ];
 
         modals.forEach(modalInfo => {
@@ -8476,21 +8463,33 @@ const quarterlyReportsSection = `
                 modalElement.id = modalInfo.id;
                 modalElement.className = 'modal';
                 document.body.appendChild(modalElement);
-                 console.log(`Created modal element: #${modalInfo.id}`);
+                console.log(`Created modal element: #${modalInfo.id}`);
             }
-             // Only inject content if body is provided (prevents wiping dynamic modals)
-            if (modalInfo.body) {
-                modalElement.innerHTML = \`
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>\${modalInfo.title}</h3>
-                            <button class="close-btn" onclick="closeCustomModal('\${modalInfo.id}')">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            \${modalInfo.body}
-                        </div>
-                    </div>
-                \`;
+            // Inject content ONLY if body is provided AND element is newly created or empty
+            // OR if it's one of the specific modals we are defining staticaly here
+             if (modalInfo.body && (!modalElement.innerHTML || modalElement.innerHTML.trim() === '' || ['registration-modal', 'access-required-modal', 'feedback-modal', 'review-registration-modal'].includes(modalInfo.id) )) {
+                 modalElement.innerHTML =
+                    '<div class="modal-content">' +
+                        '<div class="modal-header">' +
+                            '<h3>' + modalInfo.title + '</h3>' +
+                            '<button class="close-btn" onclick="closeCustomModal(\'' + modalInfo.id + '\')">&times;</button>' +
+                        '</div>' +
+                        '<div class="modal-body">' +
+                            modalInfo.body +
+                        '</div>' +
+                    '</div>';
+            } else if (!modalInfo.body && (!modalElement.innerHTML || modalElement.innerHTML.trim() === '')) {
+                // Ensure placeholder modals have basic structure if empty
+                 modalElement.innerHTML =
+                    '<div class="modal-content">' +
+                        '<div class="modal-header">' +
+                            '<h3 class="dynamic-modal-title">' + modalInfo.title + '</h3>' +
+                            '<button class="close-btn" onclick="closeCustomModal(\'' + modalInfo.id + '\')">&times;</button>' +
+                        '</div>' +
+                        '<div class="modal-body dynamic-modal-body">' +
+                            '' +
+                        '</div>' +
+                    '</div>';
             }
         });
 
