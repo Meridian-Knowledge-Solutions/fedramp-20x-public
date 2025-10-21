@@ -6187,7 +6187,7 @@ async function loadQuarterlyReportData() {
 
     // API endpoints
     ENDPOINTS: {
-        REGISTER: '/register',
+    REGISTER: '/register',
     VERIFY: '/verify',
     PACKAGE: '/package',
     DATA: '/api/data',
@@ -8154,37 +8154,37 @@ const quarterlyReportsSection = `
     // Helper function to open report in new window (CORRECTED AGAIN FOR CSS SPACING)
     function openReportInNewWindow() {
          if (window.tempReportContent) {
-            const { html, title } = window.tempReportContent;
-            const newWindow = window.open("", "_blank");
+            const {html, title} = window.tempReportContent;
+    const newWindow = window.open("", "_blank");
 
-            // Define CSS separately (ensures correct formatting)
-            const reportStyles = `
-                body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-                .markdown-content { max-width: 800px; margin: auto; }
-                h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-                code { background-color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
-                pre { background-color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
-                table { border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-                th, td { border: 1px solid #dfe2e5; padding: 8px 15px; }
-                th { font-weight: 600; }
-                a { color: #0366d6; text-decoration: none; }
-                a:hover { text-decoration: underline; }
-            `;
+    // Define CSS separately (ensures correct formatting)
+    const reportStyles = `
+    body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+    .markdown-content {max - width: 800px; margin: auto; }
+    h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+    code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+    pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+    table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+    th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
+    th {font - weight: 600; }
+    a {color: #0366d6; text-decoration: none; }
+    a:hover {text - decoration: underline; }
+    `;
 
-            // Build HTML using standard string concatenation (+)
-            const newWindowHtml =
-                '<html>' +
-                '<head>' +
-                '<title>' + title + '</title>' +
-                '<style>' + reportStyles + '</style>' +
-                '</head>' +
-                '<body><div class="markdown-content">' + html + '</div></body>' +
-                '</html>';
+    // Build HTML using standard string concatenation (+)
+    const newWindowHtml =
+    '<html>' +
+        '<head>' +
+            '<title>' + title + '</title>' +
+            '<style>' + reportStyles + '</style>' +
+            '</head>' +
+        '<body><div class="markdown-content">' + html + '</div></body>' +
+        '</html>';
 
-            // Write the concatenated string
-            newWindow.document.write(newWindowHtml);
-            newWindow.document.close();
-            closeCustomModal('report-viewer-modal');
+    // Write the concatenated string
+    newWindow.document.write(newWindowHtml);
+    newWindow.document.close();
+    closeCustomModal('report-viewer-modal');
         }
     }
 
@@ -8289,6 +8289,9 @@ const quarterlyReportsSection = `
     window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
     }
 
+    // ====================================================================
+    // START: MODIFIED FUNCTIONS FOR TEAMS LINK REQUEST
+    // ====================================================================
     function openAgencyFeedback() {
         // Add authentication check
         if (!window.fedRAMPAuth.isAuthenticated) {
@@ -8310,11 +8313,13 @@ const quarterlyReportsSection = `
         }
 
     const subject = encodeURIComponent(`Agency Feedback - ${agencyInfo.agency}`);
+    // UPDATED BODY: As requested, this now asks for a Teams link
     const body = encodeURIComponent(
     `Agency: ${agencyInfo.agency}\n` +
     `Contact: ${agencyInfo.contact}\n` +
     `Email: ${agencyInfo.email}\n\n` +
-    `Feedback on authorization data and continuous monitoring per FRR-CCM-04:\n\n`
+    `Please send a Teams meeting link for an agency feedback session.\n\n` +
+    `Thank you.`
     );
 
     // Create a temporary link to trigger the mailto
@@ -8339,19 +8344,20 @@ const quarterlyReportsSection = `
     logAgencyAccess('quarterly_review_registration');
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     const subject = encodeURIComponent(`Quarterly Review Registration - ${agencyInfo.agency}`);
+    // UPDATED BODY: As requested, this now asks for a Teams link for the review
     const body = encodeURIComponent(
     `Agency: ${agencyInfo.agency}\n` +
     `Contact: ${agencyInfo.contact}\n` +
     `Email: ${agencyInfo.email}\n` +
     `System: ${agencyInfo.system_name || 'N/A'}\n\n` +
-    `Please register us for the next quarterly review meeting per FRR-CCM-QR.\n\n` +
-    `We would like to receive:\n` +
-    `- Calendar invitation for the meeting\n` +
-    `- Pre-meeting materials and agenda\n` +
-    `- Instructions for joining the virtual meeting\n`
+    `Please register us for the next quarterly review meeting per FRR-CCM-QR and send a Teams meeting link.\n\n` +
+    `Thank you.`
     );
     window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
 }
+    // ====================================================================
+    // END: MODIFIED FUNCTIONS FOR TEAMS LINK REQUEST
+    // ====================================================================
 
     function generateComplianceReport() {
         logAgencyAccess('compliance_report_generation');
