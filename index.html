@@ -6187,7 +6187,7 @@ async function loadQuarterlyReportData() {
 
     // API endpoints
     ENDPOINTS: {
-        REGISTER: '/register',
+    REGISTER: '/register',
     VERIFY: '/verify',
     PACKAGE: '/package',
     DATA: '/api/data',
@@ -7881,48 +7881,85 @@ const quarterlyReportsSection = `
     // --- Feedback & Review Registration (Modal + Mailto Generation) ---
 
     function openAgencyFeedback() {
-    if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('Submit Agency Feedback', [
-            'Provide asynchronous feedback on compliance data',
-            'Ask questions about security controls',
-            'Collaborate directly with the provider security team'
-        ]);
-        return;
-    }
-    logAgencyAccess('agency_feedback_form_opened');
-    const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-    const modal = document.getElementById('feedback-modal');
-    if (modal && agencyInfo) {
-        modal.querySelector('#feedback-agency').value = agencyInfo.agency || '';
-        modal.querySelector('#feedback-contact').value = agencyInfo.contact || '';
-        modal.querySelector('#feedback-email').value = agencyInfo.email || '';
-        modal.querySelector('#feedback-message').value = '';
-        modal.querySelector('#feedback-subject').value = \`Agency Feedback - \${agencyInfo.agency}\`;
-        const form = modal.querySelector('#agency-feedback-form');
-        if (!form.hasAttribute('data-submit-attached')) {
-             form.addEventListener('submit', handleFeedbackSubmit);
-             form.setAttribute('data-submit-attached', 'true');
+        // Add authentication check
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            showAccessRequiredModal('Submit Agency Feedback', [
+                'Provide asynchronous feedback on compliance data',
+                'Ask questions about security controls',
+                'Collaborate directly with the provider security team'
+            ]);
+            return;
         }
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    } else {
-         showErrorMessage('Could not open feedback form.'); console.error('Feedback modal/agency info missing.');
-    }
-}
 
+        logAgencyAccess('agency_feedback_form_opened');
+        const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+        const modal = document.getElementById('feedback-modal');
+
+        if (modal && agencyInfo) {
+            // Pre-fill read-only fields
+            modal.querySelector('#feedback-agency').value = agencyInfo.agency || '';
+            modal.querySelector('#feedback-contact').value = agencyInfo.contact || '';
+            modal.querySelector('#feedback-email').value = agencyInfo.email || '';
+            // Reset message field
+            modal.querySelector('#feedback-message').value = '';
+            // Reset subject field to default using standard concatenation
+            modal.querySelector('#feedback-subject').value = 'Agency Feedback - ' + (agencyInfo.agency || 'Unknown Agency'); // Corrected line
+
+
+            // Attach the submit handler dynamically if not already attached
+            const form = modal.querySelector('#agency-feedback-form');
+            if (!form.hasAttribute('data-submit-attached')) {
+                 form.addEventListener('submit', handleFeedbackSubmit);
+                 form.setAttribute('data-submit-attached', 'true');
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+             showErrorMessage('Could not open feedback form.');
+             console.error('Feedback modal or agency info missing.');
+        }
+    }
+
+
+    /* CHANGE: Modified handleFeedbackSubmit to use standard string concatenation */
     function handleFeedbackSubmit(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent actual form submission
+
         logAgencyAccess('agency_feedback_submitted');
-        const form = event.target; const formData = new FormData(form);
-        const recipient = 'fedramp_20x@meridianks.com';
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const recipient = 'fedramp_20x@meridianks.com'; // Your target SES inbox
         const subject = encodeURIComponent(formData.get('subject') || 'Agency Feedback');
-        const body = encodeURIComponent(
-            \`Agency: \${formData.get('agency')}\\nContact: \${formData.get('contact')}\\nEmail: \${formData.get('email')}\\n\` +
-            \`System/Project: \${window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A'}\\n\\nFeedback/Question:\\n--------------------\\n\` +
-            \`\${formData.get('message')}\\n\\n--------------------\\nSubmitted via Trust Center\\nTimestamp: \${new Date().toISOString()}\`
-        );
-        const a = document.createElement('a'); a.href = \`mailto:\${recipient}?subject=\${subject}&body=\${body}\`;
-        a.style.display = 'none'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+
+        // Build body using standard string concatenation
+        const bodyContent =
+            'Agency: ' + (formData.get('agency') || 'N/A') + '\n' +
+            'Contact: ' + (formData.get('contact') || 'N/A') + '\n' +
+            'Email: ' + (formData.get('email') || 'N/A') + '\n\n' +
+            'System/Project: ' + (window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A') + '\n\n' +
+            'Feedback/Question:\n' +
+            '--------------------\n' +
+            (formData.get('message') || '[No message entered]') + '\n\n' +
+            '--------------------\n' +
+            'Submitted via Trust Center Feedback Form\n' +
+            'Timestamp: ' + new Date().toISOString();
+
+        const body = encodeURIComponent(bodyContent);
+
+        // Build mailto link using standard string concatenation
+        const mailtoLink = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+
+        // Use the reliable link click method
+        const a = document.createElement('a');
+        a.href = mailtoLink;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Close modal and show confirmation
         closeCustomModal('feedback-modal');
         showSuccessMessage('Please send the prepared email using your email client.');
     }
@@ -7950,24 +7987,58 @@ const quarterlyReportsSection = `
     }
 }
 
+    /* CHANGE: Modified handleReviewRegistrationSubmit to use standard string concatenation */
     function handleReviewRegistrationSubmit(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent actual form submission
+
         logAgencyAccess('review_registration_submitted');
-        const form = event.target; const formData = new FormData(form);
-        const recipient = 'fedramp_20x@meridianks.com';
-        const subject = encodeURIComponent(\`Quarterly Review Registration - \${formData.get('agency')}\`);
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const recipient = 'fedramp_20x@meridianks.com'; // Your target SES inbox
+        // Build subject using standard string concatenation
+        const subject = encodeURIComponent('Quarterly Review Registration - ' + (formData.get('agency') || 'Unknown Agency'));
+
+        // Clean up attendee list (split by comma or newline, trim whitespace, filter empty)
         const attendeesRaw = formData.get('attendees') || '';
-        const attendeeList = attendeesRaw.split(/[,\\n]/).map(e => e.trim()).filter(e => e !== '');
-        const additionalAttendees = attendeeList.length > 0 ? '\\nAdditional Attendees:\\n' + attendeeList.join('\\n') : '\\nAdditional Attendees: None';
-        const body = encodeURIComponent(
-            \`Register for Quarterly Review:\\n\\nAgency: \${formData.get('agency')}\\nContact: \${formData.get('contact')}\\nEmail: \${formData.get('email')}\\n\` +
-            \`System/Project: \${window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A'}\` +
-            \`\${additionalAttendees}\\n\\nPlease send invite & materials.\\n\\n---\\nSubmitted via Trust Center\\nTimestamp: \${new Date().toISOString()}\`
-        );
-        const a = document.createElement('a'); a.href = \`mailto:\${recipient}?subject=\${subject}&body=\${body}\`;
-        a.style.display = 'none'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        const attendeeList = attendeesRaw
+            .split(/[,\\n]/) // Split by comma or newline
+            .map(email => email.trim()) // Remove whitespace
+            .filter(email => email !== ''); // Remove empty entries
+
+        const additionalAttendees = attendeeList.length > 0
+            ? '\nAdditional Attendees:\n' + attendeeList.join('\n')
+            : '\nAdditional Attendees: None';
+
+        // Build body using standard string concatenation
+        const bodyContent =
+            'Please register the following for the next Quarterly Review Meeting (per FRR-CCM-QR):\n\n' +
+            'Agency: ' + (formData.get('agency') || 'N/A') + '\n' +
+            'Primary Contact: ' + (formData.get('contact') || 'N/A') + '\n' +
+            'Primary Email: ' + (formData.get('email') || 'N/A') + '\n' +
+            'System/Project: ' + (window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A') +
+            additionalAttendees + '\n\n' +
+            'Please send the calendar invitation and any pre-meeting materials to the primary email and additional attendees listed above.\n\n' +
+            '--------------------\n' +
+            'Submitted via Trust Center Registration Form\n' +
+            'Timestamp: ' + new Date().toISOString();
+
+        const body = encodeURIComponent(bodyContent);
+
+        // Build mailto link using standard string concatenation
+        const mailtoLink = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+
+        // Use the reliable link click method
+        const a = document.createElement('a');
+        a.href = mailtoLink;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        // Close modal and show confirmation
         closeCustomModal('review-registration-modal');
-        showSuccessMessage('Please send the prepared registration email.');
+        showSuccessMessage('Please send the prepared registration email using your email client.');
     }
 
     // Removed other placeholder/unused functions like generateComplianceReport, showEvidenceSearch, downloadEvidencePackage
