@@ -6264,7 +6264,7 @@ async function loadQuarterlyReportData() {
         method: 'GET',
     headers: {'Content-Type': 'application/json'},
     signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
-            }
+                }
     );
 
     if (response.ok) {
@@ -6390,7 +6390,7 @@ async function loadQuarterlyReportData() {
         'Content-Type': 'application/json'
                     },
     signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
-            }
+                }
     );
     if (response.ok) {
         this.configData = await response.text();
@@ -6421,7 +6421,7 @@ async function loadQuarterlyReportData() {
     'Authorization': `Bearer ${token}`
                     },
     signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
-            }
+                }
     );
     if (response.ok) {
         this.tenantConfigData = await response.text();
@@ -6543,42 +6543,39 @@ async function loadQuarterlyReportData() {
     document.body.style.overflow = 'hidden';
     }
 
-    // Use string concatenation for robustness AND CORRECTED CSS
+    // ✅ CORRECTED: Added the missing closing brace for the class
     openConfigInNewWindow() {
         if (window.tempConfigContent) {
             const {html, title} = window.tempConfigContent;
     const newWindow = window.open("", "_blank");
 
-    // Define CSS separately with correct spacing
-    const configStyles = `
-    body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-    .markdown-content {max - width: 800px; margin: auto; }
-    h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-    code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
-    pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
-    table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-    th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
-    th {font - weight: 600; }
-    a {color: #0366d6; text-decoration: none; }
-    a:hover {text - decoration: underline; }
-    `;
-    // Build HTML using standard string concatenation (+)
-    const newWindowHtml =
-    '<html>' +
-        '<head>' +
-            '<title>' + title + '</title>' +
-            '<style>' + configStyles + '</style>' +
-            '</head>' +
-        '<body><div class="markdown-content">' + html + '</div></body>' +
-        '</html>';
-
-    // Write the concatenated string
-    newWindow.document.write(newWindowHtml);
+    newWindow.document.write(`
+    <html>
+        <head>
+            <title>${title}</title>
+            <style>
+                body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+                .markdown-content {max - width: 800px; margin: auto; }
+                h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+                code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+                pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+                table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+                th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
+                th {font - weight: 600; }
+                a {color: #0366d6; text-decoration: none; }
+                a:hover {text - decoration: underline; }
+            </style>
+        </head>
+        <body>
+            <div class="markdown-content">${html}</div>
+        </body>
+    </html>
+    `);
     newWindow.document.close();
     closeCustomModal('config-viewer-modal');
         }
     }
-}
+} // <--- THIS BRACE WAS MISSING
 
     // Public config access (no authentication required)
     async function viewPublicSecureConfiguration() {
@@ -6757,8 +6754,6 @@ async function loadQuarterlyReportData() {
         } else {
         tab.innerHTML = getPublicTrustCenterHTML();
         }
-    // After rendering, ensure dates are loaded/updated
-    loadQuarterlyReportData();
     }
 
     function getPublicTrustCenterHTML() {
@@ -6982,6 +6977,7 @@ const publicQuarterlySection = `
 
         <div class="trust-section services-section">
             <h3>🔍 Authorized Services & Impact Levels</h3>
+
             <div class="service-overview">
                 <h4>Overall Service Description</h4>
                 <p>
@@ -6996,30 +6992,373 @@ const publicQuarterlySection = `
                     <strong>Service Model:</strong> Software as a Service (SaaS)
                 </p>
             </div>
+
             <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Services Included in FedRAMP Authorization</h4>
             <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
                 The following services and features are included within the FedRAMP authorization boundary and available to federal customers:
             </p>
+
             <div class="services-grid">
-                <div class="service-card">...</div> <div class="service-card">...</div> <div class="service-card">...</div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Course Management and Delivery</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Create, organize, and deliver training courses including e-learning, instructor-led training, and blended learning programs
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Course catalog and content library management</li>
+                        <li>✓ SCORM, AICC, and xAPI compliant content support</li>
+                        <li>✓ Video-based training and multimedia content delivery</li>
+                        <li>✓ Instructor-led training (ILT) scheduling and management</li>
+                        <li>✓ Self-paced and blended learning programs</li>
+                        <li>✓ Mobile-responsive course player</li>
+                        <li>✓ Course versioning and content updates</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Course materials, training videos, documents, SCORM packages, course metadata, learner progress data
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>User Management and Authentication</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Manage user accounts, roles, and secure access with support for single sign-on and multi-factor authentication
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ User account creation and management</li>
+                        <li>✓ Single Sign-On (SSO) via SAML 2.0</li>
+                        <li>✓ Multi-factor authentication (MFA) support</li>
+                        <li>✓ Role-based access control (RBAC)</li>
+                        <li>✓ User groups and organizational hierarchies</li>
+                        <li>✓ Self-service password reset</li>
+                        <li>✓ User profile management</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> User profiles (name, email, employee ID), authentication credentials, role assignments, organizational data
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Assessment and Testing</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Create and deliver assessments, quizzes, exams, and surveys to measure learner competency and training effectiveness
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Quiz and exam creation tools (multiple question types)</li>
+                        <li>✓ Automated grading and scoring</li>
+                        <li>✓ Pre and post-training assessments</li>
+                        <li>✓ Surveys with branching logic</li>
+                        <li>✓ Question banks and randomization</li>
+                        <li>✓ Timed assessments and attempt limits</li>
+                        <li>✓ Competency tracking and skills gap analysis</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Assessment questions/answers, test scores, survey responses, competency results, performance data
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Compliance Tracking and Reporting</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Track training compliance requirements, generate regulatory reports, and monitor workforce readiness
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Automated compliance tracking and alerts</li>
+                        <li>✓ Dynamic learning assignment based on rules engine</li>
+                        <li>✓ Training transcript and certificate generation</li>
+                        <li>✓ Regulatory reporting (21 CFR Part 11 support)</li>
+                        <li>✓ Completion tracking and deadline management</li>
+                        <li>✓ Audit trail and electronic signatures</li>
+                        <li>✓ Manager dashboards for team compliance</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Training completion records, compliance status, certificates, audit logs, regulatory reports
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Reporting and Analytics</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Generate comprehensive reports and analyze training data with customizable dashboards and data exports
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Pre-built and custom report templates</li>
+                        <li>✓ Real-time analytics dashboards</li>
+                        <li>✓ Learning analytics and metrics (completion rates, time spent)</li>
+                        <li>✓ Scheduled and automated report delivery</li>
+                        <li>✓ Data export (CSV, Excel, PDF formats)</li>
+                        <li>✓ Trend analysis and historical reporting</li>
+                        <li>✓ Executive summary reports</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Aggregated training data, usage statistics, performance metrics, exported reports
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Learning Record Store (LRS)</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Native xAPI-compliant learning record store for capturing and storing detailed learning activity data
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ xAPI (Tin Can API) statement capture and storage</li>
+                        <li>✓ Cross-platform learning activity tracking</li>
+                        <li>✓ Statement forwarding to external LRS</li>
+                        <li>✓ Learning experience data aggregation</li>
+                        <li>✓ xAPI-enabled content support</li>
+                        <li>✓ Detailed learning analytics from xAPI data</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> xAPI statements, learning activity records, experience data, interaction data
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Career Development and Learning Paths</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Enable employees to explore career paths, track professional development, and plan skill progression
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Career Explorer tool (career path visualization)</li>
+                        <li>✓ Learning path creation and assignment</li>
+                        <li>✓ Skills gap identification and recommendations</li>
+                        <li>✓ Individual development plan (IDP) tracking</li>
+                        <li>✓ Competency framework management</li>
+                        <li>✓ Performance management system integration</li>
+                        <li>✓ Mentorship and coaching program support</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Career progression data, skill inventories, development plans, competency assessments
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Notifications and Communications</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Automated email notifications, reminders, and in-application messaging to keep learners engaged
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Automated course assignment notifications</li>
+                        <li>✓ Training deadline reminders and escalations</li>
+                        <li>✓ Course completion confirmations</li>
+                        <li>✓ In-app messaging and announcements</li>
+                        <li>✓ Customizable email templates</li>
+                        <li>✓ Scheduled notification campaigns</li>
+                        <li>✓ Manager notifications for team compliance</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Email addresses, notification content, delivery status, user communication preferences
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>API Access and System Integrations</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        RESTful API access for integrating with HRIS, talent management, and other enterprise systems
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ REST API for user management and course enrollment</li>
+                        <li>✓ Reporting API for data extraction</li>
+                        <li>✓ Webhook support for real-time event notifications</li>
+                        <li>✓ OAuth 2.0 authentication for API access</li>
+                        <li>✓ HRIS/HCM system integration support</li>
+                        <li>✓ API documentation and developer resources</li>
+                        <li>✓ Rate limiting and usage monitoring</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> API requests/responses, integration data, authentication tokens, webhook payloads
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Content Authoring Tools</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Built-in tools for creating training content, assessments, and learning materials without external software
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ Web-based course creation interface</li>
+                        <li>✓ Assessment and quiz builder</li>
+                        <li>✓ Content templates and reusable components</li>
+                        <li>✓ Multimedia upload and management</li>
+                        <li>✓ Content preview and testing tools</li>
+                        <li>✓ Version control for authored content</li>
+                        <li>✓ Content sharing and collaboration features</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> Authored course content, content templates, multimedia files, version history
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <h4>Administrative Console</h4>
+                        <span class="impact-badge low">Low Impact</span>
+                    </div>
+                    <p class="service-description">
+                        Comprehensive administrative interface for system configuration, user management, and platform oversight
+                    </p>
+                    <h5>Included Features:</h5>
+                    <ul class="service-features">
+                        <li>✓ System configuration and settings management</li>
+                        <li>✓ User and role administration</li>
+                        <li>✓ Course and content management</li>
+                        <li>✓ Learning rule configuration</li>
+                        <li>✓ Audit log viewing and monitoring</li>
+                        <li>✓ System health and usage dashboards</li>
+                        <li>✓ Bulk operations and data imports</li>
+                    </ul>
+                    <p class="service-data-types">
+                        <strong>Data Types:</strong> System configuration, administrative actions, bulk import data, system logs
+                    </p>
+                </div>
             </div>
-            <div class="excluded-services"><h4>❌ Services NOT Included...</h4> ... </div>
-            <div class="impact-level-note"><h4>📌 Impact Level Classification...</h4> ... </div>
-            <div class="deployment-options"><h4>🏗️ Service Architecture</h4> ... </div>
+
+            <div class="excluded-services" style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+                <h4 style="color: #ef4444; margin-top: 0; margin-bottom: 1rem;">❌ Services NOT Included in Authorization</h4>
+                <p style="color: var(--text-secondary); line-height: 1.7;">
+                    The following are <strong>NOT</strong> included within the FedRAMP authorization boundary:
+                </p>
+                <ul style="margin: 1rem 0; padding-left: 2rem; line-height: 1.8; color: var(--text-secondary);">
+                    <li><strong>On-Premise Deployments:</strong> Self-hosted installations are not covered by this FedRAMP authorization</li>
+                    <li><strong>Private Cloud Deployments:</strong> Customer-specific private cloud instances require separate authorization</li>
+                    <li><strong>Custom Development Services:</strong> Bespoke software development outside the core platform</li>
+                    <li><strong>Third-Party Content Libraries:</strong> External content from partners (e.g., OpenSesame, Learnosity) is not within authorization boundary - customers must evaluate third-party services separately</li>
+                    <li><strong>Professional Services:</strong> Consulting, implementation, and training services (not software services)</li>
+                    <li><strong>Mobile Applications:</strong> Native mobile apps are not currently included in authorization (web-responsive interface is authorized)</li>
+                </ul>
+                <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem;">
+                    <strong>Note:</strong> Customers requiring services outside the authorization boundary should contact
+                    <a href="mailto:fedramp_20x@meridianks.com" style="color: #ef4444;">fedramp_20x@meridianks.com</a> to discuss alternative solutions.
+                </p>
+            </div>
+
+            <div class="impact-level-note">
+                <h4>📌 Impact Level Classification (FIPS 199)</h4>
+                <p>
+                    <strong>All services listed above are classified as Low Impact</strong> based on the following security categorization:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Confidentiality: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Loss of confidentiality would have limited adverse effect. Training data does not include CUI, classified information, or sensitive PII.</p>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Integrity: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Unauthorized modification of training records would have limited impact on agency operations or mission.</p>
+                    </div>
+                    <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <strong style="color: var(--primary-500);">Availability: Low</strong>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">Temporary unavailability would cause inconvenience but not critical mission impact to agency operations.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem;">
+                    <strong>Data Types Authorized:</strong> Training and learning records, course materials, user profiles (name, email, employee ID),
+                    assessment results, compliance reports, completion certificates, and related training program data.
+                </p>
+                <p style="margin-top: 0.75rem;">
+                    <strong>Data Types NOT Authorized:</strong> Controlled Unclassified Information (CUI), classified information,
+                    sensitive health information (HIPAA), financial PII, law enforcement sensitive data, or any data classified above Low impact.
+                </p>
+            </div>
+
+            <div class="deployment-options" style="background: rgba(59, 130, 246, 0.05); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--primary-500);">
+                <h4>🏗️ Service Architecture</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div>
+                        <strong>Deployment Model:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Multi-tenant SaaS (Shared Infrastructure)</p>
+                    </div>
+                    <div>
+                        <strong>Cloud Provider:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">Amazon Web Services (AWS US-East-1)</p>
+                    </div>
+                    <div>
+                        <strong>Leveraged Authorization:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">AWS FedRAMP High (IaaS/PaaS)</p>
+                    </div>
+                    <div>
+                        <strong>Access Method:</strong>
+                        <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.25rem;">HTTPS web browser (port 443)</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="trust-section access-promo">
             <h3>🔒 Federal Agency Access</h3>
-            <p>Register with your .gov or .mil email to access our complete authorization package...</p>
-            <div class="access-benefits"><h4>What you'll gain access to:</h4> ... </div>
+            <p>Register with your .gov or .mil email to access our complete authorization package, including detailed technical reports, evidence packages, and remediation plans as required by the FedRAMP Authorization Data Sharing Standard.</p>
+
+            <div class="access-benefits">
+                <h4>What you'll gain access to:</h4>
+                <ul class="benefit-list">
+                    <li>🔍 Detailed technical assessment findings</li>
+                    <li>⚡ CLI command execution logs and evidence</li>
+                    <li>📋 Complete POA&M items and remediation timelines</li>
+                    <li>🎯 Risk analysis and vulnerability assessments</li>
+                    <li>📊 Raw validation data for GRC integration</li>
+                    <li>🔐 3PAO assessment reports and continuous monitoring data</li>
+                    <li>📋 RFC-0016 quarterly authorization reports</li>
+                </ul>
+            </div>
+
             <button onclick="showRegistrationModal()" class="btn-primary large">Register for Federal Agency Access</button>
         </div>
 
         <div class="public-info-section">
             <h3>📋 Public Authorization Information</h3>
             <div class="info-grid">
-                <div class="info-card"><h4>🇺🇸 Service Information</h4> ... </div>
-                <div class="info-card"><h4>📞 Contact Information</h4> ... </div>
+                <div class="info-card">
+                    <h4>🇺🇸 Service Information</h4>
+                    <p><strong>Service Name:</strong> Meridian LMS for Government</p>
+                    <p><strong>Service Model:</strong> Software as a Service (SaaS)</p>
+                    <p><strong>Deployment Model:</strong> Public Cloud</p>
+                    <p><strong>Business Category:</strong> Learning Management</p>
+                </div>
+                <div class="info-card">
+                    <h4>📞 Contact Information</h4>
+                    <p><strong>Security Team:</strong> security@meridianks.com</p>
+                    <p><strong>FedRAMP Support:</strong> fedramp_20x@meridianks.com</p>
+                    <p><strong>General Support:</strong> support@meridianks.com</p>
+                </div>
             </div>
         </div>
     </div>`;
@@ -7042,7 +7381,7 @@ const quarterlyReportsSection = `
                     <h4 style="margin: 0;">Current Ongoing Authorization Report</h4>
                 </div>
                 <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
-                    View or download the latest quarterly authorization report per FRR-CCM-01, covering changes, accepted weaknesses, and planned updates. Available in Markdown (MD) and JSON formats.
+                    Download the latest quarterly authorization report per FRR-CCM-01, covering changes, accepted weaknesses, and planned updates. Available in Markdown (MD) and JSON formats.
                 </p>
                 <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
                     <button onclick="viewCurrentReport()" class="btn-primary" style="flex: 1;">
@@ -7052,8 +7391,8 @@ const quarterlyReportsSection = `
                         💾 Download Current Report (JSON)
                     </button>
                 </div>
-                <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/tree/master/quarterly_reports" class="btn-secondary" style="text-align: center; text-decoration: none; display: block;" target="_blank" rel="noopener noreferrer">
-                    📚 View Report Archive (GitHub)
+                <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/tree/master/quarterly_reports" class="btn-secondary" style="text-align: center; text-decoration: none; display: block;">
+                    📚 View Report Archive
                 </a>
                 <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
                     <p style="font-size: 0.875rem; color: var(--text-tertiary); margin: 0;">
@@ -7150,8 +7489,22 @@ const quarterlyReportsSection = `
         <div class="compliance-summary-public">
             <h3>📋 System Status Overview</h3>
             <div class="compliance-metrics-public">
-                <div class="metric-public">...</div> <div class="metric-public">...</div> <div class="metric-public">...</div>
-                <div class="metric-public" data-status="trust-center-uptime">...</div>
+                <div class="metric-public">
+                    <span class="metric-value">FedRAMP 20x</span>
+                    <span class="metric-label">Authorization Type</span>
+                </div>
+                <div class="metric-public">
+                    <span class="metric-value">Low Impact</span>
+                    <span class="metric-label">Impact Level</span>
+                </div>
+                <div class="metric-public">
+                    <span class="metric-value">Active</span>
+                    <span class="metric-label">Authorization Status</span>
+                </div>
+                <div class="metric-public" data-status="trust-center-uptime">
+                    <span class="metric-value" style="color: #9ca3af;">⚪ Loading...</span>
+                    <span class="metric-label">System Uptime</span>
+                </div>
             </div>
         </div>
 
@@ -7160,13 +7513,51 @@ const quarterlyReportsSection = `
             <p>You now have full access to our complete FedRAMP authorization package and technical documentation.</p>
         </div>
 
-        <div class="package-download-section">
-            <div style="display: inline-block; ...">📦</div>
-            <h2>Complete Authorization Package</h2>
-            <p>...</p>
-            <button onclick="downloadAuthorizationPackage()" class="btn-primary">...</button>
-            <div style="margin-top: 1.5rem; ..."> ... </div>
-            <details> <summary>...</summary> ... </details>
+        <div class="package-download-section" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%); border: 2px solid var(--primary-500); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center;">
+            <div style="display: inline-block; width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin-bottom: 1rem;">
+                📦
+            </div>
+            <h2 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">Complete Authorization Package</h2>
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Download the full FedRAMP authorization package including all technical validations, assessments, and compliance documentation.
+            </p>
+
+            <button onclick="downloadAuthorizationPackage()" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%); border: none; border-radius: 12px; color: white; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); transition: all 0.2s;">
+                📥 Download Authorization Package
+            </button>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto;">
+                    <div>
+                        <strong style="color: var(--primary-500);">Package Size:</strong><br>
+                            <span style="color: var(--text-secondary);">~50-150 MB</span>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-500);">Format:</strong><br>
+                            <span style="color: var(--text-secondary);">ZIP Archive</span>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-500);">Updated:</strong><br>
+                            <span style="color: var(--text-secondary);">Every 24 hours</span>
+                    </div>
+                </div>
+
+                <details style="margin-top: 1rem; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    <summary style="cursor: pointer; font-weight: 600; color: var(--primary-500); padding: 0.5rem;">
+                        📋 What's included in the package?
+                    </summary>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-secondary); line-height: 1.8;">
+                        <li>KSI Technical Validations (unified + continuous)</li>
+                        <li>Vulnerability Assessments (VDR with remediation status)</li>
+                        <li>Technical Validation Logs (complete audit trail)</li>
+                        <li>Evidence Files (54 KSI validation outputs)</li>
+                        <li>3PAO Assessment Reports</li>
+                        <li>Supply Chain Risk Classification</li>
+                        <li>FedRAMP Marketplace Documentation</li>
+                        <li>Impact Level Justification</li>
+                    </ul>
+                </details>
+            </div>
         </div>
 
         ${quarterlyReportsSection}
@@ -7205,22 +7596,46 @@ const quarterlyReportsSection = `
             </div>
 
             <div class="trust-card" data-status="system-availability">
-                <h4>📊 System Availability</h4>
+                <div class="trust-card-icon">📊</div>
+                <h4>System Availability</h4>
                 <p style="color: var(--text-secondary);">Loading real-time status...</p>
             </div>
         </div>
 
-        <div class="trust-section" style="background: var(--bg-accent, #f9fafb); ...">
-            <div style="display: flex; ...">
+        <div class="trust-section" style="background: var(--bg-accent, #f9fafb); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; border: 1px solid var(--border-color, #e5e7eb);">
+            <div style="display: flex; align-items: start; gap: 1.5rem;">
                 <div style="font-size: 3rem;">⚙️</div>
                 <div style="flex: 1;">
-                    <h3>API Documentation (Authorization Data Sharing)</h3> ...
+                    <h3 style="margin: 0 0 0.5rem 0;">API Documentation (Authorization Data Sharing)</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.7;">
+                        Access our public API documentation, compliant with the FedRAMP Authorization Data Sharing Standard (ADS). This provides programmatic access to our compliance and authorization data.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://meridian-knowledge-solutions.github.io/fedramp-20x-public/documentation/api/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                            📄View API Documentation
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="agency-support" style="margin-top: 2rem; ...">
-            <h3>📞 Federal Agency Support</h3> ...
+        <div class="agency-support" style="margin-top: 2rem; padding: 1.5rem; background: var(--card-bg); border-radius: 12px;">
+            <h3 style="margin-top: 0;">📞 Federal Agency Support</h3>
+            <p>For questions about the authorization package or technical assistance:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <strong>FedRAMP Inquiries:</strong><br>
+                        <a href="mailto:fedramp_20x@meridianks.com">fedramp_20x@meridianks.com</a>
+                </div>
+                <div>
+                    <strong>Security Team:</strong><br>
+                        <a href="mailto:security@meridianks.com">security@meridianks.com</a>
+                </div>
+                <div>
+                    <strong>Technical Support:</strong><br>
+                        <a href="mailto:support@meridianks.com">support@meridianks.com</a>
+                </div>
+            </div>
         </div>
     </div>
     `;
@@ -7296,9 +7711,7 @@ const quarterlyReportsSection = `
             if (window.originalDownloadJSON) {
         window.originalDownloadJSON();
             } else {
-        // Fallback if original doesn't exist - perhaps download the package again?
-        // Or download the specific KSI JSON if available
-        exportValidationData(); // Exporting all KSI data might be the best fallback
+        downloadAuthPackage();
             }
         }
     }
@@ -7315,13 +7728,13 @@ const quarterlyReportsSection = `
             if (window.originalViewFailedReport) {
         window.originalViewFailedReport();
             } else {
-        viewTechnicalReports(); // Generic alert fallback
+        viewTechnicalReports();
             }
         }
     }
 
     function showWhyTwoTier(ksiId) {
-        if (!window.fedRAMPAuth.isAuthenticated) {
+    if (!window.fedRAMPAuth.isAuthenticated) {
         // Unauthenticated - show access required modal
         showAccessRequiredModal('Technical Assessment Details', [
             'View complete technical findings and root cause analysis',
@@ -7333,30 +7746,162 @@ const quarterlyReportsSection = `
     } else {
         // Authenticated - call the ORIGINAL showWhyModal function
         if (typeof window.originalShowWhyModal === 'function') {
-            // Find the full KSI object
-            const ksi = window.allKsis ? window.allKsis.find(k => (k.id || k.ksi_id) === ksiId) : null;
-    if (ksi) {
-        window.originalShowWhyModal(ksiId); // Assuming it takes ID
-                 // Or if it needs the object: window.originalShowWhyModal(ksi);
-            } else {
-        console.error(`KSI data for ${ksiId} not found.`);
-    showErrorMessage(`Details for ${ksiId} not available.`);
-            }
+        window.originalShowWhyModal(ksiId);
         } else {
-        console.error('originalShowWhyModal function not found. Using fallback.');
-            // As a fallback call a simplified modal
-            const ksi = window.allKsis ? window.allKsis.find(k => (k.id || k.ksi_id) === ksiId) : null;
-    if(ksi) {
-        showDetailedWhyModal(ksi); // Use the fallback detailed modal
-             } else {
-        showFallbackWhyModal(ksiId); // Show data loading issue modal
-             }
+        console.error('originalShowWhyModal function not found. Could not display details.');
+    // As a fallback call a simplified modal
+    showFallbackWhyModal(ksiId);
         }
+    }
+}
+
+
+
+    function showFallbackWhyModal(ksiId) {
+        let modal = document.getElementById('why-modal');
+    let isTemporary = false;
+
+    if (!modal) {
+        modal = createTemporaryModal('why-modal');
+    isTemporary = true;
+    }
+
+    const titleElement = modal.querySelector('.why-modal-title') || modal.querySelector('h3');
+    const bodyElement = modal.querySelector('.why-modal-body') || modal.querySelector('.modal-body');
+
+    if (window.fedRAMPAuth.isAuthenticated) {
+        const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+
+    if (titleElement) {
+        titleElement.innerHTML = `🔍 Technical Assessment: ${ksiId}`;
+        }
+
+    if (bodyElement) {
+        bodyElement.innerHTML = `
+                <div class="authenticated-header">
+                    <span class="agency-badge">⚖️ ${agencyInfo.agency}</span>
+                    <span class="access-level">Authenticated Federal Access</span>
+                </div>
+
+                <div class="technical-summary">
+                    <h4>⚠️ Data Loading Issue</h4>
+                    <p>The detailed assessment data for <strong>${ksiId}</strong> is currently loading or unavailable.</p>
+                    <p style="margin-top: 1rem;">This may occur if:</p>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li>The page is still loading KSI data</li>
+                        <li>There was a network issue fetching the data</li>
+                        <li>The KSI ID format has changed</li>
+                    </ul>
+                </div>
+
+                <div class="technical-actions" style="margin-top: 1.5rem;">
+                    <button onclick="location.reload()" class="btn-secondary">🔄 Refresh Page</button>
+                    <button onclick="closeTemporaryModal('why-modal')" class="btn-secondary">Close</button>
+                </div>
+
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <p style="font-size: 0.875rem; color: var(--text-tertiary);">
+                        If this issue persists, please contact
+                        <a href="mailto:fedramp_20x@meridianks.com" style="color: var(--primary-500);">fedramp_20x@meridianks.com</a>
+                    </p>
+                </div>
+            `;
+        }
+    } else {
+        if (titleElement) {
+        titleElement.innerHTML = `📋 Assessment Summary: ${ksiId}`;
+        }
+
+    if (bodyElement) {
+        bodyElement.innerHTML = `
+                <div class="public-assessment-summary">
+                    <div class="assessment-details">
+                        <h4>📋 Control Assessment</h4>
+                        <p><strong>Control ID:</strong> ${ksiId}</p>
+                        <p><strong>Status:</strong> Assessment data is currently unavailable</p>
+                        <p style="margin-top: 1rem;">Complete technical details are available to registered federal agencies.</p>
+                    </div>
+                </div>
+
+                <div class="agency-access-upgrade">
+                    <h4>🔒 Federal Agency Access Required</h4>
+                    <p>Register to view detailed technical findings and assessment data.</p>
+                    <button onclick="showRegistrationModal(); closeTemporaryModal('why-modal')" class="btn-primary">Register for Technical Access</button>
+                </div>
+            `;
         }
     }
 
-    // Fallback modal if original showWhyModal is missing AND KSI data exists
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+    function showPublicWhyModal(ksi) {
+        const publicData = KSIDataSanitizer.sanitizeForPublic(ksi);
+    const statusInfo = KSIDataSanitizer.mapStatusForPublic(ksi.status || ksi.assertion);
+
+    // Try to use existing modal or create temporary one
+    let modal = document.getElementById('why-modal');
+    let isTemporary = false;
+
+    if (!modal) {
+        modal = createTemporaryModal('why-modal');
+    isTemporary = true;
+        }
+
+    const titleElement = modal.querySelector('.why-modal-title') || modal.querySelector('h3');
+    const bodyElement = modal.querySelector('.why-modal-body') || modal.querySelector('.modal-body');
+
+    if (titleElement) {
+        titleElement.innerHTML = `📋 Public Summary: ${publicData.id}`;
+        }
+
+    if (bodyElement) {
+        bodyElement.innerHTML = `
+                <div class="public-assessment-summary">
+                    <div class="status-header">
+                        <div class="status-indicator ${statusInfo.status}">
+                            ${getStatusIcon(statusInfo.status)} ${statusInfo.text}
+                        </div>
+                    </div>
+
+                    <div class="assessment-details">
+                        <h4>📋 Control Assessment</h4>
+                        <p><strong>Control Area:</strong> ${publicData.description}</p>
+                        <p><strong>Category:</strong> ${publicData.category}</p>
+                        <p><strong>Assessment Status:</strong> ${KSIDataSanitizer.sanitizeAssertionReason(ksi.assertion_reason)}</p>
+                        <p><strong>Validation Tests:</strong> ${publicData.commands_executed} automated tests executed</p>
+                    </div>
+
+                    <div class="enhancement-note">
+                        <h4>📈 Continuous Improvement</h4>
+                        <p>This control is part of our ongoing security enhancement program following FedRAMP requirements and industry best practices. Regular validation ensures consistent security posture.</p>
+                    </div>
+                </div>
+
+                <div class="agency-access-upgrade">
+                    <h4>🔒 Federal Agency Access Required</h4>
+                    <p>Register to view detailed technical findings, CLI commands, and remediation evidence.</p>
+                    <div class="upgrade-benefits">
+                        <ul>
+                            <li>🔍 Detailed technical findings and root cause analysis</li>
+                            <li>⚡ Complete CLI command execution logs</li>
+                            <li>📋 Specific remediation plans and timelines</li>
+                            <li>🎯 Risk assessments and compensating controls</li>
+                            <li>📊 Integration data for your agency's GRC tools</li>
+                        </ul>
+                    </div>
+                    <button onclick="showRegistrationModal(); ${isTemporary ? 'closeTemporaryModal(\'why-modal\')' : 'closeWhyModal()'}" class="btn-primary">Register for Technical Access</button>
+                </div>
+            `;
+        }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    }
+
     function showDetailedWhyModal(ksi) {
+        // Fallback detailed modal for authenticated users when original doesn't exist
         let modal = document.getElementById('why-modal');
     if (!modal) {
         modal = createTemporaryModal('why-modal');
@@ -7379,8 +7924,8 @@ const quarterlyReportsSection = `
 
                 <div class="technical-summary">
                     <h4>🎯 Technical Assessment Details</h4>
-                    <p><strong>Requirement:</strong> ${ksi.requirement || ksi.description || 'N/A'}</p>
-                    <p><strong>Category:</strong> ${ksi.category || 'N/A'}</p>
+                    <p><strong>Requirement:</strong> ${ksi.requirement || ksi.description}</p>
+                    <p><strong>Category:</strong> ${ksi.category}</p>
                     <p><strong>Validation Method:</strong> ${ksi.validation_method || 'Automated CLI + Evidence'}</p>
                     <p><strong>Commands Executed:</strong> ${ksi.commands_executed || 0}</p>
                     <p><strong>Success Rate:</strong> ${ksi.commands_executed > 0 ? Math.round(((ksi.successful_commands || 0) / ksi.commands_executed) * 100) : 0}%</p>
@@ -7388,8 +7933,8 @@ const quarterlyReportsSection = `
 
                 <div class="technical-findings">
                     <h4>📋 Assessment Findings</h4>
-                    <div class="finding-content" style="white-space: pre-wrap; word-wrap: break-word;">
-                        ${ksi.assertion_reason || 'Technical assessment completed. See CLI output for details.'}
+                    <div class="finding-content">
+                        ${ksi.assertion_reason || 'Technical assessment completed - detailed findings available in CLI output.'}
                     </div>
                 </div>
 
@@ -7397,7 +7942,6 @@ const quarterlyReportsSection = `
                     <button onclick="showCLITwoTier('${ksi.ksi_id || ksi.id}')" class="btn-secondary">⚡ View CLI Details</button>
                     <button onclick="createIssueTwoTier('${ksi.ksi_id || ksi.id}')" class="btn-secondary">📋 Create Issue</button>
                     <button onclick="downloadEvidencePackage('${ksi.ksi_id || ksi.id}')" class="btn-secondary">📥 Download Evidence</button>
-                    <button onclick="closeCustomModal('why-modal')" class="btn-secondary">Close</button>
                 </div>
             `;
         }
@@ -7405,107 +7949,6 @@ const quarterlyReportsSection = `
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     }
-
-
-    // Fallback modal if original showWhyModal AND KSI data are missing
-    function showFallbackWhyModal(ksiId) {
-        let modal = document.getElementById('why-modal');
-    if (!modal) {
-        modal = createTemporaryModal('why-modal');
-    }
-
-    const titleElement = modal.querySelector('.why-modal-title') || modal.querySelector('h3');
-    const bodyElement = modal.querySelector('.why-modal-body') || modal.querySelector('.modal-body');
-
-    if (window.fedRAMPAuth.isAuthenticated) {
-        const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-    if (titleElement) titleElement.innerHTML = `🔍 Technical Assessment: ${ksiId}`;
-    if (bodyElement) {
-        bodyElement.innerHTML = `
-                <div class="authenticated-header">
-                    <span class="agency-badge">⚖️ ${agencyInfo.agency}</span>
-                    <span class="access-level">Authenticated Federal Access</span>
-                </div>
-                <div class="technical-summary">
-                    <h4>⚠️ Data Loading Issue</h4>
-                    <p>Detailed assessment data for <strong>${ksiId}</strong> is currently loading or unavailable.</p>
-                    <p style="margin-top: 1rem;">Please ensure KSI data has fully loaded or try refreshing the page.</p>
-                </div>
-                <div class="technical-actions" style="margin-top: 1.5rem;">
-                    <button onclick="location.reload()" class="btn-secondary">🔄 Refresh Page</button>
-                    <button onclick="closeCustomModal('why-modal')" class="btn-secondary">Close</button>
-                </div>
-                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                    <p style="font-size: 0.875rem; color: var(--text-tertiary);">
-                        If this persists, contact <a href="mailto:fedramp_20x@meridianks.com" style="color: var(--primary-500);">fedramp_20x@meridianks.com</a>
-                    </p>
-                </div>`;
-        }
-    } else { // Should not happen if button isn't shown, but included for safety
-        if (titleElement) titleElement.innerHTML = `📋 Assessment Summary: ${ksiId}`;
-    if (bodyElement) {
-        bodyElement.innerHTML = `
-                <div class="public-assessment-summary">
-                    <h4>📋 Control Assessment</h4>
-                    <p><strong>Control ID:</strong> ${ksiId}</p>
-                    <p>Assessment data is currently unavailable.</p>
-                    <p style="margin-top: 1rem;">Complete technical details are available to registered federal agencies.</p>
-                </div>
-                <div class="agency-access-upgrade">
-                    <h4>🔒 Federal Agency Access Required</h4>
-                    <button onclick="showRegistrationModal(); closeCustomModal('why-modal')" class="btn-primary">Register for Technical Access</button>
-                </div>`;
-        }
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-    // Public view modal (simplified, assumes original showWhyModal handles this logic better if available)
-    function showPublicWhyModal(ksi) {
-        // This function might be less necessary if the original showWhyModal is robust,
-        // but included as a potential fallback or explicit public view handler.
-        const publicData = KSIDataSanitizer.sanitizeForPublic(ksi);
-    const statusInfo = KSIDataSanitizer.mapStatusForPublic(ksi.status || ksi.assertion);
-    let modal = document.getElementById('why-modal');
-    if (!modal) {
-        modal = createTemporaryModal('why-modal');
-    }
-    const titleElement = modal.querySelector('.why-modal-title') || modal.querySelector('h3');
-    const bodyElement = modal.querySelector('.why-modal-body') || modal.querySelector('.modal-body');
-
-    if (titleElement) titleElement.innerHTML = `📋 Public Summary: ${publicData.id}`;
-    if (bodyElement) {
-        bodyElement.innerHTML = `
-                <div class="public-assessment-summary">
-                    <div class="status-header">
-                        <div class="status-indicator ${statusInfo.status}">
-                            ${getStatusIcon(statusInfo.status)} ${statusInfo.text}
-                        </div>
-                    </div>
-                    <div class="assessment-details">
-                        <h4>📋 Control Assessment</h4>
-                        <p><strong>Control Area:</strong> ${publicData.description}</p>
-                        <p><strong>Category:</strong> ${publicData.category}</p>
-                        <p><strong>Assessment Status:</strong> ${KSIDataSanitizer.sanitizeAssertionReason(ksi.assertion_reason)}</p>
-                        <p><strong>Validation Tests:</strong> ${publicData.commands_executed} automated tests executed</p>
-                    </div>
-                    <div class="enhancement-note">
-                        <h4>📈 Continuous Improvement</h4>
-                        <p>This control is part of our ongoing security enhancement program.</p>
-                    </div>
-                </div>
-                <div class="agency-access-upgrade">
-                    <h4>🔒 Federal Agency Access Required</h4>
-                    <p>Register to view detailed technical findings, CLI commands, and remediation evidence.</p>
-                    <button onclick="showRegistrationModal(); closeCustomModal('why-modal')" class="btn-primary">Register for Technical Access</button>
-                </div>`;
-    }
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    }
-
 
     function showCLITwoTier(ksiId) {
         if (!window.fedRAMPAuth.isAuthenticated) {
@@ -7516,8 +7959,8 @@ const quarterlyReportsSection = `
             'Download command logs and evidence'
         ]);
         } else {
-            if (typeof window.originalShowCommandsModal === 'function') {
-        window.originalShowCommandsModal(ksiId);
+            if (window.originalShowCommandsModal || window.showCLI) {
+        (window.originalShowCommandsModal || window.showCLI)(ksiId);
             } else {
         // Fallback CLI modal
         alert(`CLI Details for ${ksiId} - Full implementation would show detailed command execution data.`);
@@ -7534,10 +7977,10 @@ const quarterlyReportsSection = `
             'Export risk data for agency reporting'
         ]);
         } else {
-            if (typeof window.originalShowPOAMModal === 'function') {
-        window.originalShowPOAMModal();
+            if (window.originalShowPOAMModal || window.showPOAMModal) {
+        (window.originalShowPOAMModal || window.showPOAMModal)();
             } else {
-        showRiskDashboard(); // Generic alert fallback
+        showRiskDashboard();
             }
         }
     }
@@ -7551,18 +7994,16 @@ const quarterlyReportsSection = `
             'Generate compliance documentation'
         ]);
         } else {
-            if (typeof window.originalCreateGitHubIssue === 'function') {
-        window.originalCreateGitHubIssue(ksiId);
+            if (window.originalCreateGitHubIssue || window.createGitHubIssue) {
+        (window.originalCreateGitHubIssue || window.createGitHubIssue)(ksiId);
             } else {
                 // Fallback issue creation
                 const ksi = window.allKsis ? window.allKsis.find(k => (k.id || k.ksi_id) === ksiId) : null;
     if (ksi) {
                     const repoUrl = 'https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission_live';
-    const issueTitle = encodeURIComponent(`[TECHNICAL] ${ksiId}: ${(ksi.description || ksi.requirement || '').substring(0, 50)}...`);
-    const issueBody = encodeURIComponent(`## Technical Assessment Report\n\n**KSI ID:** ${ksiId}\n**Status:** ${ksi.status || (ksi.assertion ? 'passed' : 'failed')}\n\n### Technical Findings\n${ksi.assertion_reason || 'See detailed assessment in trust center'}\n\n### Commands Executed\n${ksi.commands_executed || 0} validation commands\n\n*Created from authenticated federal agency access*`);
+    const issueTitle = encodeURIComponent(`[TECHNICAL] ${ksiId}: ${(ksi.description || '').substring(0, 50)}...`);
+    const issueBody = encodeURIComponent(`## Technical Assessment Report\n\n**KSI ID:** ${ksiId}\n**Status:** ${ksi.status || 'Unknown'}\n\n### Technical Findings\n${ksi.assertion_reason || 'See detailed assessment in trust center'}\n\n### Commands Executed\n${ksi.commands_executed || 0} validation commands\n\n*Created from authenticated federal agency access*`);
     window.open(`${repoUrl}/issues/new?title=${issueTitle}&body=${issueBody}&labels=federal-agency,technical-assessment`, '_blank');
-                } else {
-        showErrorMessage(`Could not create issue: KSI data for ${ksiId} not found.`);
                 }
             }
         }
@@ -7574,15 +8015,14 @@ const quarterlyReportsSection = `
     function createTemporaryModal(id) {
         const modal = document.createElement('div');
     modal.id = id;
-    modal.className = 'modal temporary'; // Add temporary class for potential removal logic
+    modal.className = 'modal';
     modal.innerHTML = `
     <div class="modal-content">
         <div class="modal-header">
-            <h3 class="why-modal-title">Details</h3>
-            <button class="close-btn" onclick="closeCustomModal('${id}')">&times;</button>
+            <h3 class="why-modal-title">Assessment Details</h3>
+            <button class="close-btn" onclick="closeTemporaryModal('${id}')">&times;</button>
         </div>
         <div class="modal-body why-modal-body">
-            Loading...
         </div>
     </div>
     `;
@@ -7590,39 +8030,52 @@ const quarterlyReportsSection = `
     return modal;
     }
 
-    // CloseCustomModal now handles temporary modals by checking presence, not class
-    // function closeTemporaryModal(id) remains useful if needed elsewhere
-
+    function closeTemporaryModal(id) {
+        const modal = document.getElementById(id);
+    if (modal && modal.classList.contains('temporary')) {
+        modal.remove();
+        } else if (modal) {
+        modal.classList.remove('active');
+        }
+    document.body.style.overflow = '';
+    }
 
     function getStatusIcon(status) {
         const iconMap = {
-        'passed': '✅', 'compliant': '✅',
-    'failed': '❌', 'enhancement': '🔧',
-    'warning': '⚠️', 'monitoring': '👀',
-    'info': '📈', 'improvement': '📈'
+        'passed': '✅',
+    'failed': '❌',
+    'warning': '⚠️',
+    'info': '📈',
+    'compliant': '✅',
+    'enhancement': '🔧',
+    'monitoring': '👀',
+    'improvement': '📈'
         };
     return iconMap[status] || '❓';
     }
 
-    // Federal Agency Resource Functions (Fallbacks / Placeholders)
+    // Federal Agency Resource Functions
     function downloadAuthPackage() {
-        logAgencyAccess('auth_package_download_attempt'); // Log attempt
-    alert('Placeholder: Downloading complete authorization package...');
+        logAgencyAccess('auth_package_download');
+    alert('Downloading complete authorization package... (This would trigger actual download in production)');
     }
 
     function viewTechnicalReports() {
-        logAgencyAccess('technical_reports_access_attempt');
-    alert('Placeholder: Accessing technical assessment reports...');
+        logAgencyAccess('technical_reports_access');
+    alert('Accessing technical assessment reports... (This would open detailed reports in production)');
     }
 
     function showRiskDashboard() {
-        logAgencyAccess('risk_dashboard_access_attempt');
-    alert('Placeholder: Opening risk management dashboard...');
+        logAgencyAccess('risk_dashboard_access');
+    alert('Opening risk management dashboard... (This would show detailed POA&M and risk data in production)');
     }
 
-    // Removed the placeholder viewQuarterlyReports function as it's redundant
-
-    // --- NEW/MODIFIED RFC-0016 Functions ---
+    function viewQuarterlyReports() {
+        logAgencyAccess('quarterly_reports_access');
+    // In production, this would navigate to or display quarterly reports
+    // This function is less relevant now with the dedicated section, but keep for potential future use
+    alert('Opening quarterly reports dashboard... (This would display RFC-0016 reports in production)');
+    }
 
     async function viewCurrentReport() {
         if (!window.fedRAMPAuth.isAuthenticated) {
@@ -7662,7 +8115,7 @@ const quarterlyReportsSection = `
         }
     }
 
-    // Helper function to display report modal
+    // Helper function to display report modal (add this too)
     function displayReportModal(htmlContent, title) {
         let modal = document.getElementById('report-viewer-modal');
     if (!modal) {
@@ -7698,111 +8151,42 @@ const quarterlyReportsSection = `
     document.body.style.overflow = 'hidden';
     }
 
-    // Helper function to open report in new window (Using String Concatenation)
+    // Helper function to open report in new window (CORRECTED AGAIN FOR CSS SPACING)
     function openReportInNewWindow() {
          if (window.tempReportContent) {
-            const {html, title} = window.tempReportContent;
-    const newWindow = window.open("", "_blank");
+            const { html, title } = window.tempReportContent;
+            const newWindow = window.open("", "_blank");
 
-    // Define CSS separately (ensures correct formatting)
-    const reportStyles = `
-    body {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
-    .markdown-content {max - width: 800px; margin: auto; }
-    h1, h2, h3 {border - bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
-    code {background - color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
-    pre {background - color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
-    table {border - collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
-    th, td {border: 1px solid #dfe2e5; padding: 8px 15px; }
-    th {font - weight: 600; }
-    a {color: #0366d6; text-decoration: none; }
-    a:hover {text - decoration: underline; }
-    `;
+            // Define CSS separately (ensures correct formatting)
+            const reportStyles = `
+                body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; padding: 2rem; margin: 0; }
+                .markdown-content { max-width: 800px; margin: auto; }
+                h1, h2, h3 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+                code { background-color: #f6f8fa; padding: 0.2em 0.4em; margin: 0; font-size: 85%; border-radius: 6px; }
+                pre { background-color: #f6f8fa; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 6px; }
+                table { border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem; }
+                th, td { border: 1px solid #dfe2e5; padding: 8px 15px; }
+                th { font-weight: 600; }
+                a { color: #0366d6; text-decoration: none; }
+                a:hover { text-decoration: underline; }
+            `;
 
-    // Build HTML using standard string concatenation (+)
-    const newWindowHtml =
-    '<html>' +
-        '<head>' +
-            '<title>' + title + '</title>' +
-            '<style>' + reportStyles + '</style>' +
-            '</head>' +
-        '<body><div class="markdown-content">' + html + '</div></body>' +
-        '</html>';
+            // Build HTML using standard string concatenation (+)
+            const newWindowHtml =
+                '<html>' +
+                '<head>' +
+                '<title>' + title + '</title>' +
+                '<style>' + reportStyles + '</style>' +
+                '</head>' +
+                '<body><div class="markdown-content">' + html + '</div></body>' +
+                '</html>';
 
-    // Write the concatenated string
-    newWindow.document.write(newWindowHtml);
-    newWindow.document.close();
-    closeCustomModal('report-viewer-modal');
+            // Write the concatenated string
+            newWindow.document.write(newWindowHtml);
+            newWindow.document.close();
+            closeCustomModal('report-viewer-modal');
         }
     }
-
-    async function downloadCurrentReport(isMarkdown = false) {
-    // Add authentication check
-    if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('Download Quarterly Report', [
-            'Access current and historical quarterly reports',
-            'Download reports in machine-readable (JSON) or human-readable (Markdown) format',
-            'Review all accepted weaknesses and planned changes'
-        ]);
-    return;
-    }
-
-    // Determine which file to download
-    const fileExtension = isMarkdown ? 'md' : 'json';
-    const reportBaseName = 'ongoing_authorization_report_Q4_2025'; // Assume latest is always named this for now
-    const reportFileName = `${reportBaseName}.${fileExtension}`;
-    const reportUrl = `https://raw.githubusercontent.com/Meridian-Knowledge-Solutions/fedramp-20x-public/master/quarterly_reports/${reportFileName}`;
-    const logAction = isMarkdown ? 'download_quarterly_report_md' : 'download_quarterly_report_json';
-
-    try {
-        logAgencyAccess(logAction, 'current');
-    showLoadingMessage(`Preparing ${fileExtension.toUpperCase()} report download...`);
-
-    // Use fetch for JSON to handle potential errors, direct link for MD
-    if (isMarkdown) {
-            const a = document.createElement('a');
-    a.href = reportUrl;
-    a.download = reportFileName;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showSuccessMessage(`✅ Markdown Report download started`);
-        } else {
-             // Fetch JSON content to ensure it exists and create blob
-             const response = await fetch(reportUrl);
-    if (!response.ok) {
-                 // Handle case where JSON might not exist yet
-                 if (response.status === 404) {
-                     throw new Error(`JSON version not found at ${reportUrl}`);
-                 }
-    throw new Error(`Failed to fetch JSON report: ${response.status}`);
-             }
-    const reportContent = await response.text(); // Get as text first
-    const blob = new Blob([reportContent], {type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = reportFileName;
-    document.body.appendChild(a);
-    a.click();
-             setTimeout(() => {
-        document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-             }, 100);
-    showSuccessMessage(`✅ JSON Report download started`);
-        }
-
-    } catch (error) {
-        console.error('Report download error:', error);
-    showErrorMessage(`Failed to start ${fileExtension.toUpperCase()} report download. ${error.message}`);
-    } finally {
-        hideLoadingMessage();
-    // Close modal if downloading MD from within modal
-    if (isMarkdown && document.getElementById('report-viewer-modal')?.classList.contains('active')) {
-        closeCustomModal('report-viewer-modal');
-         }
-    }
-}
 
 
     async function loadQuarterlyReportData() {
@@ -7814,36 +8198,40 @@ const quarterlyReportsSection = `
         }
     const data = await response.json();
 
-    // Get all potential elements (might be called before elements exist)
+    // Get all potential elements
     const reportDatePublicEl = document.getElementById('next-report-date');
     const reviewPublicEl = document.getElementById('next-quarterly-review');
     const reportDateAuthEl = document.getElementById('next-report-date-auth');
     const reviewAuthEl = document.getElementById('next-quarterly-review-auth');
 
     // Update Next Ongoing Authorization Report date (FRR-CCM-03)
-    let formattedDate = 'Date TBD';
     if (data.next_ongoing_report) {
             const reportDate = new Date(data.next_ongoing_report + 'T00:00:00Z');
-    formattedDate = reportDate.toLocaleDateString('en-US', {
+    const formattedDate = reportDate.toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
             });
-    }
     if (reportDatePublicEl) reportDatePublicEl.textContent = formattedDate;
     if (reportDateAuthEl) reportDateAuthEl.textContent = formattedDate; // Update auth view too
+        } else {
+             if (reportDatePublicEl) reportDatePublicEl.textContent = 'Date TBD';
+    if (reportDateAuthEl) reportDateAuthEl.textContent = 'Date TBD';
+        }
 
     // Update Next Quarterly Review date (FRR-CCM-QR-05)
-    let formattedReview = 'Schedule TBD';
     if (data.next_quarterly_review) {
-        formattedReview = data.next_quarterly_review + ' at 2:00 PM ET'; // Assuming fixed time
-    }
+             const formattedReview = data.next_quarterly_review + ' at 2:00 PM ET'; // Assuming fixed time
     if (reviewPublicEl) reviewPublicEl.textContent = formattedReview;
     if (reviewAuthEl) reviewAuthEl.textContent = formattedReview; // Update auth view too
+        } else {
+             if (reviewPublicEl) reviewPublicEl.textContent = 'Schedule TBD';
+    if (reviewAuthEl) reviewAuthEl.textContent = 'Schedule TBD';
+        }
 
     console.log('✅ Quarterly report schedule loaded from public repository');
     } catch (error) {
         console.error('Could not load quarterly report schedule:', error);
-    // Fallback text on error for all elements
-    ['next-report-date', 'next-quarterly-review', 'next-report-date-auth', 'next-quarterly-review-auth'].forEach(id => {
+        // Fallback text on error for all elements
+        ['next-report-date', 'next-quarterly-review', 'next-report-date-auth', 'next-quarterly-review-auth'].forEach(id => {
             const el = document.getElementById(id);
     if (el) el.textContent = 'Check back soon';
         });
@@ -7851,10 +8239,7 @@ const quarterlyReportsSection = `
 }
 
     function exportValidationData() {
-        if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('Export Validation Data', ['Export machine-readable KSI results']); return;
-        }
-    logAgencyAccess('validation_data_export');
+        logAgencyAccess('validation_data_export');
     if (window.allKsis) {
             const data = {
         export_timestamp: new Date().toISOString(),
@@ -7868,17 +8253,41 @@ const quarterlyReportsSection = `
     const a = document.createElement('a');
     a.href = url;
     a.download = `fedramp_ksi_validation_data_${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a); // Append for Firefox
     a.click();
-    document.body.removeChild(a); // Clean up
     URL.revokeObjectURL(url);
-    showSuccessMessage('✅ KSI Validation Data export started.');
         } else {
-        showErrorMessage('Validation data not available - please refresh the page.');
+        alert('Validation data not available - please refresh the page');
         }
     }
 
-    // --- Feedback & Review Registration (Modal + Mailto Generation) ---
+    function downloadQuarterlyReport(period) {
+        logAgencyAccess('quarterly_report_download', period);
+    alert(`Downloading ${period} quarterly report... (This would download the actual report in production)`);
+    }
+
+    function viewQuarterlyReport(period) {
+        logAgencyAccess('quarterly_report_view', period);
+    alert(`Opening ${period} quarterly report... (This would display the report in production)`);
+    }
+
+    function showReportArchive() {
+        logAgencyAccess('report_archive_access');
+    alert('Opening report archive... (This would show historical reports in production)');
+    }
+
+    function subscribeToReports() {
+        logAgencyAccess('report_subscription');
+    const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+    alert(`Setting up report subscription for ${agencyInfo?.email}... (This would configure automated delivery in production)`);
+    }
+
+    function registerForQuarterlyReview() {
+        logAgencyAccess('quarterly_review_registration');
+    const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+    const subject = encodeURIComponent(`Quarterly Review Registration - ${agencyInfo?.agency}`);
+    const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nEmail: ${agencyInfo?.email}\n\nPlease register us for the next quarterly review meeting per FRR-CCM-QR.\n\nSystem: ${agencyInfo?.system_name || 'N/A'}`);
+    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+    }
 
     function openAgencyFeedback() {
         // Add authentication check
@@ -7891,767 +8300,785 @@ const quarterlyReportsSection = `
     return;
         }
 
-    logAgencyAccess('agency_feedback_form_opened');
+    logAgencyAccess('agency_feedback_submission');
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-    const modal = document.getElementById('feedback-modal');
 
-    if (modal && agencyInfo) {
-        // Pre-fill read-only fields
-        modal.querySelector('#feedback-agency').value = agencyInfo.agency || '';
-    modal.querySelector('#feedback-contact').value = agencyInfo.contact || '';
-    modal.querySelector('#feedback-email').value = agencyInfo.email || '';
-    // Reset message field
-    modal.querySelector('#feedback-message').value = '';
-    // Reset subject field to default using standard concatenation
-    modal.querySelector('#feedback-subject').value = 'Agency Feedback - ' + (agencyInfo.agency || 'Unknown Agency'); // Corrected line
-
-
-    // Attach the submit handler dynamically if not already attached
-    const form = modal.querySelector('#agency-feedback-form');
-    if (!form.hasAttribute('data-submit-attached')) {
-        form.addEventListener('submit', handleFeedbackSubmit);
-    form.setAttribute('data-submit-attached', 'true');
-            }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-        } else {
-        showErrorMessage('Could not open feedback form.');
-    console.error('Feedback modal or agency info missing.');
+    if (!agencyInfo) {
+        // This shouldn't happen if auth passed, but as a fallback:
+        showErrorMessage('You must be registered to submit feedback.');
+    return;
         }
-    }
 
+    const subject = encodeURIComponent(`Agency Feedback - ${agencyInfo.agency}`);
+    const body = encodeURIComponent(
+    `Agency: ${agencyInfo.agency}\n` +
+    `Contact: ${agencyInfo.contact}\n` +
+    `Email: ${agencyInfo.email}\n\n` +
+    `Feedback on authorization data and continuous monitoring per FRR-CCM-04:\n\n`
+    );
 
-    /* CHANGE: Modified handleFeedbackSubmit to use standard string concatenation */
-    function handleFeedbackSubmit(event) {
-        event.preventDefault(); // Prevent actual form submission
-
-    logAgencyAccess('agency_feedback_submitted');
-    const form = event.target;
-    const formData = new FormData(form);
-
-    const recipient = 'fedramp_20x@meridianks.com'; // Your target SES inbox
-    const subject = encodeURIComponent(formData.get('subject') || 'Agency Feedback');
-
-    // Build body using standard string concatenation
-    const bodyContent =
-    'Agency: ' + (formData.get('agency') || 'N/A') + '\n' +
-    'Contact: ' + (formData.get('contact') || 'N/A') + '\n' +
-    'Email: ' + (formData.get('email') || 'N/A') + '\n\n' +
-    'System/Project: ' + (window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A') + '\n\n' +
-    'Feedback/Question:\n' +
-    '--------------------\n' +
-    (formData.get('message') || '[No message entered]') + '\n\n' +
-    '--------------------\n' +
-    'Submitted via Trust Center Feedback Form\n' +
-    'Timestamp: ' + new Date().toISOString();
-
-    const body = encodeURIComponent(bodyContent);
-
-    // Build mailto link using standard string concatenation
-    const mailtoLink = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
-
-    // Use the reliable link click method
+    // Create a temporary link to trigger the mailto
     const a = document.createElement('a');
-    a.href = mailtoLink;
-    a.style.display = 'none';
+    a.href = `mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`;
+    a.style.display = 'none'; // Hide it
     document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    // Close modal and show confirmation
-    closeCustomModal('feedback-modal');
-    showSuccessMessage('Please send the prepared email using your email client.');
+    a.click(); // Click it
+    document.body.removeChild(a); // Clean up
     }
 
     function registerForReview() {
     if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('Quarterly Review Registration', ['Register for sync quarterly review meetings', /*...*/]); return;
+        showAccessRequiredModal('Quarterly Review Registration', [
+            'Register for synchronous quarterly review meetings',
+            'Discuss authorization reports with provider team',
+            'Ask questions in real-time with other agencies',
+            'Receive calendar invite and meeting materials'
+        ]);
+    return;
     }
-    logAgencyAccess('review_registration_form_opened');
+    logAgencyAccess('quarterly_review_registration');
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
-    const modal = document.getElementById('review-registration-modal');
-    if (modal && agencyInfo) {
-        modal.querySelector('#review-agency').value = agencyInfo.agency || '';
-    modal.querySelector('#review-contact').value = agencyInfo.contact || '';
-    modal.querySelector('#review-email').value = agencyInfo.email || '';
-    modal.querySelector('#review-attendees').value = '';
-    const form = modal.querySelector('#review-registration-form');
-    if (!form.hasAttribute('data-submit-attached-review')) {
-        form.addEventListener('submit', handleReviewRegistrationSubmit);
-    form.setAttribute('data-submit-attached-review', 'true');
-         }
-    modal.classList.add('active'); document.body.style.overflow = 'hidden';
-    } else {
-        showErrorMessage('Could not open registration form.'); console.error('Review modal/agency info missing.');
-    }
+    const subject = encodeURIComponent(`Quarterly Review Registration - ${agencyInfo.agency}`);
+    const body = encodeURIComponent(
+    `Agency: ${agencyInfo.agency}\n` +
+    `Contact: ${agencyInfo.contact}\n` +
+    `Email: ${agencyInfo.email}\n` +
+    `System: ${agencyInfo.system_name || 'N/A'}\n\n` +
+    `Please register us for the next quarterly review meeting per FRR-CCM-QR.\n\n` +
+    `We would like to receive:\n` +
+    `- Calendar invitation for the meeting\n` +
+    `- Pre-meeting materials and agenda\n` +
+    `- Instructions for joining the virtual meeting\n`
+    );
+    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
 }
 
-    /* CHANGE: Modified handleReviewRegistrationSubmit to use standard string concatenation */
-    function handleReviewRegistrationSubmit(event) {
-        event.preventDefault(); // Prevent actual form submission
-
-    logAgencyAccess('review_registration_submitted');
-    const form = event.target;
-    const formData = new FormData(form);
-
-    const recipient = 'fedramp_20x@meridianks.com'; // Your target SES inbox
-    // Build subject using standard string concatenation
-    const subject = encodeURIComponent('Quarterly Review Registration - ' + (formData.get('agency') || 'Unknown Agency'));
-
-    // Clean up attendee list (split by comma or newline, trim whitespace, filter empty)
-    const attendeesRaw = formData.get('attendees') || '';
-    const attendeeList = attendeesRaw
-    .split(/[,\\n]/) // Split by comma or newline
-            .map(email => email.trim()) // Remove whitespace
-            .filter(email => email !== ''); // Remove empty entries
-
-        const additionalAttendees = attendeeList.length > 0
-    ? '\nAdditional Attendees:\n' + attendeeList.join('\n')
-    : '\nAdditional Attendees: None';
-
-    // Build body using standard string concatenation
-    const bodyContent =
-    'Please register the following for the next Quarterly Review Meeting (per FRR-CCM-QR):\n\n' +
-    'Agency: ' + (formData.get('agency') || 'N/A') + '\n' +
-    'Primary Contact: ' + (formData.get('contact') || 'N/A') + '\n' +
-    'Primary Email: ' + (formData.get('email') || 'N/A') + '\n' +
-    'System/Project: ' + (window.fedRAMPAuth.getAgencyInfo()?.system_name || 'N/A') +
-    additionalAttendees + '\n\n' +
-    'Please send the calendar invitation and any pre-meeting materials to the primary email and additional attendees listed above.\n\n' +
-    '--------------------\n' +
-    'Submitted via Trust Center Registration Form\n' +
-    'Timestamp: ' + new Date().toISOString();
-
-    const body = encodeURIComponent(bodyContent);
-
-    // Build mailto link using standard string concatenation
-    const mailtoLink = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
-
-    // Use the reliable link click method
-    const a = document.createElement('a');
-    a.href = mailtoLink;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    // Close modal and show confirmation
-    closeCustomModal('review-registration-modal');
-    showSuccessMessage('Please send the prepared registration email using your email client.');
+    function generateComplianceReport() {
+        logAgencyAccess('compliance_report_generation');
+    alert('Generating agency-specific compliance report... (This would create custom reports in production)');
     }
 
-    // Removed other placeholder/unused functions like generateComplianceReport, showEvidenceSearch, downloadEvidencePackage
+    function showEvidenceSearch() {
+        logAgencyAccess('evidence_search_access');
+    alert('Opening evidence search interface... (This would provide advanced search capabilities in production)');
+    }
 
-    function logAgencyAccess(action, detail = null) {
-        if (!window.fedRAMPAuth || !window.fedRAMPAuth.isAuthenticated) {
-            // console.log('Log Agency Access Skipped: User not authenticated.');
-            return; // Don't log if not authenticated
-        }
+    function contactFederalSupport() {
+        logAgencyAccess('federal_support_contact');
     const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
+    const subject = encodeURIComponent(`Federal Agency Support Request - ${agencyInfo?.agency}`);
+    const body = encodeURIComponent(`Agency: ${agencyInfo?.agency}\nContact: ${agencyInfo?.contact}\nSystem: ${agencyInfo?.system_name}\n\nRequest Details:\n\n`);
+    window.open(`mailto:fedramp_20x@meridianks.com?subject=${subject}&body=${body}`);
+    }
+
+    function downloadEvidencePackage(ksiId) {
+        logAgencyAccess('evidence_package_download', ksiId);
+    alert(`Downloading evidence package for ${ksiId}... (This would provide complete evidence files in production)`);
+    }
+
+    function logAgencyAccess(action, ksiId = null) {
+        const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     const logData = {
         timestamp: new Date().toISOString(),
-    agency: agencyInfo?.agency || 'Unknown Agency',
-    email: agencyInfo?.email || 'Unknown Email',
+    agency: agencyInfo?.agency,
     action: action,
-    detail: detail,
-    session_start: window.fedRAMPAuth.token ? new Date(JSON.parse(atob(window.fedRAMPAuth.token.split('.')[1])).iat * 1000).toISOString() : null
+    ksi_id: ksiId,
+    session_id: window.fedRAMPAuth.token ? window.fedRAMPAuth.token.split('.')[2] : null
         };
+
     console.log('Agency Access Logged:', logData);
-        // Production: Send logData to a secure logging endpoint
+        // In production, this would send to AWS API for compliance tracking
     }
 
     // ====================================================================
     // MODAL MANAGEMENT & REGISTRATION WITH EMAIL VERIFICATION
     // ====================================================================
     function showRegistrationModal() {
-        const modal = document.getElementById('registration-modal');
-    if (modal) {
-        modal.classList.add('active');
+        document.getElementById('registration-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
-        } else {console.error("Registration modal not found!"); }
     }
 
     function closeCustomModal(id) {
         const el = document.getElementById(id);
     if(el) el.classList.remove('active');
-    if (!document.querySelector('.modal.active')) { // Only restore scroll if NO modals are active
+    if (!document.querySelector('.modal.active')) {
         document.body.style.overflow = '';
         }
     }
 
     function showAccessRequiredModal(feature, benefits) {
         const modal = document.getElementById('access-required-modal');
-    if (modal) {
-        modal.querySelector('.feature-name').textContent = feature;
-            modal.querySelector('.benefits-list').innerHTML = benefits.map(b => `<li>✅ ${b}</li>`).join('');
+    modal.querySelector('.feature-name').textContent = feature;
+        modal.querySelector('.benefits-list').innerHTML = benefits.map(b => `<li>✅ ${b}</li>`).join('');
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-        } else {console.error("Access required modal not found!"); }
     }
 
     /**
      * Handle federal agency registration with email verification
+     * Updated to support verification flow from Ticket #1
      */
     async function handleRegistration(e) {
         e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    if (!data.email.match(/\.(gov|mil|fed\.us)$/i)) {showErrorMessage('Please use a federal email address (.gov, .mil, or .fed.us)'); return; }
+
+    // Client-side validation
+    if (!data.email.match(/\.(gov|mil|fed\.us)$/i)) {
+        showErrorMessage('Please use a federal email address (.gov, .mil, or .fed.us)');
+    return;
+        }
+
     try {
         showLoadingMessage('Registering agency and sending verification email...');
-    if (FEDRAMP_API_CONFIG.DEMO_MODE) { /* ... Demo logic ... */ console.log("Demo Reg"); await new Promise(r => setTimeout(r, 500)); closeCustomModal('registration-modal'); showSuccessMessage("Demo: Verify email sent"); }
-    else {
-                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.REGISTER}`, { /* ... fetch options ... */});
+
+    if (FEDRAMP_API_CONFIG.DEMO_MODE) {
+        // Demo mode - simulate verification email flow
+        console.log('📧 DEMO MODE: Simulating verification email (backend not yet deployed)');
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+    closeCustomModal('registration-modal');
+    showSuccessMessage(`✓ Verification email sent to ${data.email}! Check your inbox and click the link to complete registration.`);
+
+    // For demo: auto-verify after 3 seconds
+    console.log('📧 DEMO MODE: Auto-verifying in 3 seconds for testing...');
+                setTimeout(() => {
+                    const tokenData = {
+        agency: data.agency,
+    email: data.email,
+    contact: data.contact,
+    system_name: data.system_name || '',
+    exp: Math.floor(Date.now() / 1000) + (365 * 24 * 60 * 60) // 1 year
+                    };
+
+    const token = 'demo.header.' + btoa(JSON.stringify(tokenData)) + '.demo.signature';
+    localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, token);
+    window.fedRAMPAuth = new FedRAMPAuth();
+
+    showSuccessMessage('✓ Email verified (demo auto-verify)! Loading federal agency dashboard...');
+                    setTimeout(() => window.location.reload(), 1500);
+                }, 3000);
+
+            } else {
+                // Production mode - call AWS registration API
+                // This now sends verification email instead of immediate token
+                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.REGISTER}`, {
+        method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+                    },
+    body: JSON.stringify({
+        agency: data.agency,
+    email: data.email,
+    contact: data.contact,
+    system_name: data.system_name || '',
+    purpose: data.purpose || ''
+                    }),
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+                });
+
     const result = await response.json();
-    if (response.ok && result.success) {closeCustomModal('registration-modal'); showSuccessMessage(`✓ Verification email sent to ${data.email}! Check inbox (valid 24 hrs).`); }
-    else {showErrorMessage(result.error || result.message || 'Registration failed.'); }
+
+    if (response.ok && result.success) {
+        // Close registration modal
+        closeCustomModal('registration-modal');
+
+    // Show verification email sent message
+    showSuccessMessage(
+    `✓ Verification email sent to ${data.email}! ` +
+    `Please check your inbox and click the verification link (valid for 24 hours).`
+    );
+
+    console.log('Registration initiated - verification email sent');
+
+                } else {
+                    const errorMessage = result.error || result.message || 'Registration failed. Please try again.';
+    showErrorMessage(errorMessage);
+                }
             }
-        } catch (error) {console.error('Reg error:', error); showErrorMessage('Unable to register.'); }
-    finally {hideLoadingMessage(); }
+
+        } catch (error) {
+        console.error('Registration error:', error);
+
+    if (error.name === 'AbortError') {
+        showErrorMessage('Registration request timed out. Please try again.');
+            } else if (error.message.includes('Failed to fetch')) {
+        showErrorMessage('Network error. Please check your connection and try again.');
+            } else {
+        showErrorMessage('Unable to complete registration. Please try again.');
+            }
+        } finally {
+        hideLoadingMessage();
+        }
     }
 
     /**
      * Handle email verification from link
+     * Called when user clicks verification link from email
      */
     async function handleEmailVerification(token) {
         console.log('Verifying email token...');
+
     try {
         showLoadingMessage('Verifying your email address...');
-    if (FEDRAMP_API_CONFIG.DEMO_MODE) { /* ... Demo logic ... */ console.log("Demo Verify"); await new Promise(r => setTimeout(r, 500)); showSuccessMessage("Demo: Verified"); window.history.replaceState({ }, '', window.location.pathname); setTimeout(() => window.location.reload(), 1000); }
-    else {
-                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.VERIFY}`, { /* ... fetch options ... */});
+
+    if (FEDRAMP_API_CONFIG.DEMO_MODE) {
+        // Demo mode - auto verify token
+        console.log('📧 DEMO MODE: Auto-verifying token (backend not yet deployed)');
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Parse token (in demo mode, token is just base64 encoded data)
+    const parts = token.split('.');
+    const tokenData = JSON.parse(atob(parts[1]));
+
+    // Create full JWT token
+    const fullToken = 'demo.header.' + btoa(JSON.stringify({
+        ...tokenData,
+        exp: Math.floor(Date.now() / 1000) + (365 * 24 * 60 * 60)
+                })) + '.demo.signature';
+
+    localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, fullToken);
+    window.fedRAMPAuth = new FedRAMPAuth();
+
+    showSuccessMessage(`✓ Email verified for ${tokenData.agency}! Loading federal agency dashboard...`);
+
+    // Clean up URL
+    window.history.replaceState({ }, document.title, window.location.pathname);
+
+                setTimeout(() => window.location.reload(), 2000);
+
+            } else {
+                // Production mode - call AWS verification API
+                const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.VERIFY}`, {
+        method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+                    },
+    body: JSON.stringify({token}),
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT)
+                });
+
     const result = await response.json();
-    if (response.ok && result.success) {localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, result.token); window.fedRAMPAuth = new FedRAMPAuth(); showSuccessMessage(`✓ Email verified for ${result.agency}! Loading...`); window.history.replaceState({ }, '', window.location.pathname); setTimeout(() => window.location.reload(), 2000); }
-    else {let e = result.error || 'Verify failed'; if(e.includes('exp')) e='Link expired'; if(e.includes('Inv')) e='Invalid link'; showErrorMessage(e); setTimeout(() => window.location.href = window.location.pathname, 5000); }
+
+    if (response.ok && result.success) {
+        // Store JWT access token from backend
+        localStorage.setItem(FEDRAMP_API_CONFIG.TOKEN_KEY, result.token);
+    window.fedRAMPAuth = new FedRAMPAuth();
+
+    showSuccessMessage(`✓ Email verified for ${result.agency}! Loading federal agency dashboard...`);
+
+    // Clean up URL
+    window.history.replaceState({ }, document.title, window.location.pathname);
+
+                    // Reload to show authenticated view
+                    setTimeout(() => window.location.reload(), 2000);
+
+                } else {
+                    const errorMessage = result.error || 'Verification failed';
+
+    if (errorMessage.includes('expired')) {
+        showErrorMessage(
+            '⏱️ Verification link has expired (24 hour limit). ' +
+            'Please register again to receive a new verification email.'
+        );
+                    } else if (errorMessage.includes('Invalid')) {
+        showErrorMessage(
+            '❌ Invalid verification link. ' +
+            'Please check your email for the correct link or register again.'
+        );
+                    } else {
+        showErrorMessage(`Verification failed: ${errorMessage}`);
+                    }
+
+                    // Redirect to main page after 5 seconds
+                    setTimeout(() => {
+        window.location.href = window.location.pathname;
+                    }, 5000);
+                }
             }
-        } catch (error) {console.error('Verify error:', error); showErrorMessage('Unable to verify email.'); setTimeout(() => window.location.href = window.location.pathname, 5000); }
-    finally {hideLoadingMessage(); }
+
+        } catch (error) {
+        console.error('Verification error:', error);
+
+    if (error.name === 'AbortError') {
+        showErrorMessage('Verification request timed out. Please try again.');
+            } else if (error.message.includes('Failed to fetch')) {
+        showErrorMessage('Network error during verification. Please check your connection.');
+            } else {
+        showErrorMessage('Unable to verify email. Please try clicking the link again.');
+            }
+
+            // Redirect after error
+            setTimeout(() => {
+        window.location.href = window.location.pathname;
+            }, 5000);
+
+        } finally {
+        hideLoadingMessage();
+        }
     }
 
+    /**
+     * Download complete authorization package from private repository via pre-signed URL.
+     * Requires authenticated federal access token.
+     */
+    async function downloadAuthorizationPackage() {
+    const token = localStorage.getItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
 
-    function addStyles() {
-    // Check if styles already injected
-    if (document.getElementById('two-tier-styles')) {
-        console.log('Styles already injected, skipping...');
+    // Check authentication
+    if (!token) {
+        showErrorMessage('Please register with your federal email to download the authorization package.');
+    showRegistrationModal();
     return;
     }
 
-    const styleEl = document.createElement('style');
-    styleEl.id = 'two-tier-styles';
-    styleEl.textContent = `
-    /* Modal Base Styles */
-    .modal {
-        display: none;
+    try {
+        // Step 1: Request the pre-signed URL from your API
+        showLoadingMessage('Requesting secure download link...');
+
+    const response = await fetch(`${FEDRAMP_API_CONFIG.BASE_URL}${FEDRAMP_API_CONFIG.ENDPOINTS.PACKAGE}`, {
+        method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${token}`
+                // The 'Content-Type' header is correctly removed
+            },
+    signal: AbortSignal.timeout(FEDRAMP_API_CONFIG.TIMEOUT) // Use shorter timeout for the API call
+        });
+
+    if (response.ok) {
+            // The API now returns JSON, not a blob
+            const data = await response.json();
+
+    // Check if the JSON response contains the pre-signed URL
+    if (data.url) {
+        showLoadingMessage('Download starting...');
+
+    // Step 2: Use the pre-signed URL to trigger the download
+    // We create a temporary link to initiate the download.
+    // This is better than window.location.href as it doesn't navigate away.
+    const a = document.createElement('a');
+    a.href = data.url; // Use the URL from the API response
+    a.download = 'meridian-fedramp-authorization-package.zip'; // Set a default filename
+    document.body.appendChild(a);
+    a.click();
+
+                // Cleanup
+                setTimeout(() => {
+        document.body.removeChild(a);
+                }, 100);
+
+    showSuccessMessage(`✅ Download started: ${a.download}`);
+    logAgencyAccess('authorization_package_download', a.download);
+
+            } else {
+        // The JSON was valid but didn't contain a URL
+        console.error('API response is missing the pre-signed URL.', data);
+    showErrorMessage('Failed to retrieve download link from the server.');
+            }
+
+        } else {
+            // Handle error responses from the API
+            const errorData = await response.json().catch(() => ({ }));
+
+    if (response.status === 401) {
+        localStorage.removeItem(FEDRAMP_API_CONFIG.TOKEN_KEY);
+    showErrorMessage('Your session has expired. Please register again.');
+                setTimeout(() => window.location.reload(), 2000);
+            } else if (response.status === 404) {
+        showErrorMessage('Authorization package is not yet available. Please try again in a few hours.');
+            } else if (response.status === 403) {
+        showErrorMessage('Access denied. Please ensure your federal email is verified.');
+            } else {
+        showErrorMessage(errorData.error || 'Failed to get download link. Please try again.');
+            }
+        }
+
+    } catch (error) {
+        console.error('Package download error:', error);
+    if (error.name === 'AbortError') {
+        showErrorMessage('Request for download link timed out. Please check your connection and try again.');
+        } else {
+        showErrorMessage('Unable to download authorization package. Please try again or contact support at fedramp_20x@meridianks.com.');
+        }
+    } finally {
+        hideLoadingMessage();
+    }
+}
+
+    // ====================================================================
+    // NOTIFICATION SYSTEM & HELPER FUNCTIONS
+    // ====================================================================
+
+    /**
+     * Show loading message with spinner
+     */
+    function showLoadingMessage(message) {
+        let loadingDiv = document.getElementById('loading-indicator');
+
+    if (!loadingDiv) {
+        loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loading-indicator';
+    loadingDiv.style.cssText = `
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 10000;
-    overflow-y: auto;
-    padding: 2rem;
-        }
-
-    .modal.active {
-        display: flex;
-    align-items: center;
-    justify-content: center;
-        }
-
-    .modal-content {
-        background: var(--bg-primary, white);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 600px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-        }
-
-    .config-modal-content {
-        max - width: 90vw !important;
-    max-height: 90vh;
-        }
-
-    .modal-header {
-        display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid var(--border-color, #e5e7eb);
-    position: sticky;
-    top: 0;
-    background: var(--bg-primary, white);
-    z-index: 10;
-        }
-
-    .modal-header h3 {
-        margin: 0;
-    font-size: 1.25rem;
-    color: var(--text-primary, #111827);
-        }
-
-    .close-btn {
-        background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-tertiary, #9ca3af);
-    padding: 0.25rem;
-    line-height: 1;
-    transition: color 0.2s;
-        }
-
-    .close-btn:hover {
-        color: var(--text-primary, #111827);
-        }
-
-    .modal-body {
-        padding: 2rem;
-        }
-
-    /* Form Styles */
-    .form-group {
-        margin - bottom: 1.5rem;
-        }
-
-    .form-group label {
-        display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-primary, #111827);
-    font-size: 0.875rem;
-        }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 8px;
-    font-size: 0.875rem;
-    transition: border-color 0.2s;
-        }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-        outline: none;
-    border-color: var(--primary-500, #3b82f6);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-    .form-group small {
-        display: block;
-    margin-top: 0.25rem;
-    color: var(--text-tertiary, #9ca3af);
-    font-size: 0.75rem;
-        }
-
-    .form-actions {
-        display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color, #e5e7eb);
-        }
-
-    /* Button Styles */
-    .btn-primary,
-    .btn-secondary {
-        padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: none;
-        }
-
-    .btn-primary {
-        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    flex: 1;
-        }
-
-    .btn-primary:hover {
-        transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-        }
-
-    .btn-secondary {
-        background: var(--bg-accent, #f9fafb);
-    color: var(--text-secondary, #6b7280);
-    border: 1px solid var(--border-color, #e5e7eb);
-        }
-
-    .btn-secondary:hover {
-        background: var(--bg-primary, white);
-    border-color: var(--text-tertiary, #9ca3af);
-        }
-
-    .action-btn {
-        padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid var(--border-color, #e5e7eb);
-    background: var(--bg-primary, white);
-    color: var(--text-secondary, #6b7280);
-        }
-
-    .action-btn:hover {
-        border - color: var(--primary-500, #3b82f6);
-    color: var(--primary-500, #3b82f6);
-    transform: translateY(-1px);
-        }
-
-    .action-btn.primary {
-        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-    color: white;
-    border: none;
-        }
-
-    .action-btn.primary:hover {
-        box - shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        }
-
-    /* KSI Card Styles */
-    .ksi-card {
-        background: var(--bg-primary, white);
-    border: 1px solid var(--border-color, #e5e7eb);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.2s;
-        }
-
-    .ksi-card:hover {
-        box - shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-        }
-
-    .ksi-card.public-view {
-        border - left: 4px solid var(--text-tertiary, #9ca3af);
-        }
-
-    .ksi-card.authenticated-view {
-        border - left: 4px solid var(--primary-500, #3b82f6);
-        }
-
-    .ksi-card-header {
-        display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 1rem;
-        }
-
-    .ksi-id {
-        font - weight: 700;
-    color: var(--text-primary, #111827);
-    font-size: 0.875rem;
-        }
-
-    .ksi-category {
-        font - size: 0.75rem;
-    color: var(--text-tertiary, #9ca3af);
-    margin-top: 0.25rem;
-        }
-
-    .ksi-status-bar {
-        padding: 0.5rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 1rem;
-        }
-
-    .ksi-status-bar.compliant {
-        background: rgba(16, 185, 129, 0.1);
-    color: #047857;
-        }
-
-    .ksi-status-bar.enhancement {
-        background: rgba(239, 68, 68, 0.1);
-    color: #dc2626;
-        }
-
-    .ksi-status-bar.monitoring {
-        background: rgba(251, 191, 36, 0.1);
-    color: #d97706;
-        }
-
-    .ksi-status-bar.improvement {
-        background: rgba(59, 130, 246, 0.1);
-    color: #2563eb;
-        }
-
-    .ksi-description-public {
-        color: var(--text-secondary, #6b7280);
-    font-size: 0.875rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-        }
-
-    .ksi-actions {
-        display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-        }
-
-    /* Markdown Content Styles */
-    .markdown-content {
-        line - height: 1.7;
-    color: var(--text-primary, #111827);
-        }
-
-    .markdown-content h1,
-    .markdown-content h2,
-    .markdown-content h3,
-    .markdown-content h4 {
-        border - bottom: 1px solid var(--border-color, #e5e7eb);
-    padding-bottom: 0.3em;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
-        }
-
-    .markdown-content code {
-        background: var(--bg-accent, #f9fafb);
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    font-size: 0.875em;
-        }
-
-    .markdown-content pre {
-        background: var(--bg-accent, #f9fafb);
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
-        }
-
-    .markdown-content table {
-        border - collapse: collapse;
-    width: 100%;
-    margin: 1rem 0;
-        }
-
-    .markdown-content th,
-    .markdown-content td {
-        border: 1px solid var(--border-color, #e5e7eb);
-    padding: 0.75rem;
-    text-align: left;
-        }
-
-    .markdown-content th {
-        background: var(--bg-accent, #f9fafb);
-    font-weight: 600;
-        }
-
-    /* Loading/Success/Error Messages */
-    #loading-message,
-    #success-message,
-    #error-message {
-        position: fixed;
-    top: 2rem;
-    right: 2rem;
     padding: 1rem 1.5rem;
-    border-radius: 8px;
-    z-index: 10001;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-weight: 600;
-    display: none;
-        }
-
-    #loading-message {
-        background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
-    color: white;
-        }
-
-    #success-message {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-        }
-
-    #error-message {
-        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    color: white;
-        }
-
-    /* Trust Center Specific */
-    .trust-center-header {
-        text - align: center;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
-    border-radius: 16px;
-        }
-
-    .trust-center-header h1 {
-        margin: 0 0 0.5rem 0;
-    font-size: 2rem;
-        }
-
-    .trust-center-subtitle {
-        color: var(--text-secondary, #6b7280);
-    margin: 0;
-        }
-
-    .authenticated .auth-info {
-        display: flex;
-    gap: 1rem;
+    border-radius: 12px;
+    z-index: 10000;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 1rem;
+    gap: 0.75rem;
+    font-weight: 500;
+    `;
+    document.body.appendChild(loadingDiv);
         }
 
-    .auth-badge {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    loadingDiv.innerHTML = `
+    <svg width="20" height="20" viewBox="0 0 20 20" style="animation: spin 1s linear infinite;">
+        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="50" stroke-dashoffset="25" />
+    </svg>
+    <span>${message}</span>
+    `;
+    loadingDiv.style.display = 'flex';
+
+    // Add animation CSS if not present
+    if (!document.getElementById('loading-animation-style')) {
+            const style = document.createElement('style');
+    style.id = 'loading-animation-style';
+    style.textContent = `
+    @keyframes spin {
+        to {transform: rotate(360deg); }
+                }
+    `;
+    document.head.appendChild(style);
+        }
+    }
+
+    /**
+     * Hide loading message
+     */
+    function hideLoadingMessage() {
+        const loadingDiv = document.getElementById('loading-indicator');
+    if (loadingDiv) {
+        loadingDiv.style.display = 'none';
+        }
+    }
+
+    /**
+     * Show success message
+     */
+    function showSuccessMessage(message) {
+        createNotification(message, 'success');
+    }
+
+    /**
+     * Show error message
+     */
+    function showErrorMessage(message) {
+        createNotification(message, 'error');
+    }
+
+    /**
+     * Create notification toast with auto-dismiss
+     */
+    function createNotification(message, type) {
+        const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10001;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-        }
-
-    .logout-btn {
-        background: transparent;
-    border: 2px solid var(--border-color, #e5e7eb);
-    color: var(--text-secondary, #6b7280);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: all 0.2s;
-        }
-
-    .logout-btn:hover {
-        border - color: var(--text-primary, #111827);
-    color: var(--text-primary, #111827);
-        }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-            .modal {
-        padding: 1rem;
-            }
-
-    .modal-content {
-        max - width: 100%;
-            }
-
-    .modal-body {
-        padding: 1.5rem;
-            }
-
-    .form-actions {
-        flex - direction: column;
-            }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-            }
-        }
+    min-width: 320px;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    animation: slideInRight 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    background: ${type === 'success'
+        ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+        : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'};
     `;
 
-    document.head.appendChild(styleEl);
-    console.log('✓ Styles injected');
-}
+    notification.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span style="font-size: 1.25rem;">${type === 'success' ? '✓' : '✗'}</span>
+        <span>${message}</span>
+    </div>
+    <button onclick="this.parentElement.remove()" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0; margin-left: 1rem; line-height: 1;">&times;</button>
+    `;
 
-    // Helper functions for messages
-    function showLoadingMessage(message) {
-        let el = document.getElementById('loading-message');
-    if (!el) {
-        el = document.createElement('div');
-    el.id = 'loading-message';
-    document.body.appendChild(el);
-    }
-    el.textContent = message;
-    el.style.display = 'block';
-}
+    document.body.appendChild(notification);
 
-    function hideLoadingMessage() {
-    const el = document.getElementById('loading-message');
-    if (el) el.style.display = 'none';
-}
+        // Auto-remove after 6 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+        notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }
+        }, 6000);
 
-    function showSuccessMessage(message) {
-        let el = document.getElementById('success-message');
-    if (!el) {
-        el = document.createElement('div');
-    el.id = 'success-message';
-    document.body.appendChild(el);
-    }
-    el.textContent = message;
-    el.style.display = 'block';
-    setTimeout(() => {el.style.display = 'none'; }, 5000);
-}
-
-    function showErrorMessage(message) {
-        let el = document.getElementById('error-message');
-    if (!el) {
-        el = document.createElement('div');
-    el.id = 'error-message';
-    document.body.appendChild(el);
-    }
-    el.textContent = message;
-    el.style.display = 'block';
-    setTimeout(() => {el.style.display = 'none'; }, 5000);
-}
-
-    function closeTemporaryModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.classList.remove('active');
-    // Optionally remove if marked as temporary
-    if (modal.classList.contains('temporary')) {
-        setTimeout(() => modal.remove(), 300);
+    // Add animations if not present
+    if (!document.getElementById('notification-animation-style')) {
+            const style = document.createElement('style');
+    style.id = 'notification-animation-style';
+    style.textContent = `
+    @keyframes slideInRight {
+        from {transform: translateX(100%); opacity: 0; }
+    to {transform: translateX(0); opacity: 1; }
+                }
+    @keyframes slideOutRight {
+        from {transform: translateX(0); opacity: 1; }
+    to {transform: translateX(100%); opacity: 0; }
+                }
+    `;
+    document.head.appendChild(style);
         }
     }
-    if (!document.querySelector('.modal.active')) {
-        document.body.style.overflow = '';
-    }
+
+    // ====================================================================
+    // COMPREHENSIVE STYLING
+    // ====================================================================
+    function addStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+    /* Modal System */
+    .modal {display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
+    .modal.active {display: flex; align-items: center; justify-content: center; }
+    .modal-content {background: var(--bg-primary, #ffffff); padding: 2rem; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+    .modal-header {display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color, #e5e7eb); padding-bottom: 1rem; }
+    .modal-header h3 {margin: 0; color: var(--text-primary, #111827); }
+    .close-btn {background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-secondary, #6b7280); }
+    .close-btn:hover {color: var(--text-primary, #111827); }
+
+    /* Form Styling */
+    .form-group {margin - bottom: 1rem; display: flex; flex-direction: column; }
+    .form-group label {margin - bottom: 0.5rem; font-weight: 600; color: var(--text-primary, #111827); }
+    .form-group input, .form-group textarea {padding: 0.75rem; border-radius: 8px; border: 2px solid var(--border-color, #e5e7eb); font-size: 1rem; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus {outline: none; border-color: var(--primary-500, #3b82f6); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    .form-group small {color: var(--text-tertiary, #9ca3af); font-size: 0.875rem; margin-top: 0.25rem; }
+    .form-actions {margin - top: 1.5rem; display: flex; gap: 1rem; }
+    .form-actions button {flex: 1; }
+
+    /* Button System */
+    .btn-primary {background: var(--primary-500, #3b82f6); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .btn-primary:hover {background: var(--primary-600, #2563eb); transform: translateY(-1px); }
+    .btn-primary.large {padding: 1rem 2rem; font-size: 1.1rem; }
+    .btn-secondary {background: transparent; color: var(--primary-500, #3b82f6); border: 2px solid var(--primary-500, #3b82f6); padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .btn-secondary:hover {background: var(--primary-500, #3b82f6); color: white; }
+
+    /* Notification System */
+    .notification {position: fixed; top: 20px; right: 20px; z-index: 10001; padding: 1rem 1.5rem; border-radius: 8px; color: white; min-width: 300px; animation: slideInRight 0.3s ease; }
+    .notification.success {background: linear-gradient(135deg, #10b981, #059669); }
+    .notification.error {background: linear-gradient(135deg, #ef4444, #dc2626); }
+    @keyframes slideInRight {from {transform: translateX(100%); opacity: 0; } to {transform: translateX(0); opacity: 1; } }
+
+    /* Two-Tier KSI Cards */
+    .ksi-card.public-view {border - left: 4px solid var(--info-500, #3b82f6); background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, var(--bg-primary, #ffffff) 100%); }
+    .ksi-card.authenticated-view {border - left: 4px solid var(--success-500, #10b981); background: linear-gradient(135deg, rgba(16,185,129,0.03) 0%, var(--bg-primary, #ffffff) 100%); }
+    .ksi-card .access-indicator {font - size: 1.2rem; opacity: 0.6; color: var(--info-500, #3b82f6); }
+    .ksi-card .auth-indicator {font - size: 1.2rem; color: var(--success-500, #10b981); }
+    .ksi-card-header {display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+    .ksi-status-bar {padding: 0.25rem 0.75rem; border-radius: 16px; font-size: 0.75rem; font-weight: 700; text-align: center; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .ksi-status-bar.compliant {background: rgba(16, 185, 129, 0.1); color: var(--success-600, #059669); }
+    .ksi-status-bar.enhancement {background: rgba(245, 158, 11, 0.1); color: var(--warning-600, #d97706); }
+    .ksi-status-bar.monitoring {background: rgba(59, 130, 246, 0.1); color: var(--info-600, #2563eb); }
+    .ksi-status-bar.improvement {background: rgba(139, 92, 246, 0.1); color: var(--purple-600, #7c3aed); }
+    .ksi-description-public {font - size: 0.875rem; color: var(--text-secondary, #6b7280); flex-grow: 1; margin-bottom: 1rem; line-height: 1.5; }
+    .ksi-metrics-auth {display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .ksi-metrics-public {margin - bottom: 1rem; }
+    .public-metric {font - size: 0.75rem; color: var(--text-tertiary, #9ca3af); }
+    .metric-small {text - align: center; }
+    .metric-small .metric-value {display: block; font-weight: 700; font-size: 1.1rem; color: var(--text-primary, #111827); }
+    .metric-small .metric-label {font - size: 0.7rem; color: var(--text-tertiary, #9ca3af); text-transform: uppercase; }
+
+    /* Trust Center Styles */
+    .trust-center-header.authenticated {background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 100%); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .auth-info {display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+    .auth-badge {background: var(--success-500, #10b981); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600; }
+    .logout-btn {background: transparent; border: 2px solid var(--success-500, #10b981); color: var(--success-500, #10b981); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.875rem; }
+    .logout-btn:hover {background: var(--success-500, #10b981); color: white; }
+    .authenticated-welcome {background: var(--bg-accent, #f9fafb); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border-color, #e5e7eb); }
+    .trust-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .trust-card {background: var(--bg-primary, #ffffff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; }
+    .trust-card.featured {border: 2px solid var(--primary-500, #3b82f6); background: linear-gradient(135deg, rgba(59,130,246,0.03) 0%, var(--bg-primary, #ffffff) 100%); }
+    .trust-card-icon {font - size: 2rem; margin-bottom: 1rem; }
+    .trust-card h4 {margin - bottom: 0.5rem; color: var(--text-primary, #111827); }
+    .trust-card p {margin - bottom: 1rem; color: var(--text-secondary, #6b7280); line-height: 1.6; }
+    .trust-card ul {margin: 0.5rem 0; padding-left: 1.5rem; }
+    .trust-card ul li {margin: 0.25rem 0; color: var(--text-secondary, #6b7280); }
+    .action-btn {background: var(--primary-500, #3b82f6); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; width: 100%; }
+    .action-btn:hover {background: var(--primary-600, #2563eb); transform: translateY(-1px); }
+    .action-btn.primary {background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+
+    /* Public Trust Center */
+    .compliance-summary-public {background: var(--bg-accent, #f9fafb); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid var(--border-color, #e5e7eb); }
+    .compliance-metrics-public {display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .metric-public {text - align: center; padding: 1rem; background: var(--bg-primary, #ffffff); border-radius: 8px; border: 1px solid var(--border-color, #e5e7eb); }
+    .metric-public .metric-value {display: block; font-weight: 700; font-size: 1.2rem; color: var(--primary-500, #3b82f6); margin-bottom: 0.25rem; }
+    .metric-public .metric-label {font - size: 0.875rem; color: var(--text-secondary, #6b7280); }
+    .access-promo {background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 100%); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .access-benefits {margin: 1.5rem 0; }
+    .benefit-list {list - style: none; padding: 0; margin: 1rem 0; }
+    .benefit-list li {padding: 0.5rem 0; border-bottom: 1px solid rgba(59,130,246,0.1); }
+    .benefit-list li:last-child {border - bottom: none; }
+    .public-info-section {margin - top: 2rem; }
+    .info-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .info-card {background: var(--bg-primary, #ffffff); border: 1px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; }
+    .info-card h4 {margin - bottom: 1rem; color: var(--text-primary, #111827); }
+    .info-card p {margin: 0.5rem 0; color: var(--text-secondary, #6b7280); }
+
+    /* Modal Content Specific */
+    .agency-access-upgrade {background: linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.05) 100%); padding: 2rem; border-radius: 12px; text-align: center; margin-top: 1.5rem; border: 1px solid rgba(59,130,246,0.2); }
+    .agency-access-upgrade h4 {color: var(--primary-500, #3b82f6); margin-bottom: 1rem; }
+    .upgrade-benefits {margin: 1.5rem 0; text-align: left; }
+    .upgrade-benefits ul {list - style: none; padding: 0; }
+    .upgrade-benefits li {padding: 0.5rem 0; }
+    .authenticated-header {background: rgba(16,185,129,0.1); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; border: 1px solid rgba(16,185,129,0.2); }
+    .agency-badge {background: var(--success-500, #10b981); color: white; padding: 0.25rem 0.75rem; border-radius: 16px; font-size: 0.875rem; font-weight: 600; }
+    .access-level {color: var(--success-600, #059669); font-size: 0.875rem; font-weight: 600; }
+    .technical-summary, .technical-findings {margin: 1.5rem 0; }
+    .technical-summary h4, .technical-findings h4 {color: var(--text-primary, #111827); margin-bottom: 1rem; }
+    .finding-content {background: var(--bg-accent, #f9fafb); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--warning-500, #f59e0b); }
+    .technical-actions {display: flex; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .technical-actions .btn-secondary {flex: 1; min-width: 120px; }
+    .public-assessment-summary {margin - bottom: 1.5rem; }
+    .status-header {margin - bottom: 1rem; }
+    .status-indicator {display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; }
+    .status-indicator.compliant {background: rgba(16,185,129,0.1); color: var(--success-600, #059669); }
+    .status-indicator.enhancement {background: rgba(245,158,11,0.1); color: var(--warning-600, #d97706); }
+    .status-indicator.monitoring {background: rgba(59,130,246,0.1); color: var(--info-600, #2563eb); }
+    .status-indicator.improvement {background: rgba(139,92,246,0.1); color: var(--purple-600, #7c3aed); }
+    .assessment-details {margin: 1.5rem 0; }
+    .assessment-details h4 {margin - bottom: 1rem; color: var(--text-primary, #111827); }
+    .assessment-details p {margin: 0.5rem 0; color: var(--text-secondary, #6b7280); }
+    .enhancement-note {background: rgba(139,92,246,0.1); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(139,92,246,0.2); }
+    .enhancement-note h4 {color: var(--purple-600, #7c3aed); margin-bottom: 0.5rem; }
+
+    /* Hide redundant sections */
+    #quarterly-reports-section {display: none !important; }
+    #agency-form-section {display: none !important; }
+    #incident-section {display: none !important; }
+
+    /* FedRAMP Info Section Styling */
+    .fedramp-info-section {background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(99,102,241,0.05) 100%); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .fedramp-info-section h3 {color: var(--primary-500, #3b82f6); margin-bottom: 1.5rem; }
+
+    /* Services Section Styling */
+    .services-section {background: var(--bg-accent, #f9fafb); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+    .services-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .service-card {background: var(--bg-primary, #ffffff); border: 2px solid var(--border-color, #e5e7eb); border-radius: 12px; padding: 1.5rem; transition: all 0.2s; }
+    .service-card:hover {border - color: var(--primary-500, #3b82f6); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
+    .service-header {display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem; }
+    .service-header h4 {margin: 0; color: var(--text-primary, #111827); flex: 1; font-size: 1rem; }
+    .impact-badge {display: inline-block; padding: 0.25rem 0.75rem; border-radius: 16px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+    .impact-badge.low {background: rgba(34, 197, 94, 0.1); color: #059669; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .impact-badge.moderate {background: rgba(251, 191, 36, 0.1); color: #d97706; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .impact-badge.high {background: rgba(239, 68, 68, 0.1); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .service-description {color: var(--text-secondary, #6b7280); margin-bottom: 1rem; line-height: 1.5; font-size: 0.9rem; }
+    .service-card h5 {font - size: 0.8rem; color: var(--text-primary, #111827); margin: 1rem 0 0.5rem 0; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; }
+    .service-features {list - style: none; padding: 0; margin: 0.5rem 0; }
+    .service-features li {padding: 0.25rem 0; color: var(--text-secondary, #6b7280); font-size: 0.85rem; line-height: 1.5; }
+    .service-data-types {margin - top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color, #e5e7eb); font-size: 0.8rem; color: var(--text-secondary, #6b7280); line-height: 1.6; }
+    .service-data-types strong {color: var(--text-primary, #111827); }
+
+    /* Service Overview Box (FRR-ADS-03) */
+    .service-overview {background: var(--bg-primary, #ffffff); border: 2px solid var(--primary-500, #3b82f6); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+    .service-overview h4 {color: var(--primary-500, #3b82f6); margin-top: 0; margin-bottom: 1rem; }
+    .service-overview p {color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
+
+    /* Excluded Services Box (FRR-ADS-03) */
+    .excluded-services {background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .excluded-services h4 {color: #ef4444; margin-top: 0; margin-bottom: 1rem; }
+    .excluded-services ul {margin: 1rem 0; padding-left: 2rem; line-height: 1.8; color: var(--text-secondary, #6b7280); }
+    .excluded-services li {margin: 0.5rem 0; }
+    .excluded-services p {color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
+
+    /* Deployment Options - Enhanced */
+    .deployment-options {background: rgba(59, 130, 246, 0.05); border-radius: 8px; padding: 1.5rem; margin: 2rem 0; border-left: 4px solid var(--primary-500, #3b82f6); }
+    .deployment-options h4 {margin - top: 0; margin-bottom: 1rem; color: var(--text-primary, #111827); }
+    .deployment-options p {color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; font-size: 0.875rem; }
+
+    /* Impact Level Note - Enhanced */
+    .impact-level-note {background: rgba(99, 102, 241, 0.05); border-left: 4px solid var(--primary-500, #3b82f6); border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+    .impact-level-note h4 {color: var(--primary-500, #3b82f6); margin-top: 0; margin-bottom: 1rem; }
+    .impact-level-note p, .impact-level-note ul {color: var(--text-secondary, #6b7280); line-height: 1.7; margin: 0.5rem 0; }
+    .impact-level-note ul {padding - left: 2rem; }
+    .impact-level-note li {margin: 0.5rem 0; }
+
+    /* Config/Report Modal Styling */
+    .config-modal-content {max - width: 900px; width: 95%; max-height: 90vh; } /* Reused for report modal */
+    .markdown-content {font - family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text-primary); }
+    .markdown-content h1 {border - bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+    .markdown-content h2 {border - bottom: 1px solid var(--border-color); padding-bottom: 0.3rem; margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+    .markdown-content h3 {margin - top: 1.25rem; margin-bottom: 0.75rem; color: var(--text-primary); }
+    .markdown-content code {background: var(--bg-accent, #f3f4f6); padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.9em; font-family: 'Courier New', monospace; }
+    .markdown-content pre {background: var(--bg-accent, #f3f4f6); padding: 1rem; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color); }
+    .markdown-content pre code {background: none; padding: 0; }
+    .markdown-content ul, .markdown-content ol {padding - left: 2rem; margin: 1rem 0; }
+    .markdown-content li {margin: 0.5rem 0; }
+    .markdown-content blockquote {border - left: 4px solid var(--primary-500); padding-left: 1rem; margin: 1rem 0; color: var(--text-secondary); font-style: italic; }
+    .markdown-content table {border - collapse: collapse; width: 100%; margin: 1rem 0; }
+    .markdown-content th, .markdown-content td {border: 1px solid var(--border-color); padding: 0.75rem; text-align: left; }
+    .markdown-content th {background: var(--bg-accent); font-weight: 600; }
+    .markdown-content a {color: var(--primary-500); text-decoration: none; }
+    .markdown-content a:hover {text - decoration: underline; }
+    .markdown-content img {max - width: 100%; height: auto; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+            .modal - content {padding: 1.5rem; margin: 1rem; }
+    .trust-grid, .info-grid {grid - template - columns: 1fr; }
+    .compliance-metrics-public {grid - template - columns: 1fr; }
+    .form-actions, .technical-actions {flex - direction: column; }
+    .technical-actions .btn-secondary {flex: none; }
+    .ksi-metrics-auth {flex - direction: column; gap: 0.5rem; }
+    .auth-info {flex - direction: column; align-items: flex-start; }
+    .services-grid {grid - template - columns: 1fr; }
+    .service-header {flex - direction: column; }
+    .impact-badge {align - self: flex-start; }
+        }
+    `;
+    document.head.appendChild(style);
 }
-
-
 
     // ====================================================================
     // INITIALIZATION & INTEGRATION
     // ====================================================================
 
-
     async function initializeTwoTierSystem() {
-        // --- Initialize Core Components ---
         window.fedRAMPAuth = new FedRAMPAuth();
     window.statusManager = new SystemStatusManager();
     window.configManager = new SecureConfigManager();
 
-    // --- Apply Styles & Inject Modals ---
     addStyles();
-    injectModalHTML(); // Includes registration, access-required, feedback, review modals
 
-    // --- Clean Up Old UI Elements ---
+    // INJECT MODAL HTML FIRST
+    injectModalHTML();
+
+    // Remove redundant sections first
     removeRedundantSections();
 
-    // --- Handle Email Verification Flow ---
+    // Check for verification token in URL
     const urlParams = new URLSearchParams(window.location.search);
     const verifyToken = urlParams.get('verify');
-    if (verifyToken) {
-        console.log('Email verification token detected.');
-    await handleEmailVerification(verifyToken); // Await this now
-    // If verification fails, it redirects; if succeeds, it reloads page. Stop further execution.
-    return;
-        }
 
-    // --- Preserve & Override Original Functions ---
+    if (verifyToken) {
+        // User clicked verification link from email
+        console.log('Email verification token detected in URL');
+    handleEmailVerification(verifyToken);
+    return; // Stop here, verification flow will handle navigation
+    }
+
+    // Preserve original functions from the main HTML file
     window.originalDownloadJSON = window.downloadJSON;
     window.originalViewFailedReport = window.viewFailedReport;
     window.originalRenderKsis = window.renderKsis;
@@ -8660,226 +9087,214 @@ const quarterlyReportsSection = `
     window.originalShowPOAMModal = window.showPOAMModal;
     window.originalCreateGitHubIssue = window.createGitHubIssue;
 
-    window.downloadJSON = downloadJSON; // Override with auth check
-    window.viewFailedReport = viewFailedReport; // Override with auth check
-    window.renderKsis = function(ksisToRender = window.filteredKsis) { // Allow passing data
-            const grid = document.getElementById('ksi-grid');
-            if (grid && ksisToRender && ksisToRender.length > 0) {
-        grid.innerHTML = ksisToRender.map(renderKSICardTwoTier).join('');
-            } else if (grid) {
-        grid.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Loading KSI data or none available...</p>'; // Updated placeholder
-            }
-        };
-    window.showWhyModal = showWhyTwoTier; // Override with two-tier logic
-    window.showWhy = showWhyTwoTier; // Alias
-    window.showCommandsModal = showCLITwoTier; // Override with auth check
-    window.showCLI = showCLITwoTier; // Alias
-    window.showPOAMModal = showPOAMModalTwoTier; // Override with auth check
-    window.createGitHubIssue = createIssueTwoTier; // Override with auth check
+    // Override with two-tier logic
+    window.downloadJSON = downloadJSON;
+    window.viewFailedReport = viewFailedReport;
+    window.renderKsis = function() {
+        const grid = document.getElementById('ksi-grid');
+    if (grid && window.filteredKsis) {
+        grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
+        }
+    };
+    window.showWhyModal = showWhyTwoTier;
+    window.showWhy = showWhyTwoTier; // Handle both naming conventions
+    window.showCommandsModal = showCLITwoTier;
+    window.showCLI = showCLITwoTier; // Handle both naming conventions
+    window.showPOAMModal = showPOAMModalTwoTier;
+    window.createGitHubIssue = createIssueTwoTier;
 
-    // --- Make New Functions Global ---
+    // Make new functions globally available
     window.showRegistrationModal = showRegistrationModal;
     window.closeCustomModal = closeCustomModal;
     window.showAccessRequiredModal = showAccessRequiredModal;
     window.closeTemporaryModal = closeTemporaryModal;
     window.logAgencyAccess = logAgencyAccess;
-
-    // =================================================
-    // THE FIX IS HERE
-    // =================================================
-    // This was: window.downloadAuthorizationPackage = downloadAuthorizationPackage;
-    // It is now:
-    window.downloadAuthorizationPackage = downloadAuthPackage;
-    // =================================================
-
+    window.downloadAuthorizationPackage = downloadAuthorizationPackage;
+    // window.viewQuarterlyReports = viewQuarterlyReports; // Keep original if needed elsewhere, but card removed
     window.showLoadingMessage = showLoadingMessage;
     window.hideLoadingMessage = hideLoadingMessage;
-    window.handleEmailVerification = handleEmailVerification; // Expose for potential re-use
+    window.handleEmailVerification = handleEmailVerification;
     window.viewPublicSecureConfiguration = viewPublicSecureConfiguration;
     window.downloadPublicSecureConfiguration = downloadPublicSecureConfiguration;
     window.viewSecureConfiguration = viewSecureConfiguration;
     window.downloadSecureConfiguration = downloadSecureConfiguration;
     window.ensureKSIDataLoaded = ensureKSIDataLoaded;
-    // RFC-0016 functions
-    window.viewCurrentReport = viewCurrentReport;
-    window.displayReportModal = displayReportModal;
-    window.openReportInNewWindow = openReportInNewWindow;
-    window.downloadCurrentReport = downloadCurrentReport;
-    window.loadQuarterlyReportData = loadQuarterlyReportData;
-    window.openAgencyFeedback = openAgencyFeedback; // Now opens modal
-    window.handleFeedbackSubmit = handleFeedbackSubmit; // Form handler
-    window.registerForReview = registerForReview; // Now opens modal
-    window.handleReviewRegistrationSubmit = handleReviewRegistrationSubmit; // Form handler
-    window.exportValidationData = exportValidationData;
+    window.viewCurrentReport = viewCurrentReport; // Add this
+    window.displayReportModal = displayReportModal; // Add this
+    window.openReportInNewWindow = openReportInNewWindow; // Add this
 
 
-    // --- Attach Event Listeners ---
     const regForm = document.getElementById('agency-registration-form');
-    if (regForm) {
-             if (!regForm.hasAttribute('data-listener-added')) {
-        regForm.addEventListener('submit', handleRegistration);
-    regForm.setAttribute('data-listener-added', 'true');
-             }
-        } else {console.warn("Registration form not found during initialization."); }
+    if (regForm) regForm.addEventListener('submit', handleRegistration);
 
-        document.addEventListener('click', (e) => { if (e.target.classList.contains('modal')) closeCustomModal(e.target.id); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { const m = document.querySelector('.modal.active'); if (m) closeCustomModal(m.id); }});
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            const modalId = e.target.id;
+    if (modalId) closeCustomModal(modalId);
+        }
+    });
 
-    // --- Initial Data Loading & UI Rendering ---
-    addAuthenticationIndicator(); // Show login status if applicable
-    renderTrustCenterTab(); // Render correct view (public/auth) - Calls loadQuarterlyReportData internally now
-    await ensureKSIDataLoaded(); // Attempt to load KSI data
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.active');
+    if (activeModal) {
+        closeCustomModal(activeModal.id);
+            }
+        }
+    });
 
-    // Initial KSI render (if data is now available)
-    if (window.filteredKsis && typeof window.renderKsis === 'function') {
+    // Add authentication indicator to header
+    addAuthenticationIndicator();
+
+    // Render trust center with current authentication state
+    renderTrustCenterTab();
+
+    // IMPORTANT: Ensure KSI data is loaded
+    ensureKSIDataLoaded();
+
+    // Also try to wait a bit for the main page to load its data
+    setTimeout(() => {
+        ensureKSIDataLoaded();
+    // Re-render if we now have data
+    if (window.filteredKsis && window.renderKsis) {
         window.renderKsis();
         }
+    }, 1000);
 
-    // System Status
+    // Initial render if data is already available
+    if (window.filteredKsis && window.renderKsis) {
+        window.renderKsis();
+    }
+
+    // Fetch and display system status
     console.log('🔍 Fetching initial system status...');
     await window.statusManager.fetchStatus();
     window.statusManager.updateStatusUI();
-    window.statusManager.startAutoRefresh();
-    console.log('⏰ Status auto-refresh started');
 
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', () => {window.statusManager.stopAutoRefresh(); });
+    // Start auto-refresh for status (every 5 minutes)
+    window.statusManager.startAutoRefresh();
+    console.log('⏰ Status auto-refresh started (every 5 minutes)');
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        window.statusManager.stopAutoRefresh();
+    });
+
+    // Register RFC-0016 compliance functions
+    window.downloadCurrentReport = downloadCurrentReport; // Modified
+    window.loadQuarterlyReportData = loadQuarterlyReportData; // Modified
+    window.openAgencyFeedback = openAgencyFeedback; // Modified
+    window.registerForReview = registerForReview;
+
+    // Load quarterly report data on initialization
+    await loadQuarterlyReportData(); // Modified to update both views
+
+    // No longer need the timeout copy, loadQuarterlyReportData handles both views
+    // if (window.fedRAMPAuth.isAuthenticated) {... }
 
     console.log('✅ RFC-0016 compliance functions initialized');
-    console.log('🚀 Two-Tier FedRAMP System Initialized');
-    console.log('Auth Status:', window.fedRAMPAuth.isAuthenticated);
+
+    console.log('🚀 Two-Tier FedRAMP System with Email Verification & Status Monitoring Initialized');
+    console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated);
+    console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED (Update BASE_URL when backend ready)' : 'DISABLED');
+    console.log('System Status - Uptime:', window.statusManager.statusData?.uptime_percent || 'Loading...');
+    console.log('KSI Data Available:', window.allKsis ? `Yes (${window.allKsis.length} items)` : 'No');
+    if (window.fedRAMPAuth.isAuthenticated) {
+        console.log('Agency Info:', window.fedRAMPAuth.getAgencyInfo());
     }
-
-
-    function ensureKSIDataLoaded() {
-    return new Promise(async (resolve) => { // Return a promise
-        // Check if KSI data needs to be loaded from the page
-        if (!window.allKsis || !Array.isArray(window.allKsis) || window.allKsis.length === 0) {
-        console.log('Attempting to load KSI data...');
-    let dataLoaded = false;
-
-    // Option 1: Check if loadKSIs function exists and call it
-    if (typeof window.loadKSIs === 'function') {
-                try {
-                     // Check if it returns a promise
-                     const result = window.loadKSIs();
-    if (result && typeof result.then === 'function') {
-        await result; // Wait if it's async
-    console.log("loadKSIs completed.");
-                     }
-                     if (window.allKsis && Array.isArray(window.allKsis) && window.allKsis.length > 0) dataLoaded = true;
-                } catch(err) {console.error("Error calling loadKSIs:", err); }
-            }
-
-    // Option 2: Check if the data is in a script tag or data attribute (if not loaded by function)
-    if (!dataLoaded) {
-                 const ksiDataScript = document.querySelector('script[type="application/json"][id*="ksi"]');
-    if (ksiDataScript) {
-                     try {
-                         const parsedData = JSON.parse(ksiDataScript.textContent);
-                         if (Array.isArray(parsedData) && parsedData.length > 0) {
-        window.allKsis = parsedData;
-    console.log('Loaded KSI data from script tag:', window.allKsis.length, 'items');
-    dataLoaded = true;
-                         } else {
-        console.warn("KSI data script found but content is invalid or empty.");
-                         }
-                     } catch (e) {console.error('Failed to parse KSI data from script:', e); }
-                 }
-            }
-
-    // Option 3: Try to fetch from an API endpoint if still not loaded and not in demo mode
-    if (!dataLoaded && window.FEDRAMP_API_CONFIG && !window.FEDRAMP_API_CONFIG.DEMO_MODE) {
-                try {
-        console.log("Attempting to fetch KSI data from API...");
-    const response = await fetch(`${window.FEDRAMP_API_CONFIG.BASE_URL}${window.FEDRAMP_API_CONFIG.ENDPOINTS.DATA}`);
-    if(response.ok) {
-                         const data = await response.json();
-                         if (data && data.ksis && Array.isArray(data.ksis) && data.ksis.length > 0) {
-        window.allKsis = data.ksis;
-    console.log('Loaded KSI data from API:', window.allKsis.length, 'items');
-    dataLoaded = true;
-                         } else {
-        console.warn("KSI data API response invalid or empty.");
-                         }
-                     } else {
-        console.error(`Failed to load KSI data from API: ${response.status}`);
-                     }
-                } catch (error) {console.error('Error fetching KSI data from API:', error); }
-            }
-
-    // Ensure filteredKsis is set if allKsis was loaded
-    if (dataLoaded && window.allKsis) {
-        window.filteredKsis = window.allKsis; // Initialize filtered list
-    console.log("filteredKsis initialized.");
-            } else if (!dataLoaded) {
-        console.warn("KSI data could not be loaded from any source.");
-    window.allKsis = []; // Ensure it's an array
-    window.filteredKsis = [];
-            }
-        } else {
-        console.log("KSI data already available.");
-    // Ensure filteredKsis is set if it wasn't previously
-    if (!window.filteredKsis || !Array.isArray(window.filteredKsis) || window.filteredKsis.length === 0) {
-        window.filteredKsis = window.allKsis;
-    console.log("filteredKsis initialized from existing data.");
-             }
-        }
-    resolve(); // Resolve the promise
-    });
 }
 
 
+    function ensureKSIDataLoaded() {
+    // Check if KSI data needs to be loaded from the page
+    if (!window.allKsis || !Array.isArray(window.allKsis)) {
+        console.log('Attempting to load KSI data...');
+
+    // Try to get KSI data from various possible sources
+    // Option 1: Check if loadKSIs function exists and call it
+    if (typeof window.loadKSIs === 'function') {
+        window.loadKSIs();
+        }
+
+    // Option 2: Check if the data is in a script tag or data attribute
+    const ksiDataScript = document.querySelector('script[type="application/json"][id*="ksi"]');
+    if (ksiDataScript) {
+            try {
+        window.allKsis = JSON.parse(ksiDataScript.textContent);
+    console.log('Loaded KSI data from script tag:', window.allKsis.length, 'items');
+            } catch (e) {
+        console.error('Failed to parse KSI data from script:', e);
+            }
+        }
+
+    // Option 3: Try to fetch from an API endpoint if available
+    if (!window.allKsis && window.FEDRAMP_API_CONFIG && !window.FEDRAMP_API_CONFIG.DEMO_MODE) {
+        fetch(`${window.FEDRAMP_API_CONFIG.BASE_URL}${window.FEDRAMP_API_CONFIG.ENDPOINTS.DATA}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.ksis) {
+                    window.allKsis = data.ksis;
+                    window.filteredKsis = data.ksis;
+                    console.log('Loaded KSI data from API:', window.allKsis.length, 'items');
+                    // Re-render if needed
+                    if (window.renderKsis) {
+                        window.renderKsis();
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Failed to load KSI data from API:', error);
+            });
+        }
+    }
+
+    // Also ensure filteredKsis is set if allKsis exists
+    if (window.allKsis && !window.filteredKsis) {
+        window.filteredKsis = window.allKsis;
+    }
+}
+
     function addAuthenticationIndicator() {
-        if (!window.fedRAMPAuth || !window.fedRAMPAuth.isAuthenticated) return;
+        if (!window.fedRAMPAuth.isAuthenticated) return;
 
-    const header = document.querySelector('.dashboard-header') || document.querySelector('header') || document.querySelector('.trust-center-header');
-    const statsGridParent = document.querySelector('.stats-grid')?.parentElement; // Potential location
+    const header = document.querySelector('.dashboard-header') ||
+    document.querySelector('header') ||
+    document.querySelector('.trust-center-header') ||
+    document.querySelector('.stats-grid')?.parentElement;
 
-    // Try multiple potential header locations
-    const targetHeader = header || statsGridParent;
-
-    if (targetHeader) {
+    if (header) {
             const agencyInfo = window.fedRAMPAuth.getAgencyInfo();
     let indicator = document.getElementById('auth-status-indicator');
 
     if (!indicator) {
         indicator = document.createElement('div');
     indicator.id = 'auth-status-indicator';
-    indicator.style.cssText = `
-    display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 100%);
-    border-radius: 12px; border: 1px solid rgba(16,185,129,0.2); margin-bottom: 1.5rem;
-    color: var(--success-700, #047857); font-size: 0.875rem; font-weight: 600;
-    `;
-    // Insert after the main h1 if possible, otherwise at the start
-    const mainH1 = targetHeader.querySelector('h1');
-    if (mainH1 && mainH1.nextSibling) {
-        targetHeader.insertBefore(indicator, mainH1.nextSibling);
-            } else if (targetHeader.firstChild) {
-        targetHeader.insertBefore(indicator, targetHeader.firstChild);
-            } else {
-        targetHeader.appendChild(indicator);
+    indicator.className = 'auth-status-indicator';
             }
-        }
 
     indicator.innerHTML = `
-    <span style="background: var(--success-500, #10b981); color: white; padding: 0.25rem 0.75rem; border-radius: 16px;">
-        🇺🇸 ${agencyInfo.agency}
-    </span>
-    <span>Authenticated Federal Access</span>
-    <button onclick="window.fedRAMPAuth.logout()" style="background: transparent; border: 2px solid rgba(16,185,129,0.3); color: inherit; padding: 0.25rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; margin-left: auto;">Logout</button>
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(16,185,129,0.05) 100%); border-radius: 12px; border: 1px solid rgba(16,185,129,0.2); margin-bottom: 1.5rem;">
+        <span class="agency-badge">🇺🇸 ${agencyInfo.agency}</span>
+        <span style="color: var(--success-600, #059669); font-size: 0.875rem; font-weight: 600;">Authenticated Federal Access</span>
+        <button onclick="window.fedRAMPAuth.logout()" style="background: transparent; border: 2px solid rgba(16,185,129,0.3); color: var(--success-600, #059669); padding: 0.25rem 0.75rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; margin-left: auto;">Logout</button>
+    </div>
     `;
 
-    console.log("Authentication indicator added.");
-    } else {
-        console.warn("Could not find a suitable header element to add authentication indicator.");
+    if (header.firstChild) {
+        header.insertBefore(indicator, header.firstChild);
+            } else {
+        header.appendChild(indicator);
+            }
+        }
     }
-}
 
-    // Defer initialization
+    // Defer initialization to ensure the main page script runs first
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => setTimeout(initializeTwoTierSystem, 500));
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(initializeTwoTierSystem, 500);
+        });
     } else {
         setTimeout(initializeTwoTierSystem, 500);
     }
@@ -8888,115 +9303,156 @@ const quarterlyReportsSection = `
     // DYNAMIC MODAL CONTENT INJECTION
     // ====================================================================
     function injectModalHTML() {
-        const modals = [
-    { // --- Registration Modal ---
-        id: 'registration-modal',
-    title: '🇺🇸 Federal Agency Registration',
-    body:
-    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary);">' +
-        'Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.' +
-        '</p>' +
-    '<div style="background: var(--bg-accent, #f9fafb); border: 1px solid var(--border-color, #e5e7eb); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">' +
-        '<h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary, #111827);">How to "Log In" or Re-Register</h4>' +
-        '<p style="color: var(--text-secondary, #6b7280); line-height: 1.6;">' +
-            'If you have logged out, cleared your browser cache, or your session has expired, <strong>simply use this same form to re-register.</strong> You will receive a new verification link to grant you a fresh, secure session.' +
-            '</p>' +
-        '</div>' +
-    '<form id="agency-registration-form">' +
-        '<div class="form-group"> <label for="agency">Federal Agency Name *</label> <input type="text" id="agency" name="agency" required placeholder="e.g., Department of Defense" /> </div>' +
-        '<div class="form-group"> <label for="email">Official Email Address *</label> <input type="email" id="email" name="email" required pattern=".*\\.(gov|mil|fed\\.us)$" placeholder="your.name@agency.gov" title="Must be a .gov, .mil, or .fed.us email address" /> <small>Must end with .gov, .mil, or .fed.us</small> </div>' +
-        '<div class="form-group"> <label for="contact">Contact Name *</label> <input type="text" id="contact" name="contact" required placeholder="John Doe" /> </div>' +
-        '<div class="form-group"> <label for="system_name">System/Project Name (Optional)</label> <input type="text" id="system_name" name="system_name" placeholder="e.g., DOD Cloud Migration Project" /> </div>' +
-        '<div class="form-group"> <label for="purpose">Purpose (Optional)</label> <textarea id="purpose" name="purpose" rows="3" placeholder="Brief description of why you need access..."></textarea> </div>' +
-        '<div class="form-actions"> <button type="button" onclick="closeCustomModal(\'registration-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Register & Send Verification Email</button> </div>' +
-        '</form>' +
-    '<div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e5e7eb); font-size: 0.875rem; color: var(--text-tertiary, #9ca3af);">' +
-        '<p><strong>What happens next:</strong></p>' +
-        '<ol style="margin: 0.5rem 0 0 1.5rem; padding: 0; line-height: 1.6;"> <li>Email sent</li> <li>Click link (valid 24 hrs)</li> <li>Access activated</li> <li>Download package</li> </ol>' +
-        '</div>'
-            },
-    { // --- Access Required Modal ---
-        id: 'access-required-modal',
-    title: '🔒 Federal Agency Access Required',
-    body:
-    '<h4 class="feature-name" style="color: var(--primary-500, #3b82f6); margin-bottom: 1rem;">Feature Access</h4>' +
-    '<p style="margin-bottom: 1rem;">This feature requires authenticated federal agency access. Register to unlock:</p>' +
-    '<ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;"></ul>' + // Content filled dynamically
-    '<div style="margin-top: 2rem; display: flex; gap: 1rem;"> <button type="button" onclick="closeCustomModal(\'access-required-modal\')" class="btn-secondary" style="flex: 1;">Cancel</button> <button type="button" onclick="closeCustomModal(\'access-required-modal\'); showRegistrationModal();" class="btn-primary" style="flex: 2;">Register Now</button> </div>'
-            },
-    { // --- Feedback Modal ---
-        id: 'feedback-modal',
-    title: '📝 Submit Agency Feedback (FRR-CCM-04)',
-    body:
-    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary, #6b7280);">Submit feedback/questions via your email client. Shared with FedRAMP, kept confidential otherwise (FRR-CCM-05).</p>' +
-    '<form id="agency-feedback-form">' +
-        '<div class="form-group"> <label for="feedback-agency">Agency Name *</label> <input type="text" id="feedback-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="feedback-contact">Contact Name *</label> <input type="text" id="feedback-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="feedback-email">Your Email *</label> <input type="email" id="feedback-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="feedback-subject">Subject *</label> <input type="text" id="feedback-subject" name="subject" required value="Agency Feedback - Authorization Data" /> </div>' +
-        '<div class="form-group"> <label for="feedback-message">Feedback / Question *</label> <textarea id="feedback-message" name="message" rows="5" required placeholder="Enter your feedback or question here..."></textarea> </div>' +
-        '<div class="form-actions"> <button type="button" onclick="closeCustomModal(\'feedback-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Email</button> </div>' +
-        '</form>'
-            },
-    { // --- Review Registration Modal ---
-        id: 'review-registration-modal',
-    title: '📅 Register for Quarterly Review Meeting',
-    body:
-    '<p style="margin-bottom: 1.5rem; color: var(--text-secondary, #6b7280);">Register for the upcoming Quarterly Review (FRR-CCM-QR-01). You\'ll receive a calendar invite via email.</p>' + // Escaped 'You'll'
-    '<form id="review-registration-form">' +
-        '<p style="font-weight: bold; margin-bottom: 1rem;">Confirm Agency Details:</p>' +
-        '<div class="form-group"> <label for="review-agency">Agency Name</label> <input type="text" id="review-agency" name="agency" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="review-contact">Primary Contact</label> <input type="text" id="review-contact" name="contact" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="review-email">Contact Email (for invite)</label> <input type="email" id="review-email" name="email" required readonly style="background-color: #f3f4f6; cursor: not-allowed;" /> </div>' +
-        '<div class="form-group"> <label for="review-attendees">Additional Attendee Emails (Optional)</label> <textarea id="review-attendees" name="attendees" rows="3" placeholder="Add emails, separated by commas or new lines..."></textarea> <small>Separate emails with commas or new lines.</small> </div>' +
-        '<div class="form-actions" style="margin-top: 2rem;"> <button type="button" onclick="closeCustomModal(\'review-registration-modal\')" class="btn-secondary">Cancel</button> <button type="submit" class="btn-primary">Prepare Registration Email</button> </div>' +
-        '</form>'
-            },
-    // --- Placeholders for dynamically filled modals ---
-    {id: 'config-viewer-modal', title: 'Configuration' },
-    {id: 'report-viewer-modal', title: 'Report' },
-    {id: 'why-modal', title: 'Details' }
-    ];
+        // Replace Registration Modal Content
+        let registrationModal = document.getElementById('registration-modal');
 
-        modals.forEach(modalInfo => {
-        let modalElement = document.getElementById(modalInfo.id);
-    if (!modalElement) {
-        modalElement = document.createElement('div');
-    modalElement.id = modalInfo.id;
-    modalElement.className = 'modal';
-    document.body.appendChild(modalElement);
-    console.log(`Created modal element: #${modalInfo.id}`);
-            }
-    // Inject content ONLY if body is provided AND element is newly created or empty
-    // OR if it's one of the specific modals we are defining staticaly here
-    if (modalInfo.body && (!modalElement.innerHTML || modalElement.innerHTML.trim() === '' || ['registration-modal', 'access-required-modal', 'feedback-modal', 'review-registration-modal'].includes(modalInfo.id) )) {
-        modalElement.innerHTML =
-        '<div class="modal-content">' +
-        '<div class="modal-header">' +
-        '<h3>' + modalInfo.title + '</h3>' +
-        '<button class="close-btn" onclick="closeCustomModal(\'' + modalInfo.id + '\')">&times;</button>' +
-        '</div>' +
-        '<div class="modal-body">' +
-        modalInfo.body +
-        '</div>' +
-        '</div>';
-            } else if (!modalInfo.body && (!modalElement.innerHTML || modalElement.innerHTML.trim() === '')) {
-        // Ensure placeholder modals have basic structure if empty
-        modalElement.innerHTML =
-        '<div class="modal-content">' +
-        '<div class="modal-header">' +
-        '<h3 class="dynamic-modal-title">' + modalInfo.title + '</h3>' +
-        '<button class="close-btn" onclick="closeCustomModal(\'' + modalInfo.id + '\')">&times;</button>' +
-        '</div>' +
-        '<div class="modal-body dynamic-modal-body">' +
-        '' +
-        '</div>' +
-        '</div>';
-            }
-        });
+    if (!registrationModal) {
+        // Create modal if it doesn't exist
+        registrationModal = document.createElement('div');
+    registrationModal.id = 'registration-modal';
+    registrationModal.className = 'modal';
+    document.body.appendChild(registrationModal);
+        }
 
-    console.log('✓ Modals HTML injected/updated');
-    }        
+    registrationModal.innerHTML = `
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🇺🇸 Federal Agency Registration</h3>
+            <button class="close-btn" onclick="closeCustomModal('registration-modal')">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
+                Register with your official federal email to access complete authorization materials including technical assessments, evidence packages, and compliance documentation.
+            </p>
+
+            <div style="background: var(--bg-accent); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; font-size: 0.875rem;">
+                <h4 style="margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);">How to "Log In" or Re-Register</h4>
+                <p style="color: var(--text-secondary); line-height: 1.6;">
+                    If you have logged out, cleared your browser cache, or your session has expired, <strong>simply use this same form to re-register.</strong> You will receive a new verification link to grant you a fresh, secure session.
+                </p>
+            </div>
+            <form id="agency-registration-form">
+                <div class="form-group">
+                    <label for="agency">Federal Agency Name *</label>
+                    <input
+                        type="text"
+                        id="agency"
+                        name="agency"
+                        required
+                        placeholder="e.g., Department of Defense"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Official Email Address *</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        pattern=".*\\.(gov|mil|fed\\.us)$"
+                        placeholder="your.name@agency.gov"
+                        title="Must be a .gov, .mil, or .fed.us email address"
+                    />
+                    <small>Must end with .gov, .mil, or .fed.us</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact Name *</label>
+                    <input
+                        type="text"
+                        id="contact"
+                        name="contact"
+                        required
+                        placeholder="John Doe"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="system_name">System/Project Name (Optional)</label>
+                    <input
+                        type="text"
+                        id="system_name"
+                        name="system_name"
+                        placeholder="e.g., DOD Cloud Migration Project"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="purpose">Purpose (Optional)</label>
+                    <textarea
+                        id="purpose"
+                        name="purpose"
+                        rows="3"
+                        placeholder="Brief description of why you need access to authorization materials"
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Register & Send Verification Email
+                    </button>
+                </div>
+            </form>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.875rem; color: var(--text-tertiary);">
+                <p><strong>What happens next:</strong></p>
+                <ol style="margin: 0.5rem 0 0 1.5rem; padding: 0;">
+                    <li>We'll send a verification email to your address</li>
+                    <li>Click the link in the email (valid for 24 hours)</li>
+                    <li>Your federal agency access will be activated</li>
+                    <li>Download complete authorization package immediately</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    `;
+
+    // Create or Replace Access Required Modal
+    let accessModal = document.getElementById('access-required-modal');
+
+    if (!accessModal) {
+        accessModal = document.createElement('div');
+    accessModal.id = 'access-required-modal';
+    accessModal.className = 'modal';
+    document.body.appendChild(accessModal);
+        }
+
+    accessModal.innerHTML = `
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🔒 Federal Agency Access Required</h3>
+            <button class="close-btn" onclick="closeCustomModal('access-required-modal')">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <h4 class="feature-name" style="color: var(--primary-500); margin-bottom: 1rem;">Feature Access</h4>
+
+            <p style="margin-bottom: 1rem;">
+                This feature requires authenticated federal agency access. Register with your .gov or .mil email to unlock:
+            </p>
+
+            <ul class="benefits-list" style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8;">
+            </ul>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary" style="flex: 1;">
+                    Cancel
+                </button>
+                <button onclick="closeCustomModal('access-required-modal'); showRegistrationModal();" class="btn-primary" style="flex: 2;">
+                    Register Now
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
+
+    console.log('✓ Modal HTML injected/updated');
+    }    
 })();
 </script>
 
