@@ -1,26 +1,47 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   title: Meridian Fedramp Trust Center API Documentation
   version: 1.0.0
   description: ''
 servers:
-  - url: 7d7pdwb9t3.execute-api.us-east-1.amazonaws.com
+  - url: https://7d7pdwb9t3.execute-api.us-east-1.amazonaws.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 paths:
   /prod/register:
     post:
       summary: Trust Center Registration
-      tags: 
+      tags:
         - Trust Center Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [agency, email, contact]
+              properties:
+                agency:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                contact:
+                  type: string
       responses:
         '200':
-          description: "Success. Verification token is returned"
+          description: Success. Verification token is returned
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   success:
-                    type: string
+                    type: boolean
                     example: true
                   message:
                     type: string
@@ -31,7 +52,7 @@ paths:
                   next_steps:
                     type: string
         '400':
-          description: "Validation Error"
+          description: Validation Error
           content:
             application/json:
               schema:
@@ -39,46 +60,41 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: Validation Error message
+                    example: Validation error message
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. An unexpected error occurred while processing the request."
-      description: >-
-        A Token is needed to access some feature of the Trust Center. The
-        Register API can be used to begin the registration process. The Verify
-        API is needed to complete the registration process and recieve the
-        token.
+          description: Internal Server Error. An unexpected error occurred while processing the request.
+      description: >
+        A Token is needed to access some feature of the Trust Center. The Register API can be used to begin the registration process. The Verify API is needed to complete the registration process and receive the token.
 
         Email must be a .gov or .mil email address.
+  /prod/verify:
+    post:
+      summary: Trust Center Verification
+      tags:
+        - Trust Center Authentication
       requestBody:
+        required: true
         content:
           application/json:
             schema:
               type: object
+              required: [token]
               properties:
-                agency:
+                token:
                   type: string
-                email:
-                  type: string
-                  format: email
-                contact:
-                  type: string
-  /prod/verify:
-    post:
-      summary: Trust Center Verification
-      tags: 
-        - Trust Center Authentation
+                  example: eyJlbWF...Jkd0jPg
       responses:
         '200':
-          description: "Success. Authentication token is returned."
+          description: Success. Authentication token is returned.
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   success:
-                    type: string
+                    type: boolean
                     example: true
                   token:
                     type: string
@@ -91,7 +107,7 @@ paths:
                   next_steps:
                     type: string
         '400':
-          description: "Validation Error"
+          description: Validation Error
           content:
             application/json:
               schema:
@@ -99,9 +115,9 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: Validation Error message
+                    example: Validation error message
         '404':
-          description: "Registrion Error"
+          description: Registration Error
           content:
             application/json:
               schema:
@@ -111,82 +127,73 @@ paths:
                     type: string
                     example: Registration not found or already verified
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error during registration." 
-      description: >-
-        A Token is needed to access some feature of the Trust Center. The
-        Verify API is used to complete the registration process and recieve the
-        token. The token required in this call is generated in the Register API
-        call.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                token:
-                  type: string
-                  example: eyJlbWF...Jkd0jPg
+          description: Internal Server Error. Internal server error during registration.
+      description: >
+        The Verify API completes registration and returns the bearer token generated during the Register call.
   /prod/status:
     get:
       summary: API Status Details
-      tags: 
+      tags:
         - Operational
       responses:
         '200':
-          description: Overall API Status Details, for the last hour"
+          description: Overall API Status Details for the last hour
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   uptime_percent:
-                    type: string
+                    type: number
+                    format: float
                   total_requests:
-                    type: string
+                    type: integer
                   5xx_requests:
-                    type: string
+                    type: integer
                   time_range_start:
                     type: string
-                    format: datetime
+                    format: date-time
                   time_range_end:
                     type: string
-                    format: datetime
+                    format: date-time
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error generating status." 
+          description: Internal Server Error. Internal server error generating status.
       description: Returns overall API health/status related data elements.
   /prod/config:
     get:
-      summary: Meridan Secure Baseline system configurations
+      summary: Meridian Secure Baseline system configurations
       tags:
         - Operational
       responses:
         '200':
-          description: "Success. The baseline security config in formation is returned as a markdown file format."
+          description: Success. The baseline security configuration is returned as Markdown.
           headers:
             Content-Type:
-              description: "Indicates the file should be downloaded"
+              description: Indicates the file should be downloaded
               schema:
                 type: string
-                example: "text/markdown; charset=UTF-8"
+                example: text/markdown; charset=UTF-8
           content:
             text/markdown:
               schema:
                 type: string
                 example: Markdown Text
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error generating baseline security config." 
+          description: Internal Server Error. Internal server error generating baseline security config.
       description: Return the Meridian Secure Configuration baselines in a Markdown format.
   /prod/fedramp/inventory:
     get:
       summary: FedRAMP PMO inventory access (FRR-ADS-TC-05)
-      tags: 
+      tags:
         - FedRAMP PMO
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: Provides FedRAMP with list of registered agencies and access statistics
@@ -196,161 +203,144 @@ paths:
                 type: object
                 properties:
                   inventory:
-                    application/json:
-                      schema:
-                        type: object
-                        properties:
-                          agency:
-                            type: string
-                          email:
-                            type: string
-                            format: email
-                          contact:
-                            type: string
-                          system_name:
-                            type: string
-                          registration_date:
-                            type: string
-                            format: datetime
-                          status:
-                            type: string
-                          last_access:
-                            type: string
-                            format: datetime
-                          package_downloads_30d:
-                            type: integer
-                          total_access_count_30d:
-                            type: integer   
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        agency:
+                          type: string
+                        email:
+                          type: string
+                          format: email
+                        contact:
+                          type: string
+                        system_name:
+                          type: string
+                        registration_date:
+                          type: string
+                          format: date-time
+                        status:
+                          type: string
+                        last_access:
+                          type: string
+                          format: date-time
+                        package_downloads_30d:
+                          type: integer
+                        total_access_count_30d:
+                          type: integer
                   summary:
-                    application/json:
-                      schema:
-                        type: object
-                        properties:
-                          total_registered_agencies:
-                            type: integer
-                          active_agencies_30d:
-                            type: integer
-                          total_package_downloads_30d:
-                            type: integer
-                          total_api_calls_30d:
-                            type: integer   
+                    type: object
+                    properties:
+                      total_registered_agencies:
+                        type: integer
+                      active_agencies_30d:
+                        type: integer
+                      total_package_downloads_30d:
+                        type: integer
+                      total_api_calls_30d:
+                        type: integer
                   generated_at:
-                    type: datetime
+                    type: string
+                    format: date-time
                   period_days:
                     type: integer
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error generating inventory." 
-      description: >-
+          description: Internal Server Error. Internal server error generating inventory.
+      description: >
         ## FedRAMP PMO Only Access
 
-        Returns the required Fedramp Inventory in an JSON format, for
-        FRR-ADS-TC-05. This contains a list of registered agencies and access
-        statistics
-
+        Returns the required FedRAMP Inventory in JSON for FRR-ADS-TC-05. This contains a list of registered agencies and access statistics.
 
         **Token is supplied by Meridian.**
-      requestBody:
-        headers:
-            Authorization:
-              description: "Bearer Token "
-              schema:
-                type: string
-                example: "Bearer eyJhb...u9XCA"
   /prod/package:
     get:
       summary: Access the latest authorization package Zip file
-      tags: 
+      tags:
         - Package Management
+      security:
+        - bearerAuth: []
       responses:
         '200':
-          description: "Success. The access to the authorization package ZIP file is granted and URL returned"
+          description: Success. URL to download the authorization package ZIP file is returned.
           headers:
             Content-Type:
               schema:
                 type: string
-                example: "application/json"
+                example: application/json
           content:
             application/json:
               schema:
                 type: string
-                example: URL to download the ZIP File
+                example: https://signed-url.example/some/path.zip
         '401':
-          description: "Unauthorized. The provided authentication token is missing, invalid, or expired."
+          description: Unauthorized. The provided authentication token is missing, invalid, or expired.
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error generating baseline security config." 
-      description: |-
-        ## Registered Fedramp Agencies Only
+          description: Internal Server Error. Internal server error generating baseline security config.
+      description: |
+        ## Registered FedRAMP Agencies Only
 
-        Returns a url to the  Zip file of the Meridian Fedramp Authorization Package file.
+        Returns a URL to the ZIP file of the Meridian FedRAMP Authorization Package.
         The URL is only available for 2 minutes. After this time a new API call is required to retrieve a new URL.
 
         **Token is supplied from the Verify API Call.**
-      requestBody:
-        headers:
-            Authorization:
-              description: "Bearer Token "
-              schema:
-                type: string
-                example: "Bearer eyJhb...u9XCA"
   /prod/package/{filename}:
     get:
       summary: Download the latest authorization package individual file
-      tags: 
+      tags:
         - Package Management
-    parameters:
-      - name: version
-        in: query
-        schema:
-          type: string
-        description: Optional. ISO date (YYYY-MM-DD) or version tag. Returns latest if omitted.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          description: Name of the file to download from the package.
+          schema:
+            type: string
+            enum:
+              - 3pao_audit_report.json
+              - assessed_vulnerabilities_integrated.json
+              - assessed_vulnerabilities.json
+              - fingerprint_cache.json
+              - ksi_vulnerability_bridge_log.json
+              - parsed_vulnerabilities.json
+              - technical_validation_log.json
+              - unified_ksi_validations.json
+              - validation_consistency_log.json
+              - vdr_vulnerability_status.json
+        - name: version
+          in: query
+          required: false
+          description: Optional. ISO date (YYYY-MM-DD) or version tag. Returns latest if omitted.
+          schema:
+            type: string
       responses:
         '200':
-          description: "Success. The authorization package file is returned."
+          description: Success. The authorization package file is returned.
           headers:
             Content-Type:
               schema:
                 type: string
-                example: "application/json"
+                example: application/json
           content:
             application/json:
               schema:
-                type: string
-                format: string 
+                type: object
         '401':
-          description: "Unauthorized. The provided authentication token is missing, invalid, or expired."
+          description: Unauthorized. The provided authentication token is missing, invalid, or expired.
         '404':
-          description: "Authorization package not yet available"
+          description: Authorization package not yet available
         '502':
-          description: "Bad Gateway."
+          description: Bad Gateway.
         '500':
-          description: "Internal Server Error. Internal server error generating baseline security config." 
-      description: >-
-        ## Registered Fedramp Agencies Only
+          description: Internal Server Error. Internal server error generating baseline security config.
+      description: >
+        ## Registered FedRAMP Agencies Only
 
-
-        Provides the ability to return each of the individual files created in
-        the Meridian Fedramp Authorization Package per FRR-ADS-TC-03
-
-
-        **Available Filenames**
-         - 3pao_audit_report.json
-         - assessed_vulnerabilities_integrated.json
-         - assessed_vulnerabilities.json
-         - fingerprint_cache.json
-         - ksi_vulnerability_bridge_log.json
-         - parsed_vulnerabilities.json
-         - technical_validation_log.json
-         - unified_ksi_validations.json
-         - validation_consistency_log.json
-         - vdr_vulnerability_status.json
-      requestBody:
-        headers:
-            Authorization:
-              description: "Bearer Token "
-              schema:
-                type: string
-                example: "Bearer eyJhb...u9XCA"
+        Provides the ability to return each of the individual files created in the Meridian FedRAMP Authorization Package per FRR-ADS-TC-03.
+security:
+  - {}
