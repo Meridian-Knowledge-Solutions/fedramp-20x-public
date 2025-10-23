@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "validation_date": "2025-10-23T01:00:41.484714",
+    "validation_date": "2025-10-23T03:22:35.208516",
     "impact_level": "LOW",
     "impact_thresholds": {
       "min": "50%",
@@ -131,7 +131,7 @@
     },
     "KSI-IAM-04": {
       "status": "PASS",
-      "message": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
+      "message": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., Development, ReadOnlyAccess, AdministratorAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
       "commands_processed": 5,
       "result_emoji": "\u2705 PASS"
     },
@@ -222,7 +222,7 @@
     "KSI-PIY-03": {
       "status": "FAIL",
       "message": "\u274c No vulnerability disclosure program detected (1/14): \u2705 VDP maintenance activity: 1 updates",
-      "commands_processed": 3,
+      "commands_processed": 4,
       "result_emoji": "\u274c FAIL"
     },
     "KSI-PIY-04": {
