@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-10-22 03:24
+**Last Check:** 2025-10-23 01:00
 
 **What it validates:** Use configuration management systems to manage cloud services and apply configuration as code to CSO-provided cloud services
 
@@ -51,9 +51,9 @@ PASS Enterprise-grade centralized configuration governance with comprehensive au
 - PASS Secure configuration management: 2 centrally managed secrets.
 - PASS System configuration standards: 17 patch baselines for standardized management.
 - PASS Configuration compliance automation: 327/327 active Config rules.
-- PASS Centralized instance management: 6/6 instances under SSM management (100% online).
+- PASS Centralized instance management: 5/5 instances under SSM management (100% online).
 - PASS Enterprise-wide configuration governance: AWS Organizations enables centralized policies.
 - PASS Advanced organization features: SCPs for configuration policy enforcement enabled.
 
 ---
-*Generated 2025-10-22 03:24 UTC*
+*Generated 2025-10-23 01:00 UTC*

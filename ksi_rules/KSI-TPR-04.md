@@ -4,7 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-**Last Check:** 2025-10-22 03:24
+**Last Check:** 2025-10-23 01:00
 
 **What it validates:** Conduct vulnerability scans for applications and operating systems
 
@@ -33,7 +33,7 @@
 ## Latest Results
 
 PASS Good third-party package monitoring - expand coverage (40%): PASS EC2 Inspector coverage verified: 6 instances available for third-party package scanning
-- PASS Package inventory capability: 6 instances with SSM agent for dependency tracking
+- PASS Package inventory capability: 5 instances with SSM agent for dependency tracking
 
 ---
-*Generated 2025-10-22 03:24 UTC*
+*Generated 2025-10-23 01:00 UTC*

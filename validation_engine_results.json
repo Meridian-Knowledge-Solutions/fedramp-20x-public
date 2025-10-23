@@ -7,7 +7,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860449",
+    "timestamp": "2025-10-23T01:00:41.484523",
     "validation_method": "multi-command"
   },
   {
@@ -18,7 +18,7 @@
     "cli_command": "1 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860458",
+    "timestamp": "2025-10-23T01:00:41.484531",
     "validation_method": "multi-command"
   },
   {
@@ -29,18 +29,18 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860462",
+    "timestamp": "2025-10-23T01:00:41.484535",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CMT-01",
     "validation_id": "KSI-CMT-01",
     "assertion": true,
-    "assertion_reason": "\u2705 Enterprise-grade system modification logging and monitoring with automated response (100%): \u2705 System modification logging configured: 1 CloudTrail trails ready for activation; \u2705 Global service modification tracking: 1 trails monitoring global AWS services; \u2705 Multi-region modification coverage: 1 trails across all regions; \u2705 Tamper-resistant modification logs: 1 encrypted CloudTrail trails; \u2139\ufe0f AWS Config not configured (acceptable for low-impact pilot environments); \u2705 Comprehensive event logging: 31 log groups (18 application, 2 system, 11 AWS services); \u2705 Real-time modification detection: 4 EventBridge rules for change monitoring; \u2705 Modification alerting: 7 CloudWatch alarms for change detection; \u2705 Modification notification infrastructure: 9 SNS topics for stakeholder alerts; \u2705 Automated modification response: 2 Lambda functions for change automation; \u2705 Instance-level modification tracking: 6 SSM-managed instances (6 online); \u2705 Enterprise-wide modification governance: AWS Organizations enables centralized change tracking; \u2705 Advanced organization features: SCPs for modification policy enforcement",
+    "assertion_reason": "\u2705 Enterprise-grade system modification logging and monitoring with automated response (100%): \u2705 System modification logging configured: 1 CloudTrail trails ready for activation; \u2705 Global service modification tracking: 1 trails monitoring global AWS services; \u2705 Multi-region modification coverage: 1 trails across all regions; \u2705 Tamper-resistant modification logs: 1 encrypted CloudTrail trails; \u2139\ufe0f AWS Config not configured (acceptable for low-impact pilot environments); \u2705 Comprehensive event logging: 31 log groups (18 application, 2 system, 11 AWS services); \u2705 Real-time modification detection: 4 EventBridge rules for change monitoring; \u2705 Modification alerting: 7 CloudWatch alarms for change detection; \u2705 Modification notification infrastructure: 9 SNS topics for stakeholder alerts; \u2705 Automated modification response: 2 Lambda functions for change automation; \u2705 Instance-level modification tracking: 5 SSM-managed instances (5 online); \u2705 Enterprise-wide modification governance: AWS Organizations enables centralized change tracking; \u2705 Advanced organization features: SCPs for modification policy enforcement",
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860465",
+    "timestamp": "2025-10-23T01:00:41.484538",
     "validation_method": "multi-command"
   },
   {
@@ -51,7 +51,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860467",
+    "timestamp": "2025-10-23T01:00:41.484542",
     "validation_method": "multi-command"
   },
   {
@@ -62,7 +62,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860471",
+    "timestamp": "2025-10-23T01:00:41.484545",
     "validation_method": "multi-command"
   },
   {
@@ -73,7 +73,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860473",
+    "timestamp": "2025-10-23T01:00:41.484548",
     "validation_method": "multi-command"
   },
   {
@@ -84,7 +84,7 @@
     "cli_command": "2 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860476",
+    "timestamp": "2025-10-23T01:00:41.484551",
     "validation_method": "multi-command"
   },
   {
@@ -95,7 +95,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860479",
+    "timestamp": "2025-10-23T01:00:41.484554",
     "validation_method": "multi-command"
   },
   {
@@ -106,7 +106,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860482",
+    "timestamp": "2025-10-23T01:00:41.484557",
     "validation_method": "multi-command"
   },
   {
@@ -117,18 +117,18 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860485",
+    "timestamp": "2025-10-23T01:00:41.484560",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CNA-04",
     "validation_id": "KSI-CNA-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Foundational immutable practices (58%): \u2705 Least Privilege: AdministratorAccess is properly restricted to AWS-managed infrastructure roles.; \u2705 Network Security: No sensitive ports are exposed to the internet.; \u2705 Serverless Adoption: 18 Lambda functions are in use (inherently immutable).; \u26a0\ufe0f EC2 Standardization: No Launch Templates found for 6 running instance(s).; \u26a0\ufe0f EC2 Immutable Scaling: No Auto Scaling Groups found for 6 running instance(s).; \u274c EC2 IaC Management: None of the 6 running instance(s) have IaC tags.",
+    "assertion_reason": "\u2705 Foundational immutable practices (58%): \u2705 Least Privilege: AdministratorAccess is properly restricted to AWS-managed infrastructure roles.; \u2705 Network Security: No sensitive ports are exposed to the internet.; \u2705 Serverless Adoption: 18 Lambda functions are in use (inherently immutable).; \u26a0\ufe0f EC2 Standardization: No Launch Templates found for 5 running instance(s).; \u26a0\ufe0f EC2 Immutable Scaling: No Auto Scaling Groups found for 5 running instance(s).; \u274c EC2 IaC Management: None of the 5 running instance(s) have IaC tags.",
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860488",
+    "timestamp": "2025-10-23T01:00:41.484563",
     "validation_method": "multi-command"
   },
   {
@@ -139,29 +139,29 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860490",
+    "timestamp": "2025-10-23T01:00:41.484571",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CNA-06",
     "validation_id": "KSI-CNA-06",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent high availability design (100%): \u2705 Strong network HA: 8 subnets across 2 AZs; \u2705 Balanced subnet distribution across availability zones; \u2705 Application HA: 1 multi-AZ load balancer(s) providing traffic distribution; \u2705 Active backup strategy: 2 AWS Backup plan(s) with recent execution; \u2705 Storage redundancy: 10 S3 bucket(s) with built-in 11-9s durability; \u2705 Database HA-ready: 1 RDS instance(s) with multi-AZ subnet groups (easily convertible); \u2705 Bonus: Storage recovery via 642 EBS snapshot(s); \u2705 DNS infrastructure: 1 Route 53 hosted zone(s)",
+    "assertion_reason": "\u2705 Excellent high availability design (100%): \u2705 Strong network HA: 8 subnets across 2 AZs; \u2705 Balanced subnet distribution across availability zones; \u2705 Application HA: 1 multi-AZ load balancer(s) providing traffic distribution; \u2705 Active backup strategy: 2 AWS Backup plan(s) with recent execution; \u2705 Storage redundancy: 10 S3 bucket(s) with built-in 11-9s durability; \u2705 Database HA-ready: 1 RDS instance(s) with multi-AZ subnet groups (easily convertible); \u2705 Bonus: Storage recovery via 644 EBS snapshot(s); \u2705 DNS infrastructure: 1 Route 53 hosted zone(s)",
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860493",
+    "timestamp": "2025-10-23T01:00:41.484574",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-CNA-07",
     "validation_id": "KSI-CNA-07",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent AWS best practices implementation (98%): \u2705 CloudTrail excellently configured: 'meridianks-Management-events' ready for activation (cost-optimized for pilot); \u2705 Multi-region audit coverage: CloudTrail spans all AWS regions; \u2705 Log integrity protection: CloudTrail log file validation enabled; \u2705 Encrypted audit logs: CloudTrail using KMS encryption; \u2705 Global service monitoring: CloudTrail capturing global AWS events; \u2705 Real-time log analysis: CloudTrail integrated with CloudWatch Logs; \u2705 Enterprise governance: Organization-wide CloudTrail; \u2705 Encryption key management: 17 KMS keys for data protection; \u2705 IAM best practices: 92 roles vs 0 users (service-oriented architecture); \u2705 Excellent reliability architecture: 1/1 load balancers multi-AZ; \u2705 Infrastructure as Code scaling: 5/6 Terraform-managed instances (superior to ASGs for pilot); \u2705 Active data protection: 2 backup plan(s) with recent execution; \u2705 Good performance: 5/6 instances using modern types; \u2705 Storage optimization: 10 S3 buckets (cost-effective storage); \u2705 Proactive monitoring: 13 CloudWatch alarms; \u2705 Compliance automation: 327 active Config rules; \u2705 Enterprise governance: AWS Organizations with centralized management",
+    "assertion_reason": "\u2705 Excellent AWS best practices implementation (102%): \u2705 CloudTrail excellently configured: 'meridianks-Management-events' ready for activation (cost-optimized for pilot); \u2705 Multi-region audit coverage: CloudTrail spans all AWS regions; \u2705 Log integrity protection: CloudTrail log file validation enabled; \u2705 Encrypted audit logs: CloudTrail using KMS encryption; \u2705 Global service monitoring: CloudTrail capturing global AWS events; \u2705 Real-time log analysis: CloudTrail integrated with CloudWatch Logs; \u2705 Enterprise governance: Organization-wide CloudTrail; \u2705 Encryption key management: 17 KMS keys for data protection; \u2705 IAM best practices: 92 roles vs 0 users (service-oriented architecture); \u2705 Excellent reliability architecture: 1/1 load balancers multi-AZ; \u2705 Infrastructure as Code scaling: 5/6 Terraform-managed instances (superior to ASGs for pilot); \u2705 Active data protection: 2 backup plan(s) with recent execution; \u2705 Performance optimization: 5/5 instances using modern types; \u2705 Storage optimization: 10 S3 buckets (cost-effective storage); \u2705 Proactive monitoring: 13 CloudWatch alarms; \u2705 Compliance automation: 327 active Config rules; \u2705 Enterprise governance: AWS Organizations with centralized management",
     "cli_command": "15 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860496",
+    "timestamp": "2025-10-23T01:00:41.484577",
     "validation_method": "multi-command"
   },
   {
@@ -172,7 +172,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860499",
+    "timestamp": "2025-10-23T01:00:41.484580",
     "validation_method": "multi-command"
   },
   {
@@ -183,7 +183,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860502",
+    "timestamp": "2025-10-23T01:00:41.484583",
     "validation_method": "multi-command"
   },
   {
@@ -194,7 +194,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860504",
+    "timestamp": "2025-10-23T01:00:41.484586",
     "validation_method": "multi-command"
   },
   {
@@ -205,18 +205,18 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860507",
+    "timestamp": "2025-10-23T01:00:41.484589",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-IAM-04",
     "validation_id": "KSI-IAM-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., ReadOnlyAccess, AdministratorAccess, Development).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
+    "assertion_reason": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860510",
+    "timestamp": "2025-10-23T01:00:41.484592",
     "validation_method": "multi-command"
   },
   {
@@ -227,7 +227,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860513",
+    "timestamp": "2025-10-23T01:00:41.484595",
     "validation_method": "multi-command"
   },
   {
@@ -238,7 +238,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860515",
+    "timestamp": "2025-10-23T01:00:41.484598",
     "validation_method": "multi-command"
   },
   {
@@ -249,7 +249,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860523",
+    "timestamp": "2025-10-23T01:00:41.484601",
     "validation_method": "multi-command"
   },
   {
@@ -260,7 +260,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860526",
+    "timestamp": "2025-10-23T01:00:41.484604",
     "validation_method": "multi-command"
   },
   {
@@ -271,7 +271,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860529",
+    "timestamp": "2025-10-23T01:00:41.484607",
     "validation_method": "multi-command"
   },
   {
@@ -282,7 +282,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860532",
+    "timestamp": "2025-10-23T01:00:41.484617",
     "validation_method": "multi-command"
   },
   {
@@ -293,7 +293,7 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860535",
+    "timestamp": "2025-10-23T01:00:41.484620",
     "validation_method": "multi-command"
   },
   {
@@ -304,18 +304,18 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860538",
+    "timestamp": "2025-10-23T01:00:41.484623",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-MLA-03",
     "validation_id": "KSI-MLA-03",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (1 critical, 6 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
+    "assertion_reason": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (1 critical, 2 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860540",
+    "timestamp": "2025-10-23T01:00:41.484626",
     "validation_method": "multi-command"
   },
   {
@@ -326,7 +326,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860543",
+    "timestamp": "2025-10-23T01:00:41.484629",
     "validation_method": "multi-command"
   },
   {
@@ -337,7 +337,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860546",
+    "timestamp": "2025-10-23T01:00:41.484632",
     "validation_method": "multi-command"
   },
   {
@@ -348,7 +348,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860549",
+    "timestamp": "2025-10-23T01:00:41.484637",
     "validation_method": "multi-command"
   },
   {
@@ -359,7 +359,7 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860555",
+    "timestamp": "2025-10-23T01:00:41.484640",
     "validation_method": "multi-command"
   },
   {
@@ -370,7 +370,7 @@
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860558",
+    "timestamp": "2025-10-23T01:00:41.484644",
     "validation_method": "multi-command"
   },
   {
@@ -381,7 +381,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860561",
+    "timestamp": "2025-10-23T01:00:41.484647",
     "validation_method": "multi-command"
   },
   {
@@ -392,7 +392,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860565",
+    "timestamp": "2025-10-23T01:00:41.484650",
     "validation_method": "multi-command"
   },
   {
@@ -403,18 +403,18 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860567",
+    "timestamp": "2025-10-23T01:00:41.484653",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-PIY-06",
     "validation_id": "KSI-PIY-06",
     "assertion": true,
-    "assertion_reason": "\u2705 Strong security commitment (80%): \u2705 [Engagement] High security team activity detected with 50 logins across 4 users.; \u2705 [Engineering] Active security engineering: 50 recent Config Rule deployments.; \u2705 [Engineering] Active security engineering: 13 recent CloudWatch Alarm deployments.; \u2705 [Capabilities] Comprehensive compliance coverage with 327 AWS Config rules deployed.; \u2705 [Capabilities] Automated security response is enabled with 3 specialized Lambda functions.",
+    "assertion_reason": "\u2705 Strong security commitment (80%): \u2705 [Engagement] High security team activity detected with 50 logins across 3 users.; \u2705 [Engineering] Active security engineering: 50 recent Config Rule deployments.; \u2705 [Engineering] Active security engineering: 13 recent CloudWatch Alarm deployments.; \u2705 [Capabilities] Comprehensive compliance coverage with 327 AWS Config rules deployed.; \u2705 [Capabilities] Automated security response is enabled with 3 specialized Lambda functions.",
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860570",
+    "timestamp": "2025-10-23T01:00:41.484656",
     "validation_method": "multi-command"
   },
   {
@@ -425,7 +425,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860573",
+    "timestamp": "2025-10-23T01:00:41.484659",
     "validation_method": "multi-command"
   },
   {
@@ -436,7 +436,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860576",
+    "timestamp": "2025-10-23T01:00:41.484662",
     "validation_method": "multi-command"
   },
   {
@@ -447,18 +447,18 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860579",
+    "timestamp": "2025-10-23T01:00:41.484665",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-RPL-03",
     "validation_id": "KSI-RPL-03",
     "assertion": true,
-    "assertion_reason": "\u2705 System backups with compliant retention aligned with recovery objectives: \u2705 Backup infrastructure: 2 AWS Backup plans (rds-backup-plan, complete-backup-plan); \u2705 Backup operations validated: 50 successful backup jobs prove backups are functioning; \u2705 Additional backup coverage: 642 EBS snapshots",
+    "assertion_reason": "\u2705 System backups with compliant retention aligned with recovery objectives: \u2705 Backup infrastructure: 2 AWS Backup plans (rds-backup-plan, complete-backup-plan); \u2705 Backup operations validated: 50 successful backup jobs prove backups are functioning; \u2705 Additional backup coverage: 644 EBS snapshots",
     "cli_command": "5 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860585",
+    "timestamp": "2025-10-23T01:00:41.484668",
     "validation_method": "multi-command"
   },
   {
@@ -469,18 +469,18 @@
     "cli_command": "7 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860588",
+    "timestamp": "2025-10-23T01:00:41.484671",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-SVC-01",
     "validation_id": "KSI-SVC-01",
     "assertion": true,
-    "assertion_reason": "\u2705 Excellent network and system hardening with comprehensive governance (90%): \u2705 Network hardening foundation: 15 security groups (15 hardened, 0 require review); \u2705 System configuration management: 6 instances configured; \u2705 Comprehensive system management: 6/6 instances under SSM (100% coverage); \u2705 Automated patch management: 17 patch baselines configured; \u2705 Configuration compliance: 327 active Config rules (327 security-focused); \u2705 Threat detection enabled: 1 GuardDuty detectors monitoring for threats; \u2705 Application layer protection: 1 Web ACLs configured; \u2705 Secure service access: 7 VPC endpoints (4 interface, 3 gateway); \u2705 Enterprise-wide security governance: AWS Organizations enables centralized hardening policies; \u2705 Advanced organization features: SCPs and advanced governance capabilities enabled",
+    "assertion_reason": "\u2705 Excellent network and system hardening with comprehensive governance (90%): \u2705 Network hardening foundation: 15 security groups (15 hardened, 0 require review); \u2705 System configuration management: 6 instances configured; \u2705 Comprehensive system management: 5/6 instances under SSM (83% coverage); \u2705 Automated patch management: 17 patch baselines configured; \u2705 Configuration compliance: 327 active Config rules (327 security-focused); \u2705 Threat detection enabled: 1 GuardDuty detectors monitoring for threats; \u2705 Application layer protection: 1 Web ACLs configured; \u2705 Secure service access: 7 VPC endpoints (4 interface, 3 gateway); \u2705 Enterprise-wide security governance: AWS Organizations enables centralized hardening policies; \u2705 Advanced organization features: SCPs and advanced governance capabilities enabled",
     "cli_command": "11 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860590",
+    "timestamp": "2025-10-23T01:00:41.484674",
     "validation_method": "multi-command"
   },
   {
@@ -491,7 +491,7 @@
     "cli_command": "8 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860593",
+    "timestamp": "2025-10-23T01:00:41.484677",
     "validation_method": "multi-command"
   },
   {
@@ -502,18 +502,18 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860596",
+    "timestamp": "2025-10-23T01:00:41.484680",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-SVC-04",
     "validation_id": "KSI-SVC-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Enterprise-grade centralized configuration governance with comprehensive automation (100%): \u2705 Parameter management: 7 SSM parameters for centralized configuration.; \u2705 Configuration recording: 1 Config recorders configured.; \u2705 Configuration automation: 480 SSM documents (8 custom).; \u2705 Infrastructure as Code: 14/14 successful CloudFormation stacks (100%).; \u2705 Secure configuration management: 2 centrally managed secrets.; \u2705 System configuration standards: 17 patch baselines for standardized management.; \u2705 Configuration compliance automation: 327/327 active Config rules.; \u2705 Centralized instance management: 6/6 instances under SSM management (100% online).; \u2705 Enterprise-wide configuration governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for configuration policy enforcement enabled.",
+    "assertion_reason": "\u2705 Enterprise-grade centralized configuration governance with comprehensive automation (100%): \u2705 Parameter management: 7 SSM parameters for centralized configuration.; \u2705 Configuration recording: 1 Config recorders configured.; \u2705 Configuration automation: 480 SSM documents (8 custom).; \u2705 Infrastructure as Code: 14/14 successful CloudFormation stacks (100%).; \u2705 Secure configuration management: 2 centrally managed secrets.; \u2705 System configuration standards: 17 patch baselines for standardized management.; \u2705 Configuration compliance automation: 327/327 active Config rules.; \u2705 Centralized instance management: 5/5 instances under SSM management (100% online).; \u2705 Enterprise-wide configuration governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for configuration policy enforcement enabled.",
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860599",
+    "timestamp": "2025-10-23T01:00:41.484682",
     "validation_method": "multi-command"
   },
   {
@@ -524,7 +524,7 @@
     "cli_command": "10 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860602",
+    "timestamp": "2025-10-23T01:00:41.484685",
     "validation_method": "multi-command"
   },
   {
@@ -535,18 +535,18 @@
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860604",
+    "timestamp": "2025-10-23T01:00:41.484688",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-SVC-07",
     "validation_id": "KSI-SVC-07",
     "assertion": true,
-    "assertion_reason": "\u2705 Advanced risk-informed patching with controlled deployment and compliance (55%): \u2705 Consistent patch management: 17 patch baselines configured.; \u2705 Automated patch deployment capability: 6/6 instances with SSM agent online (100%).; \u2705 Patch automation framework: 27 documents for automated patching.; \u2705 Serverless patch management: 1 Lambda layers for runtime dependency management.; \u2705 Enterprise-wide patch governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for patch management policy enforcement enabled.",
+    "assertion_reason": "\u2705 Advanced risk-informed patching with controlled deployment and compliance (55%): \u2705 Consistent patch management: 17 patch baselines configured.; \u2705 Automated patch deployment capability: 5/5 instances with SSM agent online (100%).; \u2705 Patch automation framework: 27 documents for automated patching.; \u2705 Serverless patch management: 1 Lambda layers for runtime dependency management.; \u2705 Enterprise-wide patch governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for patch management policy enforcement enabled.",
     "cli_command": "9 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860607",
+    "timestamp": "2025-10-23T01:00:41.484691",
     "validation_method": "multi-command"
   },
   {
@@ -557,7 +557,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860610",
+    "timestamp": "2025-10-23T01:00:41.484694",
     "validation_method": "multi-command"
   },
   {
@@ -568,7 +568,7 @@
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860613",
+    "timestamp": "2025-10-23T01:00:41.484699",
     "validation_method": "multi-command"
   },
   {
@@ -579,7 +579,7 @@
     "cli_command": "4 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860616",
+    "timestamp": "2025-10-23T01:00:41.484703",
     "validation_method": "multi-command"
   },
   {
@@ -590,7 +590,7 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860619",
+    "timestamp": "2025-10-23T01:00:41.484706",
     "validation_method": "multi-command"
   },
   {
@@ -601,18 +601,18 @@
     "cli_command": "3 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860621",
+    "timestamp": "2025-10-23T01:00:41.484709",
     "validation_method": "multi-command"
   },
   {
     "ksi_id": "KSI-TPR-04",
     "validation_id": "KSI-TPR-04",
     "assertion": true,
-    "assertion_reason": "\u2705 Good third-party package monitoring - expand coverage (40%): \u2705 EC2 Inspector coverage verified: 6 instances available for third-party package scanning; \u2705 Package inventory capability: 6 instances with SSM agent for dependency tracking",
+    "assertion_reason": "\u2705 Good third-party package monitoring - expand coverage (40%): \u2705 EC2 Inspector coverage verified: 6 instances available for third-party package scanning; \u2705 Package inventory capability: 5 instances with SSM agent for dependency tracking",
     "cli_command": "6 commands executed",
     "cli_output_digest": "",
     "cli_output_interpretation": "",
-    "timestamp": "2025-10-22T03:24:45.860624",
+    "timestamp": "2025-10-23T01:00:41.484712",
     "validation_method": "multi-command"
   }
 ]

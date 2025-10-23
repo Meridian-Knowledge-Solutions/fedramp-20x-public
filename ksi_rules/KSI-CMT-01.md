@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-10-22 03:24
+**Last Check:** 2025-10-23 01:00
 
 **What it validates:** Document a change management policy for all system modifications
 
@@ -48,9 +48,9 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Modification alerting: 7 CloudWatch alarms for change detection
 - PASS Modification notification infrastructure: 9 SNS topics for stakeholder alerts
 - PASS Automated modification response: 2 Lambda functions for change automation
-- PASS Instance-level modification tracking: 6 SSM-managed instances (6 online)
+- PASS Instance-level modification tracking: 5 SSM-managed instances (5 online)
 - PASS Enterprise-wide modification governance: AWS Organizations enables centralized change tracking
 - PASS Advanced organization features: SCPs for modification policy enforcement
 
 ---
-*Generated 2025-10-22 03:24 UTC*
+*Generated 2025-10-23 01:00 UTC*
