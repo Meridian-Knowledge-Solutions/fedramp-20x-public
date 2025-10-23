@@ -3240,6 +3240,143 @@ td {
 .action-btn.vdr { background: var(--success-500); color: white; }
 
 
+/* ========================================================================
+   ✅ IMPACT LEVEL BANNER STYLES
+   ======================================================================== */
+
+.impact-banner {
+    background: var(--gradient-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.impact-banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.impact-banner-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.impact-banner-main h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    flex-wrap: wrap;
+}
+
+.impact-banner-main p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.impact-badge {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    box-shadow: var(--shadow-sm);
+}
+
+.impact-badge.impact-low {
+    background: var(--gradient-success);
+    color: white;
+}
+
+.impact-badge.impact-moderate {
+    background: var(--gradient-warning);
+    color: white;
+}
+
+.impact-badge.impact-high {
+    background: linear-gradient(135deg, var(--danger-500), #f87171);
+    color: white;
+}
+
+.impact-thresholds,
+.impact-stats {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: 0.75rem;
+    background: var(--bg-accent);
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+.impact-thresholds strong,
+.impact-stats strong {
+    color: var(--text-primary);
+}
+
+.impact-timestamp {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-align: right;
+    font-style: italic;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .impact-banner {
+    background: var(--gradient-card);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .impact-thresholds,
+[data-theme="dark"] .impact-stats {
+    background: var(--bg-accent);
+    border-color: var(--border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .impact-banner {
+        padding: 1rem;
+    }
+    
+    .impact-banner-main h4 {
+        font-size: 1rem;
+    }
+    
+    .impact-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .impact-thresholds,
+    .impact-stats {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+}
+
+
 
 
     </style>
@@ -4449,88 +4586,201 @@ async function getSCNStatus() {
             }
         }
 
-        // ✅ FIXED: Update dashboard with proper status determination
-        function updateDashboardWithRealData(data) {
-            try {
-                let validations = [];
-                let dataTimestamp = null;
-                
-                // Extract timestamp
-                if (data.metadata && data.metadata.generated_at) {
-                    dataTimestamp = new Date(data.metadata.generated_at);
-                } else if (data.generated_at) {
-                    dataTimestamp = new Date(data.generated_at);
-                } else if (data.timestamp) {
-                    dataTimestamp = new Date(data.timestamp);
-                }
-                
-                // Extract validation array
-                if (Array.isArray(data)) {
-                    validations = data;
-                } else if (data.validations && Array.isArray(data.validations)) {
-                    validations = data.validations;
-                }
-
-                if (validations.length === 0) {
-                    throw new Error('No validation data found in the loaded JSON');
-                }
-
-                // ✅ FIXED: Process with proper status determination
-                allKsis = validations.map(validation => {
-                    const commandDetails = extractCommandDetails(validation);
-                    
-                    const ksi = {
-                        id: validation.ksi_id || validation.validation_id || 'Unknown',
-                        status: determineKsiStatus(validation), // ✅ FIXED: Use proper status determination
-                        category: validation.long_name || validation.category || 'Unknown Category',
-                        description: validation.requirement || validation.description || 'No description available',
-                        commands_executed: validation.commands_executed || 0,
-                        successful_commands: validation.successful_commands || 0,
-                        failed_commands: validation.failed_commands || 0,
-                        cli_command: validation.cli_command || 'No command information',
-                        assertion_reason: validation.assertion_reason || 'No assessment details provided',
-                        timestamp: validation.timestamp || validation.validation_timestamp || null,
-                        validation_method: validation.validation_method || 'automated',
-                        evidence_path: validation.evidence_path || '',
-                        requirement: validation.requirement || 'No requirement specified',
-                        rawData: validation,
-                        detailed_commands: commandDetails.commands || [],
-                        command_source: commandDetails.source || 'unknown',
-                        register_description: commandDetails.description || null,
-                        register_justification: commandDetails.justification || null
-                    };
-
-                    // Detect enhancement opportunities for passed KSIs
-                    if (ksi.status === 'passed') {
-                        const enhancements = detectEnhancementOpportunities(ksi.assertion_reason, ksi.status);
-                        if (enhancements.length > 0) {
-                            ksi.hasEnhancements = true;
-                            ksi.enhancements = enhancements;
-                        }
-                    }
-
-                    return ksi;
-                });
-
-                console.log(`📊 Processed ${allKsis.length} KSI validation records`);
-                console.log(`📊 Status breakdown:`, getStatusBreakdown());
-                
-                updateMetrics();
-                populateCategoryFilter();
-                filterKsis();
-                
-                if (dataTimestamp) {
-                    updateTimestampsWithData(dataTimestamp);
-                } else {
-                    updateTimestamps();
-                }
-                
-            } catch (error) {
-                console.error('❌ Error processing real data:', error);
-                showDataSourceNotification('error');
-                initializeFallbackData();
+// ✅ ENHANCED: Update dashboard with impact level metadata
+function updateDashboardWithRealData(data) {
+    try {
+        let validations = [];
+        let dataTimestamp = null;
+        let impactLevel = 'LOW'; // Default
+        let impactThresholds = null;
+        
+        // ✅ Extract impact level metadata
+        if (data.metadata) {
+            if (data.metadata.validation_date) {
+                dataTimestamp = new Date(data.metadata.validation_date);
+            }
+            if (data.metadata.impact_level) {
+                impactLevel = data.metadata.impact_level;
+                console.log(`🛡️ Impact Level: ${impactLevel}`);
+            }
+            if (data.metadata.impact_thresholds) {
+                impactThresholds = data.metadata.impact_thresholds;
+                console.log(`📊 Thresholds:`, impactThresholds);
             }
         }
+        
+        // Extract timestamp (fallback for old format)
+        if (!dataTimestamp) {
+            if (data.metadata && data.metadata.generated_at) {
+                dataTimestamp = new Date(data.metadata.generated_at);
+            } else if (data.generated_at) {
+                dataTimestamp = new Date(data.generated_at);
+            } else if (data.timestamp) {
+                dataTimestamp = new Date(data.timestamp);
+            }
+        }
+        
+        // ✅ Extract validation data from new structure
+        if (data.results && typeof data.results === 'object') {
+            // Convert results object to array format
+            validations = Object.entries(data.results).map(([ksi_id, result]) => ({
+                ksi_id: ksi_id,
+                validation_id: ksi_id,
+                assertion: result.status === 'PASS',
+                assertion_reason: result.message,
+                commands_executed: result.commands_processed || 0,
+                timestamp: dataTimestamp ? dataTimestamp.toISOString() : null,
+                status: result.status,
+                result_emoji: result.result_emoji
+            }));
+        } else if (Array.isArray(data)) {
+            // Fallback for legacy array format
+            validations = data;
+        } else if (data.validations && Array.isArray(data.validations)) {
+            validations = data.validations;
+        }
+
+        if (validations.length === 0) {
+            throw new Error('No validation data found in the loaded JSON');
+        }
+
+        // ✅ Display impact level in dashboard
+        displayImpactLevel(impactLevel, impactThresholds, data.metadata);
+
+        // ✅ Process validations with proper status determination
+        allKsis = validations.map(validation => {
+            const commandDetails = extractCommandDetails(validation);
+            
+            const ksi = {
+                id: validation.ksi_id || validation.validation_id || 'Unknown',
+                status: determineKsiStatus(validation),
+                category: validation.long_name || validation.category || 'Unknown Category',
+                description: validation.requirement || validation.description || 'No description available',
+                commands_executed: validation.commands_executed || 0,
+                successful_commands: validation.successful_commands || 0,
+                failed_commands: validation.failed_commands || 0,
+                cli_command: validation.cli_command || 'No command information',
+                assertion_reason: validation.assertion_reason || 'No assessment details provided',
+                timestamp: validation.timestamp || validation.validation_timestamp || null,
+                validation_method: validation.validation_method || 'automated',
+                evidence_path: validation.evidence_path || '',
+                requirement: validation.requirement || 'No requirement specified',
+                rawData: validation,
+                detailed_commands: commandDetails.commands || [],
+                command_source: commandDetails.source || 'unknown',
+                register_description: commandDetails.description || null,
+                register_justification: commandDetails.justification || null,
+                // ✅ Add impact level context
+                impact_level: impactLevel
+            };
+
+            // Detect enhancement opportunities for passed KSIs
+            if (ksi.status === 'passed') {
+                const enhancements = detectEnhancementOpportunities(ksi.assertion_reason, ksi.status);
+                if (enhancements.length > 0) {
+                    ksi.hasEnhancements = true;
+                    ksi.enhancements = enhancements;
+                }
+            }
+
+            return ksi;
+        });
+
+        console.log(`📊 Processed ${allKsis.length} KSI validation records`);
+        console.log(`🛡️ Impact Level: ${impactLevel}`);
+        console.log(`📊 Status breakdown:`, getStatusBreakdown());
+        
+        updateMetrics();
+        populateCategoryFilter();
+        filterKsis();
+        
+        if (dataTimestamp) {
+            updateTimestampsWithData(dataTimestamp);
+        } else {
+            updateTimestamps();
+        }
+        
+    } catch (error) {
+        console.error('❌ Error processing real data:', error);
+        showDataSourceNotification('error');
+        initializeFallbackData();
+    }
+}
+
+
+
+
+// ✅ NEW: Display impact level prominently in dashboard
+function displayImpactLevel(impactLevel, thresholds, metadata) {
+    // Create or update impact level banner
+    let impactBanner = document.getElementById('impact-level-banner');
+    
+    if (!impactBanner) {
+        // Create banner if it doesn't exist
+        impactBanner = document.createElement('div');
+        impactBanner.id = 'impact-level-banner';
+        impactBanner.className = 'impact-banner';
+        
+        // Insert at top of dashboard container (after stats grid)
+        const container = document.querySelector('.container');
+        const statsGrid = container.querySelector('.stats-grid');
+        if (statsGrid && statsGrid.nextSibling) {
+            container.insertBefore(impactBanner, statsGrid.nextSibling);
+        } else {
+            container.appendChild(impactBanner);
+        }
+    }
+    
+    // Set badge color based on impact level
+    const badgeColorClass = {
+        'LOW': 'success',
+        'MODERATE': 'warning',
+        'HIGH': 'danger'
+    }[impactLevel] || 'secondary';
+    
+    // Build threshold display
+    let thresholdText = '';
+    if (thresholds) {
+        thresholdText = `
+            <div class="impact-thresholds">
+                <strong>Pass Thresholds:</strong> 
+                Minimum: ${thresholds.min} | 
+                Good: ${thresholds.good} | 
+                Excellent: ${thresholds.excellent}
+            </div>
+        `;
+    }
+    
+    // Build stats display
+    let statsText = '';
+    if (metadata) {
+        statsText = `
+            <div class="impact-stats">
+                ✅ ${metadata.passed} passed | 
+                ❌ ${metadata.failed} failed | 
+                Pass Rate: ${metadata.pass_rate}
+            </div>
+        `;
+    }
+    
+    impactBanner.innerHTML = `
+        <div class="impact-banner-content">
+            <div class="impact-banner-main">
+                <h4>
+                    🛡️ <span class="impact-badge impact-${impactLevel.toLowerCase()}">${impactLevel} Impact Level</span>
+                </h4>
+                <p>Validation thresholds adjusted for ${impactLevel} impact requirements</p>
+            </div>
+            ${thresholdText}
+            ${statsText}
+            <div class="impact-timestamp">
+                Last Updated: ${metadata?.validation_date ? new Date(metadata.validation_date).toLocaleString() : 'Unknown'}
+            </div>
+        </div>
+    `;
+}
+
+        
 
         // ✅ HELPER: Get status breakdown for debugging
         function getStatusBreakdown() {
@@ -6187,7 +6437,7 @@ async function loadQuarterlyReportData() {
 
     // API endpoints
     ENDPOINTS: {
-    REGISTER: '/register',
+        REGISTER: '/register',
     VERIFY: '/verify',
     PACKAGE: '/package',
     DATA: '/api/data',
@@ -8010,6 +8260,64 @@ const quarterlyReportsSection = `
     }
 
     // ====================================================================
+    // WRAPPER FUNCTIONS FOR KSI FILTERING & SEARCHING
+    // ====================================================================
+
+    function filterKsisTwoTier(status) {
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            console.log('Authentication required to filter KSIs.');
+            return;
+        }
+        try {
+            if (typeof window.originalFilterKsis === 'function') {
+                window.originalFilterKsis(status);
+                window.renderKsis(); // Re-render with new template
+                console.log(`Filtered KSIs by status: ${status}`);
+            } else {
+                console.error('originalFilterKsis function not found.');
+            }
+        } catch (error) {
+            console.error('Error during filtering:', error);
+        }
+    }
+
+    function searchKsisTwoTier(event) {
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            console.log('Authentication required to search KSIs.');
+            return;
+        }
+        try {
+            if (typeof window.originalSearchKsis === 'function') {
+                window.originalSearchKsis(event);
+                window.renderKsis(); // Re-render with new template
+                console.log('Searched KSIs');
+            } else {
+                console.error('originalSearchKsis function not found.');
+            }
+        } catch (error) {
+            console.error('Error during search:', error);
+        }
+    }
+
+    function resetFiltersTwoTier() {
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            console.log('Authentication required to reset filters.');
+            return;
+        }
+        try {
+            if (typeof window.originalResetFilters === 'function') {
+                window.originalResetFilters();
+                window.renderKsis(); // Re-render with new template
+                console.log('Reset KSI filters');
+            } else {
+                console.error('originalResetFilters function not found.');
+            }
+        } catch (error) {
+            console.error('Error during filter reset:', error);
+        }
+    }
+
+    // ====================================================================
     // UTILITY FUNCTIONS & FEDERAL AGENCY RESOURCES
     // ====================================================================
     function createTemporaryModal(id) {
@@ -9093,6 +9401,12 @@ const quarterlyReportsSection = `
     window.originalShowPOAMModal = window.showPOAMModal;
     window.originalCreateGitHubIssue = window.createGitHubIssue;
 
+    // START: Added for filter/search preservation
+    window.originalFilterKsis = window.filterKsis;
+    window.originalSearchKsis = window.searchKsis;
+    window.originalResetFilters = window.resetFilters;
+    // END: Added for filter/search preservation
+
     // Override with two-tier logic
     window.downloadJSON = downloadJSON;
     window.viewFailedReport = viewFailedReport;
@@ -9108,6 +9422,12 @@ const quarterlyReportsSection = `
     window.showCLI = showCLITwoTier; // Handle both naming conventions
     window.showPOAMModal = showPOAMModalTwoTier;
     window.createGitHubIssue = createIssueTwoTier;
+
+    // START: Added for filter/search override
+    window.filterKsis = filterKsisTwoTier;
+    window.searchKsis = searchKsisTwoTier;
+    window.resetFilters = resetFiltersTwoTier;
+    // END: Added for filter/search override
 
     // Make new functions globally available
     window.showRegistrationModal = showRegistrationModal;
@@ -9156,6 +9476,51 @@ const quarterlyReportsSection = `
 
     // Render trust center with current authentication state
     renderTrustCenterTab();
+
+    // START: Added for filter/search listener attachment
+    // Attach event listeners for filter/search controls (if authenticated)
+    if (window.fedRAMPAuth.isAuthenticated) {
+        console.log('Attaching event listeners for authenticated filter controls...');
+        try {
+            // Attach listener for filter buttons (assuming a container)
+            // Note: This relies on the original script's filter button logic/HTML.
+            // We are overriding the functions, so HTML onclick should work.
+            // This is a fallback if onclick isn't used.
+            const filterContainer = document.querySelector('#filter-buttons'); // Assumed selector
+            if (filterContainer) {
+                filterContainer.addEventListener('click', function(e) {
+                    const button = e.target.closest('button[data-status]');
+                    if (button) {
+                        filterKsisTwoTier(button.dataset.status);
+                    }
+                });
+                console.log('Attached click listener to #filter-buttons');
+            } else {
+                console.warn('Filter container #filter-buttons not found. Relying on HTML onclick attributes.');
+            }
+
+            // Attach listener for search input
+            const searchInput = document.getElementById('search-input'); // Assumed selector
+            if (searchInput) {
+                searchInput.addEventListener('input', searchKsisTwoTier);
+                console.log('Attached input listener to #search-input');
+            } else {
+                console.warn('Search input #search-input not found. Relying on HTML oninput/onkeyup attributes.');
+            }
+
+            // Attach listener for reset button
+            const resetButton = document.getElementById('reset-filters-btn'); // Assumed selector
+            if (resetButton) {
+                resetButton.addEventListener('click', resetFiltersTwoTier);
+                console.log('Attached click listener to #reset-filters-btn');
+            } else {
+                console.warn('Reset button #reset-filters-btn not found. Relying on HTML onclick attributes.');
+            }
+        } catch (error) {
+            console.error('Error attaching filter/search listeners:', error);
+        }
+    }
+    // END: Added for filter/search listener attachment
 
     // IMPORTANT: Ensure KSI data is loaded
     ensureKSIDataLoaded();
@@ -9458,7 +9823,7 @@ const quarterlyReportsSection = `
     `;
 
     console.log('✓ Modal HTML injected/updated');
-    }    
+    }
 })();
 </script>
 
