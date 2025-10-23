@@ -301,6 +301,12 @@ paths:
       summary: Download the latest authorization package individual file
       tags: 
         - Package Management
+    parameters:
+      - name: version
+        in: query
+        schema:
+          type: string
+        description: Optional. ISO date (YYYY-MM-DD) or version tag. Returns latest if omitted.
       responses:
         '200':
           description: "Success. The authorization package file is returned."
