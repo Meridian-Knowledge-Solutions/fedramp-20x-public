@@ -974,6 +974,21 @@ td {
             border: 1px solid var(--border-color);
         }
 
+        .badge-moderate-only {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(217, 119, 6, 0.3);
+            vertical-align: middle;
+        }
+
         .ksi-status {
             padding: 0.5rem 1rem;
             border-radius: var(--radius-lg);
@@ -4831,7 +4846,11 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                 return `
                 <div class="ksi-card ${ksi.status} ${ksi.status === 'info' ? 'enhancement info' : hasEnhancements ? 'enhancement' : ''}">
                     <div class="ksi-card-header">
-                        <div class="ksi-id">${ksi.id}</div>
+                        <div class="ksi-id">
+                            ${ksi.id}
+                            ${['KSI-CNA-08', 'KSI-MLA-08', 'KSI-SVC-08', 'KSI-SVC-09', 'KSI-SVC-10'].includes(ksi.id) ? 
+                                '<span class="badge-moderate-only">Moderate Only</span>' : ''}
+                        </div>
                         <div class="ksi-status status-${ksi.status}">
                             ${getStatusIcon(ksi.status)} ${ksi.status.toUpperCase()}
                         </div>
