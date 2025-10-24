@@ -1,9 +1,11 @@
 {
-  "timestamp": "2025-10-24T03:00:08.694817",
-  "total_ksis_validated": 56,
-  "technical_issues_found": 0,
-  "issues": [],
-  "status": "pass",
+  "timestamp": "2025-10-24T05:00:41.074011",
+  "total_ksis_validated": 51,
+  "technical_issues_found": 1,
+  "issues": [
+    "KSI-CNA-01: Assertion is False but reason contains only success indicators"
+  ],
+  "status": "warning",
   "categories_checked": [
     "logical_consistency",
     "scoring_mathematics",
