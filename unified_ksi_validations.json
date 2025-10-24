@@ -1,18 +1,19 @@
 {
   "metadata": {
-    "validation_date": "2025-10-23T20:55:06.221740",
+    "validation_date": "2025-10-24T03:00:06.982470",
     "impact_level": "LOW",
     "impact_thresholds": {
       "min": "50%",
       "good": "70%",
       "excellent": "85%"
     },
-    "total_ksis": 56,
-    "passed": 55,
-    "failed": 1,
+    "applicable_ksis": 51,
+    "total_ksis": 51,
+    "passed": 49,
+    "failed": 2,
     "skipped": 0,
     "errors": 0,
-    "pass_rate": "98.2%"
+    "pass_rate": "96.1%"
   },
   "results": {
     "KSI-CED-01": {
@@ -64,10 +65,10 @@
       "result_emoji": "\u2705 PASS"
     },
     "KSI-CNA-01": {
-      "status": "PASS",
-      "message": "\u2705 Excellent multi-layered traffic controls (97%): \u2705 VPC infrastructure: 1 VPC(s) detected; \u2705 Strong ingress controls: 15/15 security groups restrictive; \u2705 Strong egress controls: 14/15 security groups control outbound traffic; \u2705 Default security group properly secured; \u2705 Custom network controls: 1/1 Network ACLs with custom traffic filtering rules; \u2705 Controlled egress routing: 1 private route tables with NAT gateway routing; \u2705 Managed egress: 1 NAT gateways for controlled outbound access; \u2705 Private service access: 7 VPC endpoints reduce internet-bound traffic; \u2705 Application-layer protection: 1 WAF Web ACLs configured; \u2705 Traffic distribution: 1 load balancers (1 public, 0 internal); \u2705 Traffic visibility: 2 VPC Flow Log groups for traffic monitoring",
+      "status": "FAIL",
+      "message": "Below threshold: 5/16 (31.2%) - requires 50.0% for LOW impact: \u2705 VPC infrastructure: 1 VPC(s) detected; \u2705 Strong ingress controls: 15/15 security groups restrictive; \u2705 Strong egress controls: 14/15 security groups control outbound traffic; \u2705 Default security group properly secured; \u2705 Custom network controls: 1/1 Network ACLs with custom traffic filtering rules; \u2705 Controlled egress routing: 1 private route tables with NAT gateway routing; \u2705 Managed egress: 1 NAT gateways for controlled outbound access; \u2705 Private service access: 7 VPC endpoints reduce internet-bound traffic; \u2705 Application-layer protection: 1 WAF Web ACLs configured; \u2705 Traffic distribution: 1 load balancers (1 public, 0 internal); \u2705 Traffic visibility: 2 VPC Flow Log groups for traffic monitoring",
       "commands_processed": 8,
-      "result_emoji": "\u2705 PASS"
+      "result_emoji": "\u274c FAIL"
     },
     "KSI-CNA-02": {
       "status": "PASS",
@@ -95,7 +96,7 @@
     },
     "KSI-CNA-06": {
       "status": "PASS",
-      "message": "\u2705 Excellent high availability design (100%): \u2705 Strong network HA: 8 subnets across 2 AZs; \u2705 Balanced subnet distribution across availability zones; \u2705 Application HA: 1 multi-AZ load balancer(s) providing traffic distribution; \u2705 Active backup strategy: 2 AWS Backup plan(s) with recent execution; \u2705 Storage redundancy: 10 S3 bucket(s) with built-in 11-9s durability; \u2705 Database HA-ready: 1 RDS instance(s) with multi-AZ subnet groups (easily convertible); \u2705 Bonus: Storage recovery via 644 EBS snapshot(s); \u2705 DNS infrastructure: 1 Route 53 hosted zone(s)",
+      "message": "\u2705 Excellent high availability design (100%): \u2705 Strong network HA: 8 subnets across 2 AZs; \u2705 Balanced subnet distribution across availability zones; \u2705 Application HA: 1 multi-AZ load balancer(s) providing traffic distribution; \u2705 Active backup strategy: 2 AWS Backup plan(s) with recent execution; \u2705 Storage redundancy: 10 S3 bucket(s) with built-in 11-9s durability; \u2705 Database HA-ready: 1 RDS instance(s) with multi-AZ subnet groups (easily convertible); \u2705 Bonus: Storage recovery via 646 EBS snapshot(s); \u2705 DNS infrastructure: 1 Route 53 hosted zone(s)",
       "commands_processed": 9,
       "result_emoji": "\u2705 PASS"
     },
@@ -103,12 +104,6 @@
       "status": "PASS",
       "message": "\u2705 Excellent AWS best practices implementation (102%): \u2705 CloudTrail excellently configured: 'meridianks-Management-events' ready for activation (cost-optimized for pilot); \u2705 Multi-region audit coverage: CloudTrail spans all AWS regions; \u2705 Log integrity protection: CloudTrail log file validation enabled; \u2705 Encrypted audit logs: CloudTrail using KMS encryption; \u2705 Global service monitoring: CloudTrail capturing global AWS events; \u2705 Real-time log analysis: CloudTrail integrated with CloudWatch Logs; \u2705 Enterprise governance: Organization-wide CloudTrail; \u2705 Encryption key management: 17 KMS keys for data protection; \u2705 IAM best practices: 92 roles vs 0 users (service-oriented architecture); \u2705 Excellent reliability architecture: 1/1 load balancers multi-AZ; \u2705 Infrastructure as Code scaling: 5/6 Terraform-managed instances (superior to ASGs for pilot); \u2705 Active data protection: 2 backup plan(s) with recent execution; \u2705 Performance optimization: 5/5 instances using modern types; \u2705 Storage optimization: 10 S3 buckets (cost-effective storage); \u2705 Proactive monitoring: 13 CloudWatch alarms; \u2705 Compliance automation: 327 active Config rules; \u2705 Enterprise governance: AWS Organizations with centralized management",
       "commands_processed": 15,
-      "result_emoji": "\u2705 PASS"
-    },
-    "KSI-CNA-08": {
-      "status": "PASS",
-      "message": "Excellent measurement posture (75%): Basic framework: 1 Security Hub standard(s); Extensive instrumentation: 327 Config rules; Active measurement: Config recorder capturing data; Limited visibility: No central aggregation",
-      "commands_processed": 5,
       "result_emoji": "\u2705 PASS"
     },
     "KSI-IAM-01": {
@@ -131,7 +126,7 @@
     },
     "KSI-IAM-04": {
       "status": "PASS",
-      "message": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
+      "message": "\u2705 Excellent role-based authorization model (100%): \u2705 [Modern Auth] IAM Identity Center is in use, inferred from 3 SSO-managed roles.; \u2705 [Role Mapping] Found 3 distinct permission sets (e.g., AdministratorAccess, ReadOnlyAccess, Development).; \u2139\ufe0f The direct SSO API call failed due to permissions, but role-based evidence confirms a modern setup.; \u2705 [Least Privilege] Excellent role-to-user ratio (92 roles to 0 users) indicates a strong role-based access pattern.; \u2705 [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.",
       "commands_processed": 5,
       "result_emoji": "\u2705 PASS"
     },
@@ -185,7 +180,7 @@
     },
     "KSI-MLA-03": {
       "status": "PASS",
-      "message": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (0 critical, 6 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
+      "message": "\u2705 Excellent vulnerability management with comprehensive automated response (106%): \u2705 Security standards foundation: 1/1 Security Hub standards enabled for detection; \u2705 Automated vulnerability scanning: Inspector EC2, ECR scanning enabled; \u2705 Multi-service vulnerability coverage: Both EC2 and ECR scanning for comprehensive assessment; \u2705 Automated patch management: 17 patch baselines (15 default, 2 custom); \u2705 Tailored remediation: 2 custom patch baselines for targeted vulnerability response; \u2705 Security automation: 2 Lambda functions for security operations; \u2705 Real-time threat detection: 1 CloudWatch alarms for rapid vulnerability alerting; \u2705 Active threat analysis: 50 active security findings (1 critical, 5 high); \u2705 Intelligent threat detection: Advanced pattern recognition and behavioral analysis capabilities; \u2705 Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection; \u2705 Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection",
       "commands_processed": 7,
       "result_emoji": "\u2705 PASS"
     },
@@ -199,12 +194,6 @@
       "status": "PASS",
       "message": "\u2705 Good automated monitoring inventory - enhance coverage (75%): \u2705 Comprehensive log infrastructure: 31 log groups; \u2705 Comprehensive audit coverage: 1 trails with multi-region; \u2705 Good monitoring configuration: 13 CloudWatch alarms",
       "commands_processed": 3,
-      "result_emoji": "\u2705 PASS"
-    },
-    "KSI-MLA-08": {
-      "status": "PASS",
-      "message": "\u2705 Excellent audit log protection (100%): \u2705 [Integrity] The primary CloudTrail has log file validation enabled, ensuring logs are tamper-resistant.; \u2705 [Encryption] The primary CloudTrail is encrypted at rest using a KMS key.; \u2705 [Retention] An excellent log retention policy is in place, with 24 log groups configured for 365+ days.; \u2705 [Access Control] Excellent RBAC for logs detected, with distinct roles for administration (1) and viewing (2).",
-      "commands_processed": 4,
       "result_emoji": "\u2705 PASS"
     },
     "KSI-PIY-01": {
@@ -263,7 +252,7 @@
     },
     "KSI-RPL-03": {
       "status": "PASS",
-      "message": "\u2705 System backups with compliant retention aligned with recovery objectives: \u2705 Backup infrastructure: 2 AWS Backup plans (rds-backup-plan, complete-backup-plan); \u2705 Backup operations validated: 50 successful backup jobs prove backups are functioning; \u2705 Additional backup coverage: 644 EBS snapshots",
+      "message": "\u2705 System backups with compliant retention aligned with recovery objectives: \u2705 Backup infrastructure: 2 AWS Backup plans (rds-backup-plan, complete-backup-plan); \u2705 Backup operations validated: 50 successful backup jobs prove backups are functioning; \u2705 Additional backup coverage: 646 EBS snapshots",
       "commands_processed": 5,
       "result_emoji": "\u2705 PASS"
     },
@@ -287,7 +276,7 @@
     },
     "KSI-SVC-03": {
       "status": "PASS",
-      "message": "\u2705 Production-ready multi-service encryption with advanced key management (70%): \u2705 Object storage encryption: 10 S3 buckets configured.; \u2705 Block storage encryption: 10/11 EBS volumes encrypted (91%).; \u2705 Database encryption: 1/1 RDS instances encrypted (100%).; \u2705 Database backup encryption: 190/190 RDS snapshots encrypted.; \u2705 Backup encryption: 3/3 backup vaults encrypted.; \u2705 Encryption key infrastructure: 17 KMS keys (0 customer-managed, 17 AWS-managed).; \u2705 Enterprise-wide encryption governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for encryption policy enforcement enabled.",
+      "message": "\u2705 Production-ready multi-service encryption with advanced key management (70%): \u2705 Object storage encryption: 10 S3 buckets configured.; \u2705 Block storage encryption: 10/11 EBS volumes encrypted (91%).; \u2705 Database encryption: 1/1 RDS instances encrypted (100%).; \u2705 Database backup encryption: 189/189 RDS snapshots encrypted.; \u2705 Backup encryption: 3/3 backup vaults encrypted.; \u2705 Encryption key infrastructure: 17 KMS keys (0 customer-managed, 17 AWS-managed).; \u2705 Enterprise-wide encryption governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for encryption policy enforcement enabled.",
       "commands_processed": 10,
       "result_emoji": "\u2705 PASS"
     },
@@ -313,24 +302,6 @@
       "status": "PASS",
       "message": "\u2705 Advanced risk-informed patching with controlled deployment and compliance (55%): \u2705 Consistent patch management: 17 patch baselines configured.; \u2705 Automated patch deployment capability: 5/5 instances with SSM agent online (100%).; \u2705 Patch automation framework: 27 documents for automated patching.; \u2705 Serverless patch management: 1 Lambda layers for runtime dependency management.; \u2705 Enterprise-wide patch governance: AWS Organizations enables centralized policies.; \u2705 Advanced organization features: SCPs for patch management policy enforcement enabled.",
       "commands_processed": 9,
-      "result_emoji": "\u2705 PASS"
-    },
-    "KSI-SVC-08": {
-      "status": "PASS",
-      "message": "\u2705 Strong IaC implementation with foundational change tracking (50%): \u2705 [IaC] Infrastructure is managed as code via 19 active CloudFormation stacks, ensuring consistent lifecycle management.; \u26a0\ufe0f [Change Tracking] An AWS Config recorder exists but is not currently recording.",
-      "commands_processed": 3,
-      "result_emoji": "\u2705 PASS"
-    },
-    "KSI-SVC-09": {
-      "status": "PASS",
-      "message": "\u2705 Excellent communication integrity (80%): \u2705 [Certificate Health] All 2 ACM certificates are valid and not expired.; \u2705 [TLS Enforcement] All 1 HTTPS listeners are enforcing modern TLS 1.2+ policies.; \u2705 [Internal Security] Secure, private communication is enforced via 7 VPC Endpoints.",
-      "commands_processed": 6,
-      "result_emoji": "\u2705 PASS"
-    },
-    "KSI-SVC-10": {
-      "status": "PASS",
-      "message": "\u2705 Excellent automated data lifecycle management (100%): \u2705 [Backup Retention] AWS Backup plans have explicit deletion lifecycles, ensuring recovery points are removed as required.; \u2705 [S3 Lifecycle] 1 S3 bucket(s) have active lifecycle policies to manage object expiration.; \u2705 [Log Retention] A strong log retention strategy is in place, with 100% of log groups having a defined retention period.",
-      "commands_processed": 4,
       "result_emoji": "\u2705 PASS"
     },
     "KSI-TPR-01": {
@@ -362,14 +333,12 @@
       "KSI-CMT-03",
       "KSI-CMT-04",
       "KSI-CMT-05",
-      "KSI-CNA-01",
       "KSI-CNA-02",
       "KSI-CNA-03",
       "KSI-CNA-04",
       "KSI-CNA-05",
       "KSI-CNA-06",
       "KSI-CNA-07",
-      "KSI-CNA-08",
       "KSI-IAM-01",
       "KSI-IAM-02",
       "KSI-IAM-03",
@@ -385,7 +354,6 @@
       "KSI-MLA-03",
       "KSI-MLA-05",
       "KSI-MLA-07",
-      "KSI-MLA-08",
       "KSI-PIY-01",
       "KSI-PIY-02",
       "KSI-PIY-04",
@@ -403,14 +371,12 @@
       "KSI-SVC-05",
       "KSI-SVC-06",
       "KSI-SVC-07",
-      "KSI-SVC-08",
-      "KSI-SVC-09",
-      "KSI-SVC-10",
       "KSI-TPR-01",
       "KSI-TPR-03",
       "KSI-TPR-04"
     ],
     "failed_ksis": [
+      "KSI-CNA-01",
       "KSI-PIY-03"
     ],
     "skipped_ksis": [],

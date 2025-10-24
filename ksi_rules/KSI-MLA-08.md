@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** Not validated
 
 **What it validates:** Protect audit logs to support after-the-fact investigations
 
@@ -24,12 +23,5 @@
 4. `aws kms list-keys --output json`
    *Verify that KMS keys are available for encrypting logs at rest.*
 
-## Latest Results
-
-PASS Excellent audit log protection (100%): PASS [Integrity] The primary CloudTrail has log file validation enabled, ensuring logs are tamper-resistant.
-- PASS [Encryption] The primary CloudTrail is encrypted at rest using a KMS key.
-- PASS [Retention] An excellent log retention policy is in place, with 24 log groups configured for 365+ days.
-- PASS [Access Control] Excellent RBAC for logs detected, with distinct roles for administration (1) and viewing (2).
-
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

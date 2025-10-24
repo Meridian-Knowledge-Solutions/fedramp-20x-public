@@ -12,14 +12,14 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Cloud Native Architecture
 
-- [PASS] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
+- [FAIL] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
 - [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
-- [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
+- [PENDING] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
 
 ## Cybersecurity Education
 
@@ -50,7 +50,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-MLA-03](KSI-MLA-03.md): Rapidly detect and remediate or mitigate vulnerabilities
 - [PASS] [KSI-MLA-05](KSI-MLA-05.md): Use change management tools to enforce, track and report configuration changes
 - [PASS] [KSI-MLA-07](KSI-MLA-07.md): Use log aggregation services that accept logs from CSO-provided services
-- [PASS] [KSI-MLA-08](KSI-MLA-08.md): Protect audit logs to support after-the-fact investigations
+- [PENDING] [KSI-MLA-08](KSI-MLA-08.md): Protect audit logs to support after-the-fact investigations
 
 ## Policy and Inventory
 
@@ -78,9 +78,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-05](KSI-SVC-05.md): Use logging and monitoring to detect abnormal changes to configuration
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Use centralized key management services
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Perform regularly scheduled scans for vulnerabilities and apply patches promptly
-- [PASS] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources
-- [PASS] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
-- [PASS] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
+- [PENDING] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources
+- [PENDING] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
+- [PENDING] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
 
 ## Third-Party Information Resources
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 55
-- **Failing:** 1
-- **Not Tested:** 0
+- **Passing:** 49
+- **Failing:** 2
+- **Not Tested:** 5
 
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

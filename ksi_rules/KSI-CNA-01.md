@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Cloud Native Architecture
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** FAIL
+**Last Check:** 2025-10-24 03:00
 
 **What it validates:** Implement DDoS protection and defense-in-depth network security
 
@@ -38,7 +38,7 @@
 
 ## Latest Results
 
-PASS Excellent multi-layered traffic controls (97%): PASS VPC infrastructure: 1 VPC(s) detected
+Below threshold: 5/16 (31.2%) - requires 50.0% for LOW impact: PASS VPC infrastructure: 1 VPC(s) detected
 - PASS Strong ingress controls: 15/15 security groups restrictive
 - PASS Strong egress controls: 14/15 security groups control outbound traffic
 - PASS Default security group properly secured
@@ -51,4 +51,4 @@ PASS Excellent multi-layered traffic controls (97%): PASS VPC infrastructure: 1 
 - PASS Traffic visibility: 2 VPC Flow Log groups for traffic monitoring
 
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

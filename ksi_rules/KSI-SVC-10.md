@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Service Configuration
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** Not validated
 
 **What it validates:** Perform regularly scheduled backups
 
@@ -24,11 +23,5 @@
 4. `aws lambda list-functions --output json`
    *Identify any custom Lambda functions used for automated data cleanup.*
 
-## Latest Results
-
-PASS Excellent automated data lifecycle management (100%): PASS [Backup Retention] AWS Backup plans have explicit deletion lifecycles, ensuring recovery points are removed as required.
-- PASS [S3 Lifecycle] 1 S3 bucket(s) have active lifecycle policies to manage object expiration.
-- PASS [Log Retention] A strong log retention strategy is in place, with 100% of log groups having a defined retention period.
-
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

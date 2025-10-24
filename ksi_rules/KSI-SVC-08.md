@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Service Configuration
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** Not validated
 
 **What it validates:** Use infrastructure as code to apply controls to the provisioning and management of resources
 
@@ -21,10 +20,5 @@
 3. `aws lambda list-functions --output json`
    *Check for custom Lambda functions that support IaC or cleanup automation.*
 
-## Latest Results
-
-PASS Strong IaC implementation with foundational change tracking (50%): PASS [IaC] Infrastructure is managed as code via 19 active CloudFormation stacks, ensuring consistent lifecycle management.
-- WARNING [Change Tracking] An AWS Config recorder exists but is not currently recording.
-
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Cloud Native Architecture
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** Not validated
 
 **What it validates:** Use automated services to persistently assess and enforce secure operations
 
@@ -27,12 +26,5 @@
 5. `aws lambda list-functions --output json`
    *Identifies custom, event-driven enforcement capabilities via Lambda.*
 
-## Latest Results
-
-Excellent measurement posture (75%): Basic framework: 1 Security Hub standard(s)
-- Extensive instrumentation: 327 Config rules
-- Active measurement: Config recorder capturing data
-- Limited visibility: No central aggregation
-
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*

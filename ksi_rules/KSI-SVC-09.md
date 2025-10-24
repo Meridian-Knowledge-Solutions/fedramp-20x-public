@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Service Configuration
-**Status:** PASS
-**Last Check:** 2025-10-23 20:55
+**Status:** Not validated
 
 **What it validates:** Use TLS 1.2 or higher versions of secure protocols
 
@@ -30,11 +29,5 @@
 6. `aws lambda list-functions --query 'Functions[?contains(FunctionName, `cert`) || contains(FunctionName, `ssl`)]' --output json`
    *Look for Lambda functions related to certificate rotation or lifecycle management.*
 
-## Latest Results
-
-PASS Excellent communication integrity (80%): PASS [Certificate Health] All 2 ACM certificates are valid and not expired.
-- PASS [TLS Enforcement] All 1 HTTPS listeners are enforcing modern TLS 1.2+ policies.
-- PASS [Internal Security] Secure, private communication is enforced via 7 VPC Endpoints.
-
 ---
-*Generated 2025-10-23 20:55 UTC*
+*Generated 2025-10-24 03:00 UTC*
