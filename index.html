@@ -9455,11 +9455,6 @@ const quarterlyReportsSection = `
     window.showPOAMModal = showPOAMModalTwoTier;
     window.createGitHubIssue = createIssueTwoTier;
 
-    // START: Added for filter/search override
-    window.filterKsis = filterKsisTwoTier;
-    window.searchKsis = searchKsisTwoTier;
-    window.resetFilters = resetFiltersTwoTier;
-    // END: Added for filter/search override
 
     // Make new functions globally available
     window.showRegistrationModal = showRegistrationModal;
@@ -9508,51 +9503,6 @@ const quarterlyReportsSection = `
 
     // Render trust center with current authentication state
     renderTrustCenterTab();
-
-    // START: Added for filter/search listener attachment
-    // Attach event listeners for filter/search controls (if authenticated)
-    if (window.fedRAMPAuth.isAuthenticated) {
-        console.log('Attaching event listeners for authenticated filter controls...');
-        try {
-            // Attach listener for filter buttons (assuming a container)
-            // Note: This relies on the original script's filter button logic/HTML.
-            // We are overriding the functions, so HTML onclick should work.
-            // This is a fallback if onclick isn't used.
-            const filterContainer = document.querySelector('#filter-buttons'); // Assumed selector
-            if (filterContainer) {
-                filterContainer.addEventListener('click', function(e) {
-                    const button = e.target.closest('button[data-status]');
-                    if (button) {
-                        filterKsisTwoTier(button.dataset.status);
-                    }
-                });
-                console.log('Attached click listener to #filter-buttons');
-            } else {
-                console.warn('Filter container #filter-buttons not found. Relying on HTML onclick attributes.');
-            }
-
-            // Attach listener for search input
-            const searchInput = document.getElementById('search-input'); // Assumed selector
-            if (searchInput) {
-                searchInput.addEventListener('input', searchKsisTwoTier);
-                console.log('Attached input listener to #search-input');
-            } else {
-                console.warn('Search input #search-input not found. Relying on HTML oninput/onkeyup attributes.');
-            }
-
-            // Attach listener for reset button
-            const resetButton = document.getElementById('reset-filters-btn'); // Assumed selector
-            if (resetButton) {
-                resetButton.addEventListener('click', resetFiltersTwoTier);
-                console.log('Attached click listener to #reset-filters-btn');
-            } else {
-                console.warn('Reset button #reset-filters-btn not found. Relying on HTML onclick attributes.');
-            }
-        } catch (error) {
-            console.error('Error attaching filter/search listeners:', error);
-        }
-    }
-    // END: Added for filter/search listener attachment
 
     // IMPORTANT: Ensure KSI data is loaded
     ensureKSIDataLoaded();
