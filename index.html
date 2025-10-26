@@ -5090,12 +5090,16 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
         function updateFilterChips() {
             const chips = document.querySelectorAll('.filter-chip');
-            const currentStatus = currentFilters.status || '';            
+            const currentStatus = currentFilters.status || ''; // <-- This is the critical fix
+
             chips.forEach(chip => {
-                const status = chip.getAttribute('data-status') || '';
-                chip.classList.toggle('active', status === currentStatus);
-            });
-        }
+            const status = chip.getAttribute('data-status') || '';
+            const isActive = status === currentStatus; // <-- Uses the variable
+            chip.classList.toggle('active', isActive);
+        });
+
+    console.log('🏷️ Filter chips updated, active status:', currentStatus || 'all');
+    }
 
         console.log('🏷️ Filter chips updated, active status:', currentStatus || 'all');
         
