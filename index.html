@@ -5046,8 +5046,14 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
         function filterKsis() {
             const searchTerm = currentFilters.search.toLowerCase();
-            const statusFilter = currentFilters.status;
+            const statusFilter = currentFilters.status || '';
             const categoryFilter = currentFilters.category;
+
+            console.log('🔊 Filtering KSIs with:', { 
+             status: statusFilter || 'all', 
+             category: categoryFilter || 'all',
+             search: searchTerm || 'none'
+            });
 
             filteredKsis = allKsis.filter(ksi => {
                 const matchesSearch = !searchTerm || 
@@ -5066,6 +5072,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                 return matchesSearch && matchesStatus && matchesCategory;
             });
 
+            console.log(`✅ Filtered ${filteredKsis.length} of ${allKsis.length} KSIs`);            
             renderKsis();
             updateFilterChips();
         }
@@ -5083,12 +5090,17 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
         function updateFilterChips() {
             const chips = document.querySelectorAll('.filter-chip');
-            chips.forEach(chip => {
-                const status = chip.getAttribute('data-status');
-                chip.classList.toggle('active', status === currentFilters.status);
-            });
-        }
+            const currentStatus = currentFilters.status || ''; // <-- Defines currentStatus correctly
 
+            chips.forEach(chip => {
+            const status = chip.getAttribute('data-status') || '';
+            const isActive = status === currentStatus; // <-- Uses currentStatus safely
+            chip.classList.toggle('active', isActive);
+    });
+
+    console.log('🏷️ Filter chips updated, active status:', currentStatus || 'all');
+}
+        
         function setupEventListeners() {
             document.getElementById('search-input').addEventListener('input', (e) => {
                 currentFilters.search = e.target.value;
@@ -5107,7 +5119,8 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
             document.querySelectorAll('.filter-chip').forEach(chip => {
                 chip.addEventListener('click', () => {
-                    const status = chip.getAttribute('data-status');
+                    const status = chip.getAttribute('data-status') || '';
+                    console.log('🎯 Filter chip clicked:', status || 'all');                    
                     currentFilters.status = status;
                     document.getElementById('status-filter').value = status;
                     filterKsis();
@@ -9387,174 +9400,216 @@ const quarterlyReportsSection = `
     // INITIALIZATION & INTEGRATION
     // ====================================================================
 
-
     async function initializeTwoTierSystem() {
-        // --- PHASE 1: Initialize Core Components ---
-        window.fedRAMPAuth = new FedRAMPAuth(); // Determines auth status
-        window.statusManager = new SystemStatusManager();
-        window.configManager = new SecureConfigManager();
+        window.fedRAMPAuth = new FedRAMPAuth();
+    window.statusManager = new SystemStatusManager();
+    window.configManager = new SecureConfigManager();
 
-        addStyles();
-        injectModalHTML(); // Inject modal HTML early
+    addStyles();
 
-        // --- PHASE 2: Clean Up & Handle Verification ---
-        removeRedundantSections();
+    // INJECT MODAL HTML FIRST
+    injectModalHTML();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const verifyToken = urlParams.get('verify');
-        if (verifyToken) {
-            console.log('📧 Email verification token detected in URL');
-            handleEmailVerification(verifyToken);
-            return; // Stop initialization, verification flow takes over
+    // Remove redundant sections first
+    removeRedundantSections();
+
+    // Check for verification token in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const verifyToken = urlParams.get('verify');
+
+    if (verifyToken) {
+        // User clicked verification link from email
+        console.log('Email verification token detected in URL');
+    handleEmailVerification(verifyToken);
+    return; // Stop here, verification flow will handle navigation
+    }
+
+    // Preserve original functions from the main HTML file
+    window.originalDownloadJSON = window.downloadJSON;
+    window.originalViewFailedReport = window.viewFailedReport;
+    window.originalRenderKsis = window.renderKsis;
+    window.originalShowWhyModal = window.showWhy || window.showWhyModal;
+    window.originalShowCommandsModal = window.showCLI || window.showCommandsModal;
+    window.originalShowPOAMModal = window.showPOAMModal;
+    window.originalCreateGitHubIssue = window.createGitHubIssue;
+
+    // START: Added for filter/search preservation
+    window.originalFilterKsis = window.filterKsis;
+    window.originalSearchKsis = window.searchKsis;
+    window.originalResetFilters = window.resetFilters;
+    // END: Added for filter/search preservation
+
+    // Override with two-tier logic
+    window.downloadJSON = downloadJSON;
+    window.viewFailedReport = viewFailedReport;
+    window.renderKsis = function() {
+        const grid = document.getElementById('ksi-grid');
+    if (grid && window.filteredKsis) {
+        grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
         }
+    };
+    window.showWhyModal = showWhyTwoTier;
+    window.showWhy = showWhyTwoTier; // Handle both naming conventions
+    window.showCommandsModal = showCLITwoTier;
+    window.showCLI = showCLITwoTier; // Handle both naming conventions
+    window.showPOAMModal = showPOAMModalTwoTier;
+    window.createGitHubIssue = createIssueTwoTier;
 
-        // --- PHASE 3: Preserve & Override Functions ---
-        // Preserve original functions
-        window.originalDownloadJSON = window.downloadJSON;
-        window.originalViewFailedReport = window.viewFailedReport;
-        window.originalRenderKsis = window.renderKsis; // Preserve original render
-        window.originalShowWhyModal = window.showWhy || window.showWhyModal;
-        window.originalShowCommandsModal = window.showCLI || window.showCommandsModal;
-        window.originalShowPOAMModal = window.showPOAMModal;
-        window.originalCreateGitHubIssue = window.createGitHubIssue;
-        window.originalFilterKsis = window.filterKsis;
-        window.originalSearchKsis = window.searchKsis;
-        window.originalResetFilters = window.resetFilters;
+    // START: Added for filter/search override
+    window.filterKsis = filterKsisTwoTier;
+    window.searchKsis = searchKsisTwoTier;
+    window.resetFilters = resetFiltersTwoTier;
+    // END: Added for filter/search override
 
-        // Override functions
-        window.downloadJSON = downloadJSON;
-        window.viewFailedReport = viewFailedReport;
+    // Make new functions globally available
+    window.showRegistrationModal = showRegistrationModal;
+    window.closeCustomModal = closeCustomModal;
+    window.showAccessRequiredModal = showAccessRequiredModal;
+    window.closeTemporaryModal = closeTemporaryModal;
+    window.logAgencyAccess = logAgencyAccess;
+    window.downloadAuthorizationPackage = downloadAuthorizationPackage;
+    // window.viewQuarterlyReports = viewQuarterlyReports; // Keep original if needed elsewhere, but card removed
+    window.showLoadingMessage = showLoadingMessage;
+    window.hideLoadingMessage = hideLoadingMessage;
+    window.handleEmailVerification = handleEmailVerification;
+    window.viewPublicSecureConfiguration = viewPublicSecureConfiguration;
+    window.downloadPublicSecureConfiguration = downloadPublicSecureConfiguration;
+    window.viewSecureConfiguration = viewSecureConfiguration;
+    window.downloadSecureConfiguration = downloadSecureConfiguration;
+    window.ensureKSIDataLoaded = ensureKSIDataLoaded;
+    window.viewCurrentReport = viewCurrentReport; // Add this
+    window.displayReportModal = displayReportModal; // Add this
+    window.openReportInNewWindow = openReportInNewWindow; // Add this
 
-        // >>> KEEP THIS RENDER OVERRIDE with added checks <<<
-        window.renderKsis = function() {
-            const grid = document.getElementById('ksi-grid');
-            // Explicitly check if grid exists AND filteredKsis is a valid array
-            if (grid && Array.isArray(window.filteredKsis)) {
-                if (window.filteredKsis.length > 0) {
-                    console.log(`renderKsis override: Rendering ${window.filteredKsis.length} cards.`);
-                    grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
-                } else {
-                    console.log('renderKsis override: filteredKsis is empty. Displaying no results message.');
-                    // Display empty message if filtered array is empty
-                     grid.innerHTML = '<div class="loading"><h3><i class="fa-solid fa-magnifying-glass fa-fw"></i> No KSIs Found</h3><p>No KSIs match the current filter criteria.</p></div>';
-                }
+
+    const regForm = document.getElementById('agency-registration-form');
+    if (regForm) regForm.addEventListener('submit', handleRegistration);
+
+    // Close modals when clicking outside
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            const modalId = e.target.id;
+    if (modalId) closeCustomModal(modalId);
+        }
+    });
+
+    // Close modals with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal.active');
+    if (activeModal) {
+        closeCustomModal(activeModal.id);
+            }
+        }
+    });
+
+    // Add authentication indicator to header
+    addAuthenticationIndicator();
+
+    // Render trust center with current authentication state
+    renderTrustCenterTab();
+
+    // START: Added for filter/search listener attachment
+    // Attach event listeners for filter/search controls (if authenticated)
+    if (window.fedRAMPAuth.isAuthenticated) {
+        console.log('Attaching event listeners for authenticated filter controls...');
+        try {
+            // Attach listener for filter buttons (assuming a container)
+            // Note: This relies on the original script's filter button logic/HTML.
+            // We are overriding the functions, so HTML onclick should work.
+            // This is a fallback if onclick isn't used.
+            const filterContainer = document.querySelector('#filter-buttons'); // Assumed selector
+            if (filterContainer) {
+                filterContainer.addEventListener('click', function(e) {
+                    const button = e.target.closest('button[data-status]');
+                    if (button) {
+                        filterKsisTwoTier(button.dataset.status);
+                    }
+                });
+                console.log('Attached click listener to #filter-buttons');
             } else {
-                 console.warn('renderKsis override: Skipping render - ksi-grid element not found or filteredKsis is not ready/valid.', {
-                     gridExists: !!grid,
-                     filteredKsisExists: typeof window.filteredKsis !== 'undefined',
-                     filteredKsisIsArray: Array.isArray(window.filteredKsis)
-                 });
-                 // Optionally clear the grid or show a loading state if grid exists but data isn't ready
-                 if(grid) {
-                    grid.innerHTML = '<div class="loading"><div class="loading-spinner"></div> Preparing KSI data...</div>';
-                 }
-            }
-        };
-        // >>> END RENDER OVERRIDE <<<
-
-        window.showWhyModal = showWhyTwoTier;
-        window.showWhy = showWhyTwoTier;
-        window.showCommandsModal = showCLITwoTier;
-        window.showCLI = showCLITwoTier;
-        window.showPOAMModal = showPOAMModalTwoTier;
-        window.createGitHubIssue = createIssueTwoTier;
-
-        /* // Filter overrides remain commented out
-        window.filterKsis = filterKsisTwoTier;
-        window.searchKsis = searchKsisTwoTier;
-        window.resetFilters = resetFiltersTwoTier;
-        */
-
-        // --- PHASE 4: Setup UI Based on Authentication ---
-        addAuthenticationIndicator();
-        renderTrustCenterTab();
-
-        // --- PHASE 5: Access Control for Filters ---
-        if (!window.fedRAMPAuth.isAuthenticated) {
-            console.log('🔒 User not authenticated, disabling filter controls.');
-            // (Keep the disabling logic exactly as before)
-            const statusFilter = document.getElementById('status-filter');
-            const categoryFilter = document.getElementById('category-filter');
-            const searchInput = document.getElementById('search-input');
-            const filterChips = document.querySelectorAll('.filter-chip');
-            if (statusFilter) statusFilter.disabled = true;
-            if (categoryFilter) categoryFilter.disabled = true;
-            if (searchInput) { /* ... disable search ... */ }
-            filterChips.forEach(chip => { /* ... disable chips ... */ });
-            if (statusFilter) statusFilter.removeAttribute('onchange');
-            if (categoryFilter) categoryFilter.removeAttribute('onchange');
-            const filtersContainer = document.querySelector('.filters');
-            if (filtersContainer && !filtersContainer.querySelector('.auth-filter-message')) { /* ... add message ... */ }
-        } else {
-             console.log('✅ User authenticated, ensuring filter controls are enabled.');
-            // (Keep the enabling logic exactly as before)
-             const statusFilter = document.getElementById('status-filter');
-             // ... enable other controls ...
-             if (typeof setupEventListeners === 'function') {
-                 console.log('Re-attaching original filter event listeners for authenticated user.');
-                 setupEventListeners();
-             } else { /* ... warn ... */ }
-        }
-
-        // --- PHASE 6: Global Function Exposure & Event Listeners ---
-        // (Keep this section exactly as before)
-        window.showRegistrationModal = showRegistrationModal;
-        // ... other global functions ...
-        window.openReportInNewWindow = openReportInNewWindow;
-        const regForm = document.getElementById('agency-registration-form');
-        if (regForm) regForm.addEventListener('submit', handleRegistration);
-        document.addEventListener('click', function(e) { /* ... */ });
-        document.addEventListener('keydown', function(e) { /* ... */ });
-
-
-        // --- PHASE 7: Data Loading & Status Monitoring ---
-        ensureKSIDataLoaded(); // Attempt to load KSI data
-
-        // >>> MODIFIED DELAYED RENDER BLOCK <<<
-        setTimeout(() => {
-            console.log('Attempting delayed initial KSI render...');
-            ensureKSIDataLoaded(); // Check again right before rendering
-
-            // **NEW**: Explicitly initialize filteredKsis if it's missing but allKsis exists
-            if (Array.isArray(window.allKsis) && typeof window.filteredKsis === 'undefined') {
-                console.log('Initializing window.filteredKsis from window.allKsis.');
-                window.filteredKsis = [...window.allKsis]; // Create a copy
+                console.warn('Filter container #filter-buttons not found. Relying on HTML onclick attributes.');
             }
 
-            // Now attempt to render
-            if (typeof window.renderKsis === 'function') {
-                window.renderKsis(); // Call the overridden render function
+            // Attach listener for search input
+            const searchInput = document.getElementById('search-input'); // Assumed selector
+            if (searchInput) {
+                searchInput.addEventListener('input', searchKsisTwoTier);
+                console.log('Attached input listener to #search-input');
             } else {
-                 console.error('Delayed initial render failed: window.renderKsis is not defined.');
+                console.warn('Search input #search-input not found. Relying on HTML oninput/onkeyup attributes.');
             }
-        }, 2000); // Keep delay at 2 seconds for now
 
-        // Status Monitoring (Keep as is)
-        console.log('🔍 Fetching initial system status...');
-        await window.statusManager.fetchStatus();
-        window.statusManager.updateStatusUI();
-        window.statusManager.startAutoRefresh();
-        console.log('⏰ Status auto-refresh started');
-        window.addEventListener('beforeunload', () => { window.statusManager.stopAutoRefresh(); });
-
-        // --- PHASE 8: RFC-0016 Compliance Functions ---
-        // (Keep as is)
-        window.downloadCurrentReport = downloadCurrentReport;
-        // ... other RFC functions ...
-        await loadQuarterlyReportData();
-        console.log('✅ RFC-0016 functions initialized');
-
-        // --- Final Log ---
-        console.log('🚀 Two-Tier System Initialized (v4.2 - Explicit filteredKsis Init)');
-        console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated ? 'Authenticated ✅' : 'Public 🔒');
-        console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED' : 'DISABLED');
-        console.log('KSI Data (allKsis):', window.allKsis ? `Available (${window.allKsis.length} items)` : 'Loading...');
-        console.log('KSI Data (filteredKsis):', window.filteredKsis ? `Available (${window.filteredKsis.length} items)` : 'Not Initialized Yet');
-        if (window.fedRAMPAuth.isAuthenticated) {
-            console.log('Agency Info:', window.fedRAMPAuth.getAgencyInfo());
+            // Attach listener for reset button
+            const resetButton = document.getElementById('reset-filters-btn'); // Assumed selector
+            if (resetButton) {
+                resetButton.addEventListener('click', resetFiltersTwoTier);
+                console.log('Attached click listener to #reset-filters-btn');
+            } else {
+                console.warn('Reset button #reset-filters-btn not found. Relying on HTML onclick attributes.');
+            }
+        } catch (error) {
+            console.error('Error attaching filter/search listeners:', error);
         }
-    } // --- END of initializeTwoTierSystem ---
-        
+    }
+    // END: Added for filter/search listener attachment
+
+    // IMPORTANT: Ensure KSI data is loaded
+    ensureKSIDataLoaded();
+
+    // Also try to wait a bit for the main page to load its data
+    setTimeout(() => {
+        ensureKSIDataLoaded();
+    // Re-render if we now have data
+    if (window.filteredKsis && window.renderKsis) {
+        window.renderKsis();
+        }
+    }, 1000);
+
+    // Initial render if data is already available
+    if (window.filteredKsis && window.renderKsis) {
+        window.renderKsis();
+    }
+
+    // Fetch and display system status
+    console.log('🔍 Fetching initial system status...');
+    await window.statusManager.fetchStatus();
+    window.statusManager.updateStatusUI();
+
+    // Start auto-refresh for status (every 5 minutes)
+    window.statusManager.startAutoRefresh();
+    console.log('⏰ Status auto-refresh started (every 5 minutes)');
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        window.statusManager.stopAutoRefresh();
+    });
+
+    // Register RFC-0016 compliance functions
+    window.downloadCurrentReport = downloadCurrentReport; // Modified
+    window.loadQuarterlyReportData = loadQuarterlyReportData; // Modified
+    window.openAgencyFeedback = openAgencyFeedback; // Modified
+    window.registerForReview = registerForReview;
+
+    // Load quarterly report data on initialization
+    await loadQuarterlyReportData(); // Modified to update both views
+
+    // No longer need the timeout copy, loadQuarterlyReportData handles both views
+    // if (window.fedRAMPAuth.isAuthenticated) {... }
+
+    console.log('✅ RFC-0016 compliance functions initialized');
+
+    console.log('🚀 Two-Tier FedRAMP System with Email Verification & Status Monitoring Initialized');
+    console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated);
+    console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED (Update BASE_URL when backend ready)' : 'DISABLED');
+    console.log('System Status - Uptime:', window.statusManager.statusData?.uptime_percent || 'Loading...');
+    console.log('KSI Data Available:', window.allKsis ? `Yes (${window.allKsis.length} items)` : 'No');
+    if (window.fedRAMPAuth.isAuthenticated) {
+        console.log('Agency Info:', window.fedRAMPAuth.getAgencyInfo());
+    }
+}
+
+
     function ensureKSIDataLoaded() {
     // Check if KSI data needs to be loaded from the page
     if (!window.allKsis || !Array.isArray(window.allKsis)) {
