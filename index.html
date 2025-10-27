@@ -9387,6 +9387,7 @@ const quarterlyReportsSection = `
     // INITIALIZATION & INTEGRATION
     // ====================================================================
 
+
     async function initializeTwoTierSystem() {
         // --- PHASE 1: Initialize Core Components ---
         window.fedRAMPAuth = new FedRAMPAuth(); // Determines auth status
@@ -9408,7 +9409,7 @@ const quarterlyReportsSection = `
         }
 
         // --- PHASE 3: Preserve & Override Functions ---
-        // Preserve original functions from the main HTML file
+        // Preserve original functions
         window.originalDownloadJSON = window.downloadJSON;
         window.originalViewFailedReport = window.viewFailedReport;
         window.originalRenderKsis = window.renderKsis; // Preserve original render
@@ -9416,51 +9417,54 @@ const quarterlyReportsSection = `
         window.originalShowCommandsModal = window.showCLI || window.showCommandsModal;
         window.originalShowPOAMModal = window.showPOAMModal;
         window.originalCreateGitHubIssue = window.createGitHubIssue;
-
-        // Preserve original filter/search functions
         window.originalFilterKsis = window.filterKsis;
         window.originalSearchKsis = window.searchKsis;
         window.originalResetFilters = window.resetFilters;
 
-        // Override functions with two-tier logic
-        window.downloadJSON = downloadJSON; // Override download
-        window.viewFailedReport = viewFailedReport; // Override report view
+        // Override functions
+        window.downloadJSON = downloadJSON;
+        window.viewFailedReport = viewFailedReport;
 
-        // >>> KEEP THIS RENDER OVERRIDE <<<
-        // This ensures the two-tier card template is used for display
+        // >>> KEEP THIS RENDER OVERRIDE with added checks <<<
         window.renderKsis = function() {
             const grid = document.getElementById('ksi-grid');
-            if (grid && window.filteredKsis) {
-                // Use the new two-tier card template for rendering
+            // Explicitly check if grid exists AND filteredKsis is an array with data
+            if (grid && Array.isArray(window.filteredKsis) && window.filteredKsis.length > 0) {
+                console.log(`renderKsis override: Rendering ${window.filteredKsis.length} cards.`);
                 grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
-                console.log('renderKsis override executed using renderKSICardTwoTier.');
+            } else if (grid && Array.isArray(window.filteredKsis) && window.filteredKsis.length === 0) {
+                 console.log('renderKsis override: filteredKsis is empty, rendering no cards message (handled by original filter logic).');
+                 // If original logic doesn't handle empty, add placeholder here:
+                 // grid.innerHTML = '<div class="loading"><h3>🔍 No KSIs Found</h3><p>No KSIs match the current filter criteria.</p></div>';
             } else {
-                 console.warn('renderKsis override: ksi-grid or filteredKsis not found.');
+                 console.warn('renderKsis override: Skipping render - ksi-grid element not found or filteredKsis is not ready/valid.', {
+                     gridExists: !!grid,
+                     filteredKsisExists: typeof window.filteredKsis !== 'undefined',
+                     filteredKsisIsArray: Array.isArray(window.filteredKsis),
+                     filteredKsisLength: Array.isArray(window.filteredKsis) ? window.filteredKsis.length : 'N/A'
+                 });
             }
         };
         // >>> END RENDER OVERRIDE <<<
 
-        window.showWhyModal = showWhyTwoTier; // Override Why modal
-        window.showWhy = showWhyTwoTier; // Handle alias
-        window.showCommandsModal = showCLITwoTier; // Override Commands/CLI modal
-        window.showCLI = showCLITwoTier; // Handle alias
-        window.showPOAMModal = showPOAMModalTwoTier; // Override POAM modal
-        window.createGitHubIssue = createIssueTwoTier; // Override GitHub issue creation
+        window.showWhyModal = showWhyTwoTier;
+        window.showWhy = showWhyTwoTier;
+        window.showCommandsModal = showCLITwoTier;
+        window.showCLI = showCLITwoTier;
+        window.showPOAMModal = showPOAMModalTwoTier;
+        window.createGitHubIssue = createIssueTwoTier;
 
-        /*
-        // >>> FILTER TRIGGER OVERRIDES ARE COMMENTED OUT <<<
-        // We will disable controls instead of wrapping these functions
+        /* // Filter overrides remain commented out
         window.filterKsis = filterKsisTwoTier;
         window.searchKsis = searchKsisTwoTier;
         window.resetFilters = resetFiltersTwoTier;
         */
 
         // --- PHASE 4: Setup UI Based on Authentication ---
-        addAuthenticationIndicator(); // Add logout button etc. if logged in
-        renderTrustCenterTab(); // Render the correct Trust Center view
+        addAuthenticationIndicator();
+        renderTrustCenterTab();
 
         // --- PHASE 5: Access Control for Filters ---
-        // >>> ADDED: Disable filter controls if user is NOT authenticated <<<
         if (!window.fedRAMPAuth.isAuthenticated) {
             console.log('🔒 User not authenticated, disabling filter controls.');
             const statusFilter = document.getElementById('status-filter');
@@ -9468,53 +9472,36 @@ const quarterlyReportsSection = `
             const searchInput = document.getElementById('search-input');
             const filterChips = document.querySelectorAll('.filter-chip');
 
-            // Disable dropdowns and search input
             if (statusFilter) statusFilter.disabled = true;
             if (categoryFilter) categoryFilter.disabled = true;
-            if (searchInput) searchInput.disabled = true;
-
-            // Disable filter chips visually and functionally
-            filterChips.forEach(chip => {
-                chip.style.pointerEvents = 'none'; // Prevent clicks
-                chip.style.opacity = '0.6';
-                chip.style.cursor = 'not-allowed';
-                chip.classList.remove('active'); // Ensure no chip looks active except 'All'
-                 if (chip.dataset.status === '') {
-                     chip.classList.add('active'); // Keep 'All' visually selected but still disabled
-                 }
-                 // Remove any onclick attributes if they exist (belt-and-suspenders)
-                 chip.removeAttribute('onclick');
-            });
-
-             // Disable search input interactions further
-             if (searchInput) {
+            if (searchInput) {
+                 searchInput.disabled = true;
                  searchInput.placeholder = 'Register to enable search';
                  searchInput.removeAttribute('oninput');
                  searchInput.removeAttribute('onkeyup');
-             }
-             // Disable select dropdown interactions further
+            }
+            filterChips.forEach(chip => {
+                chip.style.pointerEvents = 'none';
+                chip.style.opacity = '0.6';
+                chip.style.cursor = 'not-allowed';
+                chip.classList.remove('active');
+                 if (chip.dataset.status === '') {
+                     chip.classList.add('active'); // Keep 'All' visually selected but still disabled
+                 }
+                 chip.removeAttribute('onclick');
+            });
              if (statusFilter) statusFilter.removeAttribute('onchange');
              if (categoryFilter) categoryFilter.removeAttribute('onchange');
 
-
-            // Add a message indicating filters are disabled
             const filtersContainer = document.querySelector('.filters');
             if (filtersContainer && !filtersContainer.querySelector('.auth-filter-message')) {
                 const message = document.createElement('p');
                 message.textContent = 'Register for federal access to enable filtering.';
-                message.className = 'auth-filter-message'; // Add class to prevent duplicates
-                message.style.cssText = `
-                    color: var(--text-secondary);
-                    font-size: 0.875rem;
-                    margin-left: 1rem;
-                    width: 100%;
-                    text-align: right;
-                    padding-top: 0.5rem; /* Add some spacing */
-                `;
+                message.className = 'auth-filter-message';
+                message.style.cssText = `color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem; width: 100%; text-align: right; padding-top: 0.5rem;`;
                 filtersContainer.appendChild(message);
             }
         } else {
-             // Ensure controls are enabled if authenticated (important for page reloads after login)
              console.log('✅ User authenticated, ensuring filter controls are enabled.');
              const statusFilter = document.getElementById('status-filter');
              const categoryFilter = document.getElementById('category-filter');
@@ -9525,23 +9512,17 @@ const quarterlyReportsSection = `
              if (categoryFilter) categoryFilter.disabled = false;
              if (searchInput) {
                  searchInput.disabled = false;
-                 searchInput.placeholder = 'Search KSIs...'; // Restore placeholder
-                 // Re-attach original listeners if needed, assuming setupEventListeners runs later
+                 searchInput.placeholder = 'Search KSIs...';
              }
              filterChips.forEach(chip => {
                 chip.style.pointerEvents = '';
                 chip.style.opacity = '';
                 chip.style.cursor = '';
-                // Re-attach original listeners if needed, assuming setupEventListeners runs later
              });
-
-             // Remove any disabled message if it exists
              const existingMessage = document.querySelector('.auth-filter-message');
              if (existingMessage) existingMessage.remove();
 
-             // >>> IMPORTANT: Re-run original listener setup if needed <<<
-             // If your original setupEventListeners function isn't called elsewhere
-             // after this point, you might need to call it here for authenticated users.
+             // Re-run original listener setup if needed
              if (typeof setupEventListeners === 'function') {
                  console.log('Re-attaching original filter event listeners for authenticated user.');
                  setupEventListeners(); // Ensure original listeners are active
@@ -9549,10 +9530,8 @@ const quarterlyReportsSection = `
                  console.warn('Original setupEventListeners function not found. Relying on HTML attributes (onclick, onchange, etc.).')
              }
         }
-        // >>> END Disabling Logic <<<
 
         // --- PHASE 6: Global Function Exposure & Event Listeners ---
-        // Make essential two-tier functions globally available
         window.showRegistrationModal = showRegistrationModal;
         window.closeCustomModal = closeCustomModal;
         window.showAccessRequiredModal = showAccessRequiredModal;
@@ -9561,21 +9540,19 @@ const quarterlyReportsSection = `
         window.downloadAuthorizationPackage = downloadAuthorizationPackage;
         window.showLoadingMessage = showLoadingMessage;
         window.hideLoadingMessage = hideLoadingMessage;
-        window.handleEmailVerification = handleEmailVerification; // Needed for verification link
+        window.handleEmailVerification = handleEmailVerification;
         window.viewPublicSecureConfiguration = viewPublicSecureConfiguration;
         window.downloadPublicSecureConfiguration = downloadPublicSecureConfiguration;
         window.viewSecureConfiguration = viewSecureConfiguration;
         window.downloadSecureConfiguration = downloadSecureConfiguration;
-        window.ensureKSIDataLoaded = ensureKSIDataLoaded; // Helper to load data
+        window.ensureKSIDataLoaded = ensureKSIDataLoaded;
         window.viewCurrentReport = viewCurrentReport;
         window.displayReportModal = displayReportModal;
         window.openReportInNewWindow = openReportInNewWindow;
 
-        // Attach form submission listener
         const regForm = document.getElementById('agency-registration-form');
         if (regForm) regForm.addEventListener('submit', handleRegistration);
 
-        // Global listeners for closing modals
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('modal')) {
                 const modalId = e.target.id;
@@ -9590,30 +9567,33 @@ const quarterlyReportsSection = `
         });
 
         // --- PHASE 7: Data Loading & Status Monitoring ---
-        ensureKSIDataLoaded(); // Attempt to load KSI data if not already present
+        ensureKSIDataLoaded(); // Attempt to load KSI data
 
-        // Re-render KSIs after a short delay
-        // This uses the OVERRIDDEN renderKsis which uses the new card template
+        // >>> INCREASED DELAY and added defensive checks <<<
+        // Try initial render after a longer delay (2 seconds)
         setTimeout(() => {
-            ensureKSIDataLoaded(); // Check again
-            if (window.filteredKsis && typeof window.renderKsis === 'function') {
-                console.log('Initial KSI render triggered using overridden renderKsis.');
-                window.renderKsis(); // Use the overridden render function
+            console.log('Attempting delayed initial KSI render...');
+            ensureKSIDataLoaded(); // Check again right before rendering
+            if (typeof window.renderKsis === 'function') {
+                // Ensure filteredKsis is initialized if allKsis exists but filtered is not
+                if (window.allKsis && !window.filteredKsis) {
+                    window.filteredKsis = window.allKsis;
+                    console.log('Initialized filteredKsis from allKsis before rendering.');
+                }
+                window.renderKsis(); // Call the overridden render function
             } else {
-                 console.warn('Initial KSI render skipped: filteredKsis or overridden renderKsis not ready.');
+                 console.error('Delayed initial render failed: window.renderKsis is not defined.');
             }
-        }, 1000);
+        }, 2000); // Increased delay
 
-        // Fetch and display system status
+        // Status Monitoring
         console.log('🔍 Fetching initial system status...');
         await window.statusManager.fetchStatus();
         window.statusManager.updateStatusUI();
-        window.statusManager.startAutoRefresh(); // Start auto-refresh
-        console.log('⏰ Status auto-refresh started (every 5 minutes)');
-
-        // Cleanup status refresh on page unload
+        window.statusManager.startAutoRefresh();
+        console.log('⏰ Status auto-refresh started');
         window.addEventListener('beforeunload', () => {
-            window.statusManager.stopAutoRefresh();
+             window.statusManager.stopAutoRefresh();
         });
 
         // --- PHASE 8: RFC-0016 Compliance Functions ---
@@ -9621,11 +9601,11 @@ const quarterlyReportsSection = `
         window.loadQuarterlyReportData = loadQuarterlyReportData;
         window.openAgencyFeedback = openAgencyFeedback;
         window.registerForReview = registerForReview;
-        await loadQuarterlyReportData(); // Load initial report dates
-        console.log('✅ RFC-0016 compliance functions initialized');
+        await loadQuarterlyReportData();
+        console.log('✅ RFC-0016 functions initialized');
 
         // --- Final Log ---
-        console.log('🚀 Two-Tier System Initialized (v3 - Controls Disabled for Public)');
+        console.log('🚀 Two-Tier System Initialized (v4.1 - Delayed Render & Checks)');
         console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated ? 'Authenticated ✅' : 'Public 🔒');
         console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED' : 'DISABLED');
         console.log('KSI Data:', window.allKsis ? `Available (${window.allKsis.length} items)` : 'Loading...');
@@ -9634,6 +9614,7 @@ const quarterlyReportsSection = `
         }
     } // --- END of initializeTwoTierSystem ---
 
+        
     function ensureKSIDataLoaded() {
     // Check if KSI data needs to be loaded from the page
     if (!window.allKsis || !Array.isArray(window.allKsis)) {
