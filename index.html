@@ -8269,7 +8269,7 @@ const quarterlyReportsSection = `
                 // Fallback issue creation
                 const ksi = window.allKsis ? window.allKsis.find(k => (k.id || k.ksi_id) === ksiId) : null;
     if (ksi) {
-                    const repoUrl = 'https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission_live';
+                    const repoUrl = 'https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public';
     const issueTitle = encodeURIComponent(`[TECHNICAL] ${ksiId}: ${(ksi.description || '').substring(0, 50)}...`);
     const issueBody = encodeURIComponent(`## Technical Assessment Report\n\n**KSI ID:** ${ksiId}\n**Status:** ${ksi.status || 'Unknown'}\n\n### Technical Findings\n${ksi.assertion_reason || 'See detailed assessment in trust center'}\n\n### Commands Executed\n${ksi.commands_executed || 0} validation commands\n\n*Created from authenticated federal agency access*`);
     window.open(`${repoUrl}/issues/new?title=${issueTitle}&body=${issueBody}&labels=federal-agency,technical-assessment`, '_blank');
