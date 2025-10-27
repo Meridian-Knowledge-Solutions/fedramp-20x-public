@@ -8,7 +8,7 @@ It demonstrates **automated validation**, **machine-readable evidence**, **SCN a
 
 ## 🌐 Live Trust Center Dashboard
 
-**🌐 [FedRAMP 20x Trust Center](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/)**
+**🌐 [FedRAMP 20x Trust Center](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/)**
 
 ### 🚀 Three-Tier POA&M System
 We implemented a proactive enhancement tracking beyond traditional compliance gaps:
@@ -182,14 +182,14 @@ Each KSI validation includes complete traceability:
 | File                                | Purpose                                                  | Access |
 |-------------------------------------|----------------------------------------------------------|--------|
 | **KSI Validation (Root)**           |                                                          |        |
-| `unified_ksi_validations.json`      | **Source of Truth**: All validation results with evidence | [📄 Download](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/unified_ksi_validations.json) |
-| `failed_ksi_report_readable.md`     | **Remediation Guide**: Detailed analysis of failed KSIs | [📋 View Report](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/failed_ksi_report_readable.md) |
-| `evidence_commit_metadata.json`     | **Audit Trail**: Git SHA + timestamps for all evidence | [🔍 Inspect](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/evidence_commit_metadata.json) |
-| `docs/ksi_rules/`                   | **Rule Documentation**: Auto-generated KSI validation logic | [📚 Browse](https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission_live/tree/main/docs/ksi_rules) |
+| `unified_ksi_validations.json`      | **Source of Truth**: All validation results with evidence | [📄 Download](https://meridian-knowledge-solutions.github.io//unified_ksi_validations.json) |
+| `failed_ksi_report_readable.md`     | **Remediation Guide**: Detailed analysis of failed KSIs | [📋 View Report](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/failed_ksi_report_readable.md) |
+| `evidence_commit_metadata.json`     | **Audit Trail**: Git SHA + timestamps for all evidence | [🔍 Inspect](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/evidence_commit_metadata.json) |
+| `docs/ksi_rules/`                   | **Rule Documentation**: Auto-generated KSI validation logic | [📚 Browse](https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/tree/main/docs/ksi_rules) |
 | **SCN & Change Tracking**          |                                                          |        |
-| `audit_summaries/external_repo_changes_public.json` | **Infrastructure Changes**: Public summary of external repository changes | [🗃️ View](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/audit_summaries/external_repo_changes_public.json) |
-| `audit_summaries/scn_classification.json` | **SCN Classification**: Change notification classification and analysis | [📋 View](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/audit_summaries/scn_classification.json) |
-| `directory_index.json`              | **Structure Guide**: Complete repository organization reference | [📖 View](https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission_live/directory_index.json) |
+| `audit_summaries/external_repo_changes_public.json` | **Infrastructure Changes**: Public summary of external repository changes | [🗃️ View](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/audit_summaries/external_repo_changes_public.json) |
+| `audit_summaries/scn_classification.json` | **SCN Classification**: Change notification classification and analysis | [📋 View](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/audit_summaries/scn_classification.json) |
+| `directory_index.json`              | **Structure Guide**: Complete repository organization reference | [📖 View](https://meridian-knowledge-solutions.github.io/fedramp-20x-public/directory_index.json) |
 | **Phase 2 Compliance**             |                                                          |        |
 | `phase2_compliance/3pao_audit_report.json` | **3PAO Readiness**: Technical validation summary for assessors | Private Repository |
 | `phase2_compliance/validation_consistency_log.json` | **Quality Assurance**: Automation consistency tracking | Private Repository |
@@ -435,7 +435,7 @@ This repository supports GSA's FedRAMP 20x pilot goals of:
 - **Quality assurance innovation** with automated consistency validation for assessment reliability
 - **Technical excellence** with advanced validation logic and zero false positive measurement
 
-**Questions?** [Open a GitHub Issue](https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission_live/issues) or email [security@meridianks.com](mailto:security@meridianks.com)
+**Questions?** [Open a GitHub Issue](https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/issues) or email [security@meridianks.com](mailto:security@meridianks.com)
 
 ---
 
