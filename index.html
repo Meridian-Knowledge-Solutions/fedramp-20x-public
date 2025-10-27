@@ -3529,7 +3529,7 @@ td {
                                 <strong>Hosting Environment:</strong> AWS Commercial (US-East)
                             </div>
                             <div class="trust-item">
-                                <strong>Evidence Repository:</strong> <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank" class="trust-link">GitHub Public Repo</a>
+                                <strong>Evidence Repository:</strong> <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission-live" target="_blank" class="trust-link">GitHub Public Repo</a>
                             </div>
                             <div class="trust-item">
                                 <strong>Validation Data:</strong> 
@@ -4046,7 +4046,7 @@ td {
                 <pre style="background: var(--bg-accent); padding: 15px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color);">
 // Fetch current SCN classification status
 async function getSCNStatus() {
-    const base = 'https://meridian-knowledge-solutions.github.io/fedramp-20x-public';
+    const base = 'https://meridian-knowledge-solutions.github.io/fedramp_20x_public_submission-live';
     
     // Get current SCN classification
     const scnResponse = await fetch(`${base}/scn_automation/scn_classification.json`);
@@ -5046,14 +5046,8 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
         function filterKsis() {
             const searchTerm = currentFilters.search.toLowerCase();
-            const statusFilter = currentFilters.status || '';
+            const statusFilter = currentFilters.status;
             const categoryFilter = currentFilters.category;
-
-            console.log('🔊 Filtering KSIs with:', { 
-             status: statusFilter || 'all', 
-             category: categoryFilter || 'all',
-             search: searchTerm || 'none'
-            });
 
             filteredKsis = allKsis.filter(ksi => {
                 const matchesSearch = !searchTerm || 
@@ -5072,7 +5066,6 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                 return matchesSearch && matchesStatus && matchesCategory;
             });
 
-            console.log(`✅ Filtered ${filteredKsis.length} of ${allKsis.length} KSIs`);            
             renderKsis();
             updateFilterChips();
         }
@@ -5090,17 +5083,12 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
         function updateFilterChips() {
             const chips = document.querySelectorAll('.filter-chip');
-            const currentStatus = currentFilters.status || ''; // <-- Defines currentStatus correctly
-
             chips.forEach(chip => {
-            const status = chip.getAttribute('data-status') || '';
-            const isActive = status === currentStatus; // <-- Uses currentStatus safely
-            chip.classList.toggle('active', isActive);
-    });
+                const status = chip.getAttribute('data-status');
+                chip.classList.toggle('active', status === currentFilters.status);
+            });
+        }
 
-    console.log('🏷️ Filter chips updated, active status:', currentStatus || 'all');
-}
-        
         function setupEventListeners() {
             document.getElementById('search-input').addEventListener('input', (e) => {
                 currentFilters.search = e.target.value;
@@ -5119,8 +5107,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
 
             document.querySelectorAll('.filter-chip').forEach(chip => {
                 chip.addEventListener('click', () => {
-                    const status = chip.getAttribute('data-status') || '';
-                    console.log('🎯 Filter chip clicked:', status || 'all');                    
+                    const status = chip.getAttribute('data-status');
                     currentFilters.status = status;
                     document.getElementById('status-filter').value = status;
                     filterKsis();
@@ -5404,7 +5391,7 @@ ${ksi.assertion_reason || 'No detailed reason provided'}
 Please provide guidance on how to address this ${ksi.status === 'failed' ? 'compliance failure' : ksi.status === 'warning' ? 'low risk finding' : 'improvement opportunity'}.`);
 
             const labels = statusLabels[ksi.status] || 'general-compliance';
-            const githubUrl = `https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public/issues/new?title=${issueTitle}&body=${issueBody}&labels=${labels}`;
+            const githubUrl = `https://github.com/Meridian-Knowledge-Solutions/fedramp_20x_public_submission-live/issues/new?title=${issueTitle}&body=${issueBody}&labels=${labels}`;
             window.open(githubUrl, '_blank');
         }
 
@@ -9424,7 +9411,6 @@ const quarterlyReportsSection = `
     return; // Stop here, verification flow will handle navigation
     }
 
-    /*
     // Preserve original functions from the main HTML file
     window.originalDownloadJSON = window.downloadJSON;
     window.originalViewFailedReport = window.viewFailedReport;
@@ -9455,7 +9441,12 @@ const quarterlyReportsSection = `
     window.showCLI = showCLITwoTier; // Handle both naming conventions
     window.showPOAMModal = showPOAMModalTwoTier;
     window.createGitHubIssue = createIssueTwoTier;
-    */
+
+    // START: Added for filter/search override
+    window.filterKsis = filterKsisTwoTier;
+    window.searchKsis = searchKsisTwoTier;
+    window.resetFilters = resetFiltersTwoTier;
+    // END: Added for filter/search override
 
     // Make new functions globally available
     window.showRegistrationModal = showRegistrationModal;
@@ -9504,6 +9495,51 @@ const quarterlyReportsSection = `
 
     // Render trust center with current authentication state
     renderTrustCenterTab();
+
+    // START: Added for filter/search listener attachment
+    // Attach event listeners for filter/search controls (if authenticated)
+    if (window.fedRAMPAuth.isAuthenticated) {
+        console.log('Attaching event listeners for authenticated filter controls...');
+        try {
+            // Attach listener for filter buttons (assuming a container)
+            // Note: This relies on the original script's filter button logic/HTML.
+            // We are overriding the functions, so HTML onclick should work.
+            // This is a fallback if onclick isn't used.
+            const filterContainer = document.querySelector('#filter-buttons'); // Assumed selector
+            if (filterContainer) {
+                filterContainer.addEventListener('click', function(e) {
+                    const button = e.target.closest('button[data-status]');
+                    if (button) {
+                        filterKsisTwoTier(button.dataset.status);
+                    }
+                });
+                console.log('Attached click listener to #filter-buttons');
+            } else {
+                console.warn('Filter container #filter-buttons not found. Relying on HTML onclick attributes.');
+            }
+
+            // Attach listener for search input
+            const searchInput = document.getElementById('search-input'); // Assumed selector
+            if (searchInput) {
+                searchInput.addEventListener('input', searchKsisTwoTier);
+                console.log('Attached input listener to #search-input');
+            } else {
+                console.warn('Search input #search-input not found. Relying on HTML oninput/onkeyup attributes.');
+            }
+
+            // Attach listener for reset button
+            const resetButton = document.getElementById('reset-filters-btn'); // Assumed selector
+            if (resetButton) {
+                resetButton.addEventListener('click', resetFiltersTwoTier);
+                console.log('Attached click listener to #reset-filters-btn');
+            } else {
+                console.warn('Reset button #reset-filters-btn not found. Relying on HTML onclick attributes.');
+            }
+        } catch (error) {
+            console.error('Error attaching filter/search listeners:', error);
+        }
+    }
+    // END: Added for filter/search listener attachment
 
     // IMPORTANT: Ensure KSI data is loaded
     ensureKSIDataLoaded();
