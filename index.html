@@ -9408,11 +9408,11 @@ const quarterlyReportsSection = `
             return; // Stop initialization, verification flow takes over
         }
 
-        // --- PHASE 3: Preserve & Override Functions ---
-        // Preserve original functions
+        // --- PHASE 3: Preserve Functions (Selective Override Later) ---
+        // Preserve original functions that we might need or definitely override
         window.originalDownloadJSON = window.downloadJSON;
         window.originalViewFailedReport = window.viewFailedReport;
-        window.originalRenderKsis = window.renderKsis; // Preserve original render
+        window.originalRenderKsis = window.renderKsis; // Preserve original render to call if needed
         window.originalShowWhyModal = window.showWhy || window.showWhyModal;
         window.originalShowCommandsModal = window.showCLI || window.showCommandsModal;
         window.originalShowPOAMModal = window.showPOAMModal;
@@ -9421,37 +9421,10 @@ const quarterlyReportsSection = `
         window.originalSearchKsis = window.searchKsis;
         window.originalResetFilters = window.resetFilters;
 
-        // Override functions
+        // Override functions EXCEPT renderKsis (will be done later)
         window.downloadJSON = downloadJSON;
         window.viewFailedReport = viewFailedReport;
-
-        // >>> KEEP THIS RENDER OVERRIDE with added checks <<<
-        window.renderKsis = function() {
-            const grid = document.getElementById('ksi-grid');
-            // Explicitly check if grid exists AND filteredKsis is a valid array
-            if (grid && Array.isArray(window.filteredKsis)) {
-                if (window.filteredKsis.length > 0) {
-                    console.log(`renderKsis override: Rendering ${window.filteredKsis.length} cards.`);
-                    grid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
-                } else {
-                    console.log('renderKsis override: filteredKsis is empty. Displaying no results message.');
-                    // Display empty message if filtered array is empty
-                     grid.innerHTML = '<div class="loading"><h3><i class="fa-solid fa-magnifying-glass fa-fw"></i> No KSIs Found</h3><p>No KSIs match the current filter criteria.</p></div>';
-                }
-            } else {
-                 console.warn('renderKsis override: Skipping render - ksi-grid element not found or filteredKsis is not ready/valid.', {
-                     gridExists: !!grid,
-                     filteredKsisExists: typeof window.filteredKsis !== 'undefined',
-                     filteredKsisIsArray: Array.isArray(window.filteredKsis)
-                 });
-                 // Optionally clear the grid or show a loading state if grid exists but data isn't ready
-                 if(grid) {
-                    grid.innerHTML = '<div class="loading"><div class="loading-spinner"></div> Preparing KSI data...</div>';
-                 }
-            }
-        };
-        // >>> END RENDER OVERRIDE <<<
-
+        // >>> RENDER OVERRIDE IS REMOVED FROM HERE <<<
         window.showWhyModal = showWhyTwoTier;
         window.showWhy = showWhyTwoTier;
         window.showCommandsModal = showCLITwoTier;
@@ -9474,22 +9447,15 @@ const quarterlyReportsSection = `
             console.log('🔒 User not authenticated, disabling filter controls.');
             // (Keep the disabling logic exactly as before)
             const statusFilter = document.getElementById('status-filter');
-            const categoryFilter = document.getElementById('category-filter');
-            const searchInput = document.getElementById('search-input');
-            const filterChips = document.querySelectorAll('.filter-chip');
+            // ... (rest of disabling logic) ...
             if (statusFilter) statusFilter.disabled = true;
             if (categoryFilter) categoryFilter.disabled = true;
-            if (searchInput) { /* ... disable search ... */ }
-            filterChips.forEach(chip => { /* ... disable chips ... */ });
-            if (statusFilter) statusFilter.removeAttribute('onchange');
-            if (categoryFilter) categoryFilter.removeAttribute('onchange');
-            const filtersContainer = document.querySelector('.filters');
-            if (filtersContainer && !filtersContainer.querySelector('.auth-filter-message')) { /* ... add message ... */ }
+            // ... etc ...
         } else {
              console.log('✅ User authenticated, ensuring filter controls are enabled.');
             // (Keep the enabling logic exactly as before)
              const statusFilter = document.getElementById('status-filter');
-             // ... enable other controls ...
+             // ... (rest of enabling logic) ...
              if (typeof setupEventListeners === 'function') {
                  console.log('Re-attaching original filter event listeners for authenticated user.');
                  setupEventListeners();
@@ -9510,24 +9476,8 @@ const quarterlyReportsSection = `
         // --- PHASE 7: Data Loading & Status Monitoring ---
         ensureKSIDataLoaded(); // Attempt to load KSI data
 
-        // >>> MODIFIED DELAYED RENDER BLOCK <<<
-        setTimeout(() => {
-            console.log('Attempting delayed initial KSI render...');
-            ensureKSIDataLoaded(); // Check again right before rendering
-
-            // **NEW**: Explicitly initialize filteredKsis if it's missing but allKsis exists
-            if (Array.isArray(window.allKsis) && typeof window.filteredKsis === 'undefined') {
-                console.log('Initializing window.filteredKsis from window.allKsis.');
-                window.filteredKsis = [...window.allKsis]; // Create a copy
-            }
-
-            // Now attempt to render
-            if (typeof window.renderKsis === 'function') {
-                window.renderKsis(); // Call the overridden render function
-            } else {
-                 console.error('Delayed initial render failed: window.renderKsis is not defined.');
-            }
-        }, 2000); // Keep delay at 2 seconds for now
+        // >>> NEW: Start polling to apply render override when ready <<<
+        pollAndApplyRenderOverride();
 
         // Status Monitoring (Keep as is)
         console.log('🔍 Fetching initial system status...');
@@ -9545,15 +9495,74 @@ const quarterlyReportsSection = `
         console.log('✅ RFC-0016 functions initialized');
 
         // --- Final Log ---
-        console.log('🚀 Two-Tier System Initialized (v4.2 - Explicit filteredKsis Init)');
-        console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated ? 'Authenticated ✅' : 'Public 🔒');
-        console.log('Demo Mode:', FEDRAMP_API_CONFIG.DEMO_MODE ? 'ENABLED' : 'DISABLED');
-        console.log('KSI Data (allKsis):', window.allKsis ? `Available (${window.allKsis.length} items)` : 'Loading...');
-        console.log('KSI Data (filteredKsis):', window.filteredKsis ? `Available (${window.filteredKsis.length} items)` : 'Not Initialized Yet');
-        if (window.fedRAMPAuth.isAuthenticated) {
-            console.log('Agency Info:', window.fedRAMPAuth.getAgencyInfo());
-        }
+        console.log('🚀 Two-Tier System Initialized (v5 - Polling for Render Override)');
+        // ... rest of final logs ...
+
     } // --- END of initializeTwoTierSystem ---
+
+
+    // --- NEW POLLING FUNCTION ---
+    function pollAndApplyRenderOverride(maxAttempts = 10, interval = 500) {
+        let attempts = 0;
+        console.log(`Polling started: Waiting for KSI data and grid... (Max attempts: ${maxAttempts})`);
+
+        const checkInterval = setInterval(() => {
+            attempts++;
+            const grid = document.getElementById('ksi-grid');
+            const dataReady = Array.isArray(window.allKsis) && window.allKsis.length > 0;
+            const gridPopulated = grid && grid.children.length > 0; // Check if original render might have happened
+
+            console.log(`Polling attempt ${attempts}: Data ready=${dataReady}, Grid populated=${gridPopulated}`);
+
+            // Conditions to apply override: Data is loaded AND (EITHER filteredKsis is now ready OR the grid seems populated by the original render)
+            const filteredKsisReady = Array.isArray(window.filteredKsis) // && window.filteredKsis.length > 0 (allow empty)
+
+            if (dataReady && (filteredKsisReady || gridPopulated)) {
+                clearInterval(checkInterval);
+                console.log(`✅ Conditions met after ${attempts} attempts. Applying renderKsis override.`);
+
+                // Ensure filteredKsis is initialized if it wasn't
+                if (Array.isArray(window.allKsis) && !Array.isArray(window.filteredKsis)) {
+                    console.log('Initializing window.filteredKsis from window.allKsis before final render.');
+                    window.filteredKsis = [...window.allKsis];
+                } else if (!Array.isArray(window.filteredKsis)){
+                    // If allKsis also failed, initialize filteredKsis as empty to prevent errors
+                    console.warn('allKsis not ready, initializing filteredKsis as empty array.');
+                    window.filteredKsis = [];
+                }
+
+                // Apply the override
+                window.renderKsis = function() {
+                    const currentGrid = document.getElementById('ksi-grid');
+                    if (currentGrid && Array.isArray(window.filteredKsis)) {
+                         if (window.filteredKsis.length > 0) {
+                            console.log(`OVERRIDDEN renderKsis: Rendering ${window.filteredKsis.length} cards.`);
+                            currentGrid.innerHTML = window.filteredKsis.map(renderKSICardTwoTier).join('');
+                        } else {
+                            console.log('OVERRIDDEN renderKsis: filteredKsis is empty. Displaying no results message.');
+                            currentGrid.innerHTML = '<div class="loading"><h3><i class="fa-solid fa-magnifying-glass fa-fw"></i> No KSIs Found</h3><p>No KSIs match the current filter criteria.</p></div>';
+                        }
+                    } else {
+                        console.warn('OVERRIDDEN renderKsis: Skipping render - grid element not found or filteredKsis is not a valid array.');
+                    }
+                };
+
+                // Trigger one final render with the new function
+                console.log('Triggering final render with overridden function...');
+                window.renderKsis();
+
+            } else if (attempts >= maxAttempts) {
+                clearInterval(checkInterval);
+                console.error(`❌ Polling failed after ${maxAttempts} attempts. Could not apply renderKsis override. KSI cards may not display correctly.`);
+                // As a last resort, maybe try calling the original render if it exists?
+                // if (typeof window.originalRenderKsis === 'function') {
+                //     console.log('Attempting to call originalRenderKsis as fallback.');
+                //     window.originalRenderKsis();
+                // }
+            }
+        }, interval);
+    }
+    // --- END NEW POLLING FUNCTION ---
         
     function ensureKSIDataLoaded() {
     // Check if KSI data needs to be loaded from the page
