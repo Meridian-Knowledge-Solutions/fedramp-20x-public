@@ -9402,7 +9402,7 @@ const quarterlyReportsSection = `
 
     async function initializeTwoTierSystem() {
         // --- PHASE 1: Initialize Core Components ---
-        window.fedRAMPAuth = new FedRAMPAuth(); // Determines auth status
+        window.fedRAMPAuth = new FedRAMPAuth();
         window.statusManager = new SystemStatusManager();
         window.configManager = new SecureConfigManager();
 
@@ -9420,78 +9420,152 @@ const quarterlyReportsSection = `
             return; // Stop initialization, verification flow takes over
         }
 
-        // --- PHASE 3: Preserve Functions (Selective Override Later) ---
-        // Preserve original functions that we might need or definitely override
-        window.originalDownloadJSON = window.downloadJSON;
-        window.originalViewFailedReport = window.viewFailedReport;
-        window.originalRenderKsis = window.renderKsis; // Preserve original render to call if needed
-        window.originalShowWhyModal = window.showWhy || window.showWhyModal;
-        window.originalShowCommandsModal = window.showCLI || window.showCommandsModal;
-        window.originalShowPOAMModal = window.showPOAMModal;
-        window.originalCreateGitHubIssue = window.createGitHubIssue;
+        // --- PHASE 3: Preserve Originals & Expose Script Functions ---
+
+        // Preserve potentially external original functions
+        window.originalRenderKsis = window.renderKsis;
         window.originalFilterKsis = window.filterKsis;
         window.originalSearchKsis = window.searchKsis;
         window.originalResetFilters = window.resetFilters;
+        // Preserve any other functions DEFINED OUTSIDE this script that might be overridden
+        // window.originalSomeOtherFunction = window.someOtherFunction;
 
-        // Override functions EXCEPT renderKsis (will be done later)
-        window.downloadJSON = downloadJSON;
-        window.viewFailedReport = viewFailedReport;
-        // >>> RENDER OVERRIDE IS REMOVED FROM HERE <<<
+        // Make functions DEFINED *IN* this script globally available immediately
+        // (No need for originalX = window.X for these)
+        window.downloadJSON = downloadJSON; // Uses originalDownloadJSON if needed inside
+        window.viewFailedReport = viewFailedReport; // Uses originalViewFailedReport if needed inside
         window.showWhyModal = showWhyTwoTier;
-        window.showWhy = showWhyTwoTier;
+        window.showWhy = showWhyTwoTier; // Alias
         window.showCommandsModal = showCLITwoTier;
-        window.showCLI = showCLITwoTier;
-        window.showPOAMModal = showPOAMModalTwoTier;
-        window.createGitHubIssue = createIssueTwoTier;
+        window.showCLI = showCLITwoTier; // Alias
+        window.showPOAMModal = showPOAMModalTwoTier; // Uses originalShowPOAMModal if needed inside
+        window.createGitHubIssue = createIssueTwoTier; // Uses originalCreateGitHubIssue if needed inside
 
-        /* // Filter overrides remain commented out
-        window.filterKsis = filterKsisTwoTier;
-        window.searchKsis = searchKsisTwoTier;
-        window.resetFilters = resetFiltersTwoTier;
-        */
+        // Expose other utility and action functions from this script
+        window.showRegistrationModal = showRegistrationModal;
+        window.closeCustomModal = closeCustomModal;
+        window.showAccessRequiredModal = showAccessRequiredModal;
+        window.closeTemporaryModal = closeTemporaryModal;
+        window.logAgencyAccess = logAgencyAccess;
+        window.downloadAuthorizationPackage = downloadAuthorizationPackage;
+        window.showLoadingMessage = showLoadingMessage;
+        window.hideLoadingMessage = hideLoadingMessage;
+        window.handleEmailVerification = handleEmailVerification;
+        window.viewPublicSecureConfiguration = viewPublicSecureConfiguration;
+        window.downloadPublicSecureConfiguration = downloadPublicSecureConfiguration;
+        window.viewSecureConfiguration = viewSecureConfiguration;
+        window.downloadSecureConfiguration = downloadSecureConfiguration;
+        window.ensureKSIDataLoaded = ensureKSIDataLoaded;
+        window.viewCurrentReport = viewCurrentReport;
+        window.displayReportModal = displayReportModal;
+        window.openReportInNewWindow = openReportInNewWindow;
+        window.downloadCurrentReport = downloadCurrentReport;
+        window.loadQuarterlyReportData = loadQuarterlyReportData;
+        window.openAgencyFeedback = openAgencyFeedback;
+        window.registerForReview = registerForReview;
+        // Add any other functions from CurrentJS.js that need to be called from HTML (onclick etc.)
+
+        // Note: window.renderKsis is NOT overridden here yet.
 
         // --- PHASE 4: Setup UI Based on Authentication ---
         addAuthenticationIndicator();
-        renderTrustCenterTab();
+        renderTrustCenterTab(); // Render the correct Trust Center view - functions called by onclick should now exist
 
         // --- PHASE 5: Access Control for Filters ---
         if (!window.fedRAMPAuth.isAuthenticated) {
             console.log('🔒 User not authenticated, disabling filter controls.');
             // (Keep the disabling logic exactly as before)
             const statusFilter = document.getElementById('status-filter');
-            // ... (rest of disabling logic) ...
+            const categoryFilter = document.getElementById('category-filter');
+            const searchInput = document.getElementById('search-input');
+            const filterChips = document.querySelectorAll('.filter-chip');
             if (statusFilter) statusFilter.disabled = true;
             if (categoryFilter) categoryFilter.disabled = true;
-            // ... etc ...
+            if (searchInput) {
+                 searchInput.disabled = true;
+                 searchInput.placeholder = 'Register to enable search';
+                 searchInput.removeAttribute('oninput');
+                 searchInput.removeAttribute('onkeyup');
+            }
+            filterChips.forEach(chip => {
+                chip.style.pointerEvents = 'none';
+                chip.style.opacity = '0.6';
+                chip.style.cursor = 'not-allowed';
+                chip.classList.remove('active');
+                 if (chip.dataset.status === '') {
+                     chip.classList.add('active');
+                 }
+                 chip.removeAttribute('onclick');
+            });
+             if (statusFilter) statusFilter.removeAttribute('onchange');
+             if (categoryFilter) categoryFilter.removeAttribute('onchange');
+            const filtersContainer = document.querySelector('.filters');
+            if (filtersContainer && !filtersContainer.querySelector('.auth-filter-message')) {
+                 const message = document.createElement('p');
+                 message.textContent = 'Register for federal access to enable filtering.';
+                 message.className = 'auth-filter-message';
+                 message.style.cssText = `color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem; width: 100%; text-align: right; padding-top: 0.5rem;`;
+                 filtersContainer.appendChild(message);
+            }
         } else {
              console.log('✅ User authenticated, ensuring filter controls are enabled.');
             // (Keep the enabling logic exactly as before)
              const statusFilter = document.getElementById('status-filter');
-             // ... (rest of enabling logic) ...
+             const categoryFilter = document.getElementById('category-filter');
+             const searchInput = document.getElementById('search-input');
+             const filterChips = document.querySelectorAll('.filter-chip');
+             if (statusFilter) statusFilter.disabled = false;
+             if (categoryFilter) categoryFilter.disabled = false;
+             if (searchInput) {
+                 searchInput.disabled = false;
+                 searchInput.placeholder = 'Search KSIs...';
+             }
+             filterChips.forEach(chip => {
+                chip.style.pointerEvents = '';
+                chip.style.opacity = '';
+                chip.style.cursor = '';
+             });
+             const existingMessage = document.querySelector('.auth-filter-message');
+             if (existingMessage) existingMessage.remove();
+             // Re-run original listener setup if defined externally
              if (typeof setupEventListeners === 'function') {
                  console.log('Re-attaching original filter event listeners for authenticated user.');
                  setupEventListeners();
-             } else { /* ... warn ... */ }
+             } else {
+                // Check if originalFilterKsis exists and setupEventListeners doesn't, implying HTML attributes are used
+                if (window.originalFilterKsis && typeof setupEventListeners === 'undefined'){
+                    console.log('Relying on HTML attributes (onclick, onchange, etc.) for filters.');
+                } else {
+                     console.warn('Original setupEventListeners function not found, and original filter functions may not exist. Filters might rely solely on HTML attributes.');
+                }
+             }
         }
 
-        // --- PHASE 6: Global Function Exposure & Event Listeners ---
-        // (Keep this section exactly as before)
-        window.showRegistrationModal = showRegistrationModal;
-        // ... other global functions ...
-        window.openReportInNewWindow = openReportInNewWindow;
+        // --- PHASE 6: Event Listeners (Global/Forms) ---
         const regForm = document.getElementById('agency-registration-form');
         if (regForm) regForm.addEventListener('submit', handleRegistration);
-        document.addEventListener('click', function(e) { /* ... */ });
-        document.addEventListener('keydown', function(e) { /* ... */ });
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                const modalId = e.target.id;
+                if (modalId) closeCustomModal(modalId);
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) closeCustomModal(activeModal.id);
+            }
+        });
 
 
-        // --- PHASE 7: Data Loading & Status Monitoring ---
+        // --- PHASE 7: Data Loading, Status Monitoring & DELAYED RENDER OVERRIDE ---
         ensureKSIDataLoaded(); // Attempt to load KSI data
 
-        // >>> NEW: Start polling to apply render override when ready <<<
-        pollAndApplyRenderOverride();
+        // Start polling to apply render override when ready
+        pollAndApplyRenderOverride(); // This function now handles overriding renderKsis
 
-        // Status Monitoring (Keep as is)
+        // Status Monitoring
         console.log('🔍 Fetching initial system status...');
         await window.statusManager.fetchStatus();
         window.statusManager.updateStatusUI();
@@ -9500,20 +9574,19 @@ const quarterlyReportsSection = `
         window.addEventListener('beforeunload', () => { window.statusManager.stopAutoRefresh(); });
 
         // --- PHASE 8: RFC-0016 Compliance Functions ---
-        // (Keep as is)
-        window.downloadCurrentReport = downloadCurrentReport;
-        // ... other RFC functions ...
         await loadQuarterlyReportData();
         console.log('✅ RFC-0016 functions initialized');
 
         // --- Final Log ---
-        console.log('🚀 Two-Tier System Initialized (v5 - Polling for Render Override)');
-        // ... rest of final logs ...
+        console.log('🚀 Two-Tier System Initialized (v6 - Immediate Func Exposure, Polling Render)');
+        console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated ? 'Authenticated ✅' : 'Public 🔒');
+        console.log('KSI Data (allKsis):', window.allKsis ? `Available (${window.allKsis.length} items)` : 'Loading...');
+        console.log('KSI Data (filteredKsis):', window.filteredKsis ? `Available (${window.filteredKsis.length} items)` : 'Not Initialized Yet');
 
     } // --- END of initializeTwoTierSystem ---
 
 
-    // --- NEW POLLING FUNCTION ---
+    // --- POLLING FUNCTION (Keep as defined previously) ---
     function pollAndApplyRenderOverride(maxAttempts = 10, interval = 500) {
         let attempts = 0;
         console.log(`Polling started: Waiting for KSI data and grid... (Max attempts: ${maxAttempts})`);
@@ -9522,13 +9595,13 @@ const quarterlyReportsSection = `
             attempts++;
             const grid = document.getElementById('ksi-grid');
             const dataReady = Array.isArray(window.allKsis) && window.allKsis.length > 0;
-            const gridPopulated = grid && grid.children.length > 0; // Check if original render might have happened
+            // More lenient check for filteredKsis: just needs to be an array (could be empty)
+            const filteredKsisReady = Array.isArray(window.filteredKsis);
+            const gridPopulated = grid && grid.children.length > 0 && !grid.querySelector('.loading'); // Grid exists and has content (not just loading spinner)
 
-            console.log(`Polling attempt ${attempts}: Data ready=${dataReady}, Grid populated=${gridPopulated}`);
+            console.log(`Polling attempt ${attempts}: Data ready=${dataReady}, Filtered ready=${filteredKsisReady}, Grid populated=${gridPopulated}`);
 
-            // Conditions to apply override: Data is loaded AND (EITHER filteredKsis is now ready OR the grid seems populated by the original render)
-            const filteredKsisReady = Array.isArray(window.filteredKsis) // && window.filteredKsis.length > 0 (allow empty)
-
+            // Apply override if data is ready AND (filteredKsis array exists OR original render seems done)
             if (dataReady && (filteredKsisReady || gridPopulated)) {
                 clearInterval(checkInterval);
                 console.log(`✅ Conditions met after ${attempts} attempts. Applying renderKsis override.`);
@@ -9538,12 +9611,11 @@ const quarterlyReportsSection = `
                     console.log('Initializing window.filteredKsis from window.allKsis before final render.');
                     window.filteredKsis = [...window.allKsis];
                 } else if (!Array.isArray(window.filteredKsis)){
-                    // If allKsis also failed, initialize filteredKsis as empty to prevent errors
                     console.warn('allKsis not ready, initializing filteredKsis as empty array.');
                     window.filteredKsis = [];
                 }
 
-                // Apply the override
+                // >>> Apply the renderKsis override HERE <<<
                 window.renderKsis = function() {
                     const currentGrid = document.getElementById('ksi-grid');
                     if (currentGrid && Array.isArray(window.filteredKsis)) {
@@ -9560,22 +9632,28 @@ const quarterlyReportsSection = `
                 };
 
                 // Trigger one final render with the new function
-                console.log('Triggering final render with overridden function...');
-                window.renderKsis();
+                // Check if the grid looks like it was already rendered by the original function
+                const gridAlreadyRendered = grid && grid.children.length > 0 && !grid.querySelector('.loading');
+                if (!gridAlreadyRendered || !filteredKsisReady) {
+                     console.log('Triggering initial render with overridden function...');
+                     window.renderKsis();
+                } else {
+                    console.log('Skipping initial override render, original render likely completed.');
+                }
+
 
             } else if (attempts >= maxAttempts) {
                 clearInterval(checkInterval);
-                console.error(`❌ Polling failed after ${maxAttempts} attempts. Could not apply renderKsis override. KSI cards may not display correctly.`);
-                // As a last resort, maybe try calling the original render if it exists?
-                // if (typeof window.originalRenderKsis === 'function') {
-                //     console.log('Attempting to call originalRenderKsis as fallback.');
-                //     window.originalRenderKsis();
-                // }
+                console.error(`❌ Polling failed after ${maxAttempts} attempts. Could not apply renderKsis override. KSI cards might use original template.`);
+                // Fallback: If original render function exists, ensure it's assigned back
+                if (typeof window.originalRenderKsis === 'function') {
+                    window.renderKsis = window.originalRenderKsis;
+                    console.log('Fallback: Reverted to originalRenderKsis.');
+                }
             }
         }, interval);
     }
-    // --- END NEW POLLING FUNCTION ---
-
+    // --- END POLLING FUNCTION ---
 
     function ensureKSIDataLoaded() {
     // Check if KSI data needs to be loaded from the page
