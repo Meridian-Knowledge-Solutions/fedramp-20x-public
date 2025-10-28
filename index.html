@@ -8016,26 +8016,34 @@ const quarterlyReportsSection = `
     }
 
     function showWhyTwoTier(ksiId) {
-    if (!window.fedRAMPAuth.isAuthenticated) {
-        // Unauthenticated - show access required modal
-        showAccessRequiredModal('Technical Assessment Details', [
-            'View complete technical findings and root cause analysis',
-            'Access detailed CLI command execution logs',
-            'Review specific remediation plans and timelines',
-            'Download evidence packages for compliance',
-            'Integrate with your agency\'s GRC tools'
-        ]);
-    } else {
-        // Authenticated - call the ORIGINAL showWhyModal function
-        if (typeof window.originalShowWhyModal === 'function') {
-        window.originalShowWhyModal(ksiId);
+        if (!window.fedRAMPAuth.isAuthenticated) {
+            // Unauthenticated - show access required modal
+            showAccessRequiredModal('Technical Assessment Details', [
+                'View complete technical findings and root cause analysis',
+                'Access detailed CLI command execution logs',
+                'Review specific remediation plans and timelines',
+                'Download evidence packages for compliance',
+                'Integrate with your agency\'s GRC tools'
+            ]);
         } else {
-        console.error('originalShowWhyModal function not found. Could not display details.');
-    // As a fallback call a simplified modal
-    showFallbackWhyModal(ksiId);
+            // Authenticated - check if the ORIGINAL preserved function exists and is callable
+            if (typeof window.originalShowWhyModal === 'function') {
+                 console.log(`Calling originalShowWhyModal for KSI: ${ksiId}`);
+                 try {
+                     window.originalShowWhyModal(ksiId); // Call the specifically preserved original
+                 } catch (error) {
+                     console.error(`Error calling originalShowWhyModal for ${ksiId}:`, error);
+                     showErrorMessage(`Error displaying details for ${ksiId}. Please check console.`);
+                     showFallbackWhyModal(ksiId); // Show fallback on error
+                 }
+            } else {
+                // Original function wasn't found during preservation or wasn't a function
+                console.error(`originalShowWhyModal function not found or not a function (type: ${typeof window.originalShowWhyModal}). Could not display details via original method for KSI: ${ksiId}.`);
+                // Show a fallback modal or error message
+                showFallbackWhyModal(ksiId); // Use your existing fallback
+            }
         }
     }
-}
 
 
 
@@ -8234,18 +8242,31 @@ const quarterlyReportsSection = `
 
     function showCLITwoTier(ksiId) {
         if (!window.fedRAMPAuth.isAuthenticated) {
-        showAccessRequiredModal('CLI Command Details', [
-            'View exact AWS CLI commands executed',
-            'See command output and execution results',
-            'Access technical validation methodology',
-            'Download command logs and evidence'
-        ]);
+            showAccessRequiredModal('CLI Command Details', [
+                'View exact AWS CLI commands executed',
+                'See command output and execution results',
+                'Access technical validation methodology',
+                'Download command logs and evidence'
+            ]);
         } else {
-            if (window.originalShowCommandsModal || window.showCLI) {
-        (window.originalShowCommandsModal || window.showCLI)(ksiId);
+            // Authenticated - check if the ORIGINAL preserved function exists and is callable
+            if (typeof window.originalShowCommandsModal === 'function') {
+                console.log(`Calling originalShowCommandsModal for KSI: ${ksiId}`);
+                 try {
+                    window.originalShowCommandsModal(ksiId); // Call the specifically preserved original
+                 } catch (error) {
+                     console.error(`Error calling originalShowCommandsModal for ${ksiId}:`, error);
+                     showErrorMessage(`Error displaying CLI details for ${ksiId}. Please check console.`);
+                     // Optional: Call a fallback CLI modal if you have one
+                     // showFallbackCliModal(ksiId);
+                     alert(`Error displaying CLI Details for ${ksiId}. See console.`);
+                 }
             } else {
-        // Fallback CLI modal
-        alert(`CLI Details for ${ksiId} - Full implementation would show detailed command execution data.`);
+                 // Original function wasn't found during preservation or wasn't a function
+                 console.error(`originalShowCommandsModal function not found or not a function (type: ${typeof window.originalShowCommandsModal}). Could not display CLI details via original method for KSI: ${ksiId}.`);
+                // Fallback CLI modal or alert
+                alert(`CLI Details for ${ksiId} - Original function missing. Displaying basic info.`);
+                // Optionally call a dedicated fallback modal like showFallbackCliModal(ksiId);
             }
         }
     }
@@ -9402,7 +9423,7 @@ const quarterlyReportsSection = `
 
     async function initializeTwoTierSystem() {
         // --- PHASE 1: Initialize Core Components ---
-        window.fedRAMPAuth = new FedRAMPAuth();
+        window.fedRAMPAuth = new FedRAMPAuth(); // Determines auth status
         window.statusManager = new SystemStatusManager();
         window.configManager = new SecureConfigManager();
 
@@ -9422,24 +9443,37 @@ const quarterlyReportsSection = `
 
         // --- PHASE 3: Preserve Originals & Expose Script Functions ---
 
-        // Preserve potentially external original functions
-        window.originalRenderKsis = window.renderKsis;
-        window.originalFilterKsis = window.filterKsis;
-        window.originalSearchKsis = window.searchKsis;
-        window.originalResetFilters = window.resetFilters;
-        // Preserve any other functions DEFINED OUTSIDE this script that might be overridden
-        // window.originalSomeOtherFunction = window.someOtherFunction;
+        // Preserve potentially external original functions MORE CAREFULLY
+        // Only save if it exists, is a function, and isn't already one of our wrappers
+        window.originalDownloadJSON = (typeof window.downloadJSON === 'function' && window.downloadJSON !== downloadJSON) ? window.downloadJSON : undefined;
+        window.originalViewFailedReport = (typeof window.viewFailedReport === 'function' && window.viewFailedReport !== viewFailedReport) ? window.viewFailedReport : undefined;
+        window.originalRenderKsis = (typeof window.renderKsis === 'function' /* No wrapper check needed for renderKsis yet */ ) ? window.renderKsis : undefined;
+        window.originalShowWhyModal = (typeof (window.showWhy || window.showWhyModal) === 'function' && (window.showWhy || window.showWhyModal) !== showWhyTwoTier) ? (window.showWhy || window.showWhyModal) : undefined;
+        window.originalShowCommandsModal = (typeof (window.showCLI || window.showCommandsModal) === 'function' && (window.showCLI || window.showCommandsModal) !== showCLITwoTier) ? (window.showCLI || window.showCommandsModal) : undefined;
+        window.originalShowPOAMModal = (typeof window.showPOAMModal === 'function' && window.showPOAMModal !== showPOAMModalTwoTier) ? window.showPOAMModal : undefined;
+        window.originalCreateGitHubIssue = (typeof window.createGitHubIssue === 'function' && window.createGitHubIssue !== createIssueTwoTier) ? window.createGitHubIssue : undefined;
+        window.originalFilterKsis = (typeof window.filterKsis === 'function' /* No wrapper check needed for filter triggers */ ) ? window.filterKsis : undefined;
+        window.originalSearchKsis = (typeof window.searchKsis === 'function' /* No wrapper check needed */ ) ? window.searchKsis : undefined;
+        window.originalResetFilters = (typeof window.resetFilters === 'function' /* No wrapper check needed */ ) ? window.resetFilters : undefined;
 
-        // Make functions DEFINED *IN* this script globally available immediately
-        // (No need for originalX = window.X for these)
-        window.downloadJSON = downloadJSON; // Uses originalDownloadJSON if needed inside
-        window.viewFailedReport = viewFailedReport; // Uses originalViewFailedReport if needed inside
+        console.log('Original functions preserved (check types):', {
+             originalRenderKsis: typeof window.originalRenderKsis,
+             originalShowWhyModal: typeof window.originalShowWhyModal,
+             originalShowCommandsModal: typeof window.originalShowCommandsModal,
+             originalFilterKsis: typeof window.originalFilterKsis
+             // Add others if needed for debugging
+        });
+
+        // Make functions DEFINED *IN* this script globally available / Override others
+        window.downloadJSON = downloadJSON;
+        window.viewFailedReport = viewFailedReport;
+        // renderKsis override happens later via polling
         window.showWhyModal = showWhyTwoTier;
         window.showWhy = showWhyTwoTier; // Alias
         window.showCommandsModal = showCLITwoTier;
         window.showCLI = showCLITwoTier; // Alias
-        window.showPOAMModal = showPOAMModalTwoTier; // Uses originalShowPOAMModal if needed inside
-        window.createGitHubIssue = createIssueTwoTier; // Uses originalCreateGitHubIssue if needed inside
+        window.showPOAMModal = showPOAMModalTwoTier;
+        window.createGitHubIssue = createIssueTwoTier;
 
         // Expose other utility and action functions from this script
         window.showRegistrationModal = showRegistrationModal;
@@ -9463,18 +9497,21 @@ const quarterlyReportsSection = `
         window.loadQuarterlyReportData = loadQuarterlyReportData;
         window.openAgencyFeedback = openAgencyFeedback;
         window.registerForReview = registerForReview;
-        // Add any other functions from CurrentJS.js that need to be called from HTML (onclick etc.)
+        // Add any other functions from CurrentJS.js that need global access
 
-        // Note: window.renderKsis is NOT overridden here yet.
+        /* // Filter overrides remain commented out
+        window.filterKsis = filterKsisTwoTier;
+        window.searchKsis = searchKsisTwoTier;
+        window.resetFilters = resetFiltersTwoTier;
+        */
 
         // --- PHASE 4: Setup UI Based on Authentication ---
         addAuthenticationIndicator();
-        renderTrustCenterTab(); // Render the correct Trust Center view - functions called by onclick should now exist
+        renderTrustCenterTab();
 
         // --- PHASE 5: Access Control for Filters ---
         if (!window.fedRAMPAuth.isAuthenticated) {
             console.log('🔒 User not authenticated, disabling filter controls.');
-            // (Keep the disabling logic exactly as before)
             const statusFilter = document.getElementById('status-filter');
             const categoryFilter = document.getElementById('category-filter');
             const searchInput = document.getElementById('search-input');
@@ -9501,15 +9538,14 @@ const quarterlyReportsSection = `
              if (categoryFilter) categoryFilter.removeAttribute('onchange');
             const filtersContainer = document.querySelector('.filters');
             if (filtersContainer && !filtersContainer.querySelector('.auth-filter-message')) {
-                 const message = document.createElement('p');
-                 message.textContent = 'Register for federal access to enable filtering.';
-                 message.className = 'auth-filter-message';
-                 message.style.cssText = `color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem; width: 100%; text-align: right; padding-top: 0.5rem;`;
-                 filtersContainer.appendChild(message);
+                const message = document.createElement('p');
+                message.textContent = 'Register for federal access to enable filtering.';
+                message.className = 'auth-filter-message';
+                message.style.cssText = `color: var(--text-secondary); font-size: 0.875rem; margin-left: 1rem; width: 100%; text-align: right; padding-top: 0.5rem;`;
+                filtersContainer.appendChild(message);
             }
         } else {
              console.log('✅ User authenticated, ensuring filter controls are enabled.');
-            // (Keep the enabling logic exactly as before)
              const statusFilter = document.getElementById('status-filter');
              const categoryFilter = document.getElementById('category-filter');
              const searchInput = document.getElementById('search-input');
@@ -9532,7 +9568,6 @@ const quarterlyReportsSection = `
                  console.log('Re-attaching original filter event listeners for authenticated user.');
                  setupEventListeners();
              } else {
-                // Check if originalFilterKsis exists and setupEventListeners doesn't, implying HTML attributes are used
                 if (window.originalFilterKsis && typeof setupEventListeners === 'undefined'){
                     console.log('Relying on HTML attributes (onclick, onchange, etc.) for filters.');
                 } else {
@@ -9558,7 +9593,6 @@ const quarterlyReportsSection = `
             }
         });
 
-
         // --- PHASE 7: Data Loading, Status Monitoring & DELAYED RENDER OVERRIDE ---
         ensureKSIDataLoaded(); // Attempt to load KSI data
 
@@ -9578,13 +9612,11 @@ const quarterlyReportsSection = `
         console.log('✅ RFC-0016 functions initialized');
 
         // --- Final Log ---
-        console.log('🚀 Two-Tier System Initialized (v6 - Immediate Func Exposure, Polling Render)');
+        console.log('🚀 Two-Tier System Initialized (v7 - Defensive Preservation)');
         console.log('Authentication Status:', window.fedRAMPAuth.isAuthenticated ? 'Authenticated ✅' : 'Public 🔒');
         console.log('KSI Data (allKsis):', window.allKsis ? `Available (${window.allKsis.length} items)` : 'Loading...');
-        console.log('KSI Data (filteredKsis):', window.filteredKsis ? `Available (${window.filteredKsis.length} items)` : 'Not Initialized Yet');
 
     } // --- END of initializeTwoTierSystem ---
-
 
     // --- POLLING FUNCTION (Keep as defined previously) ---
     function pollAndApplyRenderOverride(maxAttempts = 10, interval = 500) {
