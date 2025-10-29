@@ -4,40 +4,43 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-10-29 19:04
+**Last Check:** 2025-10-29 22:44
 
 **What it validates:** Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 
-**Why it matters:** Validates comprehensive vulnerability management from basic patch baselines to enterprise-grade automated scanning, remediation, and compliance
+**Why it matters:** Validates comprehensive vulnerability management from basic patch baselines to enterprise-grade automated scanning, remediation, compliance monitoring, and governance.
 
 ## Validation Method
 
 1. `aws ssm describe-patch-baselines --output json`
-   *Check SSM patch baselines for vulnerability management*
+   *Check SSM patch baselines for vulnerability management.*
 
 2. `aws ssm describe-instance-information --output json`
-   *Validate SSM managed instances for patch compliance*
+   *Validate SSM managed instances for patch compliance.*
 
 3. `aws ssm describe-patch-groups --output json`
-   *Check patch groups for organized vulnerability remediation*
+   *Check patch groups for organized vulnerability remediation.*
 
 4. `aws ssm list-documents --document-filter-list key=DocumentType,value=Automation --output json`
-   *Validate SSM automation for scheduled patch deployment*
+   *Validate SSM automation for scheduled patch deployment.*
 
 5. `aws ssm describe-maintenance-windows --output json`
-   *Check maintenance windows for scheduled patching operations*
+   *Check maintenance windows for scheduled patching operations.*
 
 6. `aws inspector2 get-configuration --output json`
-   *Validate Inspector for continuous vulnerability scanning*
+   *Validate Inspector for continuous vulnerability scanning.*
 
 7. `aws ecr describe-repositories --output json`
-   *Check ECR repositories for container image vulnerability scanning*
+   *Check ECR repositories for container image vulnerability scanning.*
 
 8. `aws lambda list-layers --output json`
-   *Validate Lambda layers for serverless vulnerability management*
+   *Validate Lambda layers for serverless vulnerability management.*
 
-9. `aws organizations describe-organization --output json`
-   *Check organization-wide vulnerability management policies*
+9. `aws configservice describe-config-rules --output json`
+   *Check Config Rules for patch compliance monitoring.*
+
+10. `aws organizations describe-organization --output json`
+   *Check organization-wide vulnerability management policies.*
 
 ## Latest Results
 
@@ -49,4 +52,4 @@ PASS Advanced risk-informed patching with controlled deployment and compliance (
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-*Generated 2025-10-29 19:04 UTC*
+*Generated 2025-10-29 22:44 UTC*

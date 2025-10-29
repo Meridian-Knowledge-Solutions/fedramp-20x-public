@@ -6,7 +6,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 - [PASS] [KSI-CMT-01](KSI-CMT-01.md): Document a change management policy for all system modifications
 - [PASS] [KSI-CMT-02](KSI-CMT-02.md): Use self-service templates and image repositories for provisioning
-- [PASS] [KSI-CMT-03](KSI-CMT-03.md): Use CI/CD pipelines for deploying changes
+- [PASS] [KSI-CMT-03](KSI-CMT-03.md): Implement persistent automated testing and validation of changes
 - [PASS] [KSI-CMT-04](KSI-CMT-04.md): Document and consistently follow change management
 - [PASS] [KSI-CMT-05](KSI-CMT-05.md): Evaluate risk and potential impact of any change (Hybrid Validation)
 
@@ -96,4 +96,4 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - **Not Tested:** 5
 
 ---
-*Generated 2025-10-29 19:04 UTC*
+*Generated 2025-10-29 22:44 UTC*

@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-10-29 19:04
+**Last Check:** 2025-10-29 22:44
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -18,11 +18,11 @@
 2. `aws iam list-users --output json`
    *Identify all traditional IAM users for analysis.*
 
-3. `aws ec2 describe-instances --query 'Reservations[*].Instances[*].IamInstanceProfile.Arn' --output json`
-   *Verify that all running EC2 instances are using IAM roles.*
+3. `aws ec2 describe-instances --output json`
+   *Verify that all running EC2 instances are using IAM roles (Provides full instance data).*
 
-4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do aws iam get-login-profile --user-name "$user" --output json; done`
-   *CRITICAL: Check for console passwords. A failure for any user indicates a service account, which is an anti-pattern.*
+4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text 2>/dev/null || echo ''); do aws iam get-login-profile --user-name "$user" --output json 2>/dev/null || true; done`
+   *CRITICAL: Check for console passwords. A failure here for a user implies they *lack* a password (service user anti-pattern).*
 
 ## Latest Results
 
@@ -31,4 +31,4 @@ PASS Excellent role-based access control (80%): PASS [Roles] Excellent role-base
 - WARNING [IAM Hygiene] 1 IAM user(s) with console passwords exist. Transitioning to a fully federated model is recommended.
 
 ---
-*Generated 2025-10-29 19:04 UTC*
+*Generated 2025-10-29 22:44 UTC*
