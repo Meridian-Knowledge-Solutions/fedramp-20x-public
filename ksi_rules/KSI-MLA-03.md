@@ -4,11 +4,11 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-10-30 07:03
+**Last Check:** 2025-10-30 09:20
 
 **What it validates:** Rapidly detect and remediate or mitigate vulnerabilities
 
-**Why it matters:** Validates comprehensive vulnerability detection from basic security monitoring to enterprise-grade automated remediation and threat intelligence
+**Why it matters:** Validates comprehensive vulnerability detection, including Config rules, Inspector scanning, active findings, patch management, automated response, and enterprise governance.
 
 ## Validation Method
 
@@ -30,7 +30,10 @@
 6. `aws cloudwatch describe-alarms --output json`
    *Validate CloudWatch alarms for vulnerability detection alerts*
 
-7. `aws organizations describe-organization --output json`
+7. `aws configservice describe-config-rules --output json`
+   *Check Config Rules for configuration vulnerability detection.*
+
+8. `aws organizations describe-organization --output json`
    *Check organization-wide vulnerability management policies*
 
 ## Latest Results
@@ -48,4 +51,4 @@ PASS Excellent vulnerability management with comprehensive automated response (1
 - PASS Multi-service vulnerability coverage: 3 AWS services integrated for comprehensive detection
 
 ---
-*Generated 2025-10-30 07:03 UTC*
+*Generated 2025-10-30 09:20 UTC*
