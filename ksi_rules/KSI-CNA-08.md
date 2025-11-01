@@ -20,11 +20,17 @@
 3. `aws configservice describe-configuration-recorder-status --output json`
    *Verifies that assessment data is actively being recorded.*
 
-4. `aws ssm list-associations --output json || echo '{"Associations": []}'`
+4. `aws securityhub describe-hub --output json`
+   *Checks for centralized visibility via Security Hub. (Added for 'Measurement Visibility' score).*
+
+5. `aws configservice describe-configuration-aggregators --output json`
+   *Checks for enterprise-wide visibility via Config aggregators. (Added for 'Measurement Visibility' score).*
+
+6. `aws ssm list-associations --output json || echo '{"Associations": []}'`
    *Validates automated enforcement via SSM State Manager associations.*
 
-5. `aws lambda list-functions --output json`
+7. `aws lambda list-functions --output json`
    *Identifies custom, event-driven enforcement capabilities via Lambda.*
 
 ---
-*Generated 2025-10-31 21:18 UTC*
+*Generated 2025-11-01 01:22 UTC*
