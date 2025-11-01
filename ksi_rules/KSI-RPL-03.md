@@ -4,7 +4,11 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-01 12:19
+=======
+**Last Check:** 2025-11-01 12:30
+>>>>>>> Stashed changes
 
 **What it validates:** Back up information regularly per the recovery point objective
 
@@ -34,4 +38,8 @@ PASS System backups with compliant retention aligned with recovery objectives: P
 - PASS Additional backup coverage: 646 EBS snapshots
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes

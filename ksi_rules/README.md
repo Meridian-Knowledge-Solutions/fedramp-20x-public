@@ -96,4 +96,8 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - **Not Tested:** 5
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes

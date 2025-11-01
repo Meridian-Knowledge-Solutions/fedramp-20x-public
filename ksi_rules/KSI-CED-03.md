@@ -4,7 +4,11 @@
 
 **Category:** Cybersecurity Education
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-01 12:19
+=======
+**Last Check:** 2025-11-01 12:30
+>>>>>>> Stashed changes
 
 **What it validates:** Provide security awareness training on risks from social engineering and other attacks
 
@@ -22,4 +26,8 @@
 - WARNING Basic developer training automation - enhance integration (25%): PASS Development security automation: 2 security functions
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes

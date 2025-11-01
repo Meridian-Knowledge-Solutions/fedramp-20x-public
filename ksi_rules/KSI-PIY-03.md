@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-01 12:19
+=======
+**Last Check:** 2025-11-01 12:30
+>>>>>>> Stashed changes
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -29,4 +33,8 @@
 - FAIL No vulnerability disclosure program detected (1/14): PASS VDP maintenance activity: 1 updates
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes

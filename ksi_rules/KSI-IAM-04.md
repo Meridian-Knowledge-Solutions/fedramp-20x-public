@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-01 12:19
+=======
+**Last Check:** 2025-11-01 12:30
+>>>>>>> Stashed changes
 
 **What it validates:** Clearly define user roles and implement user-to-role mapping
 
@@ -36,4 +40,8 @@ PASS Excellent role-based authorization model (100%): PASS [Modern Auth] IAM Ide
 - PASS [Just-in-Time] The validation process is using temporary credentials via an assumed role, following best practices.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes

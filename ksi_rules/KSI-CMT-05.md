@@ -4,7 +4,11 @@
 
 **Category:** Change Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-01 12:19
+=======
+**Last Check:** 2025-11-01 12:30
+>>>>>>> Stashed changes
 
 **What it validates:** Evaluate risk and potential impact of any change (Hybrid Validation)
 
@@ -24,4 +28,8 @@ PASS Phase 2 Compliant (100%): Hybrid check passed. Findings: PASS [Documentatio
 - PASS [Evidence] Found 2 recent Terraform plan(s) in S3, proving pre-change impact assessment.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-01 12:19 UTC*
+=======
+*Generated 2025-11-01 12:30 UTC*
+>>>>>>> Stashed changes
