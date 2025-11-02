@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-02 06:17
-=======
-**Last Check:** 2025-11-02 06:29
->>>>>>> Stashed changes
+**Last Check:** 2025-11-02 07:21
 
 **What it validates:** Enforce phishing-resistant MFA for all user authentication
 
@@ -39,8 +35,4 @@ PASS Excellent MFA enforcement (100%): PASS [Modern Identity] AWS Identity Cente
 - all users are managed via Identity Center.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-02 06:17 UTC*
-=======
-*Generated 2025-11-02 06:29 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-02 07:21 UTC*
