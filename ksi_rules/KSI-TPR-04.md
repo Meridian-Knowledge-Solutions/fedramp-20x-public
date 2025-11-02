@@ -4,7 +4,11 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-02 06:17
+=======
+**Last Check:** 2025-11-02 06:29
+>>>>>>> Stashed changes
 
 **What it validates:** Conduct vulnerability scans for applications and operating systems
 
@@ -36,4 +40,8 @@ PASS Good third-party package monitoring - expand coverage (40%): PASS EC2 Inspe
 - PASS Package inventory capability: 5 instances with SSM agent for dependency tracking
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-02 06:17 UTC*
+=======
+*Generated 2025-11-02 06:29 UTC*
+>>>>>>> Stashed changes

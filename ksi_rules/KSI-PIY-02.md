@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-02 06:17
+=======
+**Last Check:** 2025-11-02 06:29
+>>>>>>> Stashed changes
 
 **What it validates:** Document the security objectives and requirements for EACH information resource
 
@@ -38,4 +42,8 @@ PASS Good per-component documentation (11/16): PASS Security governance reposito
 - PASS Main branch configured
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-02 06:17 UTC*
+=======
+*Generated 2025-11-02 06:29 UTC*
+>>>>>>> Stashed changes

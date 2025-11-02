@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-02 06:17
+=======
+**Last Check:** 2025-11-02 06:29
+>>>>>>> Stashed changes
 
 **What it validates:** Document methods used to evaluate information resource implementations
 
@@ -27,4 +31,8 @@ PASS Strong evaluation methodology (70%): PASS [Documentation] A comprehensive e
 - PASS [Maintenance] The methodology is actively maintained, with evidence of recent updates.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-02 06:17 UTC*
+=======
+*Generated 2025-11-02 06:29 UTC*
+>>>>>>> Stashed changes
