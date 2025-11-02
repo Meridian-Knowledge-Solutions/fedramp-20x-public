@@ -163,11 +163,8 @@
       "cli_command": "8 commands (8 successful): aws cloudtrail describe-trails --output json; aws logs describe-log-groups --output json (+6 more)",
       "cli_output_digest": "",
       "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
-<<<<<<< Updated upstream
       "timestamp": "2025-11-02T06:17:49.898621",
-=======
       "timestamp": "2025-11-02T06:29:10.824517",
->>>>>>> Stashed changes
       "validation_method": "validation-engine-sync",
       "commands_executed": 8,
       "successful_commands": 8,
