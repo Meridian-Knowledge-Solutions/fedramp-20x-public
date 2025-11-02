@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-02 12:18
+=======
+**Last Check:** 2025-11-02 12:37
+>>>>>>> Stashed changes
 
 **What it validates:** Implement least privilege access via role-based access control policies
 
@@ -31,4 +35,8 @@ PASS Excellent role-based access control (80%): PASS [Roles] Excellent role-base
 - WARNING [IAM Hygiene] 1 IAM user(s) with console passwords exist. Transitioning to a fully federated model is recommended.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-02 12:18 UTC*
+=======
+*Generated 2025-11-02 12:37 UTC*
+>>>>>>> Stashed changes

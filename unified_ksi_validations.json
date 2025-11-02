@@ -1,6 +1,10 @@
 {
   "metadata": {
+<<<<<<< Updated upstream
     "validation_date": "2025-11-02T12:18:19.373430Z",
+=======
+    "validation_date": "2025-11-02T12:37:36.571551Z",
+>>>>>>> Stashed changes
     "impact_level": "MODERATE",
     "impact_thresholds": {
       "min": "64%",
@@ -23,7 +27,11 @@
       "cli_command": "1 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.371889Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570002Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cybersecurity Education",
       "category_prefix": "KSI-CED",
@@ -33,7 +41,11 @@
       "commands_executed": 1,
       "successful_commands": 1,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.371899Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570011Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-CED-01/cli_output.json"
@@ -46,7 +58,11 @@
       "cli_command": "1 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.371930Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570042Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cybersecurity Education",
       "category_prefix": "KSI-CED",
@@ -56,7 +72,11 @@
       "commands_executed": 1,
       "successful_commands": 1,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.371934Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570046Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-CED-02/cli_output.json"
@@ -69,7 +89,11 @@
       "cli_command": "2 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.371959Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570072Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cybersecurity Education",
       "category_prefix": "KSI-CED",
@@ -79,7 +103,11 @@
       "commands_executed": 2,
       "successful_commands": 0,
       "failed_commands": 2,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.371981Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570075Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-CED-03/cli_output.json"
@@ -92,7 +120,11 @@
       "cli_command": "8 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372007Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570099Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Change Management",
       "category_prefix": "KSI-CMT",
@@ -102,7 +134,11 @@
       "commands_executed": 8,
       "successful_commands": 8,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372010Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570102Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 5,
       "evidence_path": "evidence_v2/KSI-CMT-01/cli_output.json"
@@ -115,7 +151,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372035Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570126Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Change Management",
       "category_prefix": "KSI-CMT",
@@ -125,7 +165,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372039Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570129Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 5,
       "evidence_path": "evidence_v2/KSI-CMT-02/cli_output.json"
@@ -138,7 +182,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372063Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570155Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Change Management",
       "category_prefix": "KSI-CMT",
@@ -148,7 +196,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372066Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570158Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 5,
       "evidence_path": "evidence_v2/KSI-CMT-03/cli_output.json"
@@ -161,7 +213,11 @@
       "cli_command": "2 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372090Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570183Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Change Management",
       "category_prefix": "KSI-CMT",
@@ -171,7 +227,11 @@
       "commands_executed": 2,
       "successful_commands": 2,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372093Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570186Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 5,
       "evidence_path": "evidence_v2/KSI-CMT-04/cli_output.json"
@@ -184,7 +244,11 @@
       "cli_command": "2 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372118Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570213Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Change Management",
       "category_prefix": "KSI-CMT",
@@ -194,7 +258,11 @@
       "commands_executed": 2,
       "successful_commands": 2,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372121Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570216Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 5,
       "evidence_path": "evidence_v2/KSI-CMT-05/cli_output.json"
@@ -207,7 +275,11 @@
       "cli_command": "8 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372145Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570240Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -217,7 +289,11 @@
       "commands_executed": 8,
       "successful_commands": 8,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372148Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570243Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-01/cli_output.json"
@@ -230,7 +306,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372171Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570267Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -240,7 +320,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372174Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570270Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-02/cli_output.json"
@@ -253,7 +337,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372197Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570292Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -263,7 +351,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372200Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570295Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-03/cli_output.json"
@@ -276,7 +368,11 @@
       "cli_command": "8 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372223Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570318Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -286,7 +382,11 @@
       "commands_executed": 8,
       "successful_commands": 0,
       "failed_commands": 8,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372226Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570321Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-04/cli_output.json"
@@ -299,7 +399,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372248Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570344Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -309,7 +413,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372251Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570347Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-05/cli_output.json"
@@ -322,7 +430,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372274Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570369Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -332,7 +444,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372277Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570372Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-06/cli_output.json"
@@ -345,7 +461,11 @@
       "cli_command": "15 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372299Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570394Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -355,7 +475,11 @@
       "commands_executed": 15,
       "successful_commands": 15,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372302Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570397Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-07/cli_output.json"
@@ -368,7 +492,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372325Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570420Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Cloud Native Architecture",
       "category_prefix": "KSI-CNA",
@@ -378,7 +506,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372328Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570442Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 8,
       "evidence_path": "evidence_v2/KSI-CNA-08/cli_output.json"
@@ -391,7 +523,11 @@
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372351Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570466Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -401,7 +537,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372354Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570469Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-01/cli_output.json"
@@ -414,7 +554,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372378Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570492Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -424,7 +568,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372381Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570495Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-02/cli_output.json"
@@ -437,7 +585,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372406Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570518Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -447,7 +599,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372409Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570521Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-03/cli_output.json"
@@ -456,11 +612,15 @@
       "ksi_id": "KSI-IAM-04",
       "validation_id": "KSI-IAM-04",
       "assertion": true,
-      "assertion_reason": "✅ Excellent 10/10 (100%): ✅ [Modern Auth] IAM Identity Center usage inferred from 3 SSO-managed roles.; ✅ [Role Mapping] Inferred 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).; ℹ️ Direct SSO API call failed (permissions?), but role patterns confirm modern setup.; ✅ [Least Privilege] Excellent: 93 roles and 0 IAM users found (strong role-based pattern).; ✅ [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).",
+      "assertion_reason": "✅ Excellent 10/10 (100%): ✅ [Modern Auth] IAM Identity Center usage inferred from 3 SSO-managed roles.; ✅ [Role Mapping] Inferred 3 distinct permission sets (e.g., ReadOnlyAccess, Development, AdministratorAccess).; ℹ️ Direct SSO API call failed (permissions?), but role patterns confirm modern setup.; ✅ [Least Privilege] Excellent: 93 roles and 0 IAM users found (strong role-based pattern).; ✅ [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).",
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372432Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570543Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -470,7 +630,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372435Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570547Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-04/cli_output.json"
@@ -483,7 +647,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372459Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570571Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -493,7 +661,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372462Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570574Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-05/cli_output.json"
@@ -506,7 +678,11 @@
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372484Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570596Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -516,7 +692,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372487Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570599Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-06/cli_output.json"
@@ -529,7 +709,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372510Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570621Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Identity and Access Management",
       "category_prefix": "KSI-IAM",
@@ -539,7 +723,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372513Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570624Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-IAM-07/cli_output.json"
@@ -552,7 +740,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372536Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570647Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Incident Response",
       "category_prefix": "KSI-INR",
@@ -562,7 +754,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372539Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570650Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-INR-01/cli_output.json"
@@ -575,7 +771,11 @@
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372562Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570672Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Incident Response",
       "category_prefix": "KSI-INR",
@@ -585,7 +785,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372565Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570675Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-INR-02/cli_output.json"
@@ -598,7 +802,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372588Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570698Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Incident Response",
       "category_prefix": "KSI-INR",
@@ -608,7 +816,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372591Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570701Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-INR-03/cli_output.json"
@@ -621,7 +833,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372614Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570724Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -631,7 +847,11 @@
       "commands_executed": 7,
       "successful_commands": 7,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372617Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570727Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-01/cli_output.json"
@@ -644,7 +864,11 @@
       "cli_command": "8 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372640Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570749Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -654,7 +878,11 @@
       "commands_executed": 8,
       "successful_commands": 8,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372643Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570752Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-02/cli_output.json"
@@ -667,7 +895,11 @@
       "cli_command": "8 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372667Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570775Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -677,7 +909,11 @@
       "commands_executed": 8,
       "successful_commands": 8,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372670Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570778Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-03/cli_output.json"
@@ -690,7 +926,11 @@
       "cli_command": "10 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372692Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570801Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -700,7 +940,11 @@
       "commands_executed": 10,
       "successful_commands": 10,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372695Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570804Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-05/cli_output.json"
@@ -713,7 +957,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372718Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570827Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -723,7 +971,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372721Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570830Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-07/cli_output.json"
@@ -736,7 +988,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372744Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570853Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Monitoring, Logging, and Auditing",
       "category_prefix": "KSI-MLA",
@@ -746,7 +1002,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372747Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570856Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 6,
       "evidence_path": "evidence_v2/KSI-MLA-08/cli_output.json"
@@ -759,7 +1019,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372770Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570880Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -769,7 +1033,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372773Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570884Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-01/cli_output.json"
@@ -782,7 +1050,11 @@
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372796Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570908Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -792,7 +1064,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372799Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570911Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-02/cli_output.json"
@@ -805,7 +1081,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372822Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570935Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -815,7 +1095,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372824Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570938Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-03/cli_output.json"
@@ -828,7 +1112,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372847Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570962Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -838,7 +1126,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372850Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570965Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-04/cli_output.json"
@@ -851,7 +1143,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372873Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.570988Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -861,7 +1157,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372876Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.570991Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-05/cli_output.json"
@@ -874,7 +1174,11 @@
       "cli_command": "6 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372899Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571015Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -884,7 +1188,11 @@
       "commands_executed": 6,
       "successful_commands": 6,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372902Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571018Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-06/cli_output.json"
@@ -897,7 +1205,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372925Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571041Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Policy and Inventory",
       "category_prefix": "KSI-PIY",
@@ -907,7 +1219,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372928Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571044Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 7,
       "evidence_path": "evidence_v2/KSI-PIY-07/cli_output.json"
@@ -920,7 +1236,11 @@
       "cli_command": "6 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372952Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571067Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Recovery Planning",
       "category_prefix": "KSI-RPL",
@@ -930,7 +1250,11 @@
       "commands_executed": 6,
       "successful_commands": 6,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372955Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571070Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 4,
       "evidence_path": "evidence_v2/KSI-RPL-01/cli_output.json"
@@ -943,7 +1267,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.372995Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571093Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Recovery Planning",
       "category_prefix": "KSI-RPL",
@@ -953,7 +1281,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.372998Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571096Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 4,
       "evidence_path": "evidence_v2/KSI-RPL-02/cli_output.json"
@@ -966,7 +1298,11 @@
       "cli_command": "5 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373022Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571120Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Recovery Planning",
       "category_prefix": "KSI-RPL",
@@ -976,7 +1312,11 @@
       "commands_executed": 5,
       "successful_commands": 5,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373025Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571123Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 4,
       "evidence_path": "evidence_v2/KSI-RPL-03/cli_output.json"
@@ -989,7 +1329,11 @@
       "cli_command": "7 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373048Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571148Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Recovery Planning",
       "category_prefix": "KSI-RPL",
@@ -999,7 +1343,11 @@
       "commands_executed": 7,
       "successful_commands": 0,
       "failed_commands": 7,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373051Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571151Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 4,
       "evidence_path": "evidence_v2/KSI-RPL-04/cli_output.json"
@@ -1012,7 +1360,11 @@
       "cli_command": "11 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373075Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571178Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1022,7 +1374,11 @@
       "commands_executed": 11,
       "successful_commands": 11,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373078Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571182Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-01/cli_output.json"
@@ -1035,7 +1391,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373101Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571206Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1045,7 +1405,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373104Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571210Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-02/cli_output.json"
@@ -1058,7 +1422,11 @@
       "cli_command": "10 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373127Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571233Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1068,7 +1436,11 @@
       "commands_executed": 10,
       "successful_commands": 10,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373130Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571236Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-03/cli_output.json"
@@ -1081,7 +1453,11 @@
       "cli_command": "10 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373154Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571260Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1091,7 +1467,11 @@
       "commands_executed": 10,
       "successful_commands": 10,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373157Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571263Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-04/cli_output.json"
@@ -1104,7 +1484,11 @@
       "cli_command": "10 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373181Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571287Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1114,7 +1498,11 @@
       "commands_executed": 10,
       "successful_commands": 10,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373184Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571290Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-05/cli_output.json"
@@ -1127,7 +1515,11 @@
       "cli_command": "9 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373208Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571314Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1137,7 +1529,11 @@
       "commands_executed": 9,
       "successful_commands": 9,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373211Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571317Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-06/cli_output.json"
@@ -1150,7 +1546,11 @@
       "cli_command": "10 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373236Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571341Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1160,7 +1560,11 @@
       "commands_executed": 10,
       "successful_commands": 10,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373239Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571344Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-07/cli_output.json"
@@ -1173,7 +1577,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373266Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571369Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1183,7 +1591,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373270Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571373Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-08/cli_output.json"
@@ -1196,7 +1608,11 @@
       "cli_command": "6 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373297Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571398Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1206,7 +1622,11 @@
       "commands_executed": 6,
       "successful_commands": 6,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373301Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571402Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-09/cli_output.json"
@@ -1219,7 +1639,11 @@
       "cli_command": "4 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373326Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571444Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Service Configuration",
       "category_prefix": "KSI-SVC",
@@ -1229,7 +1653,11 @@
       "commands_executed": 4,
       "successful_commands": 4,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373329Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571448Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 10,
       "evidence_path": "evidence_v2/KSI-SVC-10/cli_output.json"
@@ -1242,7 +1670,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373354Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571475Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Third-Party Information Resources",
       "category_prefix": "KSI-TPR",
@@ -1252,7 +1684,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373357Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571478Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-TPR-01/cli_output.json"
@@ -1265,7 +1701,11 @@
       "cli_command": "3 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373382Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571503Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Third-Party Information Resources",
       "category_prefix": "KSI-TPR",
@@ -1275,7 +1715,11 @@
       "commands_executed": 3,
       "successful_commands": 3,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373385Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571506Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-TPR-03/cli_output.json"
@@ -1288,7 +1732,11 @@
       "cli_command": "6 commands executed",
       "cli_output_digest": "",
       "cli_output_interpretation": "",
+<<<<<<< Updated upstream
       "timestamp": "2025-11-02T12:18:19.373409Z",
+=======
+      "timestamp": "2025-11-02T12:37:36.571530Z",
+>>>>>>> Stashed changes
       "validation_method": "multi-command",
       "long_name": "Third-Party Information Resources",
       "category_prefix": "KSI-TPR",
@@ -1298,7 +1746,11 @@
       "commands_executed": 6,
       "successful_commands": 6,
       "failed_commands": 0,
+<<<<<<< Updated upstream
       "original_timestamp": "2025-11-02T12:18:19.373412Z",
+=======
+      "original_timestamp": "2025-11-02T12:37:36.571533Z",
+>>>>>>> Stashed changes
       "synced_from_validation_engine": true,
       "total_category_controls": 3,
       "evidence_path": "evidence_v2/KSI-TPR-04/cli_output.json"
