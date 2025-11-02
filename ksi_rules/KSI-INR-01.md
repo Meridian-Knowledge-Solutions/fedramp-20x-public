@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-02 12:18
-=======
-**Last Check:** 2025-11-02 12:37
->>>>>>> Stashed changes
+**Last Check:** 2025-11-02 16:34
 
 **What it validates:** Respond to incidents according to FedRAMP requirements and cloud service provider policies
 
@@ -46,8 +42,4 @@ PASS Comprehensive FedRAMP incident response (10/11): PASS Incident response pla
 - PASS Incident response plan maintenance: 1 updates
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-02 12:18 UTC*
-=======
-*Generated 2025-11-02 12:37 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-02 16:34 UTC*

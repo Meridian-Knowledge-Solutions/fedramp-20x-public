@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-02 12:18
-=======
-**Last Check:** 2025-11-02 12:37
->>>>>>> Stashed changes
+**Last Check:** 2025-11-02 16:34
 
 **What it validates:** Encrypt data at rest
 
@@ -58,8 +54,4 @@ PASS Production-ready multi-service encryption with advanced key management (70%
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-02 12:18 UTC*
-=======
-*Generated 2025-11-02 12:37 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-02 16:34 UTC*

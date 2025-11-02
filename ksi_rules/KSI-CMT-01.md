@@ -4,11 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-02 12:18
-=======
-**Last Check:** 2025-11-02 12:37
->>>>>>> Stashed changes
+**Last Check:** 2025-11-02 16:34
 
 **What it validates:** Document a change management policy for all system modifications
 
@@ -57,8 +53,4 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Advanced organization features: SCPs for modification policy enforcement
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-02 12:18 UTC*
-=======
-*Generated 2025-11-02 12:37 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-02 16:34 UTC*
