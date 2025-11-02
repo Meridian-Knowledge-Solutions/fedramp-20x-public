@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-01 12:19
-=======
-**Last Check:** 2025-11-01 12:30
->>>>>>> Stashed changes
+**Last Check:** 2025-11-02 06:17
 
 **What it validates:** Maintain an inventory of authorized software
 
@@ -36,8 +32,4 @@ PASS Comprehensive SDLC security integration with enterprise automation (100%): 
 - PASS Development Governance
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-01 12:19 UTC*
-=======
-*Generated 2025-11-01 12:30 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-02 06:17 UTC*
