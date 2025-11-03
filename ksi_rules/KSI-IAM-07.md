@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-03 12:19
+=======
+**Last Check:** 2025-11-03 12:42
+>>>>>>> Stashed changes
 
 **What it validates:** Implement a consistent identity management process
 
@@ -33,4 +37,8 @@ PASS Advanced automated account lifecycle management (100%): PASS Service Orient
 - PASS Regular Access Reviews
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-03 12:20 UTC*
+=======
+*Generated 2025-11-03 12:42 UTC*
+>>>>>>> Stashed changes

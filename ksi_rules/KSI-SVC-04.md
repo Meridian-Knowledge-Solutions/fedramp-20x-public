@@ -4,7 +4,11 @@
 
 **Category:** Service Configuration
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-03 12:19
+=======
+**Last Check:** 2025-11-03 12:42
+>>>>>>> Stashed changes
 
 **What it validates:** Use configuration management systems to manage cloud services and apply configuration as code to CSO-provided cloud services
 
@@ -56,4 +60,8 @@ PASS Enterprise-grade centralized configuration governance with comprehensive au
 - PASS Advanced organization features: SCPs for configuration policy enforcement enabled.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-03 12:20 UTC*
+=======
+*Generated 2025-11-03 12:42 UTC*
+>>>>>>> Stashed changes
