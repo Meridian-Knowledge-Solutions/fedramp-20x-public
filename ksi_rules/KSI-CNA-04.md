@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-03 06:18
-=======
-**Last Check:** 2025-11-03 06:25
->>>>>>> Stashed changes
+**Last Check:** 2025-11-03 08:37
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
 
@@ -50,8 +46,4 @@ PASS Foundational immutable practices (58%): PASS Least Privilege: Administrator
 - FAIL EC2 IaC Management: None of the 5 running instance(s) have IaC tags.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-03 06:18 UTC*
-=======
-*Generated 2025-11-03 06:25 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-03 08:37 UTC*
