@@ -1,7 +1,11 @@
 {
   "historical_validations": [
     {
+<<<<<<< Updated upstream
       "timestamp": "2025-11-04T16:36:54.960910",
+=======
+      "timestamp": "2025-11-04T16:37:32.239560",
+>>>>>>> Stashed changes
       "infrastructure_fingerprint": "9e139d226e4bcdb6",
       "results": [
         {
@@ -12,7 +16,11 @@
           "cli_command": "1 commands (1 successful): evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.732214",
+=======
+          "timestamp": "2025-11-04T16:37:30.242651",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
@@ -35,7 +43,11 @@
           "cli_command": "1 commands (1 successful): evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.732295",
+=======
+          "timestamp": "2025-11-04T16:37:30.242726",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
@@ -58,7 +70,11 @@
           "cli_command": "2 commands (2 successful): aws lambda list-functions --output json; evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 2 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.732496",
+=======
+          "timestamp": "2025-11-04T16:37:30.242927",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 2,
@@ -81,7 +97,11 @@
           "cli_command": "8 commands (8 successful): aws cloudtrail describe-trails --output json; aws logs describe-log-groups --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733044",
+=======
+          "timestamp": "2025-11-04T16:37:30.243487",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
@@ -104,7 +124,11 @@
           "cli_command": "9 commands (9 successful): aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json; aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,ImageId,LaunchTime]' --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733324",
+=======
+          "timestamp": "2025-11-04T16:37:30.243751",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -127,7 +151,11 @@
           "cli_command": "4 commands (3 successful): aws config describe-config-rules --output json; aws cloudformation validate-template --template-url https://s3.amazonaws.com/cloudformation-templates-us-east-1/WordPress_Single_Instance.template --output json || echo '{\"Parameters\": []}' (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/4 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733430",
+=======
+          "timestamp": "2025-11-04T16:37:30.243852",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 3,
@@ -150,7 +178,11 @@
           "cli_command": "2 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path procedures/change-management-procedure.md; aws s3 ls s3://mks-states/plans/ --recursive",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/2 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733502",
+=======
+          "timestamp": "2025-11-04T16:37:30.243923",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 1,
@@ -173,7 +205,11 @@
           "cli_command": "2 commands (1 successful): aws codecommit get-file --repository-name security-governance --commit-specifier main --file-path procedures/change-risk-assessment.md; aws s3 ls s3://mks-states/plans/ --recursive",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/2 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733573",
+=======
+          "timestamp": "2025-11-04T16:37:30.244008",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 1,
@@ -196,7 +232,11 @@
           "cli_command": "8 commands (8 successful): aws ec2 describe-security-groups --output json; aws ec2 describe-network-acls --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.733902",
+=======
+          "timestamp": "2025-11-04T16:37:30.244335",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
@@ -219,7 +259,11 @@
           "cli_command": "7 commands (7 successful): aws ec2 describe-subnets --output json; aws ec2 describe-security-groups --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.734854",
+=======
+          "timestamp": "2025-11-04T16:37:30.245257",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
@@ -242,7 +286,11 @@
           "cli_command": "7 commands (7 successful): aws ec2 describe-route-tables --output json; aws ec2 describe-network-acls --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.735108",
+=======
+          "timestamp": "2025-11-04T16:37:30.245507",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
@@ -265,7 +313,11 @@
           "cli_command": "8 commands (8 successful): aws ec2 describe-instances --filters 'Name=instance-state-name,Values=running' --output json; aws ec2 describe-launch-templates --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.735729",
+=======
+          "timestamp": "2025-11-04T16:37:30.246109",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
@@ -288,7 +340,11 @@
           "cli_command": "9 commands (9 successful): aws wafv2 list-web-acls --scope REGIONAL --output json; aws wafv2 list-web-acls --scope CLOUDFRONT --region us-east-1 --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.735935",
+=======
+          "timestamp": "2025-11-04T16:37:30.246311",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -311,7 +367,11 @@
           "cli_command": "9 commands (9 successful): aws ec2 describe-subnets --output json; aws ec2 describe-availability-zones --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.739103",
+=======
+          "timestamp": "2025-11-04T16:37:30.249434",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -334,7 +394,11 @@
           "cli_command": "15 commands (15 successful): aws configservice describe-config-rules --output json; aws cloudtrail describe-trails --output json (+13 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 15 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.741877",
+=======
+          "timestamp": "2025-11-04T16:37:30.252062",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 15,
           "successful_commands": 15,
@@ -357,7 +421,11 @@
           "cli_command": "5 commands (5 successful): aws iam list-users --output json; aws sso-admin list-instances --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.742265",
+=======
+          "timestamp": "2025-11-04T16:37:30.252458",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
@@ -380,7 +448,11 @@
           "cli_command": "4 commands (4 successful): aws iam list-saml-providers --output json; aws iam list-virtual-mfa-devices --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.742396",
+=======
+          "timestamp": "2025-11-04T16:37:30.252580",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -403,7 +475,11 @@
           "cli_command": "4 commands (4 successful): aws iam list-roles --output json; aws iam list-users --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.743338",
+=======
+          "timestamp": "2025-11-04T16:37:30.253523",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -426,7 +502,11 @@
           "cli_command": "5 commands (4 successful): INSTANCE_ARN=$(aws sso-admin list-instances --query 'Instances[0].InstanceArn' --output text 2>/dev/null || echo 'none'); if [ \"$INSTANCE_ARN\" != \"none\" ]; then aws sso-admin list-permission-sets --instance-arn \"$INSTANCE_ARN\" --output json; else echo '{\"PermissionSets\": []}'; fi; aws iam list-roles --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/5 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.743967",
+=======
+          "timestamp": "2025-11-04T16:37:30.254163",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 4,
@@ -449,7 +529,11 @@
           "cli_command": "7 commands (7 successful): aws sso-admin list-instances --output json || echo '{\"Instances\": []}'; aws identitystore list-users --identity-store-id $(aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text 2>/dev/null) --output json || echo '{\"Users\": []}' (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.744498",
+=======
+          "timestamp": "2025-11-04T16:37:30.254659",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
@@ -472,7 +556,11 @@
           "cli_command": "5 commands (5 successful): aws guardduty list-detectors --output json; aws securityhub describe-hub --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.744962",
+=======
+          "timestamp": "2025-11-04T16:37:30.255139",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
@@ -495,7 +583,11 @@
           "cli_command": "4 commands (4 successful): aws iam list-roles --output json; aws iam list-users --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.745580",
+=======
+          "timestamp": "2025-11-04T16:37:30.255731",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -518,7 +610,11 @@
           "cli_command": "7 commands (3 successful): aws codecommit get-repository --repository-name security-governance --output json; aws codecommit get-file --repository-name security-governance --file-path procedures/incident-response-plan.md --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 4/7 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.746962",
+=======
+          "timestamp": "2025-11-04T16:37:30.257127",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 3,
@@ -541,7 +637,11 @@
           "cli_command": "5 commands (5 successful): aws events list-rules --output json; aws logs describe-log-groups --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.747479",
+=======
+          "timestamp": "2025-11-04T16:37:30.257608",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
@@ -564,7 +664,11 @@
           "cli_command": "4 commands (4 successful): aws securityhub get-findings --max-results 50 --output json; aws lambda list-functions --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.748999",
+=======
+          "timestamp": "2025-11-04T16:37:30.259178",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -587,7 +691,11 @@
           "cli_command": "7 commands (7 successful): aws cloudtrail describe-trails --output json; aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text 2>/dev/null || echo 'none') --output json || echo '{\"IsLogging\": false}' (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.749917",
+=======
+          "timestamp": "2025-11-04T16:37:30.260305",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
@@ -610,7 +718,11 @@
           "cli_command": "8 commands (8 successful): aws cloudwatch describe-alarms --output json; aws logs describe-metric-filters --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.750650",
+=======
+          "timestamp": "2025-11-04T16:37:30.260970",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
@@ -633,7 +745,11 @@
           "cli_command": "8 commands (8 successful): aws securityhub get-enabled-standards --region us-east-1 --output json; aws inspector2 get-configuration --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.753962",
+=======
+          "timestamp": "2025-11-04T16:37:30.263818",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
@@ -656,7 +772,11 @@
           "cli_command": "10 commands (10 successful): aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json; aws cloudformation describe-stacks --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.755742",
+=======
+          "timestamp": "2025-11-04T16:37:30.265525",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
@@ -679,7 +799,11 @@
           "cli_command": "3 commands (3 successful): aws logs describe-log-groups --output json; aws cloudtrail describe-trails --output json; aws cloudwatch describe-alarms --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.756031",
+=======
+          "timestamp": "2025-11-04T16:37:30.265810",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
@@ -702,7 +826,11 @@
           "cli_command": "9 commands (9 successful): aws ec2 describe-instances --output json; aws rds describe-db-instances --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.756495",
+=======
+          "timestamp": "2025-11-04T16:37:30.266268",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -725,7 +853,11 @@
           "cli_command": "5 commands (1 successful): aws codecommit get-repository --repository-name security-governance --output json; aws codecommit get-folder --repository-name security-governance --folder-path policies/security-objectives/ --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 4/5 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.756637",
+=======
+          "timestamp": "2025-11-04T16:37:30.266424",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 1,
@@ -748,7 +880,11 @@
           "cli_command": "4 commands (1 successful): aws codecommit list-repositories --output json; aws codecommit get-file --repository-name security-governance --file-path policies/vulnerability-disclosure-policy.md --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 3/4 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.756752",
+=======
+          "timestamp": "2025-11-04T16:37:30.266536",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 1,
@@ -771,7 +907,11 @@
           "cli_command": "4 commands (4 successful): aws codebuild list-projects --output json; aws codepipeline list-pipelines --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.757029",
+=======
+          "timestamp": "2025-11-04T16:37:30.266825",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -794,7 +934,11 @@
           "cli_command": "3 commands (0 successful): aws codecommit get-file --repository-name security-governance --file-path policies/evaluation-methodology.md --output json; aws codecommit get-folder --repository-name security-governance --folder-path procedures/ --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u274c All 3 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.757135",
+=======
+          "timestamp": "2025-11-04T16:37:30.266930",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 0,
@@ -817,7 +961,11 @@
           "cli_command": "6 commands (6 successful): aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin --start-time $(date -u -d '30 days ago' '+%Y-%m-%dT%H:%M:%S') --max-items 50 --output json; aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=PutConfigRule --start-time $(date -u -d '90 days ago' '+%Y-%m-%dT%H:%M:%S') --max-items 50 --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.760636",
+=======
+          "timestamp": "2025-11-04T16:37:30.270437",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
@@ -840,7 +988,11 @@
           "cli_command": "3 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path policies/supply-chain-risk-management.md --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json; aws codecommit list-approval-rule-templates --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 2/3 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.760932",
+=======
+          "timestamp": "2025-11-04T16:37:30.270730",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 1,
@@ -863,7 +1015,11 @@
           "cli_command": "6 commands (6 successful): aws rds describe-db-instances --output json; aws backup list-backup-plans --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.761089",
+=======
+          "timestamp": "2025-11-04T16:37:30.270885",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
@@ -886,7 +1042,11 @@
           "cli_command": "3 commands (3 successful): aws backup list-backup-plans --output json; aws backup list-backup-vaults --output json; aws ec2 describe-snapshots --owner-ids self --max-results 100 --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.761736",
+=======
+          "timestamp": "2025-11-04T16:37:30.271533",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
@@ -909,7 +1069,11 @@
           "cli_command": "5 commands (5 successful): aws backup list-backup-plans --output json; PLAN_ID=$(aws backup list-backup-plans --query 'BackupPlansList[0].BackupPlanId' --output text 2>/dev/null || echo 'none'); if [ \"$PLAN_ID\" != \"none\" ]; then aws backup get-backup-plan --backup-plan-id \"$PLAN_ID\" --output json; else echo '{\"BackupPlan\": null}'; fi (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.766537",
+=======
+          "timestamp": "2025-11-04T16:37:30.276371",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
@@ -932,7 +1096,11 @@
           "cli_command": "4 commands (4 successful): aws backup list-backup-jobs --by-state COMPLETED --by-created-after $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v-30d +%Y-%m-%dT%H:%M:%SZ) --max-results 50 --output json; aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,LatestRestorableTime]' --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.767491",
+=======
+          "timestamp": "2025-11-04T16:37:30.277311",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
@@ -955,7 +1123,11 @@
           "cli_command": "11 commands (11 successful): aws ec2 describe-security-groups --output json; aws ec2 describe-instances --output json (+9 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 11 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.769882",
+=======
+          "timestamp": "2025-11-04T16:37:30.279616",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 11,
           "successful_commands": 11,
@@ -978,7 +1150,11 @@
           "cli_command": "9 commands (9 successful): aws elbv2 describe-load-balancers --output json; for arn in $(aws elbv2 describe-load-balancers --query 'LoadBalancers[].LoadBalancerArn' --output text 2>/dev/null || echo ''); do aws elbv2 describe-listeners --load-balancer-arn $arn --output json; done (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.770245",
+=======
+          "timestamp": "2025-11-04T16:37:30.279969",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -1001,7 +1177,11 @@
           "cli_command": "10 commands (10 successful): aws s3api list-buckets --output json; aws ec2 describe-volumes --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.771465",
+=======
+          "timestamp": "2025-11-04T16:37:30.281232",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
@@ -1024,7 +1204,11 @@
           "cli_command": "10 commands (10 successful): aws ssm describe-parameters --output json; aws configservice describe-configuration-recorders --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.773587",
+=======
+          "timestamp": "2025-11-04T16:37:30.283334",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
@@ -1047,7 +1231,11 @@
           "cli_command": "10 commands (10 successful): aws cloudtrail describe-trails --output json; aws kms list-keys --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.773967",
+=======
+          "timestamp": "2025-11-04T16:37:30.283711",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
@@ -1070,7 +1258,11 @@
           "cli_command": "9 commands (9 successful): aws kms list-keys --output json; aws acm list-certificates --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.774284",
+=======
+          "timestamp": "2025-11-04T16:37:30.284049",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
@@ -1093,7 +1285,11 @@
           "cli_command": "10 commands (10 successful): aws ssm describe-patch-baselines --output json; aws ssm describe-instance-information --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.776127",
+=======
+          "timestamp": "2025-11-04T16:37:30.286263",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
@@ -1116,7 +1312,11 @@
           "cli_command": "3 commands (3 successful): aws lambda list-functions --query 'Functions[?contains(FunctionName, `policy`) || contains(FunctionName, `compliance`)]' --output json; aws logs describe-log-groups --log-group-name-prefix '/aws/lambda/lms-policy' --output json; aws ssm get-parameter --name '/lms-compliance/policies' --output json || echo '{\"Parameter\": null}'",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.776546",
+=======
+          "timestamp": "2025-11-04T16:37:30.286670",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
@@ -1139,7 +1339,11 @@
           "cli_command": "3 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path policies/supply-chain-risk-management.md; aws codecommit list-approval-rule-templates --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 2/3 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.776658",
+=======
+          "timestamp": "2025-11-04T16:37:30.286809",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 1,
@@ -1162,7 +1366,11 @@
           "cli_command": "6 commands (6 successful): aws inspector2 get-configuration --output json; aws inspector2 list-findings --filter-criteria '{\"componentType\":[{\"comparison\":\"EQUALS\",\"value\":\"OPERATING_SYSTEM\"}]}' --max-results 50 --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-04T16:36:52.779151",
+=======
+          "timestamp": "2025-11-04T16:37:30.289266",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
@@ -1184,7 +1392,11 @@
   ],
   "consistency_checks": [
     {
+<<<<<<< Updated upstream
       "timestamp": "2025-11-04T16:36:54.960924",
+=======
+      "timestamp": "2025-11-04T16:37:32.239575",
+>>>>>>> Stashed changes
       "consistency_score": 100.0,
       "issues_found": 0,
       "infrastructure_fingerprint": "9e139d226e4bcdb6",

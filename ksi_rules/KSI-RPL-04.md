@@ -4,7 +4,11 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-04 16:36
+=======
+**Last Check:** 2025-11-04 16:37
+>>>>>>> Stashed changes
 
 **What it validates:** Test recovery procedures regularly
 
@@ -32,4 +36,8 @@ PASS Good recovery testing capability established (57%): PASS Backup infrastruct
 - PASS Recovery test tracking: Last test execution tracked - Not configured
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-04 16:36 UTC*
+=======
+*Generated 2025-11-04 16:37 UTC*
+>>>>>>> Stashed changes
