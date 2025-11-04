@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** FAIL
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-04 12:20
-=======
-**Last Check:** 2025-11-04 12:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-04 16:36
 
 **What it validates:** Implement DDoS protection and defense-in-depth network security
 
@@ -55,8 +51,4 @@ Below threshold: 5/16 (31.2%) - requires 50.0% for LOW impact: PASS VPC infrastr
 - PASS Traffic visibility: 2 VPC Flow Log groups for traffic monitoring
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-04 12:20 UTC*
-=======
-*Generated 2025-11-04 12:41 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-04 16:36 UTC*

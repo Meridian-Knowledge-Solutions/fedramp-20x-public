@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-04 12:20
-=======
-**Last Check:** 2025-11-04 12:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-04 16:36
 
 **What it validates:** Implement enterprise-wide identity federation
 
@@ -35,8 +31,4 @@ PASS Excellent authentication security (passwordless methods): PASS 1 SAML provi
 - PASS Centralized MFA via SAML/IdP (traditional MFA not required)
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-04 12:20 UTC*
-=======
-*Generated 2025-11-04 12:41 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-04 16:36 UTC*

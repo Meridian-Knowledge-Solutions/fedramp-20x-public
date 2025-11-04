@@ -4,11 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-04 12:20
-=======
-**Last Check:** 2025-11-04 12:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-04 16:36
 
 **What it validates:** Develop and maintain a recovery plan that aligns with the defined recovery objectives
 
@@ -33,8 +29,4 @@ PASS Excellent, automated recovery plan (100%): PASS [Plan] Recovery plan is imp
 - PASS [Evidence] Recovery readiness is demonstrated by the existence of 100 recent EBS snapshots.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-04 12:20 UTC*
-=======
-*Generated 2025-11-04 12:41 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-04 16:36 UTC*
