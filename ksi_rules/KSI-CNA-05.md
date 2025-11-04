@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-04 16:36
-=======
-**Last Check:** 2025-11-04 16:37
->>>>>>> Stashed changes
+**Last Check:** 2025-11-04 18:19
 
 **What it validates:** Protect against denial of service attacks and unwanted spam
 
@@ -52,8 +48,4 @@ PASS Excellent DDoS and spam protection (86%): PASS Network-layer protection: AW
 - spam protection checks not applicable.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-04 16:36 UTC*
-=======
-*Generated 2025-11-04 16:37 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-04 18:19 UTC*

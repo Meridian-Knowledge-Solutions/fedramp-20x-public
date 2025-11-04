@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-04 16:36
-=======
-**Last Check:** 2025-11-04 16:37
->>>>>>> Stashed changes
+**Last Check:** 2025-11-04 18:19
 
 **What it validates:** Implement end-to-end logging to capture security events
 
@@ -46,8 +42,4 @@ PASS Strong SIEM and logging capabilities (60%): FAIL [Collection] No CloudTrail
 - PASS [Analysis] Advanced threat analysis is enabled through Security Hub, with 20 recent findings.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-04 16:36 UTC*
-=======
-*Generated 2025-11-04 16:37 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-04 18:19 UTC*

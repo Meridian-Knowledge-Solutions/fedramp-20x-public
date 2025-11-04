@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
-  "timestamp": "2025-11-04T16:36:54.963773",
-=======
-  "timestamp": "2025-11-04T16:37:32.242458",
->>>>>>> Stashed changes
+  "timestamp": "2025-11-04T18:19:40.063604",
   "total_ksis_validated": 51,
   "technical_issues_found": 7,
   "issues": [
