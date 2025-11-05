@@ -1,15 +1,9 @@
 {
-  "timestamp": "2025-11-05T01:00:35.260443",
+  "timestamp": "2025-11-05T04:36:48.108372",
   "total_ksis_validated": 51,
-  "technical_issues_found": 7,
+  "technical_issues_found": 1,
   "issues": [
-    "KSI-CNA-01: Assertion is False but reason contains only success indicators",
-    "KSI-INR-01: High CLI failure rate (57%): 4/7 failed",
-    "KSI-PIY-02: High CLI failure rate (80%): 4/5 failed",
-    "KSI-PIY-03: All 4 CLI commands failed execution",
-    "KSI-PIY-05: All 3 CLI commands failed execution",
-    "KSI-PIY-07: High CLI failure rate (67%): 2/3 failed",
-    "KSI-TPR-03: High CLI failure rate (67%): 2/3 failed"
+    "KSI-CNA-01: Assertion is False but reason contains only success indicators"
   ],
   "status": "warning",
   "categories_checked": [
