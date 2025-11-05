@@ -294,29 +294,37 @@
     ]
   },
    "KSI-CNA-08": {
-    "description": "Use automated services to persistently assess and enforce secure operations",
-    "justification": "Validates a multi-layered automation strategy, including persistent assessment (Security Hub, Config) and automated enforcement (SSM Associations, custom Lambda functions).",
-    "cli_commands": [
-      {
-        "command": "aws securityhub get-enabled-standards --output json",
-        "note": "Validates the foundational framework for persistent assessment."
-      },
-      {
-        "command": "aws configservice describe-config-rules --output json",
-        "note": "Measures the breadth of persistent security assessment."
-      },
-      {
-        "command": "aws configservice describe-configuration-recorder-status --output json",
-        "note": "Verifies that assessment data is actively being recorded."
-      },
-      {
-        "command": "aws ssm list-associations --output json || echo '{\"Associations\": []}'",
-        "note": "Validates automated enforcement via SSM State Manager associations."
-      },
-      {
-        "command": "aws lambda list-functions --output json",
-        "note": "Identifies custom, event-driven enforcement capabilities via Lambda."
-      }
+  "description": "Use automated services to persistently assess and enforce secure operations",
+  "justification": "Validates a multi-layered automation strategy, including persistent assessment (Security Hub, Config) and automated enforcement (SSM Associations, custom Lambda functions).",
+  "cli_commands": [
+    {
+      "command": "aws securityhub get-enabled-standards --output json",
+      "note": "Validates the foundational framework for persistent assessment."
+    },
+    {
+      "command": "aws configservice describe-config-rules --output json",
+      "note": "Measures the breadth of persistent security assessment."
+    },
+    {
+      "command": "aws configservice describe-configuration-recorder-status --output json",
+      "note": "Verifies that assessment data is actively being recorded."
+    },
+    {
+      "command": "aws securityhub describe-hub --output json",
+      "note": "Checks for centralized visibility via Security Hub. (Added for 'Measurement Visibility' score)."
+    },
+    {
+      "command": "aws configservice describe-configuration-aggregators --output json",
+      "note": "Checks for enterprise-wide visibility via Config aggregators. (Added for 'Measurement Visibility' score)."
+    },
+    {
+      "command": "aws ssm list-associations --output json || echo '{\"Associations\": []}'",
+      "note": "Validates automated enforcement via SSM State Manager associations."
+    },
+    {
+      "command": "aws lambda list-functions --output json",
+      "note": "Identifies custom, event-driven enforcement capabilities via Lambda."
+    }
     ]
   },
   "KSI-SVC-01": {
@@ -374,36 +382,40 @@
     "justification": "Validates comprehensive encryption in transit from basic TLS to enterprise-grade certificate management and cryptographic compliance",
     "cli_commands": [
       {
-        "command": "for arn in $(aws elbv2 describe-load-balancers --query 'LoadBalancers[].LoadBalancerArn' --output text); do aws elbv2 describe-listeners --load-balancer-arn $arn --output json; done",
-        "note": "Check load balancer listeners for TLS 1.2+ enforcement"
+        "command": "aws elbv2 describe-load-balancers --output json",
+        "note": "Get Load Balancer ARNs needed for listener checks."
+      },
+      {
+        "command": "for arn in $(aws elbv2 describe-load-balancers --query 'LoadBalancers[].LoadBalancerArn' --output text 2>/dev/null || echo ''); do aws elbv2 describe-listeners --load-balancer-arn $arn --output json; done",
+        "note": "Check load balancer listeners for TLS 1.2+ enforcement (collects all listeners)."
       },
       {
         "command": "aws ec2 describe-vpc-endpoints --output json",
-        "note": "Validate VPC endpoints using encrypted connections"
+        "note": "Validate VPC endpoints using encrypted connections."
       },
       {
         "command": "aws cloudfront list-distributions --output json",
-        "note": "Check CloudFront distributions for TLS 1.2+ minimum protocol"
+        "note": "Check CloudFront distributions for TLS 1.2+ minimum protocol."
       },
       {
         "command": "aws apigateway get-rest-apis --output json",
-        "note": "Validate API Gateway TLS configurations"
+        "note": "Validate API Gateway TLS configurations (HTTPS is default)."
       },
       {
         "command": "aws rds describe-db-instances --output json",
-        "note": "Check RDS instances for SSL/TLS enforcement"
+        "note": "Check RDS instances for SSL/TLS enforcement parameters (indirect check)."
       },
       {
         "command": "aws elasticache describe-cache-clusters --output json",
-        "note": "Validate ElastiCache encryption in transit"
+        "note": "Validate ElastiCache encryption in transit."
       },
       {
         "command": "aws acm list-certificates --output json",
-        "note": "Check ACM certificates for TLS 1.2+ support and validity"
+        "note": "Check ACM certificates for TLS 1.2+ support and validity."
       },
       {
         "command": "aws organizations describe-organization --output json",
-        "note": "Validate organization-wide encryption in transit policies"
+        "note": "Validate organization-wide encryption in transit policies."
       }
     ]
   },
@@ -589,43 +601,47 @@
   },
   "KSI-SVC-07": {
     "description": "Perform regularly scheduled scans for vulnerabilities and apply patches promptly",
-    "justification": "Validates comprehensive vulnerability management from basic patch baselines to enterprise-grade automated scanning, remediation, and compliance",
+    "justification": "Validates comprehensive vulnerability management from basic patch baselines to enterprise-grade automated scanning, remediation, compliance monitoring, and governance.",
     "cli_commands": [
       {
         "command": "aws ssm describe-patch-baselines --output json",
-        "note": "Check SSM patch baselines for vulnerability management"
+        "note": "Check SSM patch baselines for vulnerability management."
       },
       {
         "command": "aws ssm describe-instance-information --output json",
-        "note": "Validate SSM managed instances for patch compliance"
+        "note": "Validate SSM managed instances for patch compliance."
       },
       {
         "command": "aws ssm describe-patch-groups --output json",
-        "note": "Check patch groups for organized vulnerability remediation"
+        "note": "Check patch groups for organized vulnerability remediation."
       },
       {
         "command": "aws ssm list-documents --document-filter-list key=DocumentType,value=Automation --output json",
-        "note": "Validate SSM automation for scheduled patch deployment"
+        "note": "Validate SSM automation for scheduled patch deployment."
       },
       {
         "command": "aws ssm describe-maintenance-windows --output json",
-        "note": "Check maintenance windows for scheduled patching operations"
+        "note": "Check maintenance windows for scheduled patching operations."
       },
       {
         "command": "aws inspector2 get-configuration --output json",
-        "note": "Validate Inspector for continuous vulnerability scanning"
+        "note": "Validate Inspector for continuous vulnerability scanning."
       },
       {
         "command": "aws ecr describe-repositories --output json",
-        "note": "Check ECR repositories for container image vulnerability scanning"
+        "note": "Check ECR repositories for container image vulnerability scanning."
       },
       {
         "command": "aws lambda list-layers --output json",
-        "note": "Validate Lambda layers for serverless vulnerability management"
+        "note": "Validate Lambda layers for serverless vulnerability management."
+      },
+      {
+        "command": "aws configservice describe-config-rules --output json",
+        "note": "Check Config Rules for patch compliance monitoring."
       },
       {
         "command": "aws organizations describe-organization --output json",
-        "note": "Check organization-wide vulnerability management policies"
+        "note": "Check organization-wide vulnerability management policies."
       }
     ]
   },
@@ -748,25 +764,25 @@
     ]
   },
  "KSI-IAM-03": {
-  "description": "Implement least privilege access via role-based access control policies",
-  "justification": "Fails immediately if any IAM user exists without a console password, as this indicates a service account using insecure, long-lived credentials. It then scores the account based on its adoption of IAM roles.",
-  "cli_commands": [
-    {
-      "command": "aws iam list-roles --output json",
-      "note": "Check for a strong foundation of IAM roles for service authentication."
-    },
-    {
-      "command": "aws iam list-users --output json",
-      "note": "Identify all traditional IAM users for analysis."
-    },
-    {
-      "command": "aws ec2 describe-instances --query 'Reservations[*].Instances[*].IamInstanceProfile.Arn' --output json",
-      "note": "Verify that all running EC2 instances are using IAM roles."
-    },
-    {
-      "command": "for user in $(aws iam list-users --query 'Users[].UserName' --output text); do aws iam get-login-profile --user-name \"$user\" --output json; done",
-      "note": "CRITICAL: Check for console passwords. A failure for any user indicates a service account, which is an anti-pattern."
-    }
+    "description": "Implement least privilege access via role-based access control policies",
+    "justification": "Fails immediately if any IAM user exists without a console password, as this indicates a service account using insecure, long-lived credentials. It then scores the account based on its adoption of IAM roles.",
+    "cli_commands": [
+      {
+        "command": "aws iam list-roles --output json",
+        "note": "Check for a strong foundation of IAM roles for service authentication."
+      },
+      {
+        "command": "aws iam list-users --output json",
+        "note": "Identify all traditional IAM users for analysis."
+      },
+      {
+        "command": "aws ec2 describe-instances --output json",
+        "note": "Verify that all running EC2 instances are using IAM roles (Provides full instance data)."
+      },
+      {
+        "command": "for user in $(aws iam list-users --query 'Users[].UserName' --output text 2>/dev/null || echo ''); do aws iam get-login-profile --user-name \"$user\" --output json 2>/dev/null || true; done",
+        "note": "CRITICAL: Check for console passwords. A failure here for a user implies they *lack* a password (service user anti-pattern)."
+      }
     ]
   },
    "KSI-IAM-04": {
@@ -857,19 +873,23 @@
   },
   "KSI-IAM-07": {
     "description": "Implement a consistent identity management process",
-    "justification": "Validates comprehensive identity lifecycle management from basic IAM to enterprise-grade identity governance and automated provisioning",
+    "justification": "Validates comprehensive identity lifecycle management, including role usage, policy activity, and centralized management via AWS Identity Center.",
     "cli_commands": [
       {
         "command": "aws iam list-roles --output json",
-        "note": "Check IAM roles for consistent identity management"
+        "note": "Check IAM roles for consistent identity management."
       },
       {
         "command": "aws iam list-users --output json",
-        "note": "Validate IAM users and lifecycle management"
+        "note": "Validate IAM users and lifecycle management."
       },
       {
         "command": "aws iam list-policies --scope Local --output json",
-        "note": "Check custom IAM policies for consistent identity governance"
+        "note": "Check custom IAM policies for consistent identity governance and activity."
+      },
+      {
+        "command": "aws sso-admin list-instances --output json",
+        "note": "Check for AWS Identity Center (SSO) usage for central management."
       }
     ]
   },
@@ -947,7 +967,7 @@
   },
   "KSI-MLA-03": {
     "description": "Rapidly detect and remediate or mitigate vulnerabilities",
-    "justification": "Validates comprehensive vulnerability detection from basic security monitoring to enterprise-grade automated remediation and threat intelligence",
+    "justification": "Validates comprehensive vulnerability detection, including Config rules, Inspector scanning, active findings, patch management, automated response, and enterprise governance.",
     "cli_commands": [
       {
         "command": "aws securityhub get-enabled-standards --region us-east-1 --output json",
@@ -974,6 +994,10 @@
         "note": "Validate CloudWatch alarms for vulnerability detection alerts"
       },
       {
+        "command": "aws configservice describe-config-rules --output json",
+        "note": "Check Config Rules for configuration vulnerability detection."
+      },
+      {
         "command": "aws organizations describe-organization --output json",
         "note": "Check organization-wide vulnerability management policies"
       }
@@ -981,7 +1005,7 @@
   },
   "KSI-MLA-05": {
     "description": "Use change management tools to enforce, track and report configuration changes",
-    "justification": "Validates comprehensive change tracking from basic CloudTrail to enterprise-grade automated governance and compliance reporting",
+    "justification": "Validates comprehensive change tracking from basic CloudTrail and Config rules to enterprise-grade automated governance and compliance reporting",
     "cli_commands": [
       {
         "command": "aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json",
@@ -990,6 +1014,10 @@
       {
         "command": "aws cloudformation describe-stacks --output json",
         "note": "Validate stack details for change tracking and history"
+      },
+      {
+        "command": "aws configservice describe-config-rules --output json",
+        "note": "Check Config Rules for compliance evaluation during change management"
       },
       {
         "command": "aws ssm describe-parameters --max-results 50 --output json",
@@ -1142,44 +1170,24 @@
     ]
   },
   "KSI-CMT-03": {
-    "description": "Use CI/CD pipelines for deploying changes",
-    "justification": "Validates comprehensive CI/CD implementation from basic CodePipeline to enterprise-grade GitOps and automated deployment validation",
+    "description": "Implement persistent automated testing and validation of changes",
+    "justification": "Validates automated validation via IaC artifacts and live continuous compliance rules (AWS Config).",
     "cli_commands": [
       {
-        "command": "aws codebuild list-projects --output json",
-        "note": "Check CodeBuild projects for CI/CD build automation"
-      },
-      {
-        "command": "aws codepipeline list-pipelines --output json",
-        "note": "Validate CodePipeline for automated deployment workflows"
-      },
-      {
-        "command": "aws lambda list-functions --output json",
-        "note": "Check Lambda functions for serverless CI/CD automation"
-      },
-      {
-        "command": "aws events list-rules --output json",
-        "note": "Validate EventBridge rules for CI/CD event-driven automation"
+        "command": "aws config describe-config-rules --output json",
+        "note": "Check for active AWS Config rules for continuous compliance validation"
       },
       {
         "command": "aws cloudformation validate-template --template-url https://s3.amazonaws.com/cloudformation-templates-us-east-1/WordPress_Single_Instance.template --output json || echo '{\"Parameters\": []}'",
-        "note": "Check CloudFormation template validation in CI/CD"
+        "note": "Check CloudFormation template validation capability"
       },
       {
-        "command": "aws servicecatalog search-products --output json",
-        "note": "Validate Service Catalog for standardized CI/CD templates"
+        "command": "aws codebuild list-projects --output json",
+        "note": "Check for build automation foundation (optional bonus)"
       },
       {
-        "command": "aws organizations describe-organization --output json",
-        "note": "Check organization-wide CI/CD governance policies"
-      },
-      {
-        "command": "aws codebuild batch-get-builds --ids $(aws codebuild list-builds --max-items 1 --query 'ids[0]' --output text 2>/dev/null || echo 'none') --output json 2>/dev/null || echo '{\"builds\": []}'",
-        "note": "Validate recent CI/CD build execution details"
-      },
-      {
-        "command": "PIPELINE_NAME=$(aws codepipeline list-pipelines --query 'pipelines[0].name' --output text 2>/dev/null || echo 'none'); if [ \"$PIPELINE_NAME\" != \"none\" ]; then EXEC_ID=$(aws codepipeline list-pipeline-executions --pipeline-name \"$PIPELINE_NAME\" --max-items 1 --query 'pipelineExecutionSummaries[0].pipelineExecutionId' --output text 2>/dev/null || echo 'none'); if [ \"$EXEC_ID\" != \"none\" ]; then aws codepipeline get-pipeline-execution --pipeline-name \"$PIPELINE_NAME\" --pipeline-execution-id \"$EXEC_ID\" --output json; else echo '{\"pipelineExecution\": null}'; fi; else echo '{\"pipelineExecution\": null}'; fi",
-        "note": "Check recent pipeline execution for deployment validation"
+        "command": "aws codepipeline list-pipelines --output json",
+        "note": "Check for pipeline automation foundation (optional bonus)"
       }
     ]
   },
@@ -1281,19 +1289,23 @@
   },
   "KSI-PIY-03": {
     "description": "Maintain a vulnerability disclosure program",
-    "justification": "Validates vulnerability disclosure program with submission procedures, response timelines, and public contact information.",
+    "justification": "Validates vulnerability disclosure program through CodeCommit policy repository with submission process, response procedures, and maintenance tracking",
     "cli_commands": [
       {
+        "command": "aws codecommit list-repositories --output json",
+        "note": "Verify security-governance repository exists"
+      },
+      {
         "command": "aws codecommit get-file --repository-name security-governance --file-path policies/vulnerability-disclosure-policy.md --output json",
-        "note": "Retrieve vulnerability disclosure policy document"
+        "note": "Retrieve vulnerability disclosure policy from CodeCommit"
       },
       {
-        "command": "aws codecommit get-folder --repository-name security-governance --folder-path policies/ --output json",
-        "note": "List supporting VDP documentation"
+        "command": "aws codecommit get-differences --repository-name security-governance --after-commit-specifier HEAD --output json",
+        "note": "Check VDP maintenance activity through commit history"
       },
       {
-        "command": "aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
-        "note": "Check VDP maintenance and updates"
+        "command": "aws codecommit get-folder --repository-name security-governance --folder-path policies --output json",
+        "note": "List all policy documents for supporting VDP documentation"
       }
     ]
   },
@@ -1562,12 +1574,8 @@
   },
   "KSI-RPL-04": {
     "description": "Test recovery procedures regularly",
-    "justification": "Validates comprehensive recovery testing from basic restore validation to enterprise-grade chaos engineering and automated DR drills",
+    "justification": "Validates recovery testing by checking for recent, successful backup jobs, RDS point-in-time recovery (PITR) capability, and by parsing CloudWatch logs from the 'fedramp-backup-restore' Lambda to confirm successful automated test execution.",
     "cli_commands": [
-      {
-        "command": "aws backup list-restore-jobs --max-results 20 --output json",
-        "note": "Check restore job history for recovery testing validation"
-      },
       {
         "command": "aws backup list-backup-jobs --by-state COMPLETED --by-created-after $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v-30d +%Y-%m-%dT%H:%M:%SZ) --max-results 50 --output json",
         "note": "Validate recent backup jobs for recovery readiness"
@@ -1577,20 +1585,12 @@
         "note": "Check RDS latest restorable time for point-in-time recovery testing"
       },
       {
-        "command": "RESTORE_JOB_ID=$(aws backup list-restore-jobs --max-results 1 --query 'RestoreJobs[0].RestoreJobId' --output text 2>/dev/null || echo 'none'); if [ \"$RESTORE_JOB_ID\" != \"none\" ]; then aws backup describe-restore-job --restore-job-id \"$RESTORE_JOB_ID\" --output json; else echo '{\"RestoreJob\": null}'; fi",
-        "note": "Validate recent restore job details for recovery testing documentation"
+        "command": "aws lambda get-function --function-name fedramp-backup-restore --output json || echo '{\"Configuration\": null}'",
+        "note": "Verify the automated recovery testing Lambda function exists."
       },
       {
-        "command": "INSTANCE_ID=$(aws ec2 describe-instances --filters 'Name=instance-state-name,Values=running' --query 'Reservations[0].Instances[0].InstanceId' --output text 2>/dev/null || echo 'none'); if [ \"$INSTANCE_ID\" != \"none\" ]; then aws ssm describe-instance-associations --instance-id \"$INSTANCE_ID\" --output json 2>/dev/null || echo '{\"Associations\": []}'; else echo '{\"Associations\": []}'; fi",
-        "note": "Check SSM associations for automated recovery testing"
-      },
-      {
-        "command": "aws lambda invoke --function-name automated-recovery-test --payload '{}' /tmp/recovery-test-result.json 2>&1 || echo 'No automated recovery test function'",
-        "note": "Validate automated recovery testing Lambda function"
-      },
-      {
-        "command": "aws ssm get-parameter --name '/recovery/last-test-date' --query 'Parameter.Value' --output text || echo 'Not configured'",
-        "note": "Check SSM Parameter Store for documented recovery test dates"
+        "command": "aws logs filter-log-events --log-group-name /aws/lambda/fedramp-backup-restore --filter-pattern '?\"Validation Summary:\" ?\"restore job(s) failed!\"' --start-time $(date -u -d '7 days ago' +%s000 2>/dev/null || date -u -v-7d +%s000) --output json",
+        "note": "Get recent recovery test summary and failure logs from the Lambda."
       }
     ]
   },
@@ -1677,4 +1677,3 @@
     ]
   }
 }
-
