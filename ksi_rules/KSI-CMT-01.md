@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-06 16:36
+**Last Check:** 2025-11-06 20:34
 
 **What it validates:** Document a change management policy for all system modifications
 
@@ -15,25 +15,28 @@
 1. `aws cloudtrail describe-trails --output json`
    *Check CloudTrail for change audit logging and compliance*
 
-2. `aws logs describe-log-groups --output json`
+2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{"IsLogging": false}'`
+   *Check the *active logging status* of the primary trail.*
+
+3. `aws logs describe-log-groups --output json`
    *Validate CloudWatch Logs for change management event tracking*
 
-3. `aws events list-rules --output json`
+4. `aws events list-rules --output json`
    *Check EventBridge rules for automated change workflows*
 
-4. `aws cloudwatch describe-alarms --output json`
+5. `aws cloudwatch describe-alarms --output json`
    *Validate CloudWatch alarms for change monitoring*
 
-5. `aws sns list-topics --output json`
+6. `aws sns list-topics --output json`
    *Check SNS topics for change notification workflows*
 
-6. `aws lambda list-functions --output json`
+7. `aws lambda list-functions --output json`
    *Validate Lambda functions for automated change management*
 
-7. `aws ssm describe-instance-information --output json`
+8. `aws ssm describe-instance-information --output json`
    *Check SSM for configuration management and change tracking*
 
-8. `aws organizations describe-organization --output json`
+9. `aws organizations describe-organization --output json`
    *Validate organization-wide change management policies*
 
 ## Latest Results
@@ -53,4 +56,4 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Advanced organization features: SCPs for modification policy enforcement
 
 ---
-*Generated 2025-11-06 16:36 UTC*
+*Generated 2025-11-06 20:34 UTC*

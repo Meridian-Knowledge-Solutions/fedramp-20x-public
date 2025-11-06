@@ -33,4 +33,4 @@
    *Identifies custom, event-driven enforcement capabilities via Lambda.*
 
 ---
-*Generated 2025-11-06 16:36 UTC*
+*Generated 2025-11-06 20:34 UTC*
