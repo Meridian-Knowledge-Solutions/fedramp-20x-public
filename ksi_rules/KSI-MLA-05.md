@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-06 00:59
+**Last Check:** 2025-11-06 04:39
 
 **What it validates:** Use change management tools to enforce, track and report configuration changes
 
@@ -12,35 +12,20 @@
 
 ## Validation Method
 
-1. `aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json`
-   *Check CloudFormation stacks for infrastructure change management*
-
-2. `aws cloudformation describe-stacks --output json`
-   *Validate stack details for change tracking and history*
-
-3. `aws configservice describe-config-rules --output json`
+1. `aws configservice describe-config-rules --output json`
    *Check Config Rules for compliance evaluation during change management*
 
-4. `aws ssm describe-parameters --max-results 50 --output json`
+2. `aws ssm describe-parameters --max-results 50 --output json`
    *Check SSM parameters for configuration change management*
 
-5. `aws codebuild list-projects --output json`
-   *Validate CodeBuild for automated change deployment pipelines*
-
-6. `aws codepipeline list-pipelines --output json`
-   *Check CodePipeline for change management automation*
-
-7. `aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::CloudFormation::Stack --max-items 20 --output json`
+3. `aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::CloudFormation::Stack --max-items 20 --output json`
    *Validate CloudTrail audit logs for configuration changes*
 
-8. `aws resourcegroupstaggingapi get-resources --resource-type-filters cloudformation --output json`
+4. `aws resourcegroupstaggingapi get-resources --resource-type-filters cloudformation --output json`
    *Check resource tagging for change management governance*
 
-9. `aws organizations describe-organization --output json`
+5. `aws organizations describe-organization --output json`
    *Validate organization-wide change management policies*
-
-10. `aws servicecatalog search-products --output json`
-   *Check Service Catalog for standardized change templates*
 
 ## Latest Results
 
@@ -60,4 +45,4 @@ PASS Enterprise-grade Infrastructure as Code evaluation and testing (100%): PASS
 - PASS Organizational infrastructure: Centralized account management
 
 ---
-*Generated 2025-11-06 00:59 UTC*
+*Generated 2025-11-06 04:39 UTC*

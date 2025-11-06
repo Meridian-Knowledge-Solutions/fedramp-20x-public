@@ -78,7 +78,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-05](KSI-SVC-05.md): Use logging and monitoring to detect abnormal changes to configuration
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Use centralized key management services
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Perform regularly scheduled scans for vulnerabilities and apply patches promptly
-- [PENDING] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources
+- [PENDING] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources.
 - [PENDING] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
 - [PENDING] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
 
@@ -96,4 +96,4 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - **Not Tested:** 5
 
 ---
-*Generated 2025-11-06 00:59 UTC*
+*Generated 2025-11-06 04:39 UTC*

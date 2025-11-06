@@ -4,7 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-06 00:59
+**Last Check:** 2025-11-06 04:39
 
 **What it validates:** Respond to incidents according to FedRAMP requirements and cloud service provider policies
 
@@ -28,9 +28,12 @@
    *Verify GuardDuty threat detection enabled*
 
 6. `aws cloudtrail describe-trails --output json`
-   *Verify CloudTrail audit logging for incident investigation*
+   *Validate CloudTrail managed service for audit logging*
 
-7. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
+7. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{"IsLogging": false}'`
+   *Check active CloudTrail logging status*
+
+8. `aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json`
    *Check incident response plan maintenance*
 
 ## Latest Results
@@ -42,4 +45,4 @@ PASS Comprehensive FedRAMP incident response (10/11): PASS Incident response pla
 - PASS Incident response plan maintenance: 1 updates
 
 ---
-*Generated 2025-11-06 00:59 UTC*
+*Generated 2025-11-06 04:39 UTC*

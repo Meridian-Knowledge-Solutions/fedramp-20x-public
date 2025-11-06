@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-06 00:59
+**Last Check:** 2025-11-06 04:39
 
 **What it validates:** Implement end-to-end logging to capture security events
 
@@ -13,10 +13,10 @@
 ## Validation Method
 
 1. `aws cloudtrail describe-trails --output json`
-   *Check CloudTrail configuration for log collection and integrity.*
+   *Validate CloudTrail managed service for audit logging*
 
-2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text 2>/dev/null || echo 'none') --output json || echo '{"IsLogging": false}'`
-   *CRITICAL: Check if the primary organization trail is actively logging.*
+2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{"IsLogging": false}'`
+   *Check active CloudTrail logging status*
 
 3. `aws logs describe-log-groups --output json`
    *Validate centralized log storage and retention policies in CloudWatch.*
@@ -42,4 +42,4 @@ PASS Strong SIEM and logging capabilities (60%): FAIL [Collection] No CloudTrail
 - PASS [Analysis] Advanced threat analysis is enabled through Security Hub, with 20 recent findings.
 
 ---
-*Generated 2025-11-06 00:59 UTC*
+*Generated 2025-11-06 04:39 UTC*

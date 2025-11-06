@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-06 00:59
+**Last Check:** 2025-11-06 04:39
 
 **What it validates:** Implement persistent automated testing and validation of changes
 
@@ -12,8 +12,8 @@
 
 ## Validation Method
 
-1. `aws config describe-config-rules --output json`
-   *Check for active AWS Config rules for continuous compliance validation*
+1. `aws configservice describe-config-rules --output json`
+   *Measures the breadth of persistent security assessment.*
 
 2. `aws cloudformation validate-template --template-url https://s3.amazonaws.com/cloudformation-templates-us-east-1/WordPress_Single_Instance.template --output json || echo '{"Parameters": []}'`
    *Check CloudFormation template validation capability*
@@ -33,4 +33,4 @@ PASS Good automated testing prior to deployment (50%): PASS Build automation: 3 
 - PASS Automated testing proof artifact found (automated_testing_proof.json).
 
 ---
-*Generated 2025-11-06 00:59 UTC*
+*Generated 2025-11-06 04:39 UTC*
