@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-06 12:40
+**Last Check:** 2025-11-06 16:36
 
 **What it validates:** Back up information regularly per the recovery point objective
 
@@ -34,4 +34,4 @@ PASS System backups with compliant retention aligned with recovery objectives: P
 - PASS Additional backup coverage: 646 EBS snapshots
 
 ---
-*Generated 2025-11-06 12:40 UTC*
+*Generated 2025-11-06 16:36 UTC*
