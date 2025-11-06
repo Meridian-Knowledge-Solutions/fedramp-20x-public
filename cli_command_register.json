@@ -646,23 +646,20 @@
     ]
   },
   "KSI-SVC-08": {
-    "description": "Use infrastructure as code to apply controls to the provisioning and management of resources",
-    "justification": "Validates a comprehensive IaC strategy by confirming the use of CloudFormation for deployments and AWS Config for tracking resource changes and detecting residual elements.",
-    "cli_commands": [
-      {
-        "command": "aws cloudformation list-stacks --output json",
-        "note": "Check for active CloudFormation stacks as primary evidence of IaC."
-      },
-      {
-        "command": "aws configservice describe-configuration-recorders --output json",
-        "note": "Verify that AWS Config is active for tracking changes and detecting residual elements."
-      },
-      {
-        "command": "aws lambda list-functions --output json",
-        "note": "Check for custom Lambda functions that support IaC or cleanup automation."
-      }
-    ]
-  },
+  "description": "Use infrastructure as code to apply controls to the provisioning and management of resources.",
+  "justification": "Validates a comprehensive IaC strategy by checking for: 1) Live IaC usage/management (Terraform .tfstate/.tfplan files in S3). 2) Automated security controls (Checkov/SARIF/automation artifacts).",
+  "cli_commands": [
+    {
+      "command": "aws s3 ls s3://mks-states/ --recursive",
+      "note": "Check S3 bucket for Terraform state files (.tfstate) as proof of IaC usage and plan files (.tfplan) as proof of a managed workflow."
+    }
+  ],
+  "artifact_evidence_paths": [
+    "evidence_v2/KSI-CMT-03/checkov_scan_summary.json",
+    "evidence_v2/KSI-CMT-03/automated_testing_proof.json",
+    "evidence_v2/KSI-CMT-03/sarif_metadata.json"
+  ]
+},
   "KSI-SVC-09": {
     "description": "Use TLS 1.2 or higher versions of secure protocols",
     "justification": "Validates the end-to-end use of modern, secure communication protocols (TLS 1.2+) across the infrastructure.",
@@ -897,13 +894,13 @@
     "description": "Implement end-to-end logging to capture security events",
     "justification": "Validates a comprehensive, multi-layered logging and SIEM strategy, including collection, integrity, storage, and analysis.",
     "cli_commands": [
-      {
+       {
         "command": "aws cloudtrail describe-trails --output json",
-        "note": "Check CloudTrail configuration for log collection and integrity."
+        "note": "Validate CloudTrail managed service for audit logging"
       },
       {
-        "command": "aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text 2>/dev/null || echo 'none') --output json || echo '{\"IsLogging\": false}'",
-        "note": "CRITICAL: Check if the primary organization trail is actively logging."
+        "command": "aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{\"IsLogging\": false}'",
+        "note": "Check active CloudTrail logging status"
       },
       {
         "command": "aws logs describe-log-groups --output json",
@@ -1004,49 +1001,29 @@
     ]
   },
   "KSI-MLA-05": {
-    "description": "Use change management tools to enforce, track and report configuration changes",
-    "justification": "Validates comprehensive change tracking from basic CloudTrail and Config rules to enterprise-grade automated governance and compliance reporting",
-    "cli_commands": [
-      {
-        "command": "aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json",
-        "note": "Check CloudFormation stacks for infrastructure change management"
-      },
-      {
-        "command": "aws cloudformation describe-stacks --output json",
-        "note": "Validate stack details for change tracking and history"
-      },
-      {
-        "command": "aws configservice describe-config-rules --output json",
-        "note": "Check Config Rules for compliance evaluation during change management"
-      },
-      {
-        "command": "aws ssm describe-parameters --max-results 50 --output json",
-        "note": "Check SSM parameters for configuration change management"
-      },
-      {
-        "command": "aws codebuild list-projects --output json",
-        "note": "Validate CodeBuild for automated change deployment pipelines"
-      },
-      {
-        "command": "aws codepipeline list-pipelines --output json",
-        "note": "Check CodePipeline for change management automation"
-      },
-      {
-        "command": "aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::CloudFormation::Stack --max-items 20 --output json",
-        "note": "Validate CloudTrail audit logs for configuration changes"
-      },
-      {
-        "command": "aws resourcegroupstaggingapi get-resources --resource-type-filters cloudformation --output json",
-        "note": "Check resource tagging for change management governance"
-      },
-      {
-        "command": "aws organizations describe-organization --output json",
-        "note": "Validate organization-wide change management policies"
-      },
-      {
-        "command": "aws servicecatalog search-products --output json",
-        "note": "Check Service Catalog for standardized change templates"
-      }
+  "description": "Use change management tools to enforce, track and report configuration changes",
+  "justification": "Validates comprehensive change tracking from basic CloudTrail and Config rules to enterprise-grade automated governance and compliance reporting",
+  "cli_commands": [
+    {
+      "command": "aws configservice describe-config-rules --output json",
+      "note": "Check Config Rules for compliance evaluation during change management"
+    },
+    {
+      "command": "aws ssm describe-parameters --max-results 50 --output json",
+      "note": "Check SSM parameters for configuration change management"
+    },
+    {
+      "command": "aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceType,AttributeValue=AWS::CloudFormation::Stack --max-items 20 --output json",
+      "note": "Validate CloudTrail audit logs for configuration changes"
+    },
+    {
+      "command": "aws resourcegroupstaggingapi get-resources --resource-type-filters cloudformation --output json",
+      "note": "Check resource tagging for change management governance"
+    },
+    {
+      "command": "aws organizations describe-organization --output json",
+      "note": "Validate organization-wide change management policies"
+    }
     ]
   },
   "KSI-MLA-07": {
@@ -1170,26 +1147,19 @@
     ]
   },
   "KSI-CMT-03": {
-    "description": "Implement persistent automated testing and validation of changes",
-    "justification": "Validates automated validation via IaC artifacts and live continuous compliance rules (AWS Config).",
-    "cli_commands": [
-      {
-        "command": "aws config describe-config-rules --output json",
-        "note": "Check for active AWS Config rules for continuous compliance validation"
-      },
-      {
-        "command": "aws cloudformation validate-template --template-url https://s3.amazonaws.com/cloudformation-templates-us-east-1/WordPress_Single_Instance.template --output json || echo '{\"Parameters\": []}'",
-        "note": "Check CloudFormation template validation capability"
-      },
-      {
-        "command": "aws codebuild list-projects --output json",
-        "note": "Check for build automation foundation (optional bonus)"
-      },
-      {
-        "command": "aws codepipeline list-pipelines --output json",
-        "note": "Check for pipeline automation foundation (optional bonus)"
-      }
-    ]
+  "description": "Implement persistent automated testing and validation of changes",
+  "justification": "Validates a hybrid compliance strategy: 1) Live, persistent validation via AWS Config rules. 2) Pre-deployment, automated testing via IaC scan artifacts (Checkov, SARIF, etc.).",
+  "cli_commands": [
+    {
+      "command": "aws configservice describe-config-rules --output json",
+      "note": "Measures the breadth of persistent, live security validation."
+    }
+  ],
+  "artifact_evidence_paths": [
+    "evidence_v2/KSI-CMT-03/checkov_scan_summary.json",
+    "evidence_v2/KSI-CMT-03/automated_testing_proof.json",
+    "evidence_v2/KSI-CMT-03/sarif_metadata.json"
+  ]
   },
   "KSI-CMT-04": {
   "description": "Document and consistently follow change management",
@@ -1395,7 +1365,6 @@
         "command": "aws codecommit list-approval-rule-templates --output json",
         "note": "Verify that a formal approval process is configured for the repository."
       }
-
     ]
   },
   "KSI-TPR-01": {
@@ -1620,7 +1589,11 @@
       },
       {
         "command": "aws cloudtrail describe-trails --output json",
-        "note": "Verify CloudTrail audit logging for incident investigation"
+        "note": "Validate CloudTrail managed service for audit logging"
+      },
+      {
+        "command": "aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{\"IsLogging\": false}'",
+        "note": "Check active CloudTrail logging status"
       },
       {
         "command": "aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
