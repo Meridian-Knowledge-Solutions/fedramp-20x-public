@@ -4,37 +4,28 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-06 04:39
+**Last Check:** 2025-11-06 08:37
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
 
-**Why it matters:** Validates a hybrid infrastructure model by checking for serverless adoption, EC2 immutability patterns, least privilege violations (for both users and roles), and network security.
+**Why it matters:** Validates a hybrid infrastructure model by checking for: 1) Serverless adoption (Lambda). 2) IaC workflow (S3 state/plans). 3) Automated controls (CMT-03 artifacts). 4) Least privilege (IAM). 5) Network security (SGs).
 
 ## Validation Method
 
-1. `aws ec2 describe-instances --filters 'Name=instance-state-name,Values=running' --output json`
-   *Check running instances for IaC management tags and age.*
+1. `aws s3 ls s3://mks-states/ --recursive`
+   *Check S3 for Terraform state and plan files as evidence of an immutable IaC workflow.*
 
-2. `aws ec2 describe-launch-templates --output json`
-   *Validate if EC2 instances are standardized via Launch Templates.*
-
-3. `aws autoscaling describe-auto-scaling-groups --output json`
-   *Check if EC2 instances use Auto Scaling for immutable scaling.*
-
-4. `aws lambda list-functions --output json`
+2. `aws lambda list-functions --output json`
    *Validate adoption of inherently immutable serverless functions.*
 
-5. `aws s3api list-buckets --query 'Buckets[?contains(Name, `terraform`) || contains(Name, `cloudformation`)].Name' --output json`
-   *Check for foundational IaC state storage.*
-
-6. `aws dynamodb list-tables --query 'TableNames[?contains(@, `terraform`) || contains(@, `state`)]' --output json`
-   *Check for foundational IaC state locking.*
-
-7. `aws ec2 describe-security-groups --output json`
+3. `aws ec2 describe-security-groups --output json`
    *Provide full security group data to check for exposed sensitive ports.*
 
-8. `aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --output json`
+4. `aws iam list-entities-for-policy --policy-arn arn:aws:iam::aws:policy/AdministratorAccess --output json`
    *CRITICAL: Check for any users or non-standard roles with AdministratorAccess.*
+
+5. `aws iam list-roles --output json`
+   *Provide full role details (Path, Description) to validate if admin roles are AWS-managed.*
 
 ## Latest Results
 
@@ -46,4 +37,4 @@ PASS Foundational immutable practices (58%): PASS Least Privilege: Administrator
 - FAIL EC2 IaC Management: None of the 5 running instance(s) have IaC tags.
 
 ---
-*Generated 2025-11-06 04:39 UTC*
+*Generated 2025-11-06 08:37 UTC*

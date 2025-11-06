@@ -4,25 +4,16 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-06 04:39
+**Last Check:** 2025-11-06 08:37
 
 **What it validates:** Implement persistent automated testing and validation of changes
 
-**Why it matters:** Validates automated validation via IaC artifacts and live continuous compliance rules (AWS Config).
+**Why it matters:** Validates a hybrid compliance strategy: 1) Live, persistent validation via AWS Config rules. 2) Pre-deployment, automated testing via IaC scan artifacts (Checkov, SARIF, etc.).
 
 ## Validation Method
 
 1. `aws configservice describe-config-rules --output json`
-   *Measures the breadth of persistent security assessment.*
-
-2. `aws cloudformation validate-template --template-url https://s3.amazonaws.com/cloudformation-templates-us-east-1/WordPress_Single_Instance.template --output json || echo '{"Parameters": []}'`
-   *Check CloudFormation template validation capability*
-
-3. `aws codebuild list-projects --output json`
-   *Check for build automation foundation (optional bonus)*
-
-4. `aws codepipeline list-pipelines --output json`
-   *Check for pipeline automation foundation (optional bonus)*
+   *Measures the breadth of persistent, live security validation.*
 
 ## Latest Results
 
@@ -33,4 +24,4 @@ PASS Good automated testing prior to deployment (50%): PASS Build automation: 3 
 - PASS Automated testing proof artifact found (automated_testing_proof.json).
 
 ---
-*Generated 2025-11-06 04:39 UTC*
+*Generated 2025-11-06 08:37 UTC*

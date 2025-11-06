@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-06 04:39
+**Last Check:** 2025-11-06 08:37
 
 **What it validates:** Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 
@@ -52,4 +52,4 @@ PASS Advanced risk-informed patching with controlled deployment and compliance (
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-*Generated 2025-11-06 04:39 UTC*
+*Generated 2025-11-06 08:37 UTC*
