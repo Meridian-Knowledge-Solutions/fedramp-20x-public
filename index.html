@@ -4914,7 +4914,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                         ` : ''}
                         ${ksi.status === 'info' ? `
                             <button class="action-btn info" onclick="createGitHubIssue('${ksi.id}')">
-                                📈 Additional Context Issue
+                                📈 Additional Context Question?
                             </button>
                         ` : ''}
                     </div>
@@ -5268,7 +5268,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
             const statusText = ksi.status === 'passed' ? 'Pass' : 
                               ksi.status === 'failed' ? 'Fail' : 
                               ksi.status === 'warning' ? 'Low Risk' :
-                              ksi.status === 'info' ? 'Context' : 'Result';
+                              ksi.status === 'info' ? 'Additional Context Needed' : 'Result';
             const statusIcon = getStatusIcon(ksi.status);
             
             modalTitle.innerHTML = `🤔 Why ${statusText}? - ${ksi.id}`;
