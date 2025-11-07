@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -3426,7 +3426,7 @@ td {
             <div class="header-info">
                 <div class="header-info-content">
                     <div class="header-info-title">FedRAMP 20x Authorization Data Sharing System</div>
-                    <div class="header-info-subtitle">✅ Compliance Tracking | 🟡 Low Risk Findings | 📈 Improvement Opportunities | 🕒 Evidence Currency</div>
+                    <div class="header-info-subtitle">✅ Compliance Tracking | 🟡 Low Risk Findings | 🗒️ Additional Context | 🕒 Evidence Currency</div>
                     <div class="header-info-meta">
                         <div class="header-info-item">
                             <span>⏰</span>
@@ -3434,7 +3434,7 @@ td {
                         </div>
                         <div class="header-info-item">
                             <span class="continuous-improvement">🚀</span>
-                            <span>CONTINUOUS IMPROVEMENT ACTIVE</span>
+                            <span>ADDITIONAL CONTEXT ACTIVE</span>
                         </div>
                     </div>
                     <div class="compliance-badge">
@@ -3471,7 +3471,7 @@ td {
                 </div>
                 <div class="stat-card enhancement">
                     <div class="stat-value info" id="info-count">-</div>
-                    <div class="stat-label">Improvement Opportunities</div>
+                    <div class="stat-label">Additional Context</div>
                     <div class="stat-change enhancement">📈 Proactive Enhancement</div>
                 </div>
             </div>
@@ -3585,7 +3585,7 @@ td {
                                 <strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
                             </div>
                             <div class="trust-item">
-                                <strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to improvement opportunities.
+                                <strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
                             </div>
                             <div class="trust-item">
                                 <button onclick="window.showPOAMModal()" class="action-btn enhancement">📊 View KSI VDR Analysis</button>
@@ -3609,7 +3609,7 @@ td {
                                 <option value="passed">Passed</option>
                                 <option value="failed">Failed</option>
                                 <option value="warning">Low Risk</option>
-                                <option value="info">Improvement</option>
+                                <option value="info">Context</option>
                             </select>
                         </div>
                         <div class="filter-group">
@@ -3631,7 +3631,7 @@ td {
                     <div class="filter-chip" data-status="passed">✅ Passed</div>
                     <div class="filter-chip" data-status="failed">❌ Failed</div>
                     <div class="filter-chip" data-status="warning">🟡 Low Risk</div>
-                    <div class="filter-chip" data-status="info">📈 Improvement</div>
+                    <div class="filter-chip" data-status="info">🗒️ Additional Context</div>
                 </div>
 
                 <!-- KSI Grid -->
@@ -4192,7 +4192,7 @@ async function getSCNStatus() {
     <div class="enhancement-modal" id="enhancement-modal">
         <div class="enhancement-modal-content">
             <div class="enhancement-modal-header">
-                <h3 class="enhancement-modal-title" id="enhancement-modal-title">📈 Improvement Opportunity Details</h3>
+                <h3 class="enhancement-modal-title" id="enhancement-modal-title">🗒️ Additional Context</h3>
                 <button class="close-btn" onclick="closeEnhancementModal()">&times;</button>
             </div>
             <div class="enhancement-modal-body" id="enhancement-modal-body">
@@ -4503,7 +4503,7 @@ async function getSCNStatus() {
                 summary = ksiStatus === 'passed' ? 'Security control validation completed successfully' :
                          ksiStatus === 'failed' ? 'Security control validation identified issues' :
                          ksiStatus === 'warning' ? 'Low risk findings identified requiring attention' :
-                         'Improvement opportunities identified for enhancement';
+                         'Additional context given for clarity';
             }
             
             return { summary, validations };
@@ -4861,7 +4861,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                     
                     ${hasEnhancements ? `
                         <div class="enhancement-badge">
-                            📈 ${ksi.enhancements.length} Improvement Opportunit${ksi.enhancements.length === 1 ? 'y' : 'ies'}
+                            📈 ${ksi.enhancements.length} Additional Context${ksi.enhancements.length === 1 ? 'y' : 'ies'}
                         </div>
                         ${ksi.enhancements.slice(0, 2).map(enh => `
                             <div class="enhancement-opportunity">
@@ -4882,7 +4882,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                         </div>
                         <div class="meta-item">
                             <div class="meta-value">${hasEnhancements ? ksi.enhancements.length : 0}</div>
-                            <div class="meta-label">Enhance</div>
+                            <div class="meta-label">Context</div>
                         </div>
                     </div>
                     
@@ -4899,7 +4899,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                         </button>
                         ${hasEnhancements ? `
                             <button class="action-btn enhancement" onclick="window.showEnhancementModal('${ksi.id}')">
-                                📈 Improve
+                                🗒️ Context
                             </button>
                         ` : ''}
                         ${ksi.status === 'failed' ? `
@@ -4914,7 +4914,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
                         ` : ''}
                         ${ksi.status === 'info' ? `
                             <button class="action-btn info" onclick="createGitHubIssue('${ksi.id}')">
-                                📈 Improvement Issue
+                                📈 Additional Context Issue
                             </button>
                         ` : ''}
                     </div>
@@ -5028,7 +5028,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
             document.getElementById('warning-count').textContent = warningCount; // Low Risk Findings
             document.getElementById('info-count').textContent = infoCount; // Improvement Opportunities
             
-            console.log(`📊 FIXED metrics: ${compliantKsis}/${totalKsis} compliant (${complianceScore}%) | Validation tracking: ${warningCount} Low Risk/${infoCount} Improvements/${enhancementCount} Additional`);
+            console.log(`📊 FIXED metrics: ${compliantKsis}/${totalKsis} compliant (${complianceScore}%) | Validation tracking: ${warningCount} Low Risk/${infoCount} Additional Context/${enhancementCount} Additional`);
         }
 
         function populateCategoryFilter() {
@@ -5268,7 +5268,7 @@ function displayImpactLevel(impactLevel, thresholds, metadata) {
             const statusText = ksi.status === 'passed' ? 'Pass' : 
                               ksi.status === 'failed' ? 'Fail' : 
                               ksi.status === 'warning' ? 'Low Risk' :
-                              ksi.status === 'info' ? 'Improvement' : 'Result';
+                              ksi.status === 'info' ? 'Context' : 'Result';
             const statusIcon = getStatusIcon(ksi.status);
             
             modalTitle.innerHTML = `🤔 Why ${statusText}? - ${ksi.id}`;
@@ -5699,13 +5699,13 @@ function viewVDRDashboard() {
             const modalTitle = document.getElementById('enhancement-modal-title');
             const modalBody = document.getElementById('enhancement-modal-body');
             
-            modalTitle.innerHTML = `📈 Improvement Details: ${ksiId}`;
+            modalTitle.innerHTML = `🗒️ Additional Context Details: ${ksiId}`;
             
             modalBody.innerHTML = `
                 <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
-                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Improvement Opportunities</h3>
-                    <p style="margin-bottom: 1rem;">Proactive improvement opportunities identified for compliant KSIs.</p>
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🗒️</div>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">Additional Context</h3>
+                    <p style="margin-bottom: 1rem;">Additional Context details about KSIs.</p>
                     <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid var(--enhancement-500); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; color: var(--enhancement-600);">
                         <strong>📈 Continuous Improvement:</strong> Moving beyond compliance to proactive security enhancement.
                     </div>
@@ -6972,7 +6972,7 @@ async function loadQuarterlyReportData() {
     'false': {status: 'enhancement', text: 'Enhancement Required' },
     'failed': {status: 'enhancement', text: 'Enhancement Required' },
     'warning': {status: 'monitoring', text: 'Low Risk' },
-    'info': {status: 'improvement', text: 'Improvement Opportunity' }
+    'info': {status: 'improvement', text: 'Additional Context' }
             }[k] || {status: 'enhancement', text: 'Enhancement Required' };
         }
     }
@@ -8164,7 +8164,7 @@ const quarterlyReportsSection = `
                     </div>
 
                     <div class="enhancement-note">
-                        <h4>📈 Continuous Improvement</h4>
+                        <h4>🗒️ Additional Context </h4>
                         <p>This control is part of our ongoing security enhancement program following FedRAMP requirements and industry best practices. Regular validation ensures consistent security posture.</p>
                     </div>
                 </div>
@@ -8410,7 +8410,7 @@ const quarterlyReportsSection = `
     'compliant': '✅',
     'enhancement': '🔧',
     'monitoring': '👀',
-    'improvement': '📈'
+    'context': '🗒️'
         };
     return iconMap[status] || '❓';
     }
