@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-06 20:34
+**Last Check:** 2025-11-07 01:04
 
 **What it validates:** Document a change management policy for all system modifications
 
@@ -15,8 +15,8 @@
 1. `aws cloudtrail describe-trails --output json`
    *Check CloudTrail for change audit logging and compliance*
 
-2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{"IsLogging": false}'`
-   *Check the *active logging status* of the primary trail.*
+2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text) --output json || echo '{"IsLogging": false}'`
+   *Check the *active logging status* of the primary trail (using ARN).*
 
 3. `aws logs describe-log-groups --output json`
    *Validate CloudWatch Logs for change management event tracking*
@@ -56,4 +56,4 @@ PASS Enterprise-grade system modification logging and monitoring with automated 
 - PASS Advanced organization features: SCPs for modification policy enforcement
 
 ---
-*Generated 2025-11-06 20:34 UTC*
+*Generated 2025-11-07 01:05 UTC*
