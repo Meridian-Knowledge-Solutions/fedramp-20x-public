@@ -1,6 +1,6 @@
 {
   "structure_type": "secure_hybrid_fedramp_20x_organized",
-  "generated": "20251111T20:16:58Z",
+  "generated": "20251112T06:01:03Z",
   "security_model": "evidence_v2_excluded_from_public_security_gate_validated",
   "phase_2_compliance": "master_validator_active",
   "security_validation": "secure_public_sync.py gate passed",
