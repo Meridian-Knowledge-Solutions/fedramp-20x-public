@@ -33,8 +33,4 @@
    *Identifies custom, event-driven enforcement capabilities via Lambda.*
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-13 12:19 UTC*
-=======
-*Generated 2025-11-13 12:25 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-13 16:16 UTC*

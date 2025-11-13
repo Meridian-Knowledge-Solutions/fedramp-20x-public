@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-13 12:18
-=======
-**Last Check:** 2025-11-13 12:25
->>>>>>> Stashed changes
+**Last Check:** 2025-11-13 16:16
 
 **What it validates:** Segment network and compute resources into security zones
 
@@ -50,8 +46,4 @@ PASS Strong attack surface minimization (85%): PASS Strong attack surface minimi
 - PASS Advanced segmentation barriers: 1/1 Network ACLs with custom isolation rules
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-13 12:19 UTC*
-=======
-*Generated 2025-11-13 12:25 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-13 16:16 UTC*
