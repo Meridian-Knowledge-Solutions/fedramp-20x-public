@@ -4,11 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-14 12:19
-=======
-**Last Check:** 2025-11-14 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-14 16:17
 
 **What it validates:** Document the cloud service provider (CSP) in the system security policy
 
@@ -30,8 +26,4 @@
 - PASS Third-party resources identified via static configuration: PASS Static discovery: 5 third-party services identified from whitelist
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-14 12:19 UTC*
-=======
-*Generated 2025-11-14 12:25 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-14 16:17 UTC*
