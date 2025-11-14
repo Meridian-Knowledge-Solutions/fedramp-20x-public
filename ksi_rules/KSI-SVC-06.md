@@ -4,7 +4,11 @@
 
 **Category:** Service Configuration
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-14 12:19
+=======
+**Last Check:** 2025-11-14 12:24
+>>>>>>> Stashed changes
 
 **What it validates:** Use centralized key management services
 
@@ -53,4 +57,8 @@ PASS Enterprise-grade comprehensive automated key management governance with rot
 - PASS Advanced organization features: SCPs for key management policy enforcement enabled.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-14 12:19 UTC*
+=======
+*Generated 2025-11-14 12:25 UTC*
+>>>>>>> Stashed changes
