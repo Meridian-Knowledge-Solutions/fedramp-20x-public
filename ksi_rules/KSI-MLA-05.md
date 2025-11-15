@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-15 12:18
-=======
-**Last Check:** 2025-11-15 12:22
->>>>>>> Stashed changes
+**Last Check:** 2025-11-15 16:16
 
 **What it validates:** Use change management tools to enforce, track and report configuration changes
 
@@ -49,8 +45,4 @@ PASS Enterprise-grade Infrastructure as Code evaluation and testing (100%): PASS
 - PASS Organizational infrastructure: Centralized account management
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-15 12:18 UTC*
-=======
-*Generated 2025-11-15 12:22 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-15 16:16 UTC*

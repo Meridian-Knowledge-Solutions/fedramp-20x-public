@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-15 12:18
-=======
-**Last Check:** 2025-11-15 12:22
->>>>>>> Stashed changes
+**Last Check:** 2025-11-15 16:16
 
 **What it validates:** Maximize use of managed services and cloud resources
 
@@ -82,8 +78,4 @@ PASS Excellent AWS best practices implementation (102%): PASS CloudTrail excelle
 - PASS Enterprise governance: AWS Organizations with centralized management
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-15 12:18 UTC*
-=======
-*Generated 2025-11-15 12:22 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-15 16:16 UTC*
