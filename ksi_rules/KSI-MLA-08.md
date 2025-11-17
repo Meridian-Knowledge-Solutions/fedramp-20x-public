@@ -24,8 +24,4 @@
    *Verify that KMS keys are available for encrypting logs at rest.*
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 06:18 UTC*
-=======
-*Generated 2025-11-17 06:23 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 08:19 UTC*

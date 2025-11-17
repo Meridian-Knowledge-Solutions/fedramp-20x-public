@@ -30,8 +30,4 @@
    *Look for Lambda functions related to certificate rotation or lifecycle management.*
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 06:18 UTC*
-=======
-*Generated 2025-11-17 06:23 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 08:19 UTC*

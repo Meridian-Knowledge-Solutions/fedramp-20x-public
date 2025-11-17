@@ -4,11 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-17 06:18
-=======
-**Last Check:** 2025-11-17 06:23
->>>>>>> Stashed changes
+**Last Check:** 2025-11-17 08:19
 
 **What it validates:** Identify and prioritize mitigation of potential supply chain risks
 
@@ -32,8 +28,4 @@ PASS Excellent supply chain risk management process (100%): PASS [Policy] A comp
 - PASS [Audit Trail] The policy is actively maintained, with evidence of 1 recent update(s).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 06:18 UTC*
-=======
-*Generated 2025-11-17 06:23 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 08:19 UTC*
