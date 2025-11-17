@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-17 12:22
-=======
-**Last Check:** 2025-11-17 12:26
->>>>>>> Stashed changes
+**Last Check:** 2025-11-17 16:17
 
 **What it validates:** Maintain hardened system images and configurations
 
@@ -63,8 +59,4 @@ PASS Excellent network and system hardening with comprehensive governance (90%):
 - PASS Advanced organization features: SCPs and advanced governance capabilities enabled
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 12:22 UTC*
-=======
-*Generated 2025-11-17 12:26 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 16:17 UTC*

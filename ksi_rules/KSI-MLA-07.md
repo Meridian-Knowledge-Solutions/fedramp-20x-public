@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-17 12:22
-=======
-**Last Check:** 2025-11-17 12:26
->>>>>>> Stashed changes
+**Last Check:** 2025-11-17 16:17
 
 **What it validates:** Use log aggregation services that accept logs from CSO-provided services
 
@@ -32,8 +28,4 @@ PASS Good automated monitoring inventory - enhance coverage (75%): PASS Comprehe
 - PASS Good monitoring configuration: 13 CloudWatch alarms
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 12:22 UTC*
-=======
-*Generated 2025-11-17 12:26 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 16:17 UTC*

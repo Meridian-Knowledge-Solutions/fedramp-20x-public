@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-17 12:22
-=======
-**Last Check:** 2025-11-17 12:26
->>>>>>> Stashed changes
+**Last Check:** 2025-11-17 16:17
 
 **What it validates:** Establish an insider threat program
 
@@ -37,8 +33,4 @@ PASS Comprehensive validation passed: Infrastructure is configured and operation
 - PASS Periodic review report found and appears valid.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-17 12:22 UTC*
-=======
-*Generated 2025-11-17 12:26 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-17 16:17 UTC*
