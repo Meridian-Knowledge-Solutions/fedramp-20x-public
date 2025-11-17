@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-17 16:17
+**Last Check:** 2025-11-17 18:24
 
 **What it validates:** Use self-service templates and image repositories for provisioning
 
@@ -60,4 +60,4 @@ PASS Production-ready immutable deployment with Terraform Infrastructure as Code
 - PASS Advanced organization features: SCPs for immutable deployment policy enforcement enabled
 
 ---
-*Generated 2025-11-17 16:17 UTC*
+*Generated 2025-11-17 18:24 UTC*
