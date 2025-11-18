@@ -1,11 +1,11 @@
 {
-  "next_ongoing_report": "2025-11-15",
-  "next_quarterly_review": "November 26, 2025",
-  "last_report_generated": "2025-10-18",
+  "next_ongoing_report": "2026-02-15",
+  "next_quarterly_review": "February 25, 2026",
+  "last_report_generated": "2025-11-18",
   "report_available": "/quarterly_reports/ongoing_authorization_report_Q4_2025.md",
   "report_json": "/quarterly_reports/ongoing_authorization_report_Q4_2025.json",
   "rfc_0017_integration": "active",
-  "report_hash_sha256": "81c914bb570dc95539929630f5d6a3cafa561d2b5226ce05270b5807a1bfa1ca",
+  "report_hash_sha256": "ff4efeb813e6a638639cba4b072f8c84de4e9677c666afeae3c0e09075981a1c",
   "data_quality": {
     "ksi_available": true,
     "vdr_available": true,
