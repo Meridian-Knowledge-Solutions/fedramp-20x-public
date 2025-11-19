@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 17:00
-=======
-**Last Check:** 2025-11-19 17:02
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 17:52
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -37,8 +33,4 @@ PASS Excellent 14/14 (100%): PASS Vulnerability disclosure policy document found
 - PASS VDP maintenance activity: 1 recent update(s) to policy detected.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 17:00 UTC*
-=======
-*Generated 2025-11-19 17:02 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 17:52 UTC*

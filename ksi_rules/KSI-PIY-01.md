@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 17:00
-=======
-**Last Check:** 2025-11-19 17:02
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 17:52
 
 **What it validates:** Maintain an inventory of authorized users
 
@@ -57,8 +53,4 @@ PASS Strong 18/23 (78%): PASS Compute inventory: 9 EC2 instances discovered.
 - 📊 Inventory Maturity: 9/9 components discovered (100% coverage).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 17:00 UTC*
-=======
-*Generated 2025-11-19 17:02 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 17:52 UTC*

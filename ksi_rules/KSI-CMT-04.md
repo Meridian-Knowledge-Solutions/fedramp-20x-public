@@ -4,11 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 17:00
-=======
-**Last Check:** 2025-11-19 17:02
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 17:52
 
 **What it validates:** Document and consistently follow change management
 
@@ -28,8 +24,4 @@ PASS Excellent 10/10 (100%): PASS [Documentation] Comprehensive change managemen
 - PASS [Evidence] Found 2 recent Terraform plan artifact(s) in S3, proving change process execution.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 17:00 UTC*
-=======
-*Generated 2025-11-19 17:02 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 17:52 UTC*

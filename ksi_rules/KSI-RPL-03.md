@@ -4,11 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 17:00
-=======
-**Last Check:** 2025-11-19 17:02
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 17:52
 
 **What it validates:** Back up information regularly per the recovery point objective
 
@@ -42,8 +38,4 @@ PASS Excellent 8/8 (100%): PASS Backup infrastructure: 2 AWS Backup plan(s) conf
 - PASS Additional recovery points: 826 EBS snapshots found.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 17:00 UTC*
-=======
-*Generated 2025-11-19 17:02 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 17:52 UTC*
