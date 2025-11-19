@@ -4,7 +4,11 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-19 12:14
+=======
+**Last Check:** 2025-11-19 12:24
+>>>>>>> Stashed changes
 
 **What it validates:** Document the cloud service provider (CSP) in the system security policy
 
@@ -26,4 +30,8 @@
 - PASS Strong 8/10 (80%): PASS Static discovery: 5 unique third-party hosts identified from Parameter Store whitelist.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-19 12:14 UTC*
+=======
+*Generated 2025-11-19 12:24 UTC*
+>>>>>>> Stashed changes

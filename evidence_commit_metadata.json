@@ -1,6 +1,10 @@
 {
   "metadata": {
+<<<<<<< Updated upstream
     "generated_at": "2025-11-19T12:14:52Z",
+=======
+    "generated_at": "2025-11-19T12:24:13Z",
+>>>>>>> Stashed changes
     "generator_version": "enhanced-v2",
     "total_evidence_files": 56,
     "evidence_directories": [
@@ -74,7 +78,11 @@
       "evidence_directory": "KSI-SVC-08",
       "file_path": "evidence_v2/KSI-SVC-08/cli_output.json",
       "file_size": 1215,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -92,7 +100,11 @@
       "evidence_directory": "KSI-CNA-08",
       "file_path": "evidence_v2/KSI-CNA-08/cli_output.json",
       "file_size": 310271,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -109,8 +121,13 @@
       "ksi_id": "KSI-SVC-07",
       "evidence_directory": "KSI-SVC-07",
       "file_path": "evidence_v2/KSI-SVC-07/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 511234,
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_size": 511233,
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -127,20 +144,33 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-01",
       "file_path": "evidence_v2/KSI-CNA-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 64791,
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_size": 64790,
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
       "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-19 08:15:04 UTC) [MODERATE] | 55/56 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+<<<<<<< Updated upstream
       "error": "Expecting value: line 2035 column 27 (char 63762)"
+=======
+      "error": "Expecting value: line 2035 column 27 (char 63761)"
+>>>>>>> Stashed changes
     },
     "evidence_v2/KSI-PIY-02/cli_output.json": {
       "ksi_id": "KSI-PIY-02",
       "evidence_directory": "KSI-PIY-02",
       "file_path": "evidence_v2/KSI-PIY-02/cli_output.json",
       "file_size": 9904,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -157,20 +187,33 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-03",
       "file_path": "evidence_v2/KSI-CNA-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 31342,
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_size": 31344,
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
       "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-19 08:15:04 UTC) [MODERATE] | 55/56 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+<<<<<<< Updated upstream
       "error": "Expecting value: line 933 column 27 (char 30297)"
+=======
+      "error": "Expecting value: line 933 column 27 (char 30299)"
+>>>>>>> Stashed changes
     },
     "evidence_v2/KSI-MLA-08/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-08",
       "file_path": "evidence_v2/KSI-MLA-08/cli_output.json",
       "file_size": 87554,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -181,8 +224,13 @@
       "ksi_id": "KSI-SVC-04",
       "evidence_directory": "KSI-SVC-04",
       "file_path": "evidence_v2/KSI-SVC-04/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 521065,
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_size": 521062,
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -199,8 +247,13 @@
       "ksi_id": "KSI-SVC-05",
       "evidence_directory": "KSI-SVC-05",
       "file_path": "evidence_v2/KSI-SVC-05/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 35813,
       "file_modified": "2025-11-19T12:14:49Z",
+=======
+      "file_size": 35814,
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -218,7 +271,11 @@
       "evidence_directory": "KSI-IAM-04",
       "file_path": "evidence_v2/KSI-IAM-04/cli_output.json",
       "file_size": 75743,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -237,7 +294,11 @@
       "evidence_directory": "KSI-CNA-06",
       "file_path": "evidence_v2/KSI-CNA-06/cli_output.json",
       "file_size": 764802,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:10Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -254,8 +315,13 @@
       "ksi_id": "KSI-SVC-03",
       "evidence_directory": "KSI-SVC-03",
       "file_path": "evidence_v2/KSI-SVC-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 300590,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 300591,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -272,8 +338,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-PIY-06",
       "file_path": "evidence_v2/KSI-PIY-06/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 529516,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 529518,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -285,7 +356,11 @@
       "evidence_directory": "KSI-RPL-01",
       "file_path": "evidence_v2/KSI-RPL-01/cli_output.json",
       "file_size": 9574,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -304,7 +379,11 @@
       "evidence_directory": "KSI-CMT-05",
       "file_path": "evidence_v2/KSI-CMT-05/cli_output.json",
       "file_size": 1655,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -321,8 +400,13 @@
       "ksi_id": "KSI-RPL-02",
       "evidence_directory": "KSI-RPL-02",
       "file_path": "evidence_v2/KSI-RPL-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 89085,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 89086,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -339,8 +423,13 @@
       "ksi_id": "KSI-CNA-02",
       "evidence_directory": "KSI-CNA-02",
       "file_path": "evidence_v2/KSI-CNA-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 145149,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 145147,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -358,7 +447,11 @@
       "evidence_directory": "KSI-CMT-03",
       "file_path": "evidence_v2/KSI-CMT-03/cli_output.json",
       "file_size": 267131,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -375,8 +468,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-SVC-06",
       "file_path": "evidence_v2/KSI-SVC-06/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 57923,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 57922,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -387,8 +485,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-07",
       "file_path": "evidence_v2/KSI-MLA-07/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 27005,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 27006,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -399,8 +502,13 @@
       "ksi_id": "KSI-PIY-04",
       "evidence_directory": "KSI-PIY-04",
       "file_path": "evidence_v2/KSI-PIY-04/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 27812,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 27814,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -417,8 +525,13 @@
       "ksi_id": "KSI-IAM-05",
       "evidence_directory": "KSI-IAM-05",
       "file_path": "evidence_v2/KSI-IAM-05/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 58873,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 58872,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -436,7 +549,11 @@
       "evidence_directory": "KSI-PIY-03",
       "file_path": "evidence_v2/KSI-PIY-03/cli_output.json",
       "file_size": 9754,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -453,8 +570,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-INR-03",
       "file_path": "evidence_v2/KSI-INR-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 212215,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 212240,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -465,8 +587,13 @@
       "ksi_id": "KSI-CNA-05",
       "evidence_directory": "KSI-CNA-05",
       "file_path": "evidence_v2/KSI-CNA-05/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 21486,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 21488,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -484,7 +611,11 @@
       "evidence_directory": "KSI-CED-01",
       "file_path": "evidence_v2/KSI-CED-01/cli_output.json",
       "file_size": 601,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -501,8 +632,13 @@
       "ksi_id": "KSI-TPR-03",
       "evidence_directory": "KSI-TPR-03",
       "file_path": "evidence_v2/KSI-TPR-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 6616,
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_size": 6615,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -520,7 +656,11 @@
       "evidence_directory": "KSI-IAM-06",
       "file_path": "evidence_v2/KSI-IAM-06/cli_output.json",
       "file_size": 47920,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:50Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -531,8 +671,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-RPL-03",
       "file_path": "evidence_v2/KSI-RPL-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 819074,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 819073,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -543,8 +688,13 @@
       "ksi_id": "KSI-SVC-09",
       "evidence_directory": "KSI-SVC-09",
       "file_path": "evidence_v2/KSI-SVC-09/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 62896,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 62897,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -563,7 +713,11 @@
       "evidence_directory": "KSI-CED-03",
       "file_path": "evidence_v2/KSI-CED-03/cli_output.json",
       "file_size": 25944,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -581,8 +735,13 @@
       "ksi_id": "KSI-PIY-07",
       "evidence_directory": "KSI-PIY-07",
       "file_path": "evidence_v2/KSI-PIY-07/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 6597,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 6599,
+      "file_modified": "2025-11-19T12:24:11Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -599,8 +758,13 @@
       "ksi_id": "KSI-MLA-03",
       "evidence_directory": "KSI-MLA-03",
       "file_path": "evidence_v2/KSI-MLA-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 515569,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 515558,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -617,8 +781,13 @@
       "ksi_id": "KSI-SVC-01",
       "evidence_directory": "KSI-SVC-01",
       "file_path": "evidence_v2/KSI-SVC-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 398351,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 398350,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -636,7 +805,11 @@
       "evidence_directory": "KSI-IAM-01",
       "file_path": "evidence_v2/KSI-IAM-01/cli_output.json",
       "file_size": 12433,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -654,8 +827,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-RPL-04",
       "file_path": "evidence_v2/KSI-RPL-04/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 78821,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 78820,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -666,8 +844,13 @@
       "ksi_id": "KSI-TPR-01",
       "evidence_directory": "KSI-TPR-01",
       "file_path": "evidence_v2/KSI-TPR-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 4646,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 4645,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -684,8 +867,13 @@
       "ksi_id": "KSI-IAM-02",
       "evidence_directory": "KSI-IAM-02",
       "file_path": "evidence_v2/KSI-IAM-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 2899,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 2898,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -702,8 +890,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-INR-02",
       "file_path": "evidence_v2/KSI-INR-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 40074,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 40080,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -714,8 +907,13 @@
       "ksi_id": "KSI-CMT-02",
       "evidence_directory": "KSI-CMT-02",
       "file_path": "evidence_v2/KSI-CMT-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 37387,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 37385,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -733,7 +931,11 @@
       "evidence_directory": "KSI-PIY-05",
       "file_path": "evidence_v2/KSI-PIY-05/cli_output.json",
       "file_size": 7421,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -751,7 +953,11 @@
       "evidence_directory": "KSI-PIY-01",
       "file_path": "evidence_v2/KSI-PIY-01/cli_output.json",
       "file_size": 107347,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -768,20 +974,34 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-SVC-02",
       "file_path": "evidence_v2/KSI-SVC-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 27546,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 27548,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
       "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-19 08:15:04 UTC) [MODERATE] | 55/56 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+<<<<<<< Updated upstream
       "error": "Expecting ',' delimiter: line 501 column 218 (char 16482)"
+=======
+      "error": "Expecting ',' delimiter: line 501 column 218 (char 16483)"
+>>>>>>> Stashed changes
     },
     "evidence_v2/KSI-MLA-01/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-01",
       "file_path": "evidence_v2/KSI-MLA-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 103650,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 103658,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -792,8 +1012,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CMT-01",
       "file_path": "evidence_v2/KSI-CMT-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 70273,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 70245,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -805,7 +1030,11 @@
       "evidence_directory": "KSI-IAM-07",
       "file_path": "evidence_v2/KSI-IAM-07/cli_output.json",
       "file_size": 83238,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -823,7 +1052,11 @@
       "evidence_directory": "KSI-CED-02",
       "file_path": "evidence_v2/KSI-CED-02/cli_output.json",
       "file_size": 625,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -840,20 +1073,34 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-05",
       "file_path": "evidence_v2/KSI-MLA-05/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 323205,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 323203,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
       "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-19 08:15:04 UTC) [MODERATE] | 55/56 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+<<<<<<< Updated upstream
       "error": "Expecting property name enclosed in double quotes: line 7001 column 181 (char 271466)"
+=======
+      "error": "Expecting property name enclosed in double quotes: line 7001 column 181 (char 271465)"
+>>>>>>> Stashed changes
     },
     "evidence_v2/KSI-TPR-04/cli_output.json": {
       "ksi_id": "KSI-TPR-04",
       "evidence_directory": "KSI-TPR-04",
       "file_path": "evidence_v2/KSI-TPR-04/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 353789,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 353788,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -871,7 +1118,11 @@
       "evidence_directory": "KSI-CMT-04",
       "file_path": "evidence_v2/KSI-CMT-04/cli_output.json",
       "file_size": 1628,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -889,7 +1140,11 @@
       "evidence_directory": "KSI-SVC-10",
       "file_path": "evidence_v2/KSI-SVC-10/cli_output.json",
       "file_size": 41904,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -900,20 +1155,34 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-07",
       "file_path": "evidence_v2/KSI-CNA-07/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 390777,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 390776,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
       "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-19 08:15:04 UTC) [MODERATE] | 55/56 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+<<<<<<< Updated upstream
       "error": "Expecting ',' delimiter: line 10275 column 218 (char 388574)"
+=======
+      "error": "Expecting ',' delimiter: line 10275 column 218 (char 388573)"
+>>>>>>> Stashed changes
     },
     "evidence_v2/KSI-IAM-03/cli_output.json": {
       "ksi_id": "KSI-IAM-03",
       "evidence_directory": "KSI-IAM-03",
       "file_path": "evidence_v2/KSI-IAM-03/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 137182,
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_size": 137183,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -932,7 +1201,11 @@
       "evidence_directory": "KSI-CNA-04",
       "file_path": "evidence_v2/KSI-CNA-04/cli_output.json",
       "file_size": 132816,
+<<<<<<< Updated upstream
       "file_modified": "2025-11-19T12:14:51Z",
+=======
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -949,8 +1222,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-02",
       "file_path": "evidence_v2/KSI-MLA-02/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 74386,
       "file_modified": "2025-11-19T12:14:52Z",
+=======
+      "file_size": 74025,
+      "file_modified": "2025-11-19T12:24:12Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",
@@ -961,8 +1239,13 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-INR-01",
       "file_path": "evidence_v2/KSI-INR-01/cli_output.json",
+<<<<<<< Updated upstream
       "file_size": 191479,
       "file_modified": "2025-11-19T12:14:52Z",
+=======
+      "file_size": 191461,
+      "file_modified": "2025-11-19T12:24:13Z",
+>>>>>>> Stashed changes
       "commit_sha": "1e4b85a",
       "full_commit_sha": "1e4b85ac239dd8c0074680e0e0092ca107014253",
       "commit_time": "2025-11-19T08:15:04Z",

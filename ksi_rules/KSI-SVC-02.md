@@ -4,7 +4,11 @@
 
 **Category:** Service Configuration
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-19 12:14
+=======
+**Last Check:** 2025-11-19 12:24
+>>>>>>> Stashed changes
 
 **What it validates:** Use encryption in transit with TLS 1.2 or higher
 
@@ -49,4 +53,8 @@ PASS Sufficient 12/18 (67%): PASS Private service communication: 7 VPC endpoints
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-19 12:14 UTC*
+=======
+*Generated 2025-11-19 12:24 UTC*
+>>>>>>> Stashed changes

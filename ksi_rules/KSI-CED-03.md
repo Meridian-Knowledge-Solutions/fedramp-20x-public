@@ -4,7 +4,11 @@
 
 **Category:** Cybersecurity Education
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-19 12:14
+=======
+**Last Check:** 2025-11-19 12:24
+>>>>>>> Stashed changes
 
 **What it validates:** Provide security awareness training on risks from social engineering and other attacks
 
@@ -23,4 +27,8 @@ FAIL Insufficient 2/7 (29%): PASS Development security automation: Found 2 poten
 - WARNING EventBridge rule data unavailable.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-19 12:14 UTC*
+=======
+*Generated 2025-11-19 12:24 UTC*
+>>>>>>> Stashed changes
