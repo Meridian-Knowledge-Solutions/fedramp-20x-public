@@ -4,11 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 12:14
-=======
-**Last Check:** 2025-11-19 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 16:15
 
 **What it validates:** Use self-service templates and image repositories for provisioning
 
@@ -54,8 +50,4 @@ PASS Excellent 20/20 (100%): PASS External Terraform Evidence: 10 managed files 
 - PASS Advanced organization features: SCPs available for immutable deployment policy enforcement.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 12:14 UTC*
-=======
-*Generated 2025-11-19 12:24 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 16:15 UTC*

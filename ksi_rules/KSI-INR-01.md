@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 12:14
-=======
-**Last Check:** 2025-11-19 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 16:15
 
 **What it validates:** Respond to incidents according to FedRAMP requirements and cloud service provider policies
 
@@ -50,8 +46,4 @@ PASS Excellent 11/11 (100%): PASS Incident response plan documented in CodeCommi
 - PASS Incident response plan maintenance: 1 recent update(s) detected.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 12:14 UTC*
-=======
-*Generated 2025-11-19 12:24 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 16:15 UTC*

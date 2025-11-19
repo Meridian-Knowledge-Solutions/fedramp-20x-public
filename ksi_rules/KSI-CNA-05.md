@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 12:14
-=======
-**Last Check:** 2025-11-19 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 16:15
 
 **What it validates:** Protect against denial of service attacks and unwanted spam
 
@@ -54,8 +50,4 @@ PASS Excellent 13/14 (93%): PASS Network-layer protection: AWS Shield Standard a
 - inbound spam protection (SPF, DMARC, DKIM) not applicable.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 12:14 UTC*
-=======
-*Generated 2025-11-19 12:24 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 16:15 UTC*

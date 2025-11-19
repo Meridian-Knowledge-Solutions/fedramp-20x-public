@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 12:14
-=======
-**Last Check:** 2025-11-19 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 16:15
 
 **What it validates:** Separate duties between users
 
@@ -46,8 +42,4 @@ PASS Excellent 10/10 (100%): PASS [Identity & MFA] Excellent identity practice i
 - PASS [Monitoring] Comprehensive monitoring is active via CloudTrail ('meridianks-Management-events').
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 12:14 UTC*
-=======
-*Generated 2025-11-19 12:24 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 16:15 UTC*

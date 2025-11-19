@@ -4,11 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-19 12:14
-=======
-**Last Check:** 2025-11-19 12:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-19 16:15
 
 **What it validates:** Provide role-based security training for personnel
 
@@ -23,8 +19,4 @@
 - PASS Excellent 10/10 (100%): PASS Specific security awareness training evidence found: cyber_security_training.png, security_training_roster.png, fedramp_role_based.png.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-19 12:14 UTC*
-=======
-*Generated 2025-11-19 12:24 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-19 16:15 UTC*
