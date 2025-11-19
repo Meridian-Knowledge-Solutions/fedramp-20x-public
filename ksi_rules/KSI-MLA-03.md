@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-19 16:15
+**Last Check:** 2025-11-19 17:00
 
 **What it validates:** Rapidly detect and remediate or mitigate vulnerabilities
 
@@ -45,9 +45,9 @@ PASS Strong 14/18 (78%): PASS Security standards foundation: 1/1 Security Hub st
 - PASS Automated patch management capability: 17 patch baselines configured (17 custom).
 - PASS Tailored remediation: 17 custom patch baselines for targeted response.
 - PASS Real-time threat detection/alerting: 13 potentially security-related CloudWatch alarms.
-- PASS Active threat analysis: 50 active security findings (1 critical, 8 high).
+- PASS Active threat analysis: 50 active security findings (1 critical, 4 high).
 - PASS Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection/management.
 - PASS Multi-service vulnerability coverage: 4 AWS services integrated for detection/response.
 
 ---
-*Generated 2025-11-19 16:15 UTC*
+*Generated 2025-11-19 17:00 UTC*
