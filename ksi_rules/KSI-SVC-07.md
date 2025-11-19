@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 
@@ -44,12 +44,13 @@
 
 ## Latest Results
 
-PASS Advanced risk-informed patching with controlled deployment and compliance (55%): PASS Consistent patch management: 17 patch baselines configured.
-- PASS Automated patch deployment capability: 5/5 instances with SSM agent online (100%).
-- PASS Patch automation framework: 27 documents for automated patching.
+PASS Sufficient 13/20 (65%): PASS Consistent patch management: 17 patch baselines configured.
+- PASS Automated patch deployment capability: 6/6 instances with SSM agent online (100%).
+- PASS Patch automation framework: 32 relevant SSM documents found.
 - PASS Serverless patch management: 1 Lambda layers for runtime dependency management.
+- PASS Patch compliance monitoring: 12 Config rules related to patch/SSM governance found.
 - PASS Enterprise-wide patch governance: AWS Organizations enables centralized policies.
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

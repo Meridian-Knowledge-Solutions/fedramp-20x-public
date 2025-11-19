@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Use logging and monitoring to detect abnormal changes to configuration
 
@@ -44,17 +44,17 @@
 
 ## Latest Results
 
-PASS Enterprise-grade comprehensive cryptographic integrity governance with monitoring (95%): PASS Audit integrity foundation: 1/1 CloudTrail trails with log file validation.
+PASS Excellent 20/20 (100%): PASS Audit integrity foundation: 1/1 CloudTrail trails with log file validation.
 - PASS Cryptographic infrastructure: 17 KMS keys available.
 - PASS Key management governance: 6 customer-managed KMS aliases.
 - PASS Object integrity capability: 10 S3 buckets available for versioning and integrity protection.
-- PASS Database integrity: 1/1 RDS instances with encrypted storage.
-- PASS Configuration integrity: 1 active Config recorders.
+- PASS Database integrity: 1/1 RDS instances with encrypted storage (protects data at rest).
+- PASS Configuration integrity: 1 active Config recorders covering global & all supported types.
 - PASS Backup integrity: 3/3 encrypted backup vaults.
-- PASS Integrity monitoring: 1 CloudWatch alarms for integrity violations.
-- PASS Integrity notification infrastructure: 9 SNS topics for event communication.
+- PASS Integrity monitoring: 13 CloudWatch alarms potentially related to integrity violations detected.
+- PASS Integrity notification infrastructure: 10 SNS topics available for event communication.
 - PASS Enterprise-wide integrity governance: AWS Organizations enables centralized policies.
 - PASS Advanced organization features: SCPs for integrity policy enforcement enabled.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

@@ -3,7 +3,8 @@
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
-**Status:** Not validated
+**Status:** PASS
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Protect audit logs to support after-the-fact investigations
 
@@ -23,5 +24,12 @@
 4. `aws kms list-keys --output json`
    *Verify that KMS keys are available for encrypting logs at rest.*
 
+## Latest Results
+
+PASS Excellent 10/10 (100%): PASS [Integrity] The primary CloudTrail (meridianks-Management-events) has log file validation enabled.
+- PASS [Encryption] The primary CloudTrail (meridianks-Management-events) is encrypted at rest using a KMS key.
+- PASS [Retention] Excellent log retention: 26/33 log groups configured for 365+ days.
+- PASS [Access Control] Excellent RBAC for logs: Found 1 admin role(s) and 2 viewer role(s).
+
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

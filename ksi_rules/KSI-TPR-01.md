@@ -4,7 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Document the cloud service provider (CSP) in the system security policy
 
@@ -23,7 +23,7 @@
 
 ## Latest Results
 
-- PASS Third-party resources identified via static configuration: PASS Static discovery: 5 third-party services identified from whitelist
+- PASS Strong 8/10 (80%): PASS Static discovery: 5 unique third-party hosts identified from Parameter Store whitelist.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

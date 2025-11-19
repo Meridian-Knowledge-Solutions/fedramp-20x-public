@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
 
@@ -32,11 +32,14 @@
 
 ## Latest Results
 
-PASS Sufficient technical capability for recovery objectives for Moderate baseline (61%): PASS Database backup capability: Retention up to 7 days.
+PASS Excellent 16/17 (94%): PASS Database backup capability: Max retention meets/exceeds 7 days (7 days).
 - PASS Point-in-time recovery: Enabled for 1/1 databases.
-- PASS Defined RTO objectives: 4 hours
-- PASS Defined RPO objectives: Not configured
-- PASS Backup vault configured.
+- PASS Backup infrastructure: 2 AWS Backup plan(s) configured.
+- PASS Backup plan execution confirmed (at least one plan has run).
+- PASS Defined RTO objectives found: '4 hours'.
+- PASS Defined RPO objectives found: 'Not configured'.
+- PASS Backup vault configured (1 vault(s) found).
+- PASS Backup selection coverage: 1 backup selection(s) defined.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

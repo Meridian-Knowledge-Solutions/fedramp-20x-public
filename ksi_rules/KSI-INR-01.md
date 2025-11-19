@@ -4,7 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Respond to incidents according to FedRAMP requirements and cloud service provider policies
 
@@ -38,11 +38,12 @@
 
 ## Latest Results
 
-PASS Comprehensive FedRAMP incident response (10/11): PASS Incident response plan documented in CodeCommit
-- PASS Comprehensive incident response procedures
-- PASS Security Hub integrated: 50 findings tracked
-- PASS GuardDuty threat detection enabled
-- PASS Incident response plan maintenance: 1 updates
+PASS Excellent 11/11 (100%): PASS Incident response plan documented in CodeCommit.
+- PASS Incident response plan appears comprehensive (based on size >5KB).
+- PASS Security Hub integration detected (50 findings tracked).
+- PASS GuardDuty threat detection enabled (1 detectors).
+- PASS CloudTrail audit logging configured (1 trails).
+- PASS Incident response plan maintenance: 1 recent update(s) detected.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

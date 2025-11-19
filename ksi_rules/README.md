@@ -12,20 +12,20 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 
 ## Cloud Native Architecture
 
-- [FAIL] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
+- [PASS] [KSI-CNA-01](KSI-CNA-01.md): Implement DDoS protection and defense-in-depth network security
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Segment network and compute resources into security zones
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Restrict public network accessibility except through a limited number of managed access points
 - [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Protect against denial of service attacks and unwanted spam
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Deploy highly available components and services
 - [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
-- [PENDING] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
+- [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess and enforce secure operations
 
 ## Cybersecurity Education
 
 - [PASS] [KSI-CED-01](KSI-CED-01.md): Provide role-based security training for personnel
 - [PASS] [KSI-CED-02](KSI-CED-02.md): Provide specialized security training for privileged users
-- [PASS] [KSI-CED-03](KSI-CED-03.md): Provide security awareness training on risks from social engineering and other attacks
+- [FAIL] [KSI-CED-03](KSI-CED-03.md): Provide security awareness training on risks from social engineering and other attacks
 
 ## Identity and Access Management
 
@@ -50,13 +50,13 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-MLA-03](KSI-MLA-03.md): Rapidly detect and remediate or mitigate vulnerabilities
 - [PASS] [KSI-MLA-05](KSI-MLA-05.md): Use change management tools to enforce, track and report configuration changes
 - [PASS] [KSI-MLA-07](KSI-MLA-07.md): Use log aggregation services that accept logs from CSO-provided services
-- [PENDING] [KSI-MLA-08](KSI-MLA-08.md): Protect audit logs to support after-the-fact investigations
+- [PASS] [KSI-MLA-08](KSI-MLA-08.md): Protect audit logs to support after-the-fact investigations
 
 ## Policy and Inventory
 
 - [PASS] [KSI-PIY-01](KSI-PIY-01.md): Maintain an inventory of authorized users
 - [PASS] [KSI-PIY-02](KSI-PIY-02.md): Document the security objectives and requirements for EACH information resource
-- [FAIL] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
+- [PASS] [KSI-PIY-03](KSI-PIY-03.md): Maintain a vulnerability disclosure program
 - [PASS] [KSI-PIY-04](KSI-PIY-04.md): Maintain an inventory of authorized software
 - [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Have dedicated security staff and budget with executive support
@@ -78,9 +78,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-05](KSI-SVC-05.md): Use logging and monitoring to detect abnormal changes to configuration
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Use centralized key management services
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Perform regularly scheduled scans for vulnerabilities and apply patches promptly
-- [PENDING] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources.
-- [PENDING] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
-- [PENDING] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
+- [PASS] [KSI-SVC-08](KSI-SVC-08.md): Use infrastructure as code to apply controls to the provisioning and management of resources.
+- [PASS] [KSI-SVC-09](KSI-SVC-09.md): Use TLS 1.2 or higher versions of secure protocols
+- [PASS] [KSI-SVC-10](KSI-SVC-10.md): Perform regularly scheduled backups
 
 ## Third-Party Information Resources
 
@@ -91,9 +91,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 56
-- **Passing:** 49
-- **Failing:** 2
-- **Not Tested:** 5
+- **Passing:** 55
+- **Failing:** 1
+- **Not Tested:** 0
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

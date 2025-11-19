@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Implement a consistent identity management process
 
@@ -26,11 +26,9 @@
 
 ## Latest Results
 
-PASS Advanced automated account lifecycle management (100%): PASS Service Oriented Architecture
-- PASS Active Lifecycle Management
-- PASS Privilege Automation
-- PASS Automated Provisioning
-- PASS Regular Access Reviews
+PASS Strong 8/10 (80%): PASS Service Oriented Architecture: Excellent - 97 roles with 0 IAM users indicates strong role-based access.
+- PASS Active Lifecycle Management: 17/21 custom policies updated in the last 90 days.
+- PASS Advanced Identity Management: AWS Identity Center is active (1 instance(s) found). Enables central privilege/access reviews.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

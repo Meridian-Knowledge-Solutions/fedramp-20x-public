@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Cybersecurity Education
-**Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Status:** FAIL
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Provide security awareness training on risks from social engineering and other attacks
 
@@ -19,7 +19,8 @@
 
 ## Latest Results
 
-- WARNING Basic developer training automation - enhance integration (25%): PASS Development security automation: 2 security functions
+FAIL Insufficient 2/7 (29%): PASS Development security automation: Found 2 potentially security-related Lambda function(s).
+- WARNING EventBridge rule data unavailable.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

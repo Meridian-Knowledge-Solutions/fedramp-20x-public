@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Regularly review and audit logs
 
@@ -38,16 +38,16 @@
 
 ## Latest Results
 
-PASS Enterprise-grade log review with comprehensive analysis and governance (83%): PASS Log review notifications: 9 SNS topics for alert delivery
-- PASS Manual review capability: 31 log groups available for analysis
-- PASS Automated log monitoring: 7 CloudWatch alarms for log review
-- PASS Security-focused review: 2 alarms for security event detection
-- PASS Advanced log correlation: 1 Security Hub insights for intelligent analysis
-- PASS Audit event analysis: 10 recent CloudTrail events available for review
-- PASS Custom log processing: 1 Lambda functions for advanced log analysis
-- PASS Compliance retention: 31/31 log groups with retention policies
-- PASS Long-term audit capability: 24 log groups with compliance-grade retention (365+ days)
-- PASS Enterprise log aggregation: AWS Organizations enables centralized multi-account log review
+PASS Strong 15/18 (83%): PASS Log review notifications: 10 SNS topics available for alert delivery.
+- PASS Manual review capability: 33 log groups available for analysis.
+- PASS Automated log monitoring: 7 potentially log-related CloudWatch alarms found.
+- PASS Security-focused review: 13 potentially security-related alarms detected.
+- PASS Advanced log correlation: 1 Security Hub insights available for intelligent analysis.
+- PASS Audit event analysis: 10 recent CloudTrail events retrieved via lookup (indicates analysis capability).
+- PASS Custom log processing: 1 Lambda functions potentially used for advanced log analysis.
+- PASS Compliance retention: 31/33 log groups with explicit retention policies (94%).
+- PASS Long-term audit capability: 26/33 log groups meet compliance retention (>= 365 days).
+- PASS Enterprise log aggregation: AWS Organizations enables centralized multi-account log review.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

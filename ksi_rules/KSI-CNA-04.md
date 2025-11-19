@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
 
@@ -29,12 +29,12 @@
 
 ## Latest Results
 
-PASS Foundational immutable practices (58%): PASS Least Privilege: AdministratorAccess is properly restricted to AWS-managed infrastructure roles.
-- PASS Network Security: No sensitive ports are exposed to the internet.
-- PASS Serverless Adoption: 18 Lambda functions are in use (inherently immutable).
-- WARNING EC2 Standardization: No Launch Templates found for 5 running instance(s).
-- WARNING EC2 Immutable Scaling: No Auto Scaling Groups found for 5 running instance(s).
-- FAIL EC2 IaC Management: None of the 5 running instance(s) have IaC tags.
+PASS Excellent 10/10 (100%): PASS [Least Privilege] AdministratorAccess is properly restricted to AWS-managed infrastructure roles.
+- PASS [Network Security] No sensitive ports (SSH, RDP, DBs) are exposed to the internet.
+- PASS [IaC Controls] IaC Scan Artifact ('checkov_scan_summary.json') found.
+- PASS [IaC Controls] Testing Proof Artifact ('automated_testing_proof.json') found.
+- PASS [Foundational IaC] Terraform state (.tfstate) and plan (.tfplan) files found in S3.
+- PASS [Serverless Adoption] 20 Lambda functions are in use (inherently immutable).
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

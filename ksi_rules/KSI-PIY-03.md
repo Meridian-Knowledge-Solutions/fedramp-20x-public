@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Policy and Inventory
-**Status:** FAIL
-**Last Check:** 2025-11-19 00:17
+**Status:** PASS
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Maintain a vulnerability disclosure program
 
@@ -26,7 +26,11 @@
 
 ## Latest Results
 
-- FAIL No vulnerability disclosure program detected (1/14): PASS VDP maintenance activity: 1 updates
+PASS Excellent 14/14 (100%): PASS Vulnerability disclosure policy document found and appears valid.
+- PASS Submission process appears documented within the policy.
+- PASS Response procedures/timelines appear defined within the policy.
+- PASS Public security contact information appears provided within the policy.
+- PASS VDP maintenance activity: 1 recent update(s) to policy detected.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

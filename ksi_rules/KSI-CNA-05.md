@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Protect against denial of service attacks and unwanted spam
 
@@ -41,11 +41,13 @@
 
 ## Latest Results
 
-PASS Excellent DDoS and spam protection (86%): PASS Network-layer protection: AWS Shield Standard automatically enabled (all AWS accounts)
+PASS Excellent 13/14 (93%): PASS Network-layer protection: AWS Shield Standard automatically enabled (all AWS accounts)
 - PASS Application-layer protection: 1 Regional WAF Web ACL(s) configured
 - PASS Service resilience: 1 Multi-AZ load balancer(s) configured
-- INFO Unverified SES identities detected
-- spam protection checks not applicable.
+- INFO DNS protection: No Route 53 hosted zones found.
+- PASS Secure email sending: 2 verified SES identity(ies).
+- INFO No MX records found
+- inbound spam protection (SPF, DMARC, DKIM) not applicable.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

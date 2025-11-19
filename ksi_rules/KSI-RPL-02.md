@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Develop and maintain a recovery plan that aligns with the defined recovery objectives
 
@@ -23,10 +23,10 @@
 
 ## Latest Results
 
-PASS Excellent, automated recovery plan (100%): PASS [Plan] Recovery plan is implemented as code via 2 AWS Backup plan(s).
-- PASS [Storage] All 3 backup vaults are encrypted at rest, protecting recovery data.
-- PASS [Maintenance] All backup plans are actively maintained and have recent execution history.
-- PASS [Evidence] Recovery readiness is demonstrated by the existence of 100 recent EBS snapshots.
+PASS Excellent 9/10 (90%): PASS [Plan] Recovery plan implemented as code via 2 AWS Backup plan(s).
+- PASS [Storage] Backup vault(s) configured (3 found). (Encryption check requires describe-backup-vault).
+- PASS [Maintenance] All backup plans appear actively maintained (have execution history).
+- PASS [Evidence] Recovery readiness indicated by 100 EBS snapshot(s).
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

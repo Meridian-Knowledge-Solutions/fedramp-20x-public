@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Use encryption in transit with TLS 1.2 or higher
 
@@ -41,12 +41,12 @@
 
 ## Latest Results
 
-PASS Production-ready multi-layer traffic encryption and certificate management (67%): PASS Private service communication: 7 VPC endpoints configured.
+PASS Sufficient 12/18 (67%): PASS Private service communication: 7 VPC endpoints configured.
 - PASS API encryption capability: 3 API Gateway endpoints (HTTPS by default).
-- PASS Database encryption capability: 1 RDS instances (1 encrypted).
-- PASS Automated certificate management: 2/2 active ACM certificates (100%).
+- PASS Database encryption capability: 1 RDS instances (1 encrypted at rest).
+- PASS Certificate management: 2/2 ACM certificates are in ISSUED status (100%).
 - PASS Enterprise-wide encryption governance: AWS Organizations enables centralized policies.
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

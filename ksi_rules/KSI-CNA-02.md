@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Segment network and compute resources into security zones
 
@@ -35,15 +35,15 @@
 
 ## Latest Results
 
-PASS Strong attack surface minimization (85%): PASS Strong attack surface minimization: 6/8 private subnets (75%)
+PASS Strong 17/20 (85%): PASS Strong attack surface minimization: 6/8 private subnets (75%)
 - PASS Good AZ segmentation: 8 subnets across 2 availability zones
 - PASS Strong micro-segmentation: 14/15 custom security groups
-- PASS Lateral movement barriers: 10/15 security groups with specific rules
-- PASS Minimal compute exposure: 6/6 instances in private subnets
+- PASS Lateral movement barriers: 11/15 security groups with specific rules
+- PASS Minimal compute exposure: 9/9 instances in private subnets
 - PASS Database isolation: All 1 RDS instances private
 - PASS Controlled service exposure: Single internet-facing load balancer with private backend services
-- PASS Lambda isolation: 2/18 functions in VPC
+- PASS Lambda isolation: 2/20 functions in VPC
 - PASS Advanced segmentation barriers: 1/1 Network ACLs with custom isolation rules
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

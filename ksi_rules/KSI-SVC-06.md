@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Use centralized key management services
 
@@ -41,16 +41,16 @@
 
 ## Latest Results
 
-PASS Enterprise-grade comprehensive automated key management governance with rotation (90%): PASS Automated key management infrastructure: 17 KMS keys (0 customer-managed, 17 AWS-managed).
-- PASS Automated certificate management: 2/2 ACM certificates are active.
-- PASS Key governance structure: 6 customer-managed KMS aliases.
-- PASS Automated encryption integration: 4 KMS-encrypted SecureString parameters.
-- PASS Automated credential rotation: 1/2 secrets with automatic rotation (50%).
-- PASS Modern certificate management: No legacy IAM certificates.
-- PASS Infrastructure as Code key management: 14/14 successful CloudFormation stacks.
-- PASS Key management audit trail: 20 recent key management events tracked.
+PASS Excellent 18/20 (90%): PASS Automated key management infrastructure: 17 KMS keys detected.
+- PASS Automated certificate management: 2/2 ACM certificates are ISSUED.
+- PASS Key governance structure: 6 customer-managed KMS aliases found.
+- PASS Automated encryption integration: 4 SecureString parameters found (implies KMS usage).
+- PASS Secrets management in use: 2 secrets found in Secrets Manager.
+- PASS Modern certificate management: No legacy IAM server certificates found.
+- PASS Infrastructure as Code key management: 14/14 successful CloudFormation stacks (implies IaC practices).
+- PASS Key management audit trail: 20 recent key management events tracked via CloudTrail lookup.
 - PASS Enterprise-wide key management governance: AWS Organizations enables centralized key policies.
 - PASS Advanced organization features: SCPs for key management policy enforcement enabled.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

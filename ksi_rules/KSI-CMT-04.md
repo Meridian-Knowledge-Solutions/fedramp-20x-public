@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Document and consistently follow change management
 
@@ -20,8 +20,8 @@
 
 ## Latest Results
 
-PASS Excellent change management process (100%): PASS [Documentation] Comprehensive change management procedure found (8898 bytes).
-- PASS [Evidence] Found 2 recent Terraform plan(s) in S3, proving the change process is followed.
+PASS Excellent 10/10 (100%): PASS [Documentation] Comprehensive change management procedure found (size: 3747 bytes).
+- PASS [Evidence] Found 2 recent Terraform plan artifact(s) in S3, proving change process execution.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

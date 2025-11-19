@@ -4,7 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Provide specialized security training for privileged users
 
@@ -16,7 +16,7 @@
 
 ## Latest Results
 
-- PASS Role-specific training including privileged access: fedramp_role_based.png, cyber_security_training.png, security_training_roster.png
+- PASS Excellent 10/10 (100%): PASS Role-specific and privileged access training evidence found: fedramp_role_based.png, cyber_security_training.png, security_training_roster.png.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

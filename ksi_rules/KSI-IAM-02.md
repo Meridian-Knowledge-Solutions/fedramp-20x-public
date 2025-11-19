@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Implement enterprise-wide identity federation
 
@@ -26,9 +26,9 @@
 
 ## Latest Results
 
-PASS Excellent authentication security (passwordless methods): PASS 1 SAML providers configured (passwordless authentication)
-- PASS Using temporary credentials (passwordless method)
-- PASS Centralized MFA via SAML/IdP (traditional MFA not required)
+PASS Strong 5/6 (83%): PASS 1 SAML providers configured (passwordless authentication)
+- PASS Using temporary credentials (assumed role - passwordless method)
+- PASS Centralized MFA via SAML/IdP assumed (IAM MFA devices not strictly required).
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*

@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-19 00:17
+**Last Check:** 2025-11-19 06:23
 
 **What it validates:** Enforce phishing-resistant MFA for all user authentication
 
@@ -29,10 +29,10 @@
 
 ## Latest Results
 
-PASS Excellent MFA enforcement (100%): PASS [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.
+PASS Excellent 10/10 (100%): PASS [Modern Identity] AWS Identity Center is active, establishing a centralized identity platform.
 - PASS [Federation] Strong MFA enforcement: 100% (10/10) of users are federated from an external IdP where MFA is enforced.
-- PASS [IAM Hygiene] Excellent: No legacy IAM human users found
-- all users are managed via Identity Center.
+- PASS [IAM Hygiene] Excellent: No legacy IAM human users with console access found
+- users likely managed via Identity Center.
 
 ---
-*Generated 2025-11-19 00:17 UTC*
+*Generated 2025-11-19 06:23 UTC*
