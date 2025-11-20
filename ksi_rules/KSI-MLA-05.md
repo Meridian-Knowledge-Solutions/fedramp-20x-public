@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 00:17
+**Last Check:** 2025-11-20 00:42
 
 **What it validates:** Use change management tools to enforce, track and report configuration changes
 
@@ -39,4 +39,4 @@ PASS Excellent 20/20 (100%): PASS Automated change management: Validated via ext
 - PASS Enterprise multi-account governance: AWS Organizations with ALL features enabled (SCPs available).
 
 ---
-*Generated 2025-11-20 00:17 UTC*
+*Generated 2025-11-20 00:42 UTC*
