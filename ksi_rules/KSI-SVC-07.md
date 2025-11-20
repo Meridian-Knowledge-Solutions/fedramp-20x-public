@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-20 12:15
-=======
-**Last Check:** 2025-11-20 12:27
->>>>>>> Stashed changes
+**Last Check:** 2025-11-20 16:14
 
 **What it validates:** Perform regularly scheduled scans for vulnerabilities and apply patches promptly
 
@@ -57,8 +53,4 @@ PASS Sufficient 13/20 (65%): PASS Consistent patch management: 17 patch baseline
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-20 12:15 UTC*
-=======
-*Generated 2025-11-20 12:27 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-20 16:14 UTC*

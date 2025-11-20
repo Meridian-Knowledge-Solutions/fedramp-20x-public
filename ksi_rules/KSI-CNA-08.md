@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-20 12:15
-=======
-**Last Check:** 2025-11-20 12:27
->>>>>>> Stashed changes
+**Last Check:** 2025-11-20 16:14
 
 **What it validates:** Use automated services to persistently assess and enforce secure operations
 
@@ -45,8 +41,4 @@ PASS Strong 10/12 (83%): PASS Measurement Framework: Basic - 1/1 Security Hub st
 - PASS Measurement Visibility: Centralized - Security Hub is enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-20 12:15 UTC*
-=======
-*Generated 2025-11-20 12:27 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-20 16:14 UTC*

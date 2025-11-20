@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-20 12:15
-=======
-**Last Check:** 2025-11-20 12:27
->>>>>>> Stashed changes
+**Last Check:** 2025-11-20 16:14
 
 **What it validates:** Establish an insider threat program
 
@@ -37,8 +33,4 @@ PASS Excellent 10/10 (100%): PASS Incident response infrastructure fully configu
 - PASS Periodic review report artifact ('quarterly_incident_review_minutes.md') found and appears valid.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-20 12:15 UTC*
-=======
-*Generated 2025-11-20 12:27 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-20 16:14 UTC*

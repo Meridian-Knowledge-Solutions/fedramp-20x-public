@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-20 12:15
-=======
-**Last Check:** 2025-11-20 12:27
->>>>>>> Stashed changes
+**Last Check:** 2025-11-20 16:14
 
 **What it validates:** Implement DDoS protection and defense-in-depth network security
 
@@ -55,8 +51,4 @@ PASS Excellent 16/16 (97%): PASS VPC infrastructure: 1 VPC(s) detected
 - PASS Traffic visibility: 2 VPC Flow Log groups for traffic monitoring
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-20 12:15 UTC*
-=======
-*Generated 2025-11-20 12:27 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-20 16:14 UTC*
