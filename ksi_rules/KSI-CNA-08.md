@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 06:23
+**Last Check:** 2025-11-20 08:15
 
 **What it validates:** Use automated services to persistently assess and enforce secure operations
 
@@ -35,10 +35,10 @@
 
 ## Latest Results
 
-PASS Sufficient 8/12 (67%): WARNING Measurement Framework: 1 Security Hub standards subscribed, but none are READY.
-- PASS Measurement Instruments: Extensive - 332 AWS Config rules deployed.
+PASS Strong 10/12 (83%): PASS Measurement Framework: Basic - 1/1 Security Hub standard(s) READY.
+- PASS Measurement Instruments: Extensive - 333 AWS Config rules deployed.
 - PASS Active Measurement: At least one Config recorder is actively capturing data successfully.
 - PASS Measurement Visibility: Centralized - Security Hub is enabled.
 
 ---
-*Generated 2025-11-20 06:24 UTC*
+*Generated 2025-11-20 08:16 UTC*

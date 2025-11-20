@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 06:23
+**Last Check:** 2025-11-20 08:15
 
 **What it validates:** Clearly define user roles and implement user-to-role mapping
 
@@ -30,9 +30,9 @@
 ## Latest Results
 
 PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center usage inferred from 3 SSO-managed roles.
-- PASS [Role Mapping] Inferred 3 distinct permission sets (e.g., AdministratorAccess, ReadOnlyAccess, Development).
+- PASS [Role Mapping] Inferred 3 distinct permission sets (e.g., Development, AdministratorAccess, ReadOnlyAccess).
 - PASS [Least Privilege] Excellent: 97 roles and 0 IAM users found (strong role-based pattern).
 - PASS [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).
 
 ---
-*Generated 2025-11-20 06:24 UTC*
+*Generated 2025-11-20 08:16 UTC*

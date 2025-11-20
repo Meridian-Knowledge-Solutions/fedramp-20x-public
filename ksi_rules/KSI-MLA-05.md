@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 06:23
+**Last Check:** 2025-11-20 08:15
 
 **What it validates:** Use change management tools to enforce, track and report configuration changes
 
@@ -31,7 +31,7 @@
 
 PASS Excellent 20/20 (100%): PASS Automated change management: Validated via external CI/CD evidence (GitHub Actions, Terraform).
 - PASS IaC change process: Validated via external Terraform evidence (10 files).
-- PASS Configuration compliance evaluation: 332 active Config rules detected.
+- PASS Configuration compliance evaluation: 333 active Config rules detected.
 - PASS Centralized configuration management: 7 SSM parameters found.
 - PASS Resource governance: 7 resources found with IaC-related tags.
 - PASS Deployment audit trail: 20 relevant change events found in CloudTrail.
@@ -39,4 +39,4 @@ PASS Excellent 20/20 (100%): PASS Automated change management: Validated via ext
 - PASS Enterprise multi-account governance: AWS Organizations with ALL features enabled (SCPs available).
 
 ---
-*Generated 2025-11-20 06:24 UTC*
+*Generated 2025-11-20 08:16 UTC*

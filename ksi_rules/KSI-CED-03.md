@@ -4,7 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** FAIL
-**Last Check:** 2025-11-20 06:23
+**Last Check:** 2025-11-20 08:15
 
 **What it validates:** Provide security awareness training on risks from social engineering and other attacks
 
@@ -23,4 +23,4 @@ FAIL Insufficient 2/7 (29%): PASS Development security automation: Found 2 poten
 - WARNING EventBridge rule data unavailable.
 
 ---
-*Generated 2025-11-20 06:24 UTC*
+*Generated 2025-11-20 08:16 UTC*

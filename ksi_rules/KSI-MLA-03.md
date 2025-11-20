@@ -4,7 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 06:23
+**Last Check:** 2025-11-20 08:15
 
 **What it validates:** Rapidly detect and remediate or mitigate vulnerabilities
 
@@ -38,15 +38,16 @@
 
 ## Latest Results
 
-PASS Sufficient 12/18 (67%): PASS Automated vulnerability scanning: Inspector enabled for EC2, ECR.
+PASS Strong 14/18 (78%): PASS Security standards foundation: 1/1 Security Hub standards enabled for detection.
+- PASS Automated vulnerability scanning: Inspector enabled for EC2, ECR.
 - PASS Multi-service vulnerability coverage via Inspector (2 services).
-- PASS Configuration vulnerability detection: 332 Config rules monitoring security posture.
+- PASS Configuration vulnerability detection: 333 Config rules monitoring security posture.
 - PASS Automated patch management capability: 17 patch baselines configured (17 custom).
 - PASS Tailored remediation: 17 custom patch baselines for targeted response.
 - PASS Real-time threat detection/alerting: 13 potentially security-related CloudWatch alarms.
-- PASS Active threat analysis: 50 active security findings (1 critical, 8 high).
+- PASS Active threat analysis: 50 active security findings (1 critical, 7 high).
 - PASS Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection/management.
 - PASS Multi-service vulnerability coverage: 4 AWS services integrated for detection/response.
 
 ---
-*Generated 2025-11-20 06:24 UTC*
+*Generated 2025-11-20 08:16 UTC*
