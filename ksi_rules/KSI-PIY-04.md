@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Maintain an inventory of authorized software
 
@@ -33,4 +37,8 @@ PASS Excellent 7/8 (88%): PASS Build Security Integration: Found 3 security-focu
 - 📊 SDLC Security Maturity: 4/4 capabilities detected (100% coverage).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes

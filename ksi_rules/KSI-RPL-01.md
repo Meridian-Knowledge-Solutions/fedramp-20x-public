@@ -4,7 +4,11 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
 
@@ -42,4 +46,8 @@ PASS Excellent 16/17 (94%): PASS Database backup capability: Max retention meets
 - PASS Backup selection coverage: 1 backup selection(s) defined.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes

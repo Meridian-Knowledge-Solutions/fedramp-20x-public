@@ -4,7 +4,11 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Use change management tools to enforce, track and report configuration changes
 
@@ -39,4 +43,8 @@ PASS Excellent 20/20 (100%): PASS Automated change management: Validated via ext
 - PASS Enterprise multi-account governance: AWS Organizations with ALL features enabled (SCPs available).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes

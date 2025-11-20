@@ -4,7 +4,11 @@
 
 **Category:** Service Configuration
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Use infrastructure as code to apply controls to the provisioning and management of resources.
 
@@ -23,4 +27,8 @@ PASS Excellent 10/10 (100%): PASS [IaC Usage] Terraform state files (.tfstate) f
 - PASS [IaC Controls] Testing Proof Artifact ('automated_testing_proof.json') found in CMT-03 evidence.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes

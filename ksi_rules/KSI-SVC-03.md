@@ -4,7 +4,11 @@
 
 **Category:** Service Configuration
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Encrypt data at rest
 
@@ -54,4 +58,8 @@ PASS Strong 16/20 (80%): PASS Object storage encryption: 10 S3 buckets configure
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes

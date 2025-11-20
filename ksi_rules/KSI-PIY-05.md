@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-20 12:15
+=======
+**Last Check:** 2025-11-20 12:27
+>>>>>>> Stashed changes
 
 **What it validates:** Document methods used to evaluate information resource implementations
 
@@ -29,4 +33,8 @@ PASS Excellent 10/10 (100%): PASS [Documentation] Evaluation methodology documen
 - PASS [Maintenance] Methodology appears actively maintained (1 recent update(s) detected).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-20 12:15 UTC*
+=======
+*Generated 2025-11-20 12:27 UTC*
+>>>>>>> Stashed changes
