@@ -4,7 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-19 20:13
+**Last Check:** 2025-11-20 00:17
 
 **What it validates:** Implement automated incident response procedures
 
@@ -26,10 +26,10 @@
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS Incident analysis capability: Security Hub findings accessible.
+PASS Strong 8/10 (80%): PASS Incident analysis capability: Security Hub findings accessible.
 - PASS Automated reporting: 4 Lambda functions for after-action reporting deployed.
 - PASS Continuous improvement framework: Security Hub standards definitions available.
-- PASS Standards actively enabled: 1 Security Hub standard(s) are enabled and READY.
+- WARNING Continuous improvement framework: Standards definitions exist, but no standards are actively enabled.
 
 ---
-*Generated 2025-11-19 20:13 UTC*
+*Generated 2025-11-20 00:17 UTC*

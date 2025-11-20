@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-19 20:13
+**Last Check:** 2025-11-20 00:17
 
 **What it validates:** Back up information regularly per the recovery point objective
 
@@ -35,7 +35,7 @@ PASS Excellent 8/8 (100%): PASS Backup infrastructure: 2 AWS Backup plan(s) conf
 - PASS Backup schedule configured for 1/1 rule(s).
 - PASS Backup operations validated: Found 50 successful backup jobs within the last 7 days.
 - PASS Database backups configured: 1/1 RDS instances have automated backups enabled.
-- PASS Additional recovery points: 826 EBS snapshots found.
+- PASS Additional recovery points: 836 EBS snapshots found.
 
 ---
-*Generated 2025-11-19 20:13 UTC*
+*Generated 2025-11-20 00:17 UTC*
