@@ -1,15 +1,14 @@
 {
-  "timestamp": "2025-11-21T04:15:23.805776",
+  "timestamp": "2025-11-21T06:24:49.870664",
   "total_ksis_validated": 65,
-  "technical_issues_found": 7,
+  "technical_issues_found": 6,
   "issues": [
     "KSI-SVC-08: Only 1 commands executed - may be incomplete validation",
     "KSI-CED-04: Evidence check failed - may indicate missing documentation",
     "KSI-CED-04: Evidence-only validation failed - documentation may be missing",
     "KSI-PIY-08: Evidence check failed - may indicate missing documentation",
     "KSI-PIY-08: Evidence-only validation failed - documentation may be missing",
-    "KSI-AFR-07: All 1 CLI commands failed execution",
-    "KSI-AFR-08: All 1 CLI commands failed execution"
+    "KSI-AFR-07: All 1 CLI commands failed execution"
   ],
   "status": "warning",
   "categories_checked": [

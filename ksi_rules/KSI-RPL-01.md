@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-21 04:15
+**Last Check:** 2025-11-21 06:24
 
 **What it validates:** Define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).
 
@@ -42,4 +42,4 @@ PASS Excellent 16/17 (94%): PASS Database backup capability: Max retention meets
 - PASS Backup selection coverage: 1 backup selection(s) defined.
 
 ---
-*Generated 2025-11-21 04:27 UTC*
+*Generated 2025-11-21 06:36 UTC*

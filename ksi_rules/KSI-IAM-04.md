@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-21 04:15
+**Last Check:** 2025-11-21 06:24
 
 **What it validates:** Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.
 
@@ -30,9 +30,9 @@
 ## Latest Results
 
 PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center usage inferred from 3 SSO-managed roles.
-- PASS [Role Mapping] Inferred 3 distinct permission sets (e.g., AdministratorAccess, Development, ReadOnlyAccess).
+- PASS [Role Mapping] Inferred 3 distinct permission sets (e.g., Development, AdministratorAccess, ReadOnlyAccess).
 - PASS [Least Privilege] Excellent: 97 roles and 0 IAM users found (strong role-based pattern).
 - PASS [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).
 
 ---
-*Generated 2025-11-21 04:27 UTC*
+*Generated 2025-11-21 06:36 UTC*
