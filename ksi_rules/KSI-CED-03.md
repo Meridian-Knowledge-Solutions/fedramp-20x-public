@@ -1,12 +1,12 @@
-# KSI-CED-03: Provide security awareness training on risks from social engineering and other attacks
+# KSI-CED-03: Require and monitor the effectiveness of role-specific training provided to development and engineering staff that covers best practices for delivering secure software.
 
 ## Overview
 
 **Category:** Cybersecurity Education
 **Status:** FAIL
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Provide security awareness training on risks from social engineering and other attacks
+**What it validates:** Require and monitor the effectiveness of role-specific training provided to development and engineering staff that covers best practices for delivering secure software.
 
 **Why it matters:** Validates security awareness training from basic phishing tests to enterprise-grade continuous awareness programs and behavior analytics
 
@@ -15,12 +15,16 @@
 1. `aws lambda list-functions --output json`
    *Check for security awareness automation functions*
 
-2. **Manual Review:** Manual review of security awareness training records, phishing simulation results, and social engineering prevention documentation
+2. `aws events list-rules --output json`
+   *Check for automated training delivery triggers*
+
+3. `aws organizations describe-organization --output json`
+   *Check for enterprise training governance policies*
 
 ## Latest Results
 
-FAIL Insufficient 2/7 (29%): PASS Development security automation: Found 2 potentially security-related Lambda function(s).
-- WARNING EventBridge rule data unavailable.
+FAIL Insufficient 3/7 (43%): PASS Development security automation: Found 2 potentially security-related Lambda function(s).
+- PASS Enterprise governance: AWS Organizations detected (enables central training/security policies).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-CNA-06: Deploy highly available components and services
+# KSI-CNA-06: Design systems for high availability and rapid recovery.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Deploy highly available components and services
+**What it validates:** Design systems for high availability and rapid recovery.
 
 **Why it matters:** Validates comprehensive high availability from basic multi-AZ to enterprise-grade disaster recovery and global resilience
 
@@ -47,8 +47,8 @@ PASS Excellent 12/14.5 (86%): PASS Strong network HA: 8 subnets across 2 AZs
 - PASS Active backup strategy: 2/2 AWS Backup plan(s) with recent execution
 - PASS Storage redundancy: 10 S3 bucket(s) with built-in 11-9s durability
 - PASS Database HA-ready: 1/1 RDS instance(s) with multi-AZ subnet groups (easily convertible)
-- PASS Bonus: Enhanced storage recovery via 836 EBS snapshot(s) managed by AWS Backup
+- PASS Bonus: Enhanced storage recovery via 846 EBS snapshot(s) managed by AWS Backup
 - PASS DNS infrastructure: 1 Route 53 hosted zone(s)
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

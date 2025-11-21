@@ -1,12 +1,12 @@
-# KSI-INR-02: Establish an insider threat program
+# KSI-INR-02: Maintain a log of incidents and periodically review past incidents for patterns or vulnerabilities.
 
 ## Overview
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Establish an insider threat program
+**What it validates:** Maintain a log of incidents and periodically review past incidents for patterns or vulnerabilities.
 
 **Why it matters:** Validates insider threat detection from basic access monitoring to enterprise-grade behavioral analytics and automated threat detection
 
@@ -33,4 +33,4 @@ PASS Excellent 10/10 (100%): PASS Incident response infrastructure fully configu
 - PASS Periodic review report artifact ('quarterly_incident_review_minutes.md') found and appears valid.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-MLA-07: Use log aggregation services that accept logs from CSO-provided services
+# KSI-MLA-07: Maintain a list of information resources and event types that will be monitored, logged, and audited, then do so.
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use log aggregation services that accept logs from CSO-provided services
+**What it validates:** Maintain a list of information resources and event types that will be monitored, logged, and audited, then do so.
 
 **Why it matters:** Validates comprehensive log aggregation from basic CloudWatch to enterprise-grade centralized SIEM and cross-account log collection
 
@@ -28,4 +28,4 @@ PASS Excellent 8/8 (100%): PASS Comprehensive log infrastructure: 33 CloudWatch 
 - PASS Comprehensive monitoring configuration: 13 CloudWatch alarms found.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

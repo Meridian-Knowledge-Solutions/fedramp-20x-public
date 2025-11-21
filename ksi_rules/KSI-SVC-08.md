@@ -1,12 +1,12 @@
-# KSI-SVC-08: Use infrastructure as code to apply controls to the provisioning and management of resources.
+# KSI-SVC-08: Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use infrastructure as code to apply controls to the provisioning and management of resources.
+**What it validates:** Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
 
 **Why it matters:** Validates a comprehensive IaC strategy by checking for: 1) Live IaC usage/management (Terraform .tfstate/.tfplan files in S3). 2) Automated security controls (Checkov/SARIF/automation artifacts).
 
@@ -23,4 +23,4 @@ PASS Excellent 10/10 (100%): PASS [IaC Usage] Terraform state files (.tfstate) f
 - PASS [IaC Controls] Testing Proof Artifact ('automated_testing_proof.json') found in CMT-03 evidence.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

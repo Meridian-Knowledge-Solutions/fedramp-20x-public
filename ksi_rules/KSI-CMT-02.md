@@ -1,12 +1,12 @@
-# KSI-CMT-02: Use self-service templates and image repositories for provisioning
+# KSI-CMT-02: Execute changes though redeployment of version controlled immutable resources rather than direct modification wherever possible
 
 ## Overview
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use self-service templates and image repositories for provisioning
+**What it validates:** Execute changes though redeployment of version controlled immutable resources rather than direct modification wherever possible
 
 **Why it matters:** Validates comprehensive self-service provisioning from basic AMIs to enterprise-grade service catalogs and automated deployment templates
 
@@ -50,4 +50,4 @@ PASS Excellent 20/20 (100%): PASS External Terraform Evidence: 10 managed files 
 - PASS Advanced organization features: SCPs available for immutable deployment policy enforcement.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

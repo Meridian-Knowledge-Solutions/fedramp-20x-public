@@ -1,12 +1,12 @@
-# KSI-CNA-03: Restrict public network accessibility except through a limited number of managed access points
+# KSI-CNA-03: Use logical networking and related capabilities to enforce traffic flow controls.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Restrict public network accessibility except through a limited number of managed access points
+**What it validates:** Use logical networking and related capabilities to enforce traffic flow controls.
 
 **Why it matters:** Validates strict public access control from basic public subnet restrictions to enterprise-grade private connectivity with minimal internet exposure
 
@@ -45,4 +45,4 @@ PASS Excellent 17/16 (106%): PASS Logical routing infrastructure: 5/5 route tabl
 - PASS Traffic flow monitoring: 2 VPC Flow Log groups found.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

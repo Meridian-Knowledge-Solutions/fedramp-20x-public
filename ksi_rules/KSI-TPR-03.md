@@ -1,12 +1,12 @@
-# KSI-TPR-03: Identify and prioritize mitigation of potential supply chain risks
+# KSI-TPR-03: Identify and prioritize mitigation of potential supply chain risks.
 
 ## Overview
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Identify and prioritize mitigation of potential supply chain risks
+**What it validates:** Identify and prioritize mitigation of potential supply chain risks.
 
 **Why it matters:** Validates the supply chain risk management policy's existence, its maintenance history, and the existence of a formal approval workflow.
 
@@ -28,4 +28,4 @@ PASS Excellent 10/10 (100%): PASS [Policy] A comprehensive supply chain risk man
 - PASS [Audit Trail] Policy appears actively maintained (1 recent update(s) detected).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

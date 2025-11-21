@@ -1,12 +1,12 @@
-# KSI-IAM-06: Implement fine-grained automated actions on security events related to authentication and access control
+# KSI-IAM-06: Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement fine-grained automated actions on security events related to authentication and access control
+**What it validates:** Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity
 
 **Why it matters:** Validates a multi-layered automated response system, including threat detection (GuardDuty, Security Hub), event triggering (EventBridge), and automated actions (Lambda, Alarms).
 
@@ -36,4 +36,4 @@ PASS Excellent 10/10 (100%): PASS [Detection] Advanced threat detection is activ
 - PASS [Response] Proactive monitoring and alerting likely configured with 13 security-focused CloudWatch Alarms.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

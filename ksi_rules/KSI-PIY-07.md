@@ -1,12 +1,12 @@
-# KSI-PIY-07: Document risk management decisions for software supply chain security
+# KSI-PIY-07: Document risk management decisions for software supply chain security.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Document risk management decisions for software supply chain security
+**What it validates:** Document risk management decisions for software supply chain security.
 
 **Why it matters:** Validates the supply chain risk policy's content, its maintenance history, and the existence of a formal approval workflow.
 
@@ -28,4 +28,4 @@ PASS Excellent 10/10 (100%): PASS [Policy] Supply chain risk management policy d
 - PASS [Audit Trail] Policy appears actively maintained (1 recent update(s) detected).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

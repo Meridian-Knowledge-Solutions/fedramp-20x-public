@@ -1,12 +1,12 @@
-# KSI-PIY-03: Maintain a vulnerability disclosure program
+# KSI-PIY-03: Maintain a vulnerability disclosure program.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Maintain a vulnerability disclosure program
+**What it validates:** Maintain a vulnerability disclosure program.
 
 **Why it matters:** Validates vulnerability disclosure program through CodeCommit policy repository with submission process, response procedures, and maintenance tracking
 
@@ -33,4 +33,4 @@ PASS Excellent 14/14 (100%): PASS Vulnerability disclosure policy document found
 - PASS VDP maintenance activity: 1 recent update(s) to policy detected.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

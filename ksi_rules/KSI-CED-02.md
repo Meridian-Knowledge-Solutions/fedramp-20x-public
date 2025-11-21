@@ -1,12 +1,12 @@
-# KSI-CED-02: Provide specialized security training for privileged users
+# KSI-CED-02: Require and monitor the effectiveness of role-specific training for high risk roles, including at least roles with privileged access.
 
 ## Overview
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Provide specialized security training for privileged users
+**What it validates:** Require and monitor the effectiveness of role-specific training for high risk roles, including at least roles with privileged access.
 
 **Why it matters:** Validates specialized security training from basic privileged user awareness to enterprise-grade advanced threat training and certification tracking
 
@@ -19,4 +19,4 @@
 - PASS Excellent 10/10 (100%): PASS Role-specific and privileged access training evidence found: fedramp_role_based.png, cyber_security_training.png, security_training_roster.png.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

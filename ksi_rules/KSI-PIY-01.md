@@ -1,12 +1,12 @@
-# KSI-PIY-01: Maintain an inventory of authorized users
+# KSI-PIY-01: Use authoritative sources to automatically maintain real-time inventories of all information resources.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Maintain an inventory of authorized users
+**What it validates:** Use authoritative sources to automatically maintain real-time inventories of all information resources.
 
 **Why it matters:** Validates comprehensive user inventory from basic IAM list to enterprise-grade identity lifecycle management and automated discovery
 
@@ -53,4 +53,4 @@ PASS Strong 18/23 (78%): PASS Compute inventory: 9 EC2 instances discovered.
 - 📊 Inventory Maturity: 9/9 components discovered (100% coverage).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-SVC-02: Use encryption in transit with TLS 1.2 or higher
+# KSI-SVC-02: Encrypt or otherwise secure network traffic.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use encryption in transit with TLS 1.2 or higher
+**What it validates:** Encrypt or otherwise secure network traffic.
 
 **Why it matters:** Validates comprehensive encryption in transit from basic TLS to enterprise-grade certificate management and cryptographic compliance
 
@@ -49,4 +49,4 @@ PASS Sufficient 12/18 (67%): PASS Private service communication: 7 VPC endpoints
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

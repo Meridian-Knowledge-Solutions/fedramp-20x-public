@@ -1,12 +1,12 @@
-# KSI-IAM-02: Implement enterprise-wide identity federation
+# KSI-IAM-02: Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA.
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement enterprise-wide identity federation
+**What it validates:** Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA.
 
 **Why it matters:** Validates comprehensive identity federation from basic SAML to enterprise-grade SSO and centralized identity management
 
@@ -31,4 +31,4 @@ PASS Strong 5/6 (83%): PASS 1 SAML providers configured (passwordless authentica
 - PASS Centralized MFA via SAML/IdP assumed (IAM MFA devices not strictly required).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

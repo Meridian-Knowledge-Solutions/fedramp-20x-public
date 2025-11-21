@@ -1,12 +1,12 @@
-# KSI-CNA-07: Maximize use of managed services and cloud resources
+# KSI-CNA-07: Ensure cloud-native information resources are implemented based on host provider's best practices and documented guidance.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Maximize use of managed services and cloud resources
+**What it validates:** Ensure cloud-native information resources are implemented based on host provider's best practices and documented guidance.
 
 **Why it matters:** Validates comprehensive cloud-native architecture from basic managed services to enterprise-grade serverless and fully managed infrastructure
 
@@ -78,4 +78,4 @@ PASS Excellent 30/30 (98%): PASS CloudTrail excellently configured: 'meridianks-
 - PASS Enterprise governance: AWS Organizations with ALL features enabled (including SCPs)
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

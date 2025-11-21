@@ -1,12 +1,11 @@
-# KSI-MLA-03: Rapidly detect and remediate or mitigate vulnerabilities
+# KSI-MLA-03: Rapidly detect and remediate or mitigate vulnerabilities (Superseded by KSI-AFR-04)
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
-**Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Status:** Not validated
 
-**What it validates:** Rapidly detect and remediate or mitigate vulnerabilities
+**What it validates:** Rapidly detect and remediate or mitigate vulnerabilities (Superseded by KSI-AFR-04)
 
 **Why it matters:** Validates comprehensive vulnerability detection, including Config rules, Inspector scanning, active findings, patch management, automated response, and enterprise governance.
 
@@ -36,18 +35,5 @@
 8. `aws organizations describe-organization --output json`
    *Check organization-wide vulnerability management policies*
 
-## Latest Results
-
-PASS Strong 14/18 (78%): PASS Security standards foundation: 1/1 Security Hub standards enabled for detection.
-- PASS Automated vulnerability scanning: Inspector enabled for EC2, ECR.
-- PASS Multi-service vulnerability coverage via Inspector (2 services).
-- PASS Configuration vulnerability detection: 333 Config rules monitoring security posture.
-- PASS Automated patch management capability: 17 patch baselines configured (17 custom).
-- PASS Tailored remediation: 17 custom patch baselines for targeted response.
-- PASS Real-time threat detection/alerting: 13 potentially security-related CloudWatch alarms.
-- PASS Active threat analysis: 50 active security findings (1 critical, 8 high).
-- PASS Enterprise vulnerability management: AWS Organizations enables centralized multi-account detection/management.
-- PASS Multi-service vulnerability coverage: 4 AWS services integrated for detection/response.
-
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

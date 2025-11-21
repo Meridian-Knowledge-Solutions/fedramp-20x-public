@@ -1,12 +1,12 @@
-# KSI-CED-01: Provide role-based security training for personnel
+# KSI-CED-01: Require and monitor the effectiveness of training given to all employees on policies, procedures, and security-related topics.
 
 ## Overview
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Provide role-based security training for personnel
+**What it validates:** Require and monitor the effectiveness of training given to all employees on policies, procedures, and security-related topics.
 
 **Why it matters:** Validates role-based security training from basic awareness to enterprise-grade continuous education and compliance tracking
 
@@ -19,4 +19,4 @@
 - PASS Excellent 10/10 (100%): PASS Specific security awareness training evidence found: cyber_security_training.png, security_training_roster.png, fedramp_role_based.png.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

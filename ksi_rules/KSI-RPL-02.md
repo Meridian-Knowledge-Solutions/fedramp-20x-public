@@ -1,12 +1,12 @@
-# KSI-RPL-02: Develop and maintain a recovery plan that aligns with the defined recovery objectives
+# KSI-RPL-02: Develop and maintain a recovery plan that aligns with the defined recovery objectives.
 
 ## Overview
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Develop and maintain a recovery plan that aligns with the defined recovery objectives
+**What it validates:** Develop and maintain a recovery plan that aligns with the defined recovery objectives.
 
 **Why it matters:** Validates that a recovery plan is implemented and maintained as code via AWS Backup plans, vaults, and evidence of recent execution.
 
@@ -29,4 +29,4 @@ PASS Excellent 9/10 (90%): PASS [Plan] Recovery plan implemented as code via 2 A
 - PASS [Evidence] Recovery readiness indicated by 100 EBS snapshot(s).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

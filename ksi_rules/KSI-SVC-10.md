@@ -1,12 +1,12 @@
-# KSI-SVC-10: Perform regularly scheduled backups
+# KSI-SVC-10: Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Perform regularly scheduled backups
+**What it validates:** Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.
 
 **Why it matters:** Validates that automated data lifecycle and retention policies are in place across AWS Backup, S3, and CloudWatch Logs.
 
@@ -31,4 +31,4 @@ PASS Excellent 10/10 (100%): PASS [Backup Retention] AWS Backup plan(s) have exp
 - PASS [Log Retention] Strong log retention strategy: 31/33 (94%) log groups have a defined retention period.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-PIY-02: Document the security objectives and requirements for EACH information resource
+# KSI-PIY-02: Document the security objectives and requirements for each information resource or set of information resources.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Document the security objectives and requirements for EACH information resource
+**What it validates:** Document the security objectives and requirements for each information resource or set of information resources.
 
 **Why it matters:** RFC-0014 Phase Two: Validates per-component security documentation in version-controlled CodeCommit. 'Each resource' means system components (frontend, API, database), NOT per-AWS-service-type.
 
@@ -37,4 +37,4 @@ PASS Strong 13/16 (81%): PASS Security governance repository configured.
 - PASS Main/Master branch configured.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-IAM-01: Enforce phishing-resistant MFA for all user authentication
+# KSI-IAM-01: Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Enforce phishing-resistant MFA for all user authentication
+**What it validates:** Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.
 
 **Why it matters:** Validates MFA via Identity Center and federation, while accurately identifying human IAM users by checking for console passwords before verifying their MFA status.
 
@@ -22,7 +22,7 @@
    *Get Identity Center users to confirm federation.*
 
 4. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do aws iam get-login-profile --user-name "$user" --output json; done`
-   *NEW: Loop through each IAM user to check for a console password. Success indicates a human user.*
+   *Loop through each IAM user to check for a console password.*
 
 5. `for user in $(aws iam list-users --query 'Users[].UserName' --output text); do echo "User: $user"; aws iam list-mfa-devices --user-name "$user" --output json; done`
    *Loop through each IAM user to check for attached MFA devices.*
@@ -35,4 +35,4 @@ PASS Excellent 10/10 (100%): PASS [Modern Identity] AWS Identity Center is activ
 - users likely managed via Identity Center.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-SVC-07: Perform regularly scheduled scans for vulnerabilities and apply patches promptly
+# KSI-SVC-07: Use a consistent, risk-informed approach for applying security patches.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Perform regularly scheduled scans for vulnerabilities and apply patches promptly
+**What it validates:** Use a consistent, risk-informed approach for applying security patches.
 
 **Why it matters:** Validates comprehensive vulnerability management from basic patch baselines to enterprise-grade automated scanning, remediation, compliance monitoring, and governance.
 
@@ -53,4 +53,4 @@ PASS Sufficient 13/20 (65%): PASS Consistent patch management: 17 patch baseline
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

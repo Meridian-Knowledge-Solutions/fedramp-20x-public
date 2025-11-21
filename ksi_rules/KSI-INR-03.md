@@ -1,12 +1,12 @@
-# KSI-INR-03: Implement automated incident response procedures
+# KSI-INR-03: Generate after action reports and regularly incorporate lessons learned into operations.
 
 ## Overview
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement automated incident response procedures
+**What it validates:** Generate after action reports and regularly incorporate lessons learned into operations.
 
 **Why it matters:** Validates automated incident response from basic CloudWatch alarms to enterprise-grade SOAR platforms and intelligent threat response
 
@@ -32,4 +32,4 @@ PASS Excellent 10/10 (100%): PASS Incident analysis capability: Security Hub fin
 - PASS Standards actively enabled: 1 Security Hub standard(s) are enabled and READY.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

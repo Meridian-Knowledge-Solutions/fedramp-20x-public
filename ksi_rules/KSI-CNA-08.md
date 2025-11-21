@@ -1,12 +1,12 @@
-# KSI-CNA-08: Use automated services to persistently assess and enforce secure operations
+# KSI-CNA-08: Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use automated services to persistently assess and enforce secure operations
+**What it validates:** Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state.
 
 **Why it matters:** Validates a multi-layered automation strategy, including persistent assessment (Security Hub, Config) and automated enforcement (SSM Associations, custom Lambda functions).
 
@@ -22,10 +22,10 @@
    *Verifies that assessment data is actively being recorded.*
 
 4. `aws securityhub describe-hub --output json`
-   *Checks for centralized visibility via Security Hub. (Added for 'Measurement Visibility' score).*
+   *Checks for centralized visibility via Security Hub.*
 
 5. `aws configservice describe-configuration-aggregators --output json`
-   *Checks for enterprise-wide visibility via Config aggregators. (Added for 'Measurement Visibility' score).*
+   *Checks for enterprise-wide visibility via Config aggregators.*
 
 6. `aws ssm list-associations --output json || echo '{"Associations": []}'`
    *Validates automated enforcement via SSM State Manager associations.*
@@ -41,4 +41,4 @@ PASS Strong 10/12 (83%): PASS Measurement Framework: Basic - 1/1 Security Hub st
 - PASS Measurement Visibility: Centralized - Security Hub is enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

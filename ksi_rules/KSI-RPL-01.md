@@ -1,12 +1,12 @@
-# KSI-RPL-01: Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
+# KSI-RPL-01: Define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).
 
 ## Overview
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Establish a recovery time objective (RTO) and recovery point objective (RPO) for the system
+**What it validates:** Define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).
 
 **Why it matters:** Validates RTO/RPO definition from basic backup schedules to enterprise-grade disaster recovery planning and business continuity governance
 
@@ -42,4 +42,4 @@ PASS Excellent 16/17 (94%): PASS Database backup capability: Max retention meets
 - PASS Backup selection coverage: 1 backup selection(s) defined.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

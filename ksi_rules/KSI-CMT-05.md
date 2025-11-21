@@ -1,12 +1,11 @@
-# KSI-CMT-05: Evaluate risk and potential impact of any change (Hybrid Validation)
+# KSI-CMT-05: Evaluate risk and potential impact of any change (Superseded by KSI-AFR-05)
 
 ## Overview
 
 **Category:** Change Management
-**Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Status:** Not validated
 
-**What it validates:** Evaluate risk and potential impact of any change (Hybrid Validation)
+**What it validates:** Evaluate risk and potential impact of any change (Superseded by KSI-AFR-05)
 
 **Why it matters:** Performs a hybrid check: 1) A live call to AWS CodeCommit to verify the risk assessment document exists. 2) A live call to S3 to verify Terraform plans are being stored as evidence of impact analysis.
 
@@ -18,10 +17,5 @@
 2. `aws s3 ls s3://mks-states/plans/ --recursive`
    *Check S3 for stored Terraform plans as evidence of impact assessment.*
 
-## Latest Results
-
-PASS Phase 2 Compliant (100%): Hybrid check passed. Findings: PASS [Documentation] Comprehensive risk procedure found in CodeCommit (4121 bytes).
-- PASS [Evidence] Found 2 recent Terraform plan(s) in S3, proving pre-change impact assessment.
-
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

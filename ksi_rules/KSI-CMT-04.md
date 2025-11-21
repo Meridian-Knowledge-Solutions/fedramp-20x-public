@@ -1,12 +1,12 @@
-# KSI-CMT-04: Document and consistently follow change management
+# KSI-CMT-04: Always follow a documented change management procedure.
 
 ## Overview
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Document and consistently follow change management
+**What it validates:** Always follow a documented change management procedure.
 
 **Why it matters:** Verifies that a change management procedure is documented and that the process is being followed by checking for stored Terraform plan files in S3.
 
@@ -24,4 +24,4 @@ PASS Excellent 10/10 (100%): PASS [Documentation] Comprehensive change managemen
 - PASS [Evidence] Found 2 recent Terraform plan artifact(s) in S3, proving change process execution.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

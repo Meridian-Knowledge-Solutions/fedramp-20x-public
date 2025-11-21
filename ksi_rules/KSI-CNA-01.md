@@ -1,12 +1,12 @@
-# KSI-CNA-01: Implement DDoS protection and defense-in-depth network security
+# KSI-CNA-01: Configure all machine-based information resources to limit inbound and outbound network traffic.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement DDoS protection and defense-in-depth network security
+**What it validates:** Configure all machine-based information resources to limit inbound and outbound network traffic.
 
 **Why it matters:** Validates comprehensive DDoS protection and network security from basic security groups to enterprise-grade WAF, CloudFront, and defense-in-depth architecture
 
@@ -51,4 +51,4 @@ PASS Excellent 16/16 (97%): PASS VPC infrastructure: 1 VPC(s) detected
 - PASS Traffic visibility: 2 VPC Flow Log groups for traffic monitoring
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-CNA-02: Segment network and compute resources into security zones
+# KSI-CNA-02: Design systems to minimize the attack surface and minimize lateral movement if compromised.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Segment network and compute resources into security zones
+**What it validates:** Design systems to minimize the attack surface and minimize lateral movement if compromised.
 
 **Why it matters:** Validates comprehensive network segmentation from basic VPC subnets to enterprise-grade multi-tier architecture with strict isolation
 
@@ -46,4 +46,4 @@ PASS Strong 17/20 (85%): PASS Strong attack surface minimization: 6/8 private su
 - PASS Advanced segmentation barriers: 1/1 Network ACLs with custom isolation rules
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

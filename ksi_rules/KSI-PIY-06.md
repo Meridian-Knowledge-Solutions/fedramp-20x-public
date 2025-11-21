@@ -1,12 +1,12 @@
-# KSI-PIY-06: Have dedicated security staff and budget with executive support
+# KSI-PIY-06: Monitor the effectiveness of the organization's investments in achieving security objectives.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Have dedicated security staff and budget with executive support
+**What it validates:** Monitor the effectiveness of the organization's investments in achieving security objectives.
 
 **Why it matters:** Validates organizational commitment to security through active engagement, tooling investment, and deployed monitoring capabilities.
 
@@ -40,4 +40,4 @@ PASS Excellent 10/10 (100%): PASS [Engagement] High security team activity detec
 - PASS [Capabilities] Automated security response capability suggested by 3 potentially security-related Lambda functions.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

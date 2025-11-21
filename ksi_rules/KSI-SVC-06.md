@@ -1,12 +1,12 @@
-# KSI-SVC-06: Use centralized key management services
+# KSI-SVC-06: Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use centralized key management services
+**What it validates:** Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.
 
 **Why it matters:** Validates comprehensive key management from basic KMS to enterprise-grade certificate lifecycle, rotation, and cryptographic compliance
 
@@ -53,4 +53,4 @@ PASS Excellent 18/20 (90%): PASS Automated key management infrastructure: 17 KMS
 - PASS Advanced organization features: SCPs for key management policy enforcement enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

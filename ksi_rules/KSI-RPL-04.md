@@ -1,12 +1,12 @@
-# KSI-RPL-04: Test recovery procedures regularly
+# KSI-RPL-04: Regularly test the capability to recover from incidents and contingencies.
 
 ## Overview
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Test recovery procedures regularly
+**What it validates:** Regularly test the capability to recover from incidents and contingencies.
 
 **Why it matters:** Validates recovery testing by checking for recent, successful backup jobs, RDS point-in-time recovery (PITR) capability, and by parsing CloudWatch logs from the 'fedramp-backup-restore' Lambda to confirm successful automated test execution.
 
@@ -29,9 +29,9 @@
 PASS Strong 8/10 (80%): PASS [Backup Success] 39 successful backup jobs completed in the last 72 hours.
 - PASS [Backup Encryption] All recent backup jobs are encrypted.
 - PASS [Backup Retention] All recent backup jobs have a retention lifecycle.
-- PASS [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-20T16:05:01+00:00).
+- PASS [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-21T02:35:01+00:00).
 - PASS [Automation] Found automated recovery Lambda: 'fedramp-backup-restore'
 - WARNING [Recovery Test] Recovery Lambda exists but has not logged any validation summaries in the last 7 days.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

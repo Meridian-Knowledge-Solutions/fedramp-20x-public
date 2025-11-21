@@ -1,0 +1,22 @@
+# KSI-CED-04: Require and monitor the effectiveness of role-specific training to staff involved with incident response or disaster recovery.
+
+## Overview
+
+**Category:** Cybersecurity Education
+**Status:** FAIL
+**Last Check:** 2025-11-21 02:46
+
+**What it validates:** Require and monitor the effectiveness of role-specific training to staff involved with incident response or disaster recovery.
+
+**Why it matters:** Manual evidence check for specialized IR/DR training records.
+
+## Validation Method
+
+1. **Manual Review:** Manual review of training records for IR/DR staff.
+
+## Latest Results
+
+- Below threshold: 3/5 (60.0%) - requires 64.0% for MODERATE impact: WARNING Files found but filenames lack keywords (expected 'incident', 'dr', etc.): cli_output.json
+
+---
+*Generated 2025-11-21 02:59 UTC*

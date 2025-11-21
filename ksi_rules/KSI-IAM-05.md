@@ -1,12 +1,12 @@
-# KSI-IAM-05: Separate duties between users
+# KSI-IAM-05: Configure identity and access management with measures that always verify each user or device can only access the resources they need.
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Separate duties between users
+**What it validates:** Configure identity and access management with measures that always verify each user or device can only access the resources they need.
 
 **Why it matters:** Validates a zero trust architecture by checking for a modern identity provider (Identity Center), network micro-segmentation, session-based credentials, and comprehensive logging.
 
@@ -42,4 +42,4 @@ PASS Excellent 10/10 (100%): PASS [Identity & MFA] Excellent identity practice i
 - PASS [Monitoring] Comprehensive monitoring is active via CloudTrail ('meridianks-Management-events').
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

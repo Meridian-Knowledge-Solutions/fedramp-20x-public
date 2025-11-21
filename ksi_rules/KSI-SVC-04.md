@@ -1,12 +1,12 @@
-# KSI-SVC-04: Use configuration management systems to manage cloud services and apply configuration as code to CSO-provided cloud services
+# KSI-SVC-04: Manage configuration of machine-based information resources using automation.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use configuration management systems to manage cloud services and apply configuration as code to CSO-provided cloud services
+**What it validates:** Manage configuration of machine-based information resources using automation.
 
 **Why it matters:** Validates comprehensive configuration management from basic CloudFormation to enterprise-grade GitOps, policy enforcement, and automated compliance
 
@@ -56,4 +56,4 @@ PASS Excellent 20/20 (100%): PASS Parameter management: 7 SSM parameters for cen
 - PASS Advanced organization features: SCPs for configuration policy enforcement enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

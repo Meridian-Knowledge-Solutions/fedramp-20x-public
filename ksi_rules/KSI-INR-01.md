@@ -1,12 +1,12 @@
-# KSI-INR-01: Respond to incidents according to FedRAMP requirements and cloud service provider policies
+# KSI-INR-01: Always follow a documented incident response procedure.
 
 ## Overview
 
 **Category:** Incident Reporting
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Respond to incidents according to FedRAMP requirements and cloud service provider policies
+**What it validates:** Always follow a documented incident response procedure.
 
 **Why it matters:** Validates incident response procedures in version-controlled repository with FedRAMP-compliant notification timelines and AWS-specific containment actions.
 
@@ -46,4 +46,4 @@ PASS Excellent 11/11 (100%): PASS Incident response plan documented in CodeCommi
 - PASS Incident response plan maintenance: 1 recent update(s) detected.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

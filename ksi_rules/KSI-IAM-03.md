@@ -1,12 +1,12 @@
-# KSI-IAM-03: Implement least privilege access via role-based access control policies
+# KSI-IAM-03: Enforce appropriately secure authentication methods for non-user accounts and services.
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement least privilege access via role-based access control policies
+**What it validates:** Enforce appropriately secure authentication methods for non-user accounts and services.
 
 **Why it matters:** Fails immediately if any IAM user exists without a console password, as this indicates a service account using insecure, long-lived credentials. It then scores the account based on its adoption of IAM roles.
 
@@ -31,4 +31,4 @@ PASS Excellent 10/10 (100%): PASS [Roles] Excellent role-based foundation with 9
 - PASS [IAM Hygiene] Excellent: No IAM human users with console access found. Access likely managed via federation or roles.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

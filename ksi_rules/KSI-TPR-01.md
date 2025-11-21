@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Third-Party Information Resources
-**Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Status:** Not validated
 
 **What it validates:** Document the cloud service provider (CSP) in the system security policy
 
@@ -21,9 +20,5 @@
 3. `aws ssm get-parameter --name '/lms-compliance/policies' --output json || echo '{"Parameter": null}'`
    *Check SSM Parameter Store for centralized policy storage*
 
-## Latest Results
-
-- PASS Strong 8/10 (80%): PASS Static discovery: 5 unique third-party hosts identified from Parameter Store whitelist.
-
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

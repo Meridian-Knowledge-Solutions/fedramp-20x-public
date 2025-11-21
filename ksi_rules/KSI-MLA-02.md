@@ -1,12 +1,12 @@
-# KSI-MLA-02: Regularly review and audit logs
+# KSI-MLA-02: Regularly review and audit logs.
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Regularly review and audit logs
+**What it validates:** Regularly review and audit logs.
 
 **Why it matters:** Validates comprehensive log review from basic notification-driven processes to enterprise-grade automated analysis and compliance governance
 
@@ -50,4 +50,4 @@ PASS Strong 15/18 (83%): PASS Log review notifications: 10 SNS topics available 
 - PASS Enterprise log aggregation: AWS Organizations enables centralized multi-account log review.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

@@ -1,12 +1,12 @@
-# KSI-MLA-08: Protect audit logs to support after-the-fact investigations
+# KSI-MLA-08: Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity.
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Protect audit logs to support after-the-fact investigations
+**What it validates:** Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity.
 
 **Why it matters:** Validates a multi-layered log protection strategy, including log integrity (CloudTrail), long-term retention and encryption (CloudWatch, KMS), and restricted access (IAM RBAC).
 
@@ -21,7 +21,7 @@
 3. `aws iam list-roles --output json`
    *Check for specialized IAM roles that enforce least privilege for log access.*
 
-4. `aws kms list-keys --output json`
+4. `aws KMS list-keys --output json`
    *Verify that KMS keys are available for encrypting logs at rest.*
 
 ## Latest Results
@@ -32,4 +32,4 @@ PASS Excellent 10/10 (100%): PASS [Integrity] The primary CloudTrail (meridianks
 - PASS [Access Control] Excellent RBAC for logs: Found 1 admin role(s) and 2 viewer role(s).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

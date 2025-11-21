@@ -1,12 +1,12 @@
-# KSI-IAM-04: Clearly define user roles and implement user-to-role mapping
+# KSI-IAM-04: Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.
 
 ## Overview
 
 **Category:** Identity and Access Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Clearly define user roles and implement user-to-role mapping
+**What it validates:** Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.
 
 **Why it matters:** Validates comprehensive user role mapping from basic IAM groups to enterprise-grade permission sets and centralized access management
 
@@ -35,4 +35,4 @@ PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center usage inferr
 - PASS [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

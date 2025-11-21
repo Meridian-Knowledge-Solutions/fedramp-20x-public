@@ -1,12 +1,12 @@
-# KSI-CMT-01: Document a change management policy for all system modifications
+# KSI-CMT-01: Log and monitor modifications to the cloud service offering.
 
 ## Overview
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Document a change management policy for all system modifications
+**What it validates:** Log and monitor modifications to the cloud service offering.
 
 **Why it matters:** Validates comprehensive change management documentation from basic policies to enterprise-grade automated change workflows and compliance tracking
 
@@ -57,4 +57,4 @@ PASS Excellent 20/20 (100%): PASS Active system modification logging: 1/1 CloudT
 - PASS Advanced organization features: SCPs available for modification policy enforcement.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

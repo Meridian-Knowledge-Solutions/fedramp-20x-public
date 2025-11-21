@@ -1,12 +1,12 @@
-# KSI-SVC-05: Use logging and monitoring to detect abnormal changes to configuration
+# KSI-SVC-05: Use cryptographic methods to validate the integrity of machine-based information resources.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use logging and monitoring to detect abnormal changes to configuration
+**What it validates:** Use cryptographic methods to validate the integrity of machine-based information resources.
 
 **Why it matters:** Validates comprehensive configuration monitoring from basic CloudTrail to enterprise-grade automated detection and response
 
@@ -57,4 +57,4 @@ PASS Excellent 20/20 (100%): PASS Audit integrity foundation: 1/1 CloudTrail tra
 - PASS Advanced organization features: SCPs for integrity policy enforcement enabled.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

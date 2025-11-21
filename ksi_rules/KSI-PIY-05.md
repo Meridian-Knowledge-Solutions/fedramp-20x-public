@@ -1,12 +1,12 @@
-# KSI-PIY-05: Document methods used to evaluate information resource implementations
+# KSI-PIY-05: Document methods used to evaluate information resource implementations.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Document methods used to evaluate information resource implementations
+**What it validates:** Document methods used to evaluate information resource implementations.
 
 **Why it matters:** Validates the evaluation methodology document, including assessment procedures and references to automated tools.
 
@@ -29,4 +29,4 @@ PASS Excellent 10/10 (100%): PASS [Documentation] Evaluation methodology documen
 - PASS [Maintenance] Methodology appears actively maintained (1 recent update(s) detected).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

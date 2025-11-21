@@ -1,12 +1,12 @@
-# KSI-PIY-04: Maintain an inventory of authorized software
+# KSI-PIY-04: Monitor the effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Maintain an inventory of authorized software
+**What it validates:** Monitor the effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles.
 
 **Why it matters:** Validates comprehensive authorized software management from basic allow-lists to enterprise-grade application control and compliance tracking
 
@@ -33,4 +33,4 @@ PASS Excellent 7/8 (88%): PASS Build Security Integration: Found 3 security-focu
 - 📊 SDLC Security Maturity: 4/4 capabilities detected (100% coverage).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

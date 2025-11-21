@@ -1,12 +1,12 @@
-# KSI-SVC-01: Maintain hardened system images and configurations
+# KSI-SVC-01: Implement improvements based on persistent evaluation of information resources for opportunities to improve security.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Maintain hardened system images and configurations
+**What it validates:** Implement improvements based on persistent evaluation of information resources for opportunities to improve security.
 
 **Why it matters:** Validates comprehensive system hardening from basic security groups to enterprise-grade patch management and automated configuration enforcement
 
@@ -60,4 +60,4 @@ PASS Excellent 20/20 (100%): PASS Network hardening foundation: 15 security grou
 - PASS Advanced organization features: SCPs and advanced governance capabilities enabled
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

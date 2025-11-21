@@ -3,8 +3,7 @@
 ## Overview
 
 **Category:** Service Configuration
-**Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Status:** Not validated
 
 **What it validates:** Encrypt data at rest
 
@@ -42,16 +41,5 @@
 10. `aws organizations describe-organization --output json`
    *Validate organization-wide encryption at rest policies*
 
-## Latest Results
-
-PASS Strong 16/20 (80%): PASS Object storage encryption: 10 S3 buckets configured (SSE-S3 default).
-- PASS Block storage encryption: 16/17 EBS volumes encrypted (94%).
-- PASS Database encryption: 1/1 RDS instances encrypted (100%).
-- PASS Database backup encryption: 190/190 RDS snapshots encrypted (100%).
-- PASS Backup encryption: 3/3 backup vaults encrypted.
-- PASS Encryption key infrastructure: 17 KMS keys detected (implies usage).
-- PASS Enterprise-wide encryption governance: AWS Organizations enables centralized policies.
-- PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
-
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

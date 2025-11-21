@@ -1,12 +1,12 @@
-# KSI-CMT-03: Implement persistent automated testing and validation of changes
+# KSI-CMT-03: Automate persistent testing and validation of changes throughout deployment.
 
 ## Overview
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Implement persistent automated testing and validation of changes
+**What it validates:** Automate persistent testing and validation of changes throughout deployment.
 
 **Why it matters:** Validates a hybrid compliance strategy: 1) Live, persistent validation via AWS Config rules. 2) Pre-deployment, automated testing via IaC scan artifacts (Checkov, SARIF, etc.).
 
@@ -23,4 +23,4 @@ PASS Excellent 10/10 (100%): PASS [Persistent Validation] 333 active AWS Config 
 - PASS [Automated Testing] SARIF metadata artifact found.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

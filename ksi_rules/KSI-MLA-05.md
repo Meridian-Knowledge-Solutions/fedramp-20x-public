@@ -1,12 +1,12 @@
-# KSI-MLA-05: Use change management tools to enforce, track and report configuration changes
+# KSI-MLA-05: Perform Infrastructure as Code and configuration evaluation and testing.
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use change management tools to enforce, track and report configuration changes
+**What it validates:** Perform Infrastructure as Code and configuration evaluation and testing.
 
 **Why it matters:** Validates comprehensive change tracking from basic CloudTrail and Config rules to enterprise-grade automated governance and compliance reporting
 
@@ -39,4 +39,4 @@ PASS Excellent 20/20 (100%): PASS Automated change management: Validated via ext
 - PASS Enterprise multi-account governance: AWS Organizations with ALL features enabled (SCPs available).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

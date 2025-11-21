@@ -1,12 +1,12 @@
-# KSI-SVC-09: Use TLS 1.2 or higher versions of secure protocols
+# KSI-SVC-09: Persistently validate the authenticity and integrity of communications between machine-based information resources using automation.
 
 ## Overview
 
 **Category:** Service Configuration
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use TLS 1.2 or higher versions of secure protocols
+**What it validates:** Persistently validate the authenticity and integrity of communications between machine-based information resources using automation.
 
 **Why it matters:** Validates the end-to-end use of modern, secure communication protocols (TLS 1.2+) across the infrastructure.
 
@@ -37,4 +37,4 @@ PASS Strong 8/10 (80%): PASS [Certificate Health] All 2 checked ACM certificates
 - PASS [Internal Security] Secure private communication enforced via 7 VPC Endpoints.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

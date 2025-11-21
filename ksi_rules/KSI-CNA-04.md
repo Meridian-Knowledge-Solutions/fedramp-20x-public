@@ -1,12 +1,12 @@
-# KSI-CNA-04: Use immutable infrastructure with strictly defined functionality and privileges
+# KSI-CNA-04: Use immutable infrastructure with strictly defined functionality and privileges by default.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Use immutable infrastructure with strictly defined functionality and privileges
+**What it validates:** Use immutable infrastructure with strictly defined functionality and privileges by default.
 
 **Why it matters:** Validates a hybrid infrastructure model by checking for: 1) Serverless adoption (Lambda). 2) IaC workflow (S3 state/plans). 3) Automated controls (CMT-03 artifacts). 4) Least privilege (IAM). 5) Network security (SGs).
 
@@ -37,4 +37,4 @@ PASS Excellent 10/10 (100%): PASS [Least Privilege] AdministratorAccess is prope
 - PASS [Serverless Adoption] 20 Lambda functions are in use (inherently immutable).
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*

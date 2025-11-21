@@ -1,12 +1,12 @@
-# KSI-RPL-03: Back up information regularly per the recovery point objective
+# KSI-RPL-03: Perform system backups aligned with recovery objectives.
 
 ## Overview
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-20 16:14
+**Last Check:** 2025-11-21 02:46
 
-**What it validates:** Back up information regularly per the recovery point objective
+**What it validates:** Perform system backups aligned with recovery objectives.
 
 **Why it matters:** Validates comprehensive backup execution from basic scheduled backups to enterprise-grade continuous data protection and multi-region replication
 
@@ -35,7 +35,7 @@ PASS Excellent 8/8 (100%): PASS Backup infrastructure: 2 AWS Backup plan(s) conf
 - PASS Backup schedule configured for 1/1 rule(s).
 - PASS Backup operations validated: Found 50 successful backup jobs within the last 7 days.
 - PASS Database backups configured: 1/1 RDS instances have automated backups enabled.
-- PASS Additional recovery points: 836 EBS snapshots found.
+- PASS Additional recovery points: 846 EBS snapshots found.
 
 ---
-*Generated 2025-11-20 16:14 UTC*
+*Generated 2025-11-21 02:59 UTC*
