@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-11-21 02:46
+**Last Check:** 2025-11-21 04:15
 
 **What it validates:** Regularly measure executive support for achieving the organization’s security objectives.
 
@@ -19,4 +19,4 @@
 - Below threshold: 3/5 (60.0%) - requires 64.0% for MODERATE impact: WARNING Files found but filenames lack keywords (expected 'briefing', 'budget', etc.): cli_output.json
 
 ---
-*Generated 2025-11-21 02:59 UTC*
+*Generated 2025-11-21 04:27 UTC*

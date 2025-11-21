@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-21 02:46
+**Last Check:** 2025-11-21 04:15
 
 **What it validates:** Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.
 
@@ -25,4 +25,4 @@ FAIL Insufficient 5/10 (50%): FAIL [Technical] Terraform plan check failed: Erro
 - PASS [Quality] Document appears substantial (195834 bytes).
 
 ---
-*Generated 2025-11-21 02:59 UTC*
+*Generated 2025-11-21 04:27 UTC*
