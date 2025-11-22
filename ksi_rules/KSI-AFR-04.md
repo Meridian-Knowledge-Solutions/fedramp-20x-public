@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 16:22
+**Last Check:** 2025-11-22 18:24
 
 **What it validates:** Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
 
@@ -23,4 +23,4 @@
 - Error in wrapped function evaluate_KSI_AFR_04: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 16:32 UTC*
+*Generated 2025-11-22 18:34 UTC*

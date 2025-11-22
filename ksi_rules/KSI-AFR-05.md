@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 16:22
+**Last Check:** 2025-11-22 18:24
 
 **What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
@@ -23,4 +23,4 @@
 - Error in wrapped function evaluate_KSI_AFR_05: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 16:32 UTC*
+*Generated 2025-11-22 18:34 UTC*

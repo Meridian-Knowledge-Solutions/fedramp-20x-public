@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-11-22 16:22
+**Last Check:** 2025-11-22 18:24
 
 **What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
@@ -23,4 +23,4 @@
 - Error in wrapped function evaluate_KSI_PIY_08: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 16:32 UTC*
+*Generated 2025-11-22 18:34 UTC*
