@@ -4,7 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** FAIL
-**Last Check:** 2025-11-22 04:18
+**Last Check:** 2025-11-22 06:22
 
 **What it validates:** Require a centralized identity management system.
 
@@ -34,4 +34,4 @@ Below threshold: 6/10 (60.0%) - requires 64.0% for MODERATE impact: PASS [Modern
 - WARNING [Just-in-Time] Caller identity unavailable.
 
 ---
-*Generated 2025-11-22 04:30 UTC*
+*Generated 2025-11-22 06:34 UTC*

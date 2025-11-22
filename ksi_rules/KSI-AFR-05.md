@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 04:18
+**Last Check:** 2025-11-22 06:22
 
 **What it validates:** Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.
 
@@ -36,4 +36,4 @@ FAIL Insufficient 0/10 (0%): FAIL [SCN Procedures] SCN procedures documentation 
 - FAIL [Compliance Tracker] Phase 2 compliance tracker not found
 
 ---
-*Generated 2025-11-22 04:30 UTC*
+*Generated 2025-11-22 06:34 UTC*

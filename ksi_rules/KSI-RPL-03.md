@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** FAIL
-**Last Check:** 2025-11-22 04:18
+**Last Check:** 2025-11-22 06:22
 
 **What it validates:** Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
 
@@ -33,4 +33,4 @@ FAIL Insufficient 5/10 (50%): PASS [Retention] All 2 backup plans meet retention
 - WARNING [Execution] Backup job history unavailable.
 
 ---
-*Generated 2025-11-22 04:30 UTC*
+*Generated 2025-11-22 06:34 UTC*
