@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 18:24
+**Last Check:** 2025-11-22 20:22
 
 **What it validates:** Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
 
@@ -29,4 +29,4 @@
 - Error in wrapped function evaluate_KSI_AFR_08: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 18:34 UTC*
+*Generated 2025-11-22 20:32 UTC*
