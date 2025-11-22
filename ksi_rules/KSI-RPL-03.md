@@ -1,41 +1,36 @@
-# KSI-RPL-03: Perform system backups aligned with recovery objectives.
+# KSI-RPL-03: Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
 
 ## Overview
 
 **Category:** Recovery Planning
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Perform system backups aligned with recovery objectives.
+**What it validates:** Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
 
-**Why it matters:** Validates comprehensive backup execution from basic scheduled backups to enterprise-grade continuous data protection and multi-region replication
+**Why it matters:** Validates disaster recovery testing infrastructure from basic backup testing to enterprise-grade automated DR validation with cross-region recovery
 
 ## Validation Method
 
 1. `aws backup list-backup-plans --output json`
-   *Check AWS Backup plans for regular backup schedules*
+   *List ALL backup plans to ensure comprehensive DR coverage*
 
-2. `PLAN_ID=$(aws backup list-backup-plans --query 'BackupPlansList[0].BackupPlanId' --output text 2>/dev/null || echo 'none'); if [ "$PLAN_ID" != "none" ]; then aws backup get-backup-plan --backup-plan-id "$PLAN_ID" --output json; else echo '{"BackupPlan": null}'; fi`
-   *Validate backup plan schedules and retention policies*
+2. `aws backup list-backup-plans --output json | jq -r '.BackupPlansList[].BackupPlanId' | xargs -I {} aws backup get-backup-plan --backup-plan-id {} --output json | jq -s '.' || echo '[]'`
+   *Get details for ALL backup plans - validates recovery testing schedules and procedures*
 
-3. `aws backup list-backup-jobs --by-state COMPLETED --max-results 50 --output json`
-   *Check recent completed backup jobs for RPO compliance*
+3. `aws backup list-recovery-points-by-backup-vault --backup-vault-name Default --output json || echo '{"RecoveryPoints": []}'`
+   *Check recovery points for DR testing capability*
 
-4. `aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,PreferredBackupWindow,BackupRetentionPeriod]' --output json`
-   *Validate RDS automated backup configurations*
+4. `aws lambda list-functions --query 'Functions[?contains(FunctionName, `backup`) || contains(FunctionName, `recovery`)]' --output json`
+   *Validate Lambda functions for automated DR testing*
 
-5. `aws ec2 describe-snapshots --owner-ids self --output json`
-   *Check EBS snapshots for volume backup coverage*
+5. `aws cloudwatch describe-alarms --output json`
+   *Check CloudWatch alarms for backup and recovery monitoring*
 
 ## Latest Results
 
-PASS Excellent 8/8 (100%): PASS Backup infrastructure: 2 AWS Backup plan(s) configured (rds-backup-plan, complete-backup-plan).
-- PASS Excellent retention: 90 days (rule: daily-backup).
-- PASS Full retention compliance: All 1 rule(s) meet requirements.
-- PASS Backup schedule configured for 1/1 rule(s).
-- PASS Backup operations validated: Found 50 successful backup jobs within the last 7 days.
-- PASS Database backups configured: 1/1 RDS instances have automated backups enabled.
-- PASS Additional recovery points: 846 EBS snapshots found.
+FAIL Insufficient 5/10 (50%): PASS [Retention] All 2 backup plans meet retention requirements (>28 days).
+- WARNING [Execution] Backup job history unavailable.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

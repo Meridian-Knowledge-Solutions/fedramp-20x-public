@@ -1,47 +1,44 @@
-# KSI-MLA-01: Operate a Security Information and Event Management (SIEM) or similar system(s) for centralized, tamper-resistent logging of events, activities, and changes.
+# KSI-MLA-01: Log all activity on all information resources supporting the cloud service offering to a protected audit log in at least one location.
 
 ## Overview
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Operate a Security Information and Event Management (SIEM) or similar system(s) for centralized, tamper-resistent logging of events, activities, and changes.
+**What it validates:** Log all activity on all information resources supporting the cloud service offering to a protected audit log in at least one location.
 
-**Why it matters:** Validates a comprehensive, multi-layered logging architecture, including active collection, integrity, retention, and analysis.
+**Why it matters:** Validates comprehensive audit logging from basic CloudTrail to enterprise-grade multi-region, organization-wide logging with S3/CloudWatch integration and log file validation
 
 ## Validation Method
 
 1. `aws cloudtrail describe-trails --output json`
-   *Validate CloudTrail managed service for audit logging*
+   *List ALL CloudTrail trails to ensure comprehensive audit coverage*
 
-2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text) --output json || echo '{"IsLogging": false}'`
-   *Check active CloudTrail logging status (using ARN to prevent errors)*
+2. `aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]'`
+   *Get status for ALL CloudTrail trails - validates logging is active and audit logs are being collected*
 
-3. `aws logs describe-log-groups --output json`
-   *Validate centralized log storage and retention policies in CloudWatch.*
+3. `aws s3api list-buckets --output json`
+   *Check S3 buckets for audit log storage*
 
-4. `aws cloudwatch describe-alarms --output json`
-   *Check for automated log analysis and alerting on security events.*
+4. `aws logs describe-log-groups --output json`
+   *Validate CloudWatch Logs for centralized audit log aggregation*
 
-5. `aws kms list-keys --output json`
-   *Validate use of KMS for log encryption at rest.*
+5. `aws kms list-aliases --output json`
+   *Check KMS keys for audit log encryption*
 
-6. `aws securityhub get-findings --max-results 20 --output json`
-   *Validate Security Hub for advanced, aggregated security findings.*
+6. `aws guardduty list-detectors --output json`
+   *Validate GuardDuty for threat detection on audit logs*
 
 7. `aws organizations describe-organization --output json`
-   *Confirm an enterprise governance structure for centralized logging.*
+   *Check organization-wide audit logging policies*
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS [Collection] CloudTrail (meridianks-Management-events) is actively logging events.
-- PASS [Collection] Trail scope includes entire organization.
-- PASS [Integrity] CloudTrail logs are tamper-resistant (validation), encrypted (KMS), and centrally managed (Org trail).
-- PASS [Storage] Strong log retention policy: 26/33 log groups retained >= 365 days.
-- PASS [Encryption] 17 KMS keys available (can be used for log encryption).
-- PASS [Analysis] Automated analysis likely active via 13 security-focused CloudWatch Alarms.
-- PASS [Analysis] Advanced threat analysis potentially enabled via Security Hub (20 recent findings detected).
+PASS Strong 8/10 (80%): PASS [Collection] All 1 CloudTrail trails are actively logging.
+- PASS [Integrity] All 1 trails have Validation and Encryption enabled.
+- PASS [Storage] 26/33 log groups have long-term retention (>= 365 days).
+- INFO [Analysis] No security-specific alarms or Security Hub findings detected.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

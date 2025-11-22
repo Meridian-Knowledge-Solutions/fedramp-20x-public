@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Last Check:** 2025-11-22 00:20
 
 **What it validates:** Log and monitor modifications to the cloud service offering.
 
@@ -13,10 +13,10 @@
 ## Validation Method
 
 1. `aws cloudtrail describe-trails --output json`
-   *Check CloudTrail for change audit logging and compliance*
+   *List ALL CloudTrail trails in the account/region for change audit logging*
 
-2. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text) --output json || echo '{"IsLogging": false}'`
-   *Check the *active logging status* of the primary trail (using ARN).*
+2. `aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]'`
+   *Get status for ALL CloudTrail trails (multi-trail validation) - validates logging is active across all trails*
 
 3. `aws logs describe-log-groups --output json`
    *Validate CloudWatch Logs for change management event tracking*
@@ -41,7 +41,9 @@
 
 ## Latest Results
 
-PASS Excellent 20/20 (100%): PASS Active system modification logging: 1/1 CloudTrail trails logging API changes.
+PASS Excellent 20/20 (100%): PASS System modification logging: 1/1 CloudTrail trails configured.
+- INFO Trail activity status not provided
+- assuming active based on configuration.
 - PASS Global service modification tracking: 1/1 trails monitoring global AWS services.
 - PASS Multi-region modification coverage: 1/1 trails across regions.
 - PASS Encrypted modification logs: 1/1 trails use KMS encryption.
@@ -57,4 +59,4 @@ PASS Excellent 20/20 (100%): PASS Active system modification logging: 1/1 CloudT
 - PASS Advanced organization features: SCPs available for modification policy enforcement.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

@@ -1,14 +1,14 @@
-# KSI-CNA-05: Protect against denial of service attacks and other unwanted activity.
+# KSI-CNA-05: Deploy effective spam, spoofing, and denial-of-service countermeasures.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Protect against denial of service attacks and other unwanted activity.
+**What it validates:** Deploy effective spam, spoofing, and denial-of-service countermeasures.
 
-**Why it matters:** Validates DDoS protection through WAF, Shield, Multi-AZ architecture, and DNS security. Email spam protection validated only when email services are detected (SES, MX records)
+**Why it matters:** Validates multi-layered DDoS protection (WAF, CloudFront, ALB, Auto Scaling) and DNS resilience. Email spam protection validated only when email services are detected (SES, MX records)
 
 ## Validation Method
 
@@ -28,26 +28,20 @@
    *Check auto-scaling for capacity-based DDoS mitigation*
 
 6. `aws route53 list-hosted-zones --output json`
-   *Validate Route 53 hosted zones for DNS DDoS protection*
+   *List ALL Route53 hosted zones for DNS DDoS protection analysis*
 
 7. `aws cloudwatch describe-alarms --output json`
    *Check CloudWatch alarms for DDoS detection and alerting*
 
-8. `aws route53 list-resource-record-sets --hosted-zone-id $(aws route53 list-hosted-zones --query 'HostedZones[0].Id' --output text | cut -d'/' -f3) --max-items 50 --output json || echo '{"ResourceRecordSets": []}'`
-   *Check DNS records for email authentication (SPF/DMARC/DKIM)*
+8. `aws route53 list-hosted-zones --output json | jq -r '.HostedZones[].Id' | xargs -I {} aws route53 list-resource-record-sets --hosted-zone-id {} --max-items 100 --output json | jq -s '.' || echo '[]'`
+   *Get DNS records for ALL hosted zones - validates SPF/DMARC/DKIM email authentication across all domains*
 
 9. `aws sesv2 list-email-identities --output json || echo '{"EmailIdentities": []}'`
    *Detect email services to determine spam protection applicability*
 
 ## Latest Results
 
-PASS Excellent 13/14 (93%): PASS Network-layer protection: AWS Shield Standard automatically enabled (all AWS accounts)
-- PASS Application-layer protection: 1 Regional WAF Web ACL(s) configured
-- PASS Service resilience: 1 Multi-AZ load balancer(s) configured
-- INFO DNS protection: No Route 53 hosted zones found.
-- PASS Secure email sending: 2 verified SES identity(ies).
-- INFO No MX records found
-- inbound spam protection (SPF, DMARC, DKIM) not applicable.
+- Error in wrapped function evaluate_KSI_CNA_05: 'list' object has no attribute 'get'
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

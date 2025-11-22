@@ -1,81 +1,65 @@
-# KSI-CNA-07: Ensure cloud-native information resources are implemented based on host provider's best practices and documented guidance.
+# KSI-CNA-07: Establish secure and private network communications between cloud and federal customer systems.
 
 ## Overview
 
 **Category:** Cloud Native Architecture
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Ensure cloud-native information resources are implemented based on host provider's best practices and documented guidance.
+**What it validates:** Establish secure and private network communications between cloud and federal customer systems.
 
-**Why it matters:** Validates comprehensive cloud-native architecture from basic managed services to enterprise-grade serverless and fully managed infrastructure
+**Why it matters:** Validates comprehensive private connectivity from basic VPN/DirectConnect to enterprise-grade multi-region, multi-account transit gateway architectures with FIPS encryption
 
 ## Validation Method
 
-1. `aws configservice describe-config-rules --output json`
-   *Check AWS Config rules for managed service compliance monitoring*
+1. `aws ec2 describe-vpn-connections --output json`
+   *Check VPN connections for secure customer connectivity*
 
-2. `aws cloudtrail describe-trails --output json`
-   *Validate CloudTrail managed service for audit logging*
+2. `aws directconnect describe-connections --output json`
+   *Validate AWS Direct Connect for dedicated private connectivity*
 
-3. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].Name' --output text) --output json || echo '{"IsLogging": false}'`
-   *Check active CloudTrail logging status*
+3. `aws cloudtrail describe-trails --output json`
+   *List ALL CloudTrail trails for network activity logging*
 
-4. `aws kms list-keys --output json`
-   *Validate AWS KMS managed encryption service usage*
+4. `aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]'`
+   *Get status for ALL CloudTrail trails - validates logging of all network communications*
 
-5. `aws iam get-account-summary --output json`
-   *Check IAM managed identity service utilization*
+5. `aws ec2 describe-vpc-peering-connections --output json`
+   *Check VPC peering for inter-VPC private connectivity*
 
-6. `aws ec2 describe-instances --output json`
-   *Analyze EC2 usage vs serverless alternatives*
+6. `aws ec2 describe-transit-gateway-attachments --output json`
+   *Validate Transit Gateway for scalable multi-account networking*
 
-7. `aws elbv2 describe-load-balancers --output json`
-   *Validate managed load balancing service usage*
+7. `aws ec2 describe-transit-gateways --output json`
+   *Check Transit Gateway configuration for network segmentation*
 
-8. `aws autoscaling describe-auto-scaling-groups --output json`
-   *Check managed auto-scaling service configurations*
+8. `aws logs describe-log-groups --log-group-name-prefix '/aws/vpc' --output json`
+   *Validate VPC Flow Logs for network traffic monitoring*
 
-9. `aws s3api list-buckets --output json`
-   *Validate S3 managed storage service usage*
+9. `aws ec2 describe-flow-logs --output json`
+   *Check comprehensive Flow Logs configuration*
 
-10. `aws cloudwatch describe-alarms --output json`
-   *Check CloudWatch managed monitoring service*
+10. `aws ec2 describe-network-interfaces --output json`
+   *Validate network interface configurations for security*
 
-11. `aws backup list-backup-plans --output json`
-   *Validate AWS Backup managed service for data protection*
+11. `aws ec2 describe-vpc-endpoints --output json`
+   *Check VPC Endpoints for private AWS service access*
 
-12. `aws organizations describe-organization --output json`
-   *Check AWS Organizations managed service for account governance*
+12. `aws kms list-aliases --output json`
+   *Validate KMS for encryption of network communications*
 
-13. `aws lambda list-functions --output json`
-   *Validate serverless Lambda managed compute service usage*
+13. `aws cloudwatch describe-alarms --output json`
+   *Check CloudWatch alarms for network monitoring*
 
-14. `aws rds describe-db-instances --output json`
-   *Check RDS managed database service usage*
+14. `aws guardduty list-detectors --output json`
+   *Validate GuardDuty for network threat detection*
 
-15. `aws apigateway get-rest-apis --output json`
-   *Validate API Gateway managed API service usage*
+15. `aws organizations describe-organization --output json`
+   *Check organization structure for network policy inheritance*
 
 ## Latest Results
 
-PASS Excellent 30/30 (98%): PASS CloudTrail excellently configured: 'meridianks-Management-events' ready for activation (cost-optimized for pilot)
-- PASS Multi-region audit coverage: CloudTrail spans all AWS regions
-- PASS Log integrity protection: CloudTrail log file validation enabled
-- PASS Encrypted audit logs: CloudTrail using KMS encryption
-- PASS Global service monitoring: CloudTrail capturing global AWS events
-- PASS Real-time log analysis: CloudTrail integrated with CloudWatch Logs
-- PASS Enterprise governance: Organization-wide CloudTrail
-- PASS Encryption key management: 17 KMS keys for data protection
-- PASS IAM best practices: 97 roles vs 0 users (service-oriented architecture)
-- PASS Excellent reliability architecture: 1/1 load balancers multi-AZ
-- PASS Standardized deployment patterns: Infrastructure as Code approach detected (appropriate for pilot)
-- PASS Active data protection: 2/2 backup plan(s) with recent execution
-- PASS Performance optimization: 6/6 instances using modern types
-- PASS Storage optimization: 10 S3 buckets (cost-effective storage)
-- PASS Proactive monitoring: 13 CloudWatch alarms
-- PASS Compliance automation: 333 active Config rules
-- PASS Enterprise governance: AWS Organizations with ALL features enabled (including SCPs)
+- Error in wrapped function evaluate_KSI_CNA_07: name 'snapshots' is not defined
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

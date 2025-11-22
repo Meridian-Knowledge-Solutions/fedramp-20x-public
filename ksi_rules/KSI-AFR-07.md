@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-21 06:24
+**Last Check:** 2025-11-22 00:20
 
 **What it validates:** Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Recommended Secure Configuration (RSC) guidance standard and persistently address all related requirements and recommendations.
 
@@ -12,7 +12,7 @@
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --file-path standards/secure-configuration-guide.md`
+1. `aws codecommit get-file --repository-name security-governance --file-path fedramp-20x-secure-configuration.md`
    *Check for Secure Configuration Guide.*
 
 ## Latest Results
@@ -20,4 +20,4 @@
 - FAIL Insufficient 0/5 (0%): FAIL [Documentation] Secure Configuration Guide NOT found in the expected CodeCommit path.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

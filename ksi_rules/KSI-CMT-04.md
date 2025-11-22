@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Change Management
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
 **What it validates:** Always follow a documented change management procedure.
 
@@ -20,8 +20,8 @@
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS [Documentation] Comprehensive change management procedure found (size: 3747 bytes).
-- PASS [Evidence] Found 2 recent Terraform plan artifact(s) in S3, proving change process execution.
+FAIL Insufficient 5/10 (50%): PASS [Documentation] Comprehensive change management procedure found (size: 3747 bytes).
+- FAIL [Evidence] Could not access S3 evidence bucket to verify Terraform plan artifacts.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

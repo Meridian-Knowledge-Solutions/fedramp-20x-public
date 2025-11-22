@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Last Check:** 2025-11-22 00:20
 
 **What it validates:** Use immutable infrastructure with strictly defined functionality and privileges by default.
 
@@ -29,12 +29,12 @@
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS [Least Privilege] AdministratorAccess is properly restricted to AWS-managed infrastructure roles.
+PASS Excellent 9/10 (90%): PASS [Least Privilege] AdministratorAccess is properly restricted to AWS-managed infrastructure roles.
 - PASS [Network Security] No sensitive ports (SSH, RDP, DBs) are exposed to the internet.
 - PASS [IaC Controls] IaC Scan Artifact ('checkov_scan_summary.json') found.
 - PASS [IaC Controls] Testing Proof Artifact ('automated_testing_proof.json') found.
-- PASS [Foundational IaC] Terraform state (.tfstate) and plan (.tfplan) files found in S3.
+- WARNING [Foundational IaC] S3 bucket data (s3://mks-states/) unavailable.
 - PASS [Serverless Adoption] 20 Lambda functions are in use (inherently immutable).
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

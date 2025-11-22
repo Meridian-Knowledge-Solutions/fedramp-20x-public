@@ -1,38 +1,37 @@
-# KSI-IAM-04: Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.
+# KSI-IAM-04: Require a centralized identity management system.
 
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.
+**What it validates:** Require a centralized identity management system.
 
-**Why it matters:** Validates comprehensive user role mapping from basic IAM groups to enterprise-grade permission sets and centralized access management
+**Why it matters:** Validates centralized identity management from basic AWS SSO to enterprise-grade SCIM automation with MFA enforcement and cross-account access
 
 ## Validation Method
 
-1. `INSTANCE_ARN=$(aws sso-admin list-instances --query 'Instances[0].InstanceArn' --output text 2>/dev/null || echo 'none'); if [ "$INSTANCE_ARN" != "none" ]; then aws sso-admin list-permission-sets --instance-arn "$INSTANCE_ARN" --output json; else echo '{"PermissionSets": []}'; fi`
-   *Check SSO permission sets for role-based access mapping*
+1. `aws sso-admin list-instances --output json`
+   *List ALL SSO instances (typically 1, but validates all for multi-org deployments)*
 
-2. `aws iam list-roles --output json`
-   *Validate IAM roles with clear purpose and user mapping*
+2. `aws sso-admin list-instances --output json | jq -r '.Instances[].InstanceArn' | xargs -I {} aws sso-admin list-permission-sets --instance-arn {} --output json | jq -s '.' || echo '[]'`
+   *Get permission sets for ALL SSO instances - validates centralized access management*
 
 3. `aws iam list-users --output json`
-   *Check IAM users and their role assignments*
+   *Check for local IAM users (should be minimal with SSO)*
 
-4. `aws sts get-caller-identity --output json`
-   *Validate current identity and role assumption*
+4. `aws iam get-account-summary --output json`
+   *Validate account-wide IAM posture and user counts*
 
-5. `aws iam get-account-summary --output json`
-   *Check account-level role and user statistics*
+5. `aws organizations list-accounts --output json`
+   *Check organization accounts for centralized identity management*
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center usage inferred from 3 SSO-managed roles.
-- PASS [Role Mapping] Inferred 3 distinct permission sets (e.g., Development, AdministratorAccess, ReadOnlyAccess).
-- PASS [Least Privilege] Excellent: 97 roles and 0 IAM users found (strong role-based pattern).
-- PASS [Just-in-Time] Validation uses temporary credentials via an assumed role (best practice).
+Below threshold: 6/10 (60.0%) - requires 64.0% for MODERATE impact: PASS [Modern Auth] IAM Identity Center active: 1 instance(s) found.
+- PASS [Least Privilege] Excellent: 97 roles and 0 IAM users (Pure Role-Based Access).
+- WARNING [Just-in-Time] Caller identity unavailable.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*

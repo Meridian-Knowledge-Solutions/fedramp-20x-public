@@ -1,45 +1,43 @@
-# KSI-IAM-05: Configure identity and access management with measures that always verify each user or device can only access the resources they need.
+# KSI-IAM-05: Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
 
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** PASS
-**Last Check:** 2025-11-21 06:24
+**Status:** FAIL
+**Last Check:** 2025-11-22 00:20
 
-**What it validates:** Configure identity and access management with measures that always verify each user or device can only access the resources they need.
+**What it validates:** Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
 
-**Why it matters:** Validates a zero trust architecture by checking for a modern identity provider (Identity Center), network micro-segmentation, session-based credentials, and comprehensive logging.
+**Why it matters:** Validates phishing-resistant MFA (hardware tokens, FIDO2) from basic IAM MFA to enterprise-grade SSO integration with hardware token enforcement
 
 ## Validation Method
 
-1. `aws sso-admin list-instances --output json || echo '{"Instances": []}'`
-   *CRITICAL: Check for an active IAM Identity Center instance.*
+1. `aws iam list-users --output json`
+   *List all IAM users to check MFA assignment*
 
-2. `aws identitystore list-users --identity-store-id $(aws sso-admin list-instances --query 'Instances[0].IdentityStoreId' --output text 2>/dev/null) --output json || echo '{"Users": []}'`
-   *Check Identity Center users to verify federation.*
+2. `aws sso-admin list-instances --output json`
+   *List ALL SSO instances for MFA policy validation*
 
-3. `aws cloudtrail describe-trails --output json`
-   *Validate CloudTrail configuration for comprehensive monitoring.*
+3. `aws sso-admin list-instances --output json | jq -r '.Instances[].IdentityStoreId' | xargs -I {} aws identitystore list-users --identity-store-id {} --output json | jq -s '.' || echo '[]'`
+   *Get users for ALL SSO/Identity Store instances - validates MFA enforcement across all identity sources*
 
-4. `aws cloudtrail get-trail-status --name $(aws cloudtrail describe-trails --query 'trailList[0].TrailARN' --output text 2>/dev/null || echo 'none') --output json || echo '{"IsLogging": false}'`
-   *CRITICAL: Check if the primary CloudTrail is actively logging using its full ARN.*
+4. `aws iam list-virtual-mfa-devices --output json`
+   *Check virtual MFA devices (should flag if only virtual MFA, not phishing-resistant)*
 
-5. `aws ec2 describe-security-groups --output json`
-   *Validate network micro-segmentation by analyzing security group rules.*
+5. `aws cloudtrail describe-trails --output json`
+   *List ALL CloudTrail trails for MFA authentication logging*
 
-6. `aws ec2 describe-vpc-endpoints --output json`
-   *Check for VPC endpoints to ensure secure, private communications.*
+6. `aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]'`
+   *Get status for ALL CloudTrail trails - validates logging of all authentication events*
 
-7. `aws sts get-caller-identity --output json`
-   *Verify the use of temporary, session-based credentials.*
+7. `aws iam get-account-password-policy --output json || echo '{"PasswordPolicy": null}'`
+   *Validate password policy as defense-in-depth alongside MFA*
 
 ## Latest Results
 
-PASS Excellent 10/10 (100%): PASS [Identity & MFA] Excellent identity practice in use (Federated/Assumed Role).
-- PASS [Segmentation] Excellent network micro-segmentation: No security groups found with overly permissive inbound rules (0.0.0.0/0 excluding HTTP/S).
-- PASS [Credentials] Best practice followed: Using temporary, session-based credentials (assumed role/federated).
-- PASS [Secure Communications] Comprehensive private networking with 7 VPC endpoints.
-- PASS [Monitoring] Comprehensive monitoring is active via CloudTrail ('meridianks-Management-events').
+FAIL Critical Zero Trust Gaps Detected (100%): FAIL [Monitoring] CRITICAL GAP: CloudTrail ('meridianks-Management-events') is configured but IS NOT LOGGING.
+- PASS [Identity] Modern Zero Trust identity platform is in use (IAM Identity Center).
+- WARNING [Segmentation] Security group data unavailable.
 
 ---
-*Generated 2025-11-21 06:36 UTC*
+*Generated 2025-11-22 00:33 UTC*
