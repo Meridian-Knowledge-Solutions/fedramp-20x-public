@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-22 12:23
-=======
-**Last Check:** 2025-11-22 12:47
->>>>>>> Stashed changes
+**Last Check:** 2025-11-22 16:22
 
 **What it validates:** Log all activity on all information resources supporting the cloud service offering to a protected audit log in at least one location.
 
@@ -45,8 +41,4 @@ PASS Strong 8/10 (80%): PASS [Collection] All 1 CloudTrail trails are actively l
 - INFO [Analysis] No security-specific alarms or Security Hub findings detected.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-22 12:33 UTC*
-=======
-*Generated 2025-11-22 12:57 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-22 16:32 UTC*

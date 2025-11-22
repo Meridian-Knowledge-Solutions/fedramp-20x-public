@@ -4,11 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-22 12:23
-=======
-**Last Check:** 2025-11-22 12:47
->>>>>>> Stashed changes
+**Last Check:** 2025-11-22 16:22
 
 **What it validates:** Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
@@ -45,8 +41,4 @@
 - Error in wrapped function evaluate_KSI_AFR_11: 'str' object has no attribute 'get'
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-22 12:33 UTC*
-=======
-*Generated 2025-11-22 12:57 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-22 16:32 UTC*

@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-22 12:23
-=======
-**Last Check:** 2025-11-22 12:47
->>>>>>> Stashed changes
+**Last Check:** 2025-11-22 16:22
 
 **What it validates:** Design systems for high availability and rapid recovery.
 
@@ -55,8 +51,4 @@ PASS Excellent 12/14.5 (86%): PASS Strong network HA: 8 subnets across 2 AZs
 - PASS DNS infrastructure: 1 Route 53 hosted zone(s)
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-22 12:33 UTC*
-=======
-*Generated 2025-11-22 12:57 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-22 16:32 UTC*
