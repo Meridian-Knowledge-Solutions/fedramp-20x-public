@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 00:20
+**Last Check:** 2025-11-22 01:14
 
 **What it validates:** Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
 
@@ -27,4 +27,4 @@ FAIL Insufficient 5/10 (50%): FAIL [Technical] Inspector check failed: FAIL Insu
 - PASS [Quality] Document appears substantial (195834 bytes).
 
 ---
-*Generated 2025-11-22 00:33 UTC*
+*Generated 2025-11-22 01:27 UTC*
