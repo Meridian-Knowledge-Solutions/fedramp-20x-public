@@ -33,8 +33,8 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-IAM-01](KSI-IAM-01.md): Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.
 - [PASS] [KSI-IAM-02](KSI-IAM-02.md): Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA.
 - [PASS] [KSI-IAM-03](KSI-IAM-03.md): Enforce appropriately secure authentication methods for non-user accounts and services.
-- [FAIL] [KSI-IAM-04](KSI-IAM-04.md): Require a centralized identity management system.
-- [FAIL] [KSI-IAM-05](KSI-IAM-05.md): Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
+- [PASS] [KSI-IAM-04](KSI-IAM-04.md): Require a centralized identity management system.
+- [PASS] [KSI-IAM-05](KSI-IAM-05.md): Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
 - [PASS] [KSI-IAM-06](KSI-IAM-06.md): Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity
 - [PASS] [KSI-IAM-07](KSI-IAM-07.md): Securely manage the lifecycle and privileges of all accounts, roles, and groups, using automation.
 
@@ -59,12 +59,12 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-AFR-02](KSI-AFR-02.md): Set security goals for the cloud service offering based on FedRAMP 20x Phase Two Key Security Indicators (KSIs - you are here), develop automated validation of status and progress to the greatest extent possible, and persistently address all related requirements and recommendations.
 - [PASS] [KSI-AFR-03](KSI-AFR-03.md): Determine how authorization data will be shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) standard and persistently address all related requirements and recommendations.
 - [FAIL] [KSI-AFR-04](KSI-AFR-04.md): Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-05](KSI-AFR-05.md): Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.
+- [FAIL] [KSI-AFR-05](KSI-AFR-05.md): Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 - [PASS] [KSI-AFR-06](KSI-AFR-06.md): Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) standard and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-07](KSI-AFR-07.md): Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Recommended Secure Configuration (RSC) guidance standard and persistently address all related requirements and recommendations.
+- [PASS] [KSI-AFR-07](KSI-AFR-07.md): Document the secure configuration baseline for the cloud service offering.
 - [FAIL] [KSI-AFR-08](KSI-AFR-08.md): Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-09](KSI-AFR-09.md): Persistently validate, assess, and report on the effectiveness and status of security decisions and policies that are implemented within the cloud service offering in alignment with the FedRAMP 20x Persistent Validation and Assessment (PVA) standard, and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-10](KSI-AFR-10.md): Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and persistently address all related requirements and recommendations.
+- [FAIL] [KSI-AFR-09](KSI-AFR-09.md): Persistently validate... (PVA) standard...
+- [FAIL] [KSI-AFR-10](KSI-AFR-10.md): Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
 - [FAIL] [KSI-AFR-11](KSI-AFR-11.md): Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
 ## Policy and Inventory
@@ -76,13 +76,13 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-PIY-05](KSI-PIY-05.md): Document methods used to evaluate information resource implementations.
 - [PASS] [KSI-PIY-06](KSI-PIY-06.md): Monitor the effectiveness of the organization's investments in achieving security objectives.
 - [PASS] [KSI-PIY-07](KSI-PIY-07.md): Document risk management decisions for software supply chain security.
-- [FAIL] [KSI-PIY-08](KSI-PIY-08.md): Regularly measure executive support for achieving the organization’s security objectives.
+- [FAIL] [KSI-PIY-08](KSI-PIY-08.md): Measure executive support via active budgetary controls and financial commitment.
 
 ## Recovery Planning
 
 - [PASS] [KSI-RPL-01](KSI-RPL-01.md): Define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).
 - [PASS] [KSI-RPL-02](KSI-RPL-02.md): Develop and maintain a recovery plan that aligns with the defined recovery objectives.
-- [FAIL] [KSI-RPL-03](KSI-RPL-03.md): Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
+- [PASS] [KSI-RPL-03](KSI-RPL-03.md): Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
 - [PASS] [KSI-RPL-04](KSI-RPL-04.md): Regularly test the capability to recover from incidents and contingencies.
 
 ## Service Configuration
@@ -96,7 +96,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Use a consistent, risk-informed approach for applying security patches.
 - [FAIL] [KSI-SVC-08](KSI-SVC-08.md): Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
 - [PASS] [KSI-SVC-09](KSI-SVC-09.md): Persistently validate the authenticity and integrity of communications between machine-based information resources using automation.
-- [FAIL] [KSI-SVC-10](KSI-SVC-10.md): Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.
+- [PASS] [KSI-SVC-10](KSI-SVC-10.md): Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.
 
 ## Third-Party Information Resources
 
@@ -107,9 +107,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 69
-- **Passing:** 47
-- **Failing:** 18
+- **Passing:** 52
+- **Failing:** 13
 - **Not Tested:** 4
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

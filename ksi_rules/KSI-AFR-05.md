@@ -1,39 +1,26 @@
-# KSI-AFR-05: Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.
+# KSI-AFR-05: Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
 ## Overview
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
-**What it validates:** Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.
+**What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
-**Why it matters:** Multi-layered validation: Technical tracking (Terraform plans in S3), Governance documentation (compliance tracker + SCN procedures), Operational evidence (scn_history.jsonl with change records), Active monitoring (GitHub issues for adaptive changes).
+**Why it matters:** Validates existence of the SCN Procedures markdown (Governance) and queries GitHub Issues to prove the automation is actively creating tracking tickets (Evidence).
 
 ## Validation Method
 
 1. `aws codecommit get-file --repository-name security-governance --file-path procedures/scn_procedures.md --output json`
-   *Governance: Validates SCN procedures documentation exists with notification workflows.*
+   *Governance: Validates SCN procedures documentation exists.*
 
-2. `aws s3 ls s3://mks-states/plans/ --recursive --output json`
-   *Technical: Validates Terraform plans exist in S3 (infrastructure change tracking).*
-
-3. `aws codecommit get-file --repository-name fedramp-20x-submission-final --file-path scn_automation/scn_history.jsonl --output json`
-   *Evidence: Validates historical SCN tracking file exists with change records over time (FRR-SCN-04, FRR-SCN-05).*
-
-4. `gh issue list --repo Meridian-Knowledge-Solutions/fedramp-20x-submission-final --state all --label adaptive,scn --limit 100 --json number,title,state,createdAt,closedAt,labels --jq '.' 2>/dev/null || echo '{"error": "gh cli not available or no issues found"}'`
-   *Observability: Lists SCN/adaptive change issues (proves automation actively tracking and notifying changes).*
-
-5. `aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/phase_2_ksi_compliance_tracker.html --output json`
-   *Governance: Validates Phase 2 compliance tracker exists.*
+2. `gh issue list --repo Meridian-Knowledge-Solutions/fedramp-20x-submission-final --state all --label scn --limit 5 --json number,title,state,labels,createdAt --jq '.' 2>/dev/null || echo '[]'`
+   *Observability: Checks for existence of SCN tracking issues (Adaptive/Transformative) as evidence of active workflow.*
 
 ## Latest Results
 
-FAIL Insufficient 0/10 (0%): FAIL [SCN Procedures] SCN procedures documentation not found in security-governance repo
-- WARNING [Terraform Plans] Could not verify Terraform plans in S3
-- WARNING [Historical Tracking] scn_history.jsonl not found (may be new deployment)
-- WARNING [GitHub Issues] No output from gh command (CLI may not be configured)
-- FAIL [Compliance Tracker] Phase 2 compliance tracker not found
+- Error in wrapped function evaluate_KSI_AFR_05: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

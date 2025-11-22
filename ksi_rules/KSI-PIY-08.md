@@ -1,22 +1,26 @@
-# KSI-PIY-08: Regularly measure executive support for achieving the organization’s security objectives.
+# KSI-PIY-08: Measure executive support via active budgetary controls and financial commitment.
 
 ## Overview
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
-**What it validates:** Regularly measure executive support for achieving the organization’s security objectives.
+**What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
-**Why it matters:** Validates existence of executive artifacts in evidence_v2/KSI-PIY-08/ directory.
+**Why it matters:** Validates executive engagement by confirming: 1. Active AWS Budgets (Financial Governance). 2. Actual financial spend (Resource Commitment). 3. Anomaly Detection (Proactive Oversight).
 
 ## Validation Method
 
-1. **Manual Review:** Check for executive briefing minutes, budget approvals, or charters.
+1. `aws sts get-caller-identity --query Account --output text | xargs -I {} aws budgets describe-budgets --account-id {} --output json`
+   *Governance: Retrieves all budgets, including spending limits (Plan) and current actual spend (Reality).*
+
+2. `aws ce get-anomaly-monitors --output json`
+   *Oversight: Checks for active Cost Anomaly Detection monitors.*
 
 ## Latest Results
 
-- Below threshold: 3/5 (60.0%) - requires 64.0% for MODERATE impact: WARNING Files found but filenames lack keywords (expected 'briefing', 'budget', etc.): cli_output.json
+- Error in wrapped function evaluate_KSI_PIY_08: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

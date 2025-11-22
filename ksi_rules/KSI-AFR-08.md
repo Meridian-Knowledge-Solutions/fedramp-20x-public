@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
 **What it validates:** Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
 
@@ -26,10 +26,7 @@
 
 ## Latest Results
 
-FAIL Insufficient 0/10 (0%): FAIL [MX Records] No MX records found for meridianks.com - cannot receive email
-- WARNING [SPF] No SPF record found for meridianks.com (recommended for email authentication)
-- WARNING [DMARC] No DMARC record found for _dmarc.meridianks.com (recommended for email security)
-- FAIL [Procedures] Security inbox procedures document not found in security-governance repo
+- Error in wrapped function evaluate_KSI_AFR_08: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

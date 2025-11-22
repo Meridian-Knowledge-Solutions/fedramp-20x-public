@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
 **What it validates:** Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
@@ -38,12 +38,7 @@
 
 ## Latest Results
 
-FAIL Insufficient 2/10 (15%): FAIL [KMS Infrastructure] No KMS keys found - cryptographic module infrastructure missing
-- WARNING [S3 Encryption] Could not verify evidence bucket encryption
-- INFO [RDS Encryption] No RDS instances in scope (N/A)
-- WARNING [TLS Policies] Could not verify SSL/TLS policy configuration
-- INFO [Context] 0 load balancers in scope for TLS validation
-- FAIL [UCM Policy] UCM.md policy document not found in security-governance repository
+- Error in wrapped function evaluate_KSI_AFR_11: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

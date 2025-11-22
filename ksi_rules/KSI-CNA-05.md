@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
 **What it validates:** Deploy effective spam, spoofing, and denial-of-service countermeasures.
 
@@ -44,4 +44,4 @@
 - Error in wrapped function evaluate_KSI_CNA_05: 'list' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

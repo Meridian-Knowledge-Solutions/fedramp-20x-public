@@ -1,27 +1,26 @@
-# KSI-AFR-09: Persistently validate, assess, and report on the effectiveness and status of security decisions and policies that are implemented within the cloud service offering in alignment with the FedRAMP 20x Persistent Validation and Assessment (PVA) standard, and persistently address all related requirements and recommendations.
+# KSI-AFR-09: Persistently validate... (PVA) standard...
 
 ## Overview
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
-**What it validates:** Persistently validate, assess, and report on the effectiveness and status of security decisions and policies that are implemented within the cloud service offering in alignment with the FedRAMP 20x Persistent Validation and Assessment (PVA) standard, and persistently address all related requirements and recommendations.
+**What it validates:** Persistently validate... (PVA) standard...
 
 **Why it matters:** Hybrid check: Validates the validation architecture diagram AND the existence of the scheduled EventBridge trigger.
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --file-path architecture/fedramp-phase2-validation-architecture.mmd`
-   *Check for Validation Architecture Diagram.*
+1. `aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/fedramp-phase2-validation-architecture.mmd --output json`
+   *Check for Validation Architecture Diagram in the correct folder.*
 
 2. `aws events list-rules --name-prefix fedramp-validation --output json`
    *Check for automated validation schedule rules.*
 
 ## Latest Results
 
-FAIL Insufficient 0/10 (0%): FAIL [Documentation] Validation Architecture Diagram NOT found in the expected CodeCommit path.
-- WARNING [Technical] EventBridge validation schedule not explicitly found.
+- Error in wrapped function evaluate_KSI_AFR_09: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

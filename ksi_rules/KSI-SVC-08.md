@@ -4,7 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Last Check:** 2025-11-22 07:41
 
 **What it validates:** Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
 
@@ -17,9 +17,9 @@
 
 ## Latest Results
 
-Below threshold: 6/10 (60.0%) - requires 64.0% for MODERATE impact: WARNING [IaC] S3 bucket data (s3://mks-states/) unavailable or bucket not found.
-- PASS [IaC Controls] IaC Scan Artifact ('checkov_scan_summary.json') found in CMT-03 evidence.
-- PASS [IaC Controls] Testing Proof Artifact ('automated_testing_proof.json') found in CMT-03 evidence.
+Below threshold: 6/10 (60.0%) - requires 64.0% for MODERATE impact: FAIL [IaC Usage] Access Denied: Validator cannot list s3://mks-states/. Update Bucket Policy.
+- PASS [IaC Controls] Security scanning (Checkov) verified.
+- PASS [IaC Controls] Automated testing proof verified.
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

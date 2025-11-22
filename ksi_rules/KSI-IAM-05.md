@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Identity and Access Management
-**Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Status:** PASS
+**Last Check:** 2025-11-22 07:41
 
 **What it validates:** Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
 
@@ -33,11 +33,22 @@
 7. `aws iam get-account-password-policy --output json || echo '{"PasswordPolicy": null}'`
    *Validate password policy as defense-in-depth alongside MFA*
 
+8. `aws ec2 describe-security-groups --output json`
+   *Validate micro-segmentation (Assume Breach)*
+
+9. `aws ec2 describe-vpc-endpoints --output json`
+   *Validate secure communications*
+
+10. `aws sts get-caller-identity --output json`
+   *Validate session credentials*
+
 ## Latest Results
 
-FAIL Critical Zero Trust Gaps Detected (100%): FAIL [Monitoring] CRITICAL GAP: CloudTrail ('meridianks-Management-events') is configured but IS NOT LOGGING.
-- PASS [Identity] Modern Zero Trust identity platform is in use (IAM Identity Center).
-- WARNING [Segmentation] Security group data unavailable.
+PASS Strong 8/10 (80%): PASS [Identity] Modern Zero Trust identity platform is in use (IAM Identity Center).
+- PASS [Segmentation] No overly permissive security groups found.
+- PASS [Credentials] Using temporary, session-based credentials.
+- PASS [Secure Communications] 7 VPC endpoints active.
+- PASS [Monitoring] CloudTrail 'meridianks-Management-events' is active and logging.
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*

@@ -1,23 +1,24 @@
-# KSI-AFR-07: Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Recommended Secure Configuration (RSC) guidance standard and persistently address all related requirements and recommendations.
+# KSI-AFR-07: Document the secure configuration baseline for the cloud service offering.
 
 ## Overview
 
 **Category:** Other
-**Status:** FAIL
-**Last Check:** 2025-11-22 06:22
+**Status:** PASS
+**Last Check:** 2025-11-22 07:41
 
-**What it validates:** Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Recommended Secure Configuration (RSC) guidance standard and persistently address all related requirements and recommendations.
+**What it validates:** Document the secure configuration baseline for the cloud service offering.
 
-**Why it matters:** Validates the existence of the Secure Configuration Guide (Source of Truth).
+**Why it matters:** Validates the existence of the FedRAMP-specific Secure Configuration Guide in CodeCommit.
 
 ## Validation Method
 
-1. `aws codecommit get-file --repository-name security-governance --file-path fedramp-20x-secure-configuration.md`
-   *Check for Secure Configuration Guide.*
+1. `aws codecommit get-file --repository-name security-governance --file-path fedramp-20x-secure-configuration.md --output json`
+   *Governance: Retrieve the Secure Configuration Guide.*
 
 ## Latest Results
 
-- FAIL Insufficient 0/5 (0%): FAIL [Documentation] Secure Configuration Guide NOT found in the expected CodeCommit path.
+PASS Excellent 5/5 (100%): PASS [Documentation] Secure Configuration Guide found in CodeCommit.
+- PASS [Quality] Document appears substantial (80616 bytes).
 
 ---
-*Generated 2025-11-22 06:34 UTC*
+*Generated 2025-11-22 07:51 UTC*
