@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** FAIL
-**Last Check:** 2025-11-22 08:24
+**Last Check:** 2025-11-22 12:23
 
 **What it validates:** Always follow a documented change management procedure.
 
@@ -24,4 +24,4 @@ FAIL Insufficient 5/10 (50%): PASS [Documentation] Comprehensive change manageme
 - FAIL [Evidence] Could not access S3 evidence bucket to verify Terraform plan artifacts.
 
 ---
-*Generated 2025-11-22 08:32 UTC*
+*Generated 2025-11-22 12:33 UTC*
