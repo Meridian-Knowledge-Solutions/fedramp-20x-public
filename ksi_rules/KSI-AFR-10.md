@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 07:41
+**Last Check:** 2025-11-22 08:24
 
 **What it validates:** Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
 
@@ -29,4 +29,4 @@
 - Error in wrapped function evaluate_KSI_AFR_10: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 07:51 UTC*
+*Generated 2025-11-22 08:32 UTC*
