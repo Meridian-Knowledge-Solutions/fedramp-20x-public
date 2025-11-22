@@ -4,7 +4,11 @@
 
 **Category:** Other
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-22 12:23
+=======
+**Last Check:** 2025-11-22 12:47
+>>>>>>> Stashed changes
 
 **What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
@@ -23,4 +27,8 @@
 - Error in wrapped function evaluate_KSI_AFR_05: 'str' object has no attribute 'get'
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-22 12:33 UTC*
+=======
+*Generated 2025-11-22 12:57 UTC*
+>>>>>>> Stashed changes

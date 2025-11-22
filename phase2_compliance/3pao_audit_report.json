@@ -1,6 +1,10 @@
 {
   "report_metadata": {
+<<<<<<< Updated upstream
     "generated_timestamp": "2025-11-22T12:23:46.027496",
+=======
+    "generated_timestamp": "2025-11-22T12:47:09.797379",
+>>>>>>> Stashed changes
     "report_version": "2.1-fixed",
     "assessment_period": "continuous",
     "validator_version": "ruleset_master_v2_logical_consistency_fixed"
@@ -19,7 +23,11 @@
     "consistency_status": "excellent"
   },
   "technical_validation": {
+<<<<<<< Updated upstream
     "latest_technical_check": "2025-11-22T12:23:46.020644",
+=======
+    "latest_technical_check": "2025-11-22T12:47:09.790511",
+>>>>>>> Stashed changes
     "technical_issues_found": 5,
     "technical_status": "warning",
     "validation_categories": [

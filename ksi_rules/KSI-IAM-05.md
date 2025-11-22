@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-22 12:23
+=======
+**Last Check:** 2025-11-22 12:47
+>>>>>>> Stashed changes
 
 **What it validates:** Require phishing-resistant MFA for all user authentication to the cloud service offering and all customer information resources.
 
@@ -51,4 +55,8 @@ PASS Strong 8/10 (80%): PASS [Identity] Modern Zero Trust identity platform is i
 - PASS [Monitoring] CloudTrail 'meridianks-Management-events' is active and logging.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-22 12:33 UTC*
+=======
+*Generated 2025-11-22 12:57 UTC*
+>>>>>>> Stashed changes
