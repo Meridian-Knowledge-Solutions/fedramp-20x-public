@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-11-22T02:45:51.171231",
+  "timestamp": "2025-11-22T04:18:13.224874",
   "total_ksis_validated": 65,
-  "technical_issues_found": 8,
+  "technical_issues_found": 7,
   "issues": [
     "KSI-IAM-04: Assertion is False but reason suggests excellent compliance",
     "KSI-SVC-08: Only 1 commands executed - may be incomplete validation",
@@ -9,7 +9,6 @@
     "KSI-CED-04: Evidence-only validation failed - documentation may be missing",
     "KSI-PIY-08: Evidence check failed - may indicate missing documentation",
     "KSI-PIY-08: Evidence-only validation failed - documentation may be missing",
-    "KSI-AFR-05: High CLI failure rate (60%): 3/5 failed",
     "KSI-SVC-08: All 1 CLI commands failed execution"
   ],
   "status": "warning",
