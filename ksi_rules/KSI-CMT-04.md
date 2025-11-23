@@ -4,7 +4,11 @@
 
 **Category:** Change Management
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-23 06:18
+=======
+**Last Check:** 2025-11-23 06:41
+>>>>>>> Stashed changes
 
 **What it validates:** Always follow a documented change management procedure.
 
@@ -24,4 +28,8 @@ FAIL Insufficient 5/10 (50%): PASS [Documentation] Comprehensive change manageme
 - FAIL [Evidence] Could not access S3 evidence bucket to verify Terraform plan artifacts.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-23 06:28 UTC*
+=======
+*Generated 2025-11-23 06:51 UTC*
+>>>>>>> Stashed changes

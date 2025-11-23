@@ -18,7 +18,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges by default.
 - [PASS] [KSI-CNA-05](KSI-CNA-05.md): Deploy effective spam, spoofing, and denial-of-service countermeasures.
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Design systems for high availability and rapid recovery.
-- [FAIL] [KSI-CNA-07](KSI-CNA-07.md): Establish secure and private network communications between cloud and federal customer systems.
+- [PASS] [KSI-CNA-07](KSI-CNA-07.md): Maximize use of managed services and cloud resources
 - [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state.
 
 ## Cybersecurity Education
@@ -63,7 +63,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-AFR-06](KSI-AFR-06.md): Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) standard and persistently address all related requirements and recommendations.
 - [PASS] [KSI-AFR-07](KSI-AFR-07.md): Document the secure configuration baseline for the cloud service offering.
 - [PASS] [KSI-AFR-08](KSI-AFR-08.md): Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-09](KSI-AFR-09.md): Persistently validate... (PVA) standard...
+- [FAIL] [KSI-AFR-09](KSI-AFR-09.md): Persistently validate security posture using automated pipelines.
 - [PASS] [KSI-AFR-10](KSI-AFR-10.md): Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
 - [PASS] [KSI-AFR-11](KSI-AFR-11.md): Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
@@ -107,9 +107,13 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 69
-- **Passing:** 58
-- **Failing:** 7
+- **Passing:** 59
+- **Failing:** 6
 - **Not Tested:** 4
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-23 06:28 UTC*
+=======
+*Generated 2025-11-23 06:51 UTC*
+>>>>>>> Stashed changes

@@ -42,4 +42,8 @@
    *Validate organization-wide encryption at rest policies*
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-23 06:28 UTC*
+=======
+*Generated 2025-11-23 06:51 UTC*
+>>>>>>> Stashed changes
