@@ -42,4 +42,4 @@
    *Validate organization-wide encryption at rest policies*
 
 ---
-*Generated 2025-11-22 20:32 UTC*
+*Generated 2025-11-23 00:55 UTC*

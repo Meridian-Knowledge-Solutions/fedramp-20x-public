@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-22 20:22
+**Last Check:** 2025-11-23 00:44
 
 **What it validates:** Persistently validate... (PVA) standard...
 
@@ -23,4 +23,4 @@
 - Error in wrapped function evaluate_KSI_AFR_09: 'str' object has no attribute 'get'
 
 ---
-*Generated 2025-11-22 20:32 UTC*
+*Generated 2025-11-23 00:55 UTC*
