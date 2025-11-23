@@ -1,646 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+    <!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FedRAMP 20x Trust Center - Meridian Knowledge Solutions</title>
-    
-    <!-- Favicon -->
+
+        <!--FAVICON LINES -->
     <link rel="icon" type="image/png" href="meridian-favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="meridian-favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="meridian-favicon.png">
+    <link rel="apple-touch-icon" href="meridian-favicon.png">
+    <link rel="shortcut icon" href="meridian-favicon.png">
     <meta name="theme-color" content="#6366f1">
-    
-    <!-- Additional Meta Tags -->
-    <meta charset="UTF-8">
     <meta name="msapplication-TileColor" content="#6366f1">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <!-- External Scripts (Preserved) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">    
     
     <style>
-        /* ========== MODERN DESIGN SYSTEM ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Modern Color Palette inspired by Cake Equity */
-            --primary: #5B4EFF;
-            --primary-hover: #4A3FE6;
-            --primary-light: #E8E6FF;
-            
-            --secondary: #1A1B23;
-            --secondary-light: #2D2E3A;
-            
-            --success: #10B981;
-            --warning: #F59E0B;
-            --danger: #EF4444;
-            --info: #3B82F6;
-            
-            /* Neutral Colors */
-            --gray-50: #FAFAFA;
-            --gray-100: #F5F5F7;
-            --gray-200: #E5E5EA;
-            --gray-300: #D1D1D6;
-            --gray-400: #A1A1AA;
-            --gray-500: #71717A;
-            --gray-600: #52525B;
-            --gray-700: #3F3F46;
-            --gray-800: #27272A;
-            --gray-900: #18181B;
-            
-            /* Background Colors */
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #F8F9FB;
-            --bg-tertiary: #F1F3F9;
-            
-            /* Text Colors */
-            --text-primary: #1A1B23;
-            --text-secondary: #6B7280;
-            --text-tertiary: #9CA3AF;
-            
-            /* Borders & Radius */
-            --border-color: #E5E7EB;
-            --border-radius: 12px;
-            --border-radius-sm: 8px;
-            --border-radius-lg: 16px;
-            --border-radius-xl: 24px;
-            
-            /* Shadows */
-            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            
-            /* Transitions */
-            --transition: all 0.2s ease;
-            --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Dark Theme */
-        [data-theme="dark"] {
-            --bg-primary: #0F0F14;
-            --bg-secondary: #1A1B23;
-            --bg-tertiary: #25262F;
-            
-            --text-primary: #FFFFFF;
-            --text-secondary: #A1A1AA;
-            --text-tertiary: #71717A;
-            
-            --border-color: #2D2E3A;
-            
-            --gray-50: #18181B;
-            --gray-100: #27272A;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-        }
-
-        /* ========== SIDEBAR ========== */
-        .sidebar {
-            width: 260px;
-            background: var(--bg-primary);
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            z-index: 1000;
-            transition: var(--transition-slow);
-        }
-
-        .sidebar-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%);
-            border-radius: var(--border-radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .nav-menu {
-            flex: 1;
-            padding: 1rem 0;
-            overflow-y: auto;
-        }
-
-        .nav-item {
-            margin: 0.25rem 0.75rem;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            border-radius: var(--border-radius-sm);
-            transition: var(--transition);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-        }
-
-        .nav-link.active {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
-        .nav-link i {
-            width: 20px;
-            font-size: 1.1rem;
-        }
-
-        .nav-section-title {
-            padding: 0.5rem 1.75rem;
-            margin-top: 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-        }
-
-        /* ========== MAIN CONTENT ========== */
-        .main-container {
-            flex: 1;
-            margin-left: 260px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 900;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .search-bar {
-            position: relative;
-            width: 400px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 0.625rem 1rem 0.625rem 2.75rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
-            background: var(--bg-secondary);
-            font-size: 0.95rem;
-            transition: var(--transition);
-            color: var(--text-primary);
-        }
-
-        .search-bar input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: var(--bg-primary);
-        }
-
-        .search-bar i {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-tertiary);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .header-btn {
-            padding: 0.625rem 1.25rem;
-            border-radius: var(--border-radius-sm);
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .header-btn:hover {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-        }
-
-        .header-btn.primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .header-btn.primary:hover {
-            background: var(--primary-hover);
-        }
-
-        /* ========== CONTENT ========== */
-        .content {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .page-header {
-            margin-bottom: 2rem;
-        }
-
-        .page-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        /* ========== DASHBOARD GRID ========== */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: var(--bg-primary);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-slow);
-        }
-
-        .stat-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--border-radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .stat-icon.primary {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
-        .stat-icon.success {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .stat-icon.warning {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-        }
-
-        .stat-icon.danger {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        .stat-content {
-            flex: 1;
-        }
-
-        .stat-label {
-            color: var(--text-tertiary);
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.2;
-        }
-
-        .stat-change {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            margin-top: 0.5rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: var(--border-radius-sm);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .stat-change.positive {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .stat-change.negative {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        /* ========== CHARTS SECTION ========== */
-        .charts-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .chart-card {
-            background: var(--bg-primary);
-            border-radius: var(--border-radius);
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .chart-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        /* ========== TABLES ========== */
-        .table-card {
-            background: var(--bg-primary);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .table-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .table-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead {
-            background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            padding: 1rem 1.5rem;
-            text-align: left;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
-            background: var(--bg-secondary);
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            padding: 0.375rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .status-badge.success {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success);
-        }
-
-        .status-badge.warning {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-        }
-
-        .status-badge.danger {
-            background: rgba(239, 68, 68, 0.1);
-            color: var(--danger);
-        }
-
-        /* ========== BUTTONS ========== */
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--border-radius-sm);
-            font-weight: 500;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-        }
-
-        .btn-secondary {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-secondary);
-        }
-
-        /* ========== THEME TOGGLE ========== */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: var(--transition);
-            z-index: 1001;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            background: var(--primary-hover);
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1200px) {
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-container {
-                margin-left: 0;
-            }
-
-            .header {
-                padding: 1rem;
-            }
-
-            .search-bar {
-                width: 100%;
-            }
-
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: slideIn 0.3s ease-out forwards;
-        }
-
-        /* Preserved Component Styles */
-        
         * {
             margin: 0;
             padding: 0;
@@ -4017,1189 +3394,656 @@ td {
 
 
 
-    
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="sidebar-header">
-            <a href="#" class="logo">
-                <div class="logo-icon">M</div>
-                <span class="logo-text">Meridian Trust</span>
-            </a>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <div class="logo-section">
+                    <div class="logo">
+                        <img src="meridian-favicon.png" alt="MKS Logo" style="width: 32px; height: 32px; border-radius: 8px;">
+                    </div>
+                    <div class="title-section">
+                        <h1>FedRAMP 20x Trust Center</h1>
+                        <div class="subtitle">Meridian LMS</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="status-badge">
+                        <span>🛡️</span>
+                        <span>Authorized - Limited Pilot Authorization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="showTab('compliance')">🔍 Compliance Dashboard</button>
+                <button class="tab-btn" onclick="showTab('trust-center')">🛡️ Trust Center (RFC-0011)</button>
+            </div>
+
+            <div class="header-info">
+                <div class="header-info-content">
+                    <div class="header-info-title">FedRAMP 20x Authorization Data Sharing System</div>
+                    <div class="header-info-subtitle">✅ Compliance Tracking | 🟡 Low Risk Findings | 🗒️ Additional Context | 🕒 Evidence Currency</div>
+                    <div class="header-info-meta">
+                        <div class="header-info-item">
+                            <span>⏰</span>
+                            <span>Last updated: <span id="header-timestamp">Loading...</span></span>
+                        </div>
+                        <div class="header-info-item">
+                            <span class="continuous-improvement">🚀</span>
+                            <span>ADDITIONAL CONTEXT ACTIVE</span>
+                        </div>
+                    </div>
+                    <div class="compliance-badge">
+                        Compliant with RFC-0008 (Continuous Reporting) and RFC-0011 (Trust Center Requirements)
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <nav class="nav-menu">
-            <div class="nav-section">
-                <div class="nav-section-title">Main</div>
-                <div class="nav-item">
-                    <a href="#dashboard" class="nav-link active">
-                        <i class="fas fa-chart-pie"></i>
-                        <span>Dashboard</span>
-                    </a>
+    </header>
+
+    <!-- Tab 1 - Compliance Dashboard -->
+    <div id="compliance-tab" class="tab-content active">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value primary" id="overall-score">Loading...</div>
+                    <div class="stat-label">Overall Compliance</div>
+                    <div class="stat-change positive">↗ Assertion-Based Scoring</div>
                 </div>
-                <div class="nav-item">
-                    <a href="#compliance" class="nav-link">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Compliance Status</span>
-                    </a>
+                <div class="stat-card">
+                    <div class="stat-value success" id="passed-count">-</div>
+                    <div class="stat-label">KSIs Compliant</div>
+                    <div class="stat-change positive">✓ Meeting Requirements</div>
                 </div>
-                <div class="nav-item">
-                    <a href="#ksi" class="nav-link">
-                        <i class="fas fa-key"></i>
-                        <span>KSI Indicators</span>
-                    </a>
+                <div class="stat-card">
+                    <div class="stat-value danger" id="failed-count">-</div>
+                    <div class="stat-label">KSIs Non-Compliant</div>
+                    <div class="stat-change positive">🚨 Remediation Required</div>
                 </div>
-                <div class="nav-item">
-                    <a href="#validation" class="nav-link">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Validation Rules</span>
-                    </a>
+                <div class="stat-card">
+                    <div class="stat-value warning" id="warning-count">-</div>
+                    <div class="stat-label">Low Risk Findings</div>
+                    <div class="stat-change positive">🟡 60-Day Tracking</div>
+                </div>
+                <div class="stat-card enhancement">
+                    <div class="stat-value info" id="info-count">-</div>
+                    <div class="stat-label">Additional Context</div>
+                    <div class="stat-change enhancement">📈 Proactive Enhancement</div>
                 </div>
             </div>
 
-            <div class="nav-section">
-                <div class="nav-section-title">Components</div>
-                <div class="nav-item">
-                    <a href="#trust-center" class="nav-link">
-                        <i class="fas fa-building"></i>
-                        <span>Trust Center</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="#markdown" class="nav-link">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Markdown Views</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="#authenticated" class="nav-link">
-                        <i class="fas fa-lock"></i>
-                        <span>Authenticated</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="#api" class="nav-link">
-                        <i class="fas fa-code"></i>
-                        <span>API Access</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Settings</div>
-                <div class="nav-item">
-                    <a href="#integration" class="nav-link">
-                        <i class="fas fa-plug"></i>
-                        <span>Integrations</span>
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a href="#settings" class="nav-link">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </aside>
-
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-left">
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search compliance controls, KSIs, or reports...">
-                </div>
-            </div>
-            
-            <div class="header-right">
-                <button class="header-btn">
-                    <i class="fas fa-bell"></i>
-                    <span>Notifications</span>
-                </button>
-                <button class="header-btn primary">
-                    <i class="fas fa-download"></i>
-                    <span>Export Report</span>
-                </button>
-                <button class="header-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Account</span>
-                </button>
-            </div>
-        </header>
-
-        <!-- Content -->
-        <main class="content">
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1 class="page-title">FedRAMP 20x Trust Center</h1>
-                <p class="page-subtitle">Real-time compliance monitoring and automated validation dashboard</p>
-            </div>
-
-            <!-- Dashboard Stats -->
-            <div class="dashboard-grid">
-                <div class="stat-card animate-in">
-                    <div class="stat-header">
-                        <div class="stat-content">
-                            <div class="stat-label">Overall Compliance</div>
-                            <div class="stat-value" id="overall-score">{overall_score}</div>
-                            <div class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i>
-                                <span>+2.3% from last month</span>
-                            </div>
-                        </div>
-                        <div class="stat-icon primary">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+            <!-- Last Updated Information -->
+            <div class="update-info">
+                <div class="update-card">
+                    <div class="update-icon">⏰</div>
+                    <div class="update-content">
+                        <div class="update-label">Last Updated</div>
+                        <div class="update-time" id="last-updated">Loading...</div>
                     </div>
                 </div>
-
-                <div class="stat-card animate-in">
-                    <div class="stat-header">
-                        <div class="stat-content">
-                            <div class="stat-label">Passed Controls</div>
-                            <div class="stat-value" id="passed-count">{passed_count}</div>
-                            <div class="stat-change positive">
-                                <i class="fas fa-arrow-up"></i>
-                                <span>+12 this week</span>
-                            </div>
-                        </div>
-                        <div class="stat-icon success">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
+                <div class="update-card">
+                    <div class="update-icon">🔄</div>
+                    <div class="update-content">
+                        <div class="update-label">Next Update</div>
+                        <div class="update-time" id="next-update">Every 6 hours</div>
                     </div>
                 </div>
-
-                <div class="stat-card animate-in">
-                    <div class="stat-header">
-                        <div class="stat-content">
-                            <div class="stat-label">Failed Controls</div>
-                            <div class="stat-value" id="failed-count">{failed_count}</div>
-                            <div class="stat-change negative">
-                                <i class="fas fa-arrow-down"></i>
-                                <span>-3 from last week</span>
-                            </div>
-                        </div>
-                        <div class="stat-icon danger">
-                            <i class="fas fa-times-circle"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="stat-card animate-in">
-                    <div class="stat-header">
-                        <div class="stat-content">
-                            <div class="stat-label">Active Warnings</div>
-                            <div class="stat-value" id="warning-count">{warning_count}</div>
-                            <div class="stat-change positive">
-                                <i class="fas fa-check"></i>
-                                <span>All resolved</span>
-                            </div>
-                        </div>
-                        <div class="stat-icon warning">
-                            <i class="fas fa-exclamation-triangle"></i>
+                <div class="update-card">
+                    <div class="update-icon">📊</div>
+                    <div class="update-content">
+                        <div class="update-label">Enhanced Authorization Data Sharing System</div>
+                        <div class="update-time" style="cursor: pointer; color: var(--enhancement-500); text-decoration: underline;">
+                            <button onclick="window.showPOAMModal()" style="background: none; border: none; color: inherit; text-decoration: underline; cursor: pointer; font-size: inherit; font-weight: inherit;">View Analysis</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts Section -->
-            <div class="charts-grid">
-                <div class="chart-card animate-in">
-                    <div class="chart-header">
-                        <h3 class="chart-title">Compliance Trend</h3>
-                    </div>
-                    <div style="height: 300px;">
-                        <canvas id="complianceChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="chart-card animate-in">
-                    <div class="chart-header">
-                        <h3 class="chart-title">KSI Coverage</h3>
-                    </div>
-                    <div style="height: 300px;">
-                        <canvas id="ksiChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Validation Results Table -->
-            <div class="table-card animate-in">
-                <div class="table-header">
-                    <h3 class="table-title">Recent Validation Results</h3>
-                    <button class="btn btn-secondary">
-                        <i class="fas fa-filter"></i>
-                        <span>Filter</span>
-                    </button>
-                </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Control ID</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Last Validated</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>KSI-CMT-03</strong></td>
-                                <td>Automated Testing Framework</td>
-                                <td>Continuous Monitoring</td>
-                                <td>
-                                    <span class="status-badge success">
-                                        <i class="fas fa-check-circle"></i>
-                                        Passed
-                                    </span>
-                                </td>
-                                <td>2 hours ago</td>
-                                <td>
-                                    <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                                        View Details
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Trust Center Components (Preserved) -->
-            <div id="trust-center-components" style="display: none;">
-                <div class="trust-center-section">
-<h2 class="section-title">🛡️ Trust Center</h2>
-<div class="trust-grid">
-<!-- FedRAMP Authorization Data -->
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
-                            </div>
-<div class="trust-item">
-<strong>Impact Level:</strong> Low (20x)
-                            </div>
-<div class="trust-item">
-<strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
-</div>
-<div class="trust-item">
-<strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
-                            </div>
-<div class="trust-item">
-<strong>Hosting Environment:</strong> AWS Commercial (US-East)
-                            </div>
-<div class="trust-item">
-<strong>Evidence Repository:</strong> <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-</div>
-<div class="trust-item">
-<strong>Validation Data:</strong>
-<a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a> | 
-                                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-</div>
-</div>
-</div>
-<!-- Available Materials -->
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">📋 Available Materials</h3>
-</div>
-<div class="trust-card-content">
-<div class="materials-section">
-<div class="materials-header">🔒 Public Materials:</div>
-<ul class="materials-list">
-<li>Real-time compliance dashboard</li>
-<li>KSI validation methodology</li>
-<li>Service architecture overview</li>
-<li>Continuous monitoring reports</li>
-</ul>
-</div>
-<div class="materials-section">
-<div class="materials-header">🔐 Federal Agency Access:</div>
-<ul class="materials-list">
-<li>Complete authorization package</li>
-<li>Detailed security plans</li>
-<li>3PAO assessment reports</li>
-<li>Continuous monitoring data</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="trust-card enhancement-indicator">
-<div class="trust-card-header" style="background: var(--gradient-enhancement);">
-<h3 class="trust-card-title">KSI VDR Validation System </h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
-                            </div>
-<div class="trust-item">
-<strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
-                            </div>
-<div class="trust-item">
-<strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
-                            </div>
-<div class="trust-item">
-<strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
-                            </div>
-<div class="trust-item">
-<strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
-                            </div>
-<div class="trust-item">
-<button class="action-btn enhancement" onclick="window.showPOAMModal()">📊 View KSI VDR Analysis</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+            <!-- Trust Center Section -->
+            <div class="trust-center-section">
+                <h2 class="section-title">🛡️ Trust Center</h2>
                 <div class="trust-grid">
-<!-- FedRAMP Authorization Data -->
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
+                    <!-- FedRAMP Authorization Data -->
+                    <div class="trust-card">
+                        <div class="trust-card-header">
+                            <h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
+                        </div>
+                        <div class="trust-card-content">
+                            <div class="trust-item">
+                                <strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
                             </div>
-<div class="trust-item">
-<strong>Impact Level:</strong> Low (20x)
+                            <div class="trust-item">
+                                <strong>Impact Level:</strong> Low (20x)
                             </div>
-<div class="trust-item">
-<strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
-</div>
-<div class="trust-item">
-<strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
+                            <div class="trust-item">
+                                <strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
                             </div>
-<div class="trust-item">
-<strong>Hosting Environment:</strong> AWS Commercial (US-East)
+                            <div class="trust-item">
+                                <strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
                             </div>
-<div class="trust-item">
-<strong>Evidence Repository:</strong> <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-</div>
-<div class="trust-item">
-<strong>Validation Data:</strong>
-<a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a> | 
-                                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-</div>
-</div>
-</div>
-<!-- Available Materials -->
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">📋 Available Materials</h3>
-</div>
-<div class="trust-card-content">
-<div class="materials-section">
-<div class="materials-header">🔒 Public Materials:</div>
-<ul class="materials-list">
-<li>Real-time compliance dashboard</li>
-<li>KSI validation methodology</li>
-<li>Service architecture overview</li>
-<li>Continuous monitoring reports</li>
-</ul>
-</div>
-<div class="materials-section">
-<div class="materials-header">🔐 Federal Agency Access:</div>
-<ul class="materials-list">
-<li>Complete authorization package</li>
-<li>Detailed security plans</li>
-<li>3PAO assessment reports</li>
-<li>Continuous monitoring data</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="trust-card enhancement-indicator">
-<div class="trust-card-header" style="background: var(--gradient-enhancement);">
-<h3 class="trust-card-title">KSI VDR Validation System </h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
+                            <div class="trust-item">
+                                <strong>Hosting Environment:</strong> AWS Commercial (US-East)
                             </div>
-<div class="trust-item">
-<strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
+                            <div class="trust-item">
+                                <strong>Evidence Repository:</strong> <a href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank" class="trust-link">GitHub Public Repo</a>
                             </div>
-<div class="trust-item">
-<strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
+                            <div class="trust-item">
+                                <strong>Validation Data:</strong> 
+                                <a href="#" onclick="downloadJSON()" class="trust-link">📄 Download JSON</a> | 
+                                <a href="#" onclick="viewFailedReport()" class="trust-link">📋 Failed KSI Report</a>
                             </div>
-<div class="trust-item">
-<strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
+                        </div>
+                    </div>
+
+                    <!-- Available Materials -->
+                    <div class="trust-card">
+                        <div class="trust-card-header">
+                            <h3 class="trust-card-title">📋 Available Materials</h3>
+                        </div>
+                        <div class="trust-card-content">
+                            <div class="materials-section">
+                                <div class="materials-header">🔒 Public Materials:</div>
+                                <ul class="materials-list">
+                                    <li>Real-time compliance dashboard</li>
+                                    <li>KSI validation methodology</li>
+                                    <li>Service architecture overview</li>
+                                    <li>Continuous monitoring reports</li>
+                                </ul>
                             </div>
-<div class="trust-item">
-<strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
+                            <div class="materials-section">
+                                <div class="materials-header">🔐 Federal Agency Access:</div>
+                                <ul class="materials-list">
+                                    <li>Complete authorization package</li>
+                                    <li>Detailed security plans</li>
+                                    <li>3PAO assessment reports</li>
+                                    <li>Continuous monitoring data</li>
+                                </ul>
                             </div>
-<div class="trust-item">
-<button class="action-btn enhancement" onclick="window.showPOAMModal()">📊 View KSI VDR Analysis</button>
-</div>
-</div>
-</div>
-</div>
-                <div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
+                        </div>
+                    </div>
+
+                    
+                     <div class="trust-card enhancement-indicator">
+                        <div class="trust-card-header" style="background: var(--gradient-enhancement);">
+                            <h3 class="trust-card-title">KSI VDR Validation System </h3>
+                        </div>
+                        <div class="trust-card-content">
+                            <div class="trust-item">
+                                <strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
                             </div>
-<div class="trust-item">
-<strong>Impact Level:</strong> Low (20x)
+                            <div class="trust-item">
+                                <strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
                             </div>
-<div class="trust-item">
-<strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
-</div>
-<div class="trust-item">
-<strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
+                            <div class="trust-item">
+                                <strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
                             </div>
-<div class="trust-item">
-<strong>Hosting Environment:</strong> AWS Commercial (US-East)
+                            <div class="trust-item">
+                                <strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
                             </div>
-<div class="trust-item">
-<strong>Evidence Repository:</strong> <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-</div>
-<div class="trust-item">
-<strong>Validation Data:</strong>
-<a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a> | 
-                                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-</div>
-</div>
-</div>
-                <div class="trust-card-header">
-<h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
-</div>
-                <h3 class="trust-card-title">🔷 FedRAMP Authorization Data (RFC-0011)</h3>
-                <div class="trust-card-content">
-<div class="trust-item">
-<strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
+                            <div class="trust-item">
+                                <strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
                             </div>
-<div class="trust-item">
-<strong>Impact Level:</strong> Low (20x)
+                            <div class="trust-item">
+                                <button onclick="window.showPOAMModal()" class="action-btn enhancement">📊 View KSI VDR Analysis</button>
                             </div>
-<div class="trust-item">
-<strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
-</div>
-<div class="trust-item">
-<strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
-                            </div>
-<div class="trust-item">
-<strong>Hosting Environment:</strong> AWS Commercial (US-East)
-                            </div>
-<div class="trust-item">
-<strong>Evidence Repository:</strong> <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-</div>
-<div class="trust-item">
-<strong>Validation Data:</strong>
-<a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a> | 
-                                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-</div>
-</div>
-                <div class="trust-item">
-<strong>Service Description:</strong> Meridian LMS for Government is a secure, scalable learning management system purpose-built for the training, compliance, and workforce development needs of public sector organizations. It supports blended learning, role-based training paths, real-time reporting, and advanced features like career development tools and a native learning record store (LRS). The platform is fully Section 508 and WCAG 2.2 compliant, FedRAMP-authorized, and deployable in AWS, on-premises, or private cloud environments.
-                            </div>
-                <div class="trust-item">
-<strong>Impact Level:</strong> Low (20x)
-                            </div>
-                <div class="trust-item">
-<strong>FedRAMP Marketplace:</strong> <a href="https://marketplace.fedramp.gov/products/FR2527956755">View Listing</a>
-</div>
-                <div class="trust-item">
-<strong>Assessment Method:</strong> Machine-readable validation with automated KSI assessment
-                            </div>
-                <div class="trust-item">
-<strong>Hosting Environment:</strong> AWS Commercial (US-East)
-                            </div>
-                <div class="trust-item">
-<strong>Evidence Repository:</strong> <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-</div>
-                <a class="trust-link" href="https://github.com/Meridian-Knowledge-Solutions/fedramp-20x-public" target="_blank">GitHub Public Repo</a>
-                <div class="trust-item">
-<strong>Validation Data:</strong>
-<a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a> | 
-                                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-</div>
-                <a class="trust-link" href="#" onclick="downloadJSON()">📄 Download JSON</a>
-                <a class="trust-link" href="#" onclick="viewFailedReport()">📋 Failed KSI Report</a>
-                <div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">📋 Available Materials</h3>
-</div>
-<div class="trust-card-content">
-<div class="materials-section">
-<div class="materials-header">🔒 Public Materials:</div>
-<ul class="materials-list">
-<li>Real-time compliance dashboard</li>
-<li>KSI validation methodology</li>
-<li>Service architecture overview</li>
-<li>Continuous monitoring reports</li>
-</ul>
-</div>
-<div class="materials-section">
-<div class="materials-header">🔐 Federal Agency Access:</div>
-<ul class="materials-list">
-<li>Complete authorization package</li>
-<li>Detailed security plans</li>
-<li>3PAO assessment reports</li>
-<li>Continuous monitoring data</li>
-</ul>
-</div>
-</div>
-</div>
-                <div class="trust-card-header">
-<h3 class="trust-card-title">📋 Available Materials</h3>
-</div>
-                <h3 class="trust-card-title">📋 Available Materials</h3>
-                <div class="trust-card-content">
-<div class="materials-section">
-<div class="materials-header">🔒 Public Materials:</div>
-<ul class="materials-list">
-<li>Real-time compliance dashboard</li>
-<li>KSI validation methodology</li>
-<li>Service architecture overview</li>
-<li>Continuous monitoring reports</li>
-</ul>
-</div>
-<div class="materials-section">
-<div class="materials-header">🔐 Federal Agency Access:</div>
-<ul class="materials-list">
-<li>Complete authorization package</li>
-<li>Detailed security plans</li>
-<li>3PAO assessment reports</li>
-<li>Continuous monitoring data</li>
-</ul>
-</div>
-</div>
-                <div class="trust-card enhancement-indicator">
-<div class="trust-card-header" style="background: var(--gradient-enhancement);">
-<h3 class="trust-card-title">KSI VDR Validation System </h3>
-</div>
-<div class="trust-card-content">
-<div class="trust-item">
-<strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
-                            </div>
-<div class="trust-item">
-<strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
-                            </div>
-<div class="trust-item">
-<strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
-                            </div>
-<div class="trust-item">
-<strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
-                            </div>
-<div class="trust-item">
-<strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
-                            </div>
-<div class="trust-item">
-<button class="action-btn enhancement" onclick="window.showPOAMModal()">📊 View KSI VDR Analysis</button>
-</div>
-</div>
-</div>
-                <div class="trust-card-header" style="background: var(--gradient-enhancement);">
-<h3 class="trust-card-title">KSI VDR Validation System </h3>
-</div>
-                <h3 class="trust-card-title">KSI VDR Validation System </h3>
-                <div class="trust-card-content">
-<div class="trust-item">
-<strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
-                            </div>
-<div class="trust-item">
-<strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
-                            </div>
-<div class="trust-item">
-<strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
-                            </div>
-<div class="trust-item">
-<strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
-                            </div>
-<div class="trust-item">
-<strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
-                            </div>
-<div class="trust-item">
-<button class="action-btn enhancement" onclick="window.showPOAMModal()">📊 View KSI VDR Analysis</button>
-</div>
-</div>
-                <div class="trust-item">
-<strong>🚨 Identity/Access Failures (KSI-IAM) </strong> - Critical security control failures converted to N4/N5 vulnerabilities (2-8 days)
-                            </div>
-                <div class="trust-item">
-<strong>🔴 Network/Service Failures (KSI-CNA/SVC)</strong> - Infrastructure security failures mapped to N3/N4 vulnerabilities (8-32 days)
-                            </div>
-                <div class="trust-item">
-<strong>🟠 Process/Monitoring Failures (KSI-MLA/CMT)</strong> - Operational control failures assigned N2/N3 ratings (32-128 days)
-                            </div>
-                <div class="trust-item">
-<strong>🟢 Documentation/Training Gaps (KSI-CED/PIY) </strong> - Procedural failures classified as N1/N2 vulnerabilities (128-192 days)
-                            </div>
-                <div class="trust-item">
-<strong>Innovation:</strong> We implement risk-based tracking beyond traditional binary compliance. Warning indicators map to low risk findings (minor operations gaps), info indicators map to additional context insights.
-                            </div>
-                <div class="trust-item">
-<button class="action-btn enhancement" onclick="window.showPOAMModal()">📊 View KSI VDR Analysis</button>
-</div>
-                <div class="trust-center-container">
-<!-- Trust Center Header -->
-<div class="trust-center-header">
-<h1>🛡️ RFC-0011 Compliant Trust Center</h1>
-<p class="trust-center-subtitle">Federal agency access to authorization data</p>
-<div class="compliance-badge-large">
-                    API Access • Incident Reporting • Agency Workflow
+                        </div>
+                    </div>
                 </div>
-</div>
-<!-- Quick Access Cards -->
-<div class="quick-access-grid">
-<div class="access-card">
-<div class="card-icon">🔧</div>
-<h3>API Access</h3>
-<p>Machine-readable authorization data</p>
-<button class="access-btn" onclick="scrollToTrustSection('api-section')">View API Docs</button>
-</div>
-<div class="access-card">
-<div class="card-icon">📋</div>
-<h3>Request Access</h3>
-<p>Federal agency request workflow</p>
-<button class="access-btn" onclick="scrollToTrustSection('agency-form-section')">Submit Request</button>
-</div>
-<div class="access-card enhancement-indicator">
-<div class="card-icon">📊</div>
-<h3>Risk-Based Tracking</h3>
-<p>Multi-level risk tracking</p>
-<button class="access-btn" onclick="window.showPOAMModal()">View Risk Tracking</button>
-</div>
-<div class="access-card">
-<div class="card-icon">📋</div>
-<h3>Quarterly Authorization Reports</h3>
-<p>RFC-0016 Ongoing Authorization Reports</p>
-<button class="access-btn" onclick="scrollToTrustSection('quarterly-reports-section')">View Reports</button>
-</div>
-</div>
-<h3>API Access</h3>
-<p>Machine-readable authorization data</p>
-<button class="access-btn" onclick="scrollToTrustSection('api-section')">View API Docs</button>
-</div>
-                <div class="trust-center-header">
-<h1>🛡️ RFC-0011 Compliant Trust Center</h1>
-<p class="trust-center-subtitle">Federal agency access to authorization data</p>
-<div class="compliance-badge-large">
-                    API Access • Incident Reporting • Agency Workflow
+            </div>
+
+            <!-- KSI Details Section -->
+            <div class="ksi-section">
+                <div class="ksi-header">
+                    <h2 class="ksi-title">
+                        🔍 Key Security Indicators
+                    </h2>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="status-filter" class="sr-only">Filter by status</label>
+                            <select id="status-filter" class="filter-select">
+                                <option value="">All Status</option>
+                                <option value="passed">Passed</option>
+                                <option value="failed">Failed</option>
+                                <option value="warning">Low Risk</option>
+                                <option value="info">Context</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="category-filter" class="sr-only">Filter by category</label>
+                            <select id="category-filter" class="filter-select">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="search-input" class="sr-only">Search KSIs</label>
+                            <input type="text" id="search-input" class="search-box" placeholder="Search KSIs...">
+                        </div>
+                    </div>
                 </div>
-</div>
+
+                <!-- Enhanced Filter Chips -->
+                <div class="filter-chips" id="filter-chips">
+                    <div class="filter-chip active" data-status="">All</div>
+                    <div class="filter-chip" data-status="passed">✅ Passed</div>
+                    <div class="filter-chip" data-status="failed">❌ Failed</div>
+                    <div class="filter-chip" data-status="warning">🟡 Low Risk</div>
+                    <div class="filter-chip" data-status="info">🗒️ Additional Context</div>
+                </div>
+
+                <!-- KSI Grid -->
+                <div class="ksi-grid" id="ksi-grid">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        Loading KSI data...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 2 - Trust Center RFC-0011 -->
+    <div id="trust-center-tab" class="tab-content">
+        <div class="trust-center-container">
+            <!-- Trust Center Header -->
+            <div class="trust-center-header">
+                <h1>🛡️ RFC-0011 Compliant Trust Center</h1>
                 <p class="trust-center-subtitle">Federal agency access to authorization data</p>
-                <div class="trust-section" id="quarterly-reports-section">
-<h2>📋 Quarterly Authorization Reports (RFC-0016)</h2>
-<p>Ongoing Authorization Reports per FRR-CCM-01 providing regular summaries of changes, accepted weaknesses, and authorization data</p>
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🗓️ Report Schedule &amp; Access</h3>
-</div>
-<div class="trust-card-content">
-<div class="quarterly-schedule">
-<div class="schedule-item">
-<div class="schedule-icon">📅</div>
-<div class="schedule-content">
-<strong>Current Quarter Report:</strong>
-<div id="current-quarter-report">Q3 2025 - Available</div>
-</div>
-<button class="schedule-btn" onclick="downloadCurrentReport()">Download Report</button>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">⏰</div>
-<div class="schedule-content">
-<strong>Next Report Due:</strong>
-<div id="next-report-date">Loading...</div>
-</div>
-<div class="schedule-status">On Schedule</div>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">🎯</div>
-<div class="schedule-content">
-<strong>Next Quarterly Review:</strong>
-<div id="next-quarterly-review">Loading...</div>
-</div>
-<button class="schedule-btn" onclick="registerForReview()">Agency Registration</button>
-</div>
-</div>
-</div>
-</div>
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">📊 Report Contents (FRR-CCM-01)</h3>
-</div>
-<div class="trust-card-content">
-<div class="report-contents">
-<div class="content-section">
-<h4>🔄 Changes to Authorization Data</h4>
-<ul class="content-list">
-<li>Key Security Indicators (KSI) performance updates</li>
-<li>Automation health and validation consistency</li>
-<li>Significant change notifications (SCN) summary</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>⚠️ Accepted Weaknesses (VDR)</h4>
-<ul class="content-list">
-<li>Active vulnerability counts by N-rating</li>
-<li>LEV+IRV critical indicators</li>
-<li>Agency action requirements</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>🔮 Planned Changes (Next 3 Months)</h4>
-<ul class="content-list">
-<li>Planned infrastructure updates</li>
-<li>Security control enhancements</li>
-<li>Compliance milestone tracking</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🏛️ Federal Agency Access</h3>
-</div>
-<div class="trust-card-content">
-<div class="agency-access">
-<div class="access-method">
-<div class="method-icon">🔗</div>
-<div class="method-content">
-<strong>Direct Download:</strong>
-<p>Reports available in machine-readable and human-readable formats</p>
-<div class="method-links">
-<a class="method-link" href="./quarterly_reports/" target="_blank">📁 Report Archive</a>
-<a class="method-link" href="./trust_center/next_report_date.json" target="_blank">⏰ Schedule API</a>
-</div>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">💬</div>
-<div class="method-content">
-<strong>Agency Feedback (FRR-CCM-04):</strong>
-<p>Asynchronous mechanism for questions and feedback</p>
-<button class="method-button" onclick="openAgencyFeedback()">Submit Agency Feedback</button>
-<small>Note: Feedback shared with FedRAMP, not published publicly per FRR-CCM-05</small>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">🎪</div>
-<div class="method-content">
-<strong>Quarterly Review Meetings (FRR-CCM-QR):</strong>
-<p>Synchronous quarterly reviews for all agency customers</p>
-<div class="review-details">
-<div>📅 Schedule: Within 2 weeks of report release</div>
-<div>🎯 Audience: Federal agencies only</div>
-<div>📝 Recording: Available to authorized parties</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                <div class="compliance-badge-large">
+                    API Access • Incident Reporting • Agency Workflow
+                </div>
+            </div>
+
+            <!-- Quick Access Cards -->
+            <div class="quick-access-grid">
+                <div class="access-card">
+                    <div class="card-icon">🔧</div>
+                    <h3>API Access</h3>
+                    <p>Machine-readable authorization data</p>
+                    <button onclick="scrollToTrustSection('api-section')" class="access-btn">View API Docs</button>
+                </div>
+                <div class="access-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Request Access</h3>
+                    <p>Federal agency request workflow</p>
+                    <button onclick="scrollToTrustSection('agency-form-section')" class="access-btn">Submit Request</button>
+                </div>
+                <div class="access-card enhancement-indicator">
+                    <div class="card-icon">📊</div>
+                    <h3>Risk-Based Tracking</h3>
+                    <p>Multi-level risk tracking</p>
+                    <button onclick="window.showPOAMModal()" class="access-btn">View Risk Tracking</button>
+                </div>
+                <div class="access-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Quarterly Authorization Reports</h3>
+                    <p>RFC-0016 Ongoing Authorization Reports</p>
+                    <button onclick="scrollToTrustSection('quarterly-reports-section')" class="access-btn">View Reports</button>
+                </div>
+            </div>
+                    <h3>API Access</h3>
+                    <p>Machine-readable authorization data</p>
+                    <button onclick="scrollToTrustSection('api-section')" class="access-btn">View API Docs</button>
+                </div>
+                <div class="access-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Request Access</h3>
+                    <p>Federal agency request workflow</p>
+                    <button onclick="scrollToTrustSection('agency-form-section')" class="access-btn">Submit Request</button>
+                </div>
+                <div class="access-card enhancement-indicator">
+                    <div class="card-icon">📊</div>
+                    <h3>Risk-Based Tracking</h3>
+                    <p>Multi-level risk tracking</p>
+                    <button onclick="window.showPOAMModal()" class="access-btn">View Tracking</button>
+                </div>
+                <div class="access-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Quarterly Authorization Reports</h3>
+                    <p>RFC-0016 Ongoing Authorization Reports</p>
+                    <button onclick="scrollToTrustSection('quarterly-reports-section')" class="access-btn">View Reports</button>
+                </div>
+            </div>
+            <div id="quarterly-reports-section" class="trust-section">
+                <h2>📋 Quarterly Authorization Reports (RFC-0016)</h2>
+                <p>Ongoing Authorization Reports per FRR-CCM-01 providing regular summaries of changes, accepted weaknesses, and authorization data</p>
+
                 <div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🗓️ Report Schedule &amp; Access</h3>
-</div>
-<div class="trust-card-content">
-<div class="quarterly-schedule">
-<div class="schedule-item">
-<div class="schedule-icon">📅</div>
-<div class="schedule-content">
-<strong>Current Quarter Report:</strong>
-<div id="current-quarter-report">Q3 2025 - Available</div>
-</div>
-<button class="schedule-btn" onclick="downloadCurrentReport()">Download Report</button>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">⏰</div>
-<div class="schedule-content">
-<strong>Next Report Due:</strong>
-<div id="next-report-date">Loading...</div>
-</div>
-<div class="schedule-status">On Schedule</div>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">🎯</div>
-<div class="schedule-content">
-<strong>Next Quarterly Review:</strong>
-<div id="next-quarterly-review">Loading...</div>
-</div>
-<button class="schedule-btn" onclick="registerForReview()">Agency Registration</button>
-</div>
-</div>
-</div>
-</div>
-                <div class="trust-card-header">
-<h3 class="trust-card-title">🗓️ Report Schedule &amp; Access</h3>
-</div>
-                <h3 class="trust-card-title">🗓️ Report Schedule &amp; Access</h3>
-                <div class="trust-card-content">
-<div class="quarterly-schedule">
-<div class="schedule-item">
-<div class="schedule-icon">📅</div>
-<div class="schedule-content">
-<strong>Current Quarter Report:</strong>
-<div id="current-quarter-report">Q3 2025 - Available</div>
-</div>
-<button class="schedule-btn" onclick="downloadCurrentReport()">Download Report</button>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">⏰</div>
-<div class="schedule-content">
-<strong>Next Report Due:</strong>
-<div id="next-report-date">Loading...</div>
-</div>
-<div class="schedule-status">On Schedule</div>
-</div>
-<div class="schedule-item">
-<div class="schedule-icon">🎯</div>
-<div class="schedule-content">
-<strong>Next Quarterly Review:</strong>
-<div id="next-quarterly-review">Loading...</div>
-</div>
-<button class="schedule-btn" onclick="registerForReview()">Agency Registration</button>
-</div>
-</div>
-</div>
+                    <div class="trust-card-header">
+                        <h3 class="trust-card-title">🗓️ Report Schedule & Access</h3>
+                    </div>
+                    <div class="trust-card-content">
+                        <div class="quarterly-schedule">
+                            <div class="schedule-item">
+                                <div class="schedule-icon">📅</div>
+                                <div class="schedule-content">
+                                    <strong>Current Quarter Report:</strong>
+                                    <div id="current-quarter-report">Q3 2025 - Available</div>
+                                </div>
+                                <button onclick="downloadCurrentReport()" class="schedule-btn">Download Report</button>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-icon">⏰</div>
+                                <div class="schedule-content">
+                                    <strong>Next Report Due:</strong>
+                                    <div id="next-report-date">Loading...</div>
+                                </div>
+                                <div class="schedule-status">On Schedule</div>
+                            </div>
+
+                            <div class="schedule-item">
+                                <div class="schedule-icon">🎯</div>
+                                <div class="schedule-content">
+                                    <strong>Next Quarterly Review:</strong>
+                                    <div id="next-quarterly-review">Loading...</div>
+                                </div>
+                                <button onclick="registerForReview()" class="schedule-btn">Agency Registration</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">📊 Report Contents (FRR-CCM-01)</h3>
-</div>
-<div class="trust-card-content">
-<div class="report-contents">
-<div class="content-section">
-<h4>🔄 Changes to Authorization Data</h4>
-<ul class="content-list">
-<li>Key Security Indicators (KSI) performance updates</li>
-<li>Automation health and validation consistency</li>
-<li>Significant change notifications (SCN) summary</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>⚠️ Accepted Weaknesses (VDR)</h4>
-<ul class="content-list">
-<li>Active vulnerability counts by N-rating</li>
-<li>LEV+IRV critical indicators</li>
-<li>Agency action requirements</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>🔮 Planned Changes (Next 3 Months)</h4>
-<ul class="content-list">
-<li>Planned infrastructure updates</li>
-<li>Security control enhancements</li>
-<li>Compliance milestone tracking</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-                <div class="trust-card-header">
-<h3 class="trust-card-title">📊 Report Contents (FRR-CCM-01)</h3>
-</div>
-                <h3 class="trust-card-title">📊 Report Contents (FRR-CCM-01)</h3>
-                <div class="trust-card-content">
-<div class="report-contents">
-<div class="content-section">
-<h4>🔄 Changes to Authorization Data</h4>
-<ul class="content-list">
-<li>Key Security Indicators (KSI) performance updates</li>
-<li>Automation health and validation consistency</li>
-<li>Significant change notifications (SCN) summary</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>⚠️ Accepted Weaknesses (VDR)</h4>
-<ul class="content-list">
-<li>Active vulnerability counts by N-rating</li>
-<li>LEV+IRV critical indicators</li>
-<li>Agency action requirements</li>
-</ul>
-</div>
-<div class="content-section">
-<h4>🔮 Planned Changes (Next 3 Months)</h4>
-<ul class="content-list">
-<li>Planned infrastructure updates</li>
-<li>Security control enhancements</li>
-<li>Compliance milestone tracking</li>
-</ul>
-</div>
-</div>
-</div>
+                    <div class="trust-card-header">
+                        <h3 class="trust-card-title">📊 Report Contents (FRR-CCM-01)</h3>
+                    </div>
+                    <div class="trust-card-content">
+                        <div class="report-contents">
+                            <div class="content-section">
+                                <h4>🔄 Changes to Authorization Data</h4>
+                                <ul class="content-list">
+                                    <li>Key Security Indicators (KSI) performance updates</li>
+                                    <li>Automation health and validation consistency</li>
+                                    <li>Significant change notifications (SCN) summary</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>⚠️ Accepted Weaknesses (VDR)</h4>
+                                <ul class="content-list">
+                                    <li>Active vulnerability counts by N-rating</li>
+                                    <li>LEV+IRV critical indicators</li>
+                                    <li>Agency action requirements</li>
+                                </ul>
+                            </div>
+
+                            <div class="content-section">
+                                <h4>🔮 Planned Changes (Next 3 Months)</h4>
+                                <ul class="content-list">
+                                    <li>Planned infrastructure updates</li>
+                                    <li>Security control enhancements</li>
+                                    <li>Compliance milestone tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="trust-card">
-<div class="trust-card-header">
-<h3 class="trust-card-title">🏛️ Federal Agency Access</h3>
-</div>
-<div class="trust-card-content">
-<div class="agency-access">
-<div class="access-method">
-<div class="method-icon">🔗</div>
-<div class="method-content">
-<strong>Direct Download:</strong>
-<p>Reports available in machine-readable and human-readable formats</p>
-<div class="method-links">
-<a class="method-link" href="./quarterly_reports/" target="_blank">📁 Report Archive</a>
-<a class="method-link" href="./trust_center/next_report_date.json" target="_blank">⏰ Schedule API</a>
-</div>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">💬</div>
-<div class="method-content">
-<strong>Agency Feedback (FRR-CCM-04):</strong>
-<p>Asynchronous mechanism for questions and feedback</p>
-<button class="method-button" onclick="openAgencyFeedback()">Submit Agency Feedback</button>
-<small>Note: Feedback shared with FedRAMP, not published publicly per FRR-CCM-05</small>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">🎪</div>
-<div class="method-content">
-<strong>Quarterly Review Meetings (FRR-CCM-QR):</strong>
-<p>Synchronous quarterly reviews for all agency customers</p>
-<div class="review-details">
-<div>📅 Schedule: Within 2 weeks of report release</div>
-<div>🎯 Audience: Federal agencies only</div>
-<div>📝 Recording: Available to authorized parties</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-                <div class="trust-card-header">
-<h3 class="trust-card-title">🏛️ Federal Agency Access</h3>
-</div>
-                <h3 class="trust-card-title">🏛️ Federal Agency Access</h3>
-                <div class="trust-card-content">
-<div class="agency-access">
-<div class="access-method">
-<div class="method-icon">🔗</div>
-<div class="method-content">
-<strong>Direct Download:</strong>
-<p>Reports available in machine-readable and human-readable formats</p>
-<div class="method-links">
-<a class="method-link" href="./quarterly_reports/" target="_blank">📁 Report Archive</a>
-<a class="method-link" href="./trust_center/next_report_date.json" target="_blank">⏰ Schedule API</a>
-</div>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">💬</div>
-<div class="method-content">
-<strong>Agency Feedback (FRR-CCM-04):</strong>
-<p>Asynchronous mechanism for questions and feedback</p>
-<button class="method-button" onclick="openAgencyFeedback()">Submit Agency Feedback</button>
-<small>Note: Feedback shared with FedRAMP, not published publicly per FRR-CCM-05</small>
-</div>
-</div>
-<div class="access-method">
-<div class="method-icon">🎪</div>
-<div class="method-content">
-<strong>Quarterly Review Meetings (FRR-CCM-QR):</strong>
-<p>Synchronous quarterly reviews for all agency customers</p>
-<div class="review-details">
-<div>📅 Schedule: Within 2 weeks of report release</div>
-<div>🎯 Audience: Federal agencies only</div>
-<div>📝 Recording: Available to authorized parties</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-                <div class="trust-section" id="agency-form-section">
-<h2>📋 Federal Agency Access Request</h2>
-<p>Official process for federal agencies to request access to authorization materials</p>
-<form id="federal-access-form" style="max-width: 600px;">
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-<div>
-<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Federal Agency *</label>
-<input name="agency" required="" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);" type="text"/>
-</div>
-<div>
-<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Authorizing Official *</label>
-<input name="ao_name" required="" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);" type="text"/>
-</div>
-</div>
-<div style="margin-bottom: 20px;">
-<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Official Email (.gov/.mil) *</label>
-<input name="email" required="" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);" type="email"/>
-</div>
-<div style="margin-bottom: 20px;">
-<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Access Type *</label>
-<select name="access_type" required="" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);">
-<option value="">Select access type...</option>
-<option value="full_package">Complete Authorization Package</option>
-<option value="api_credentials">API Access Credentials</option>
-<option value="monitoring_data">Continuous Monitoring Reports</option>
-<option value="poam_access">Enhanced Validation Analysis</option>
-</select>
-</div>
-<div style="margin-bottom: 20px;">
-<label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Business Justification *</label>
-<textarea name="justification" required="" rows="4" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);"></textarea>
-</div>
-<div style="margin-bottom: 20px;">
-<label style="display: flex; align-items: flex-start; color: var(--text-primary);">
-<input name="certification" required="" style="margin-right: 10px; margin-top: 3px;" type="checkbox"/>
+                    <div class="trust-card-header">
+                        <h3 class="trust-card-title">🏛️ Federal Agency Access</h3>
+                    </div>
+                    <div class="trust-card-content">
+                        <div class="agency-access">
+                            <div class="access-method">
+                                <div class="method-icon">🔗</div>
+                                <div class="method-content">
+                                    <strong>Direct Download:</strong>
+                                    <p>Reports available in machine-readable and human-readable formats</p>
+                                    <div class="method-links">
+                                        <a href="./quarterly_reports/" target="_blank" class="method-link">📁 Report Archive</a>
+                                        <a href="./trust_center/next_report_date.json" target="_blank" class="method-link">⏰ Schedule API</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="access-method">
+                                <div class="method-icon">💬</div>
+                                <div class="method-content">
+                                    <strong>Agency Feedback (FRR-CCM-04):</strong>
+                                    <p>Asynchronous mechanism for questions and feedback</p>
+                                    <button onclick="openAgencyFeedback()" class="method-button">Submit Agency Feedback</button>
+                                    <small>Note: Feedback shared with FedRAMP, not published publicly per FRR-CCM-05</small>
+                                </div>
+                            </div>
+
+                            <div class="access-method">
+                                <div class="method-icon">🎪</div>
+                                <div class="method-content">
+                                    <strong>Quarterly Review Meetings (FRR-CCM-QR):</strong>
+                                    <p>Synchronous quarterly reviews for all agency customers</p>
+                                    <div class="review-details">
+                                        <div>📅 Schedule: Within 2 weeks of report release</div>
+                                        <div>🎯 Audience: Federal agencies only</div>
+                                        <div>📝 Recording: Available to authorized parties</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                   
+                </div>
+            </div>
+
+            
+
+            <!-- Agency Form Section -->
+            <div id="agency-form-section" class="trust-section">
+                <h2>📋 Federal Agency Access Request</h2>
+                <p>Official process for federal agencies to request access to authorization materials</p>
+                
+                <form id="federal-access-form" style="max-width: 600px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Federal Agency *</label>
+                            <input type="text" name="agency" required style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Authorizing Official *</label>
+                            <input type="text" name="ao_name" required style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);">
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Official Email (.gov/.mil) *</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Access Type *</label>
+                        <select name="access_type" required style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);">
+                            <option value="">Select access type...</option>
+                            <option value="full_package">Complete Authorization Package</option>
+                            <option value="api_credentials">API Access Credentials</option>
+                            <option value="monitoring_data">Continuous Monitoring Reports</option>
+                            <option value="poam_access">Enhanced Validation Analysis</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">Business Justification *</label>
+                        <textarea name="justification" required rows="4" style="width: 100%; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: flex; align-items: flex-start; color: var(--text-primary);">
+                            <input type="checkbox" name="certification" required style="margin-right: 10px; margin-top: 3px;">
                             I certify that I am an authorized federal government representative.
                         </label>
-</div>
-<button style="background: var(--gradient-accent); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: var(--shadow-sm);" type="submit">
+                    </div>
+                    
+                    <button type="submit" style="background: var(--gradient-accent); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: var(--shadow-sm);">
                         Submit Federal Access Request
                     </button>
-</form>
-<div id="form-response" style="margin-top: 20px;"></div>
-</div>
-                <div class="trust-section" id="incident-section">
-<h2>🚨 Security Incident Reporting</h2>
-<p>FedRAMP-compliant incident classification, reporting templates, and notification procedures</p>
-<div style="background: rgba(245, 158, 11, 0.1); border: 2px solid var(--warning-500); border-radius: 10px; padding: 25px; margin-bottom: 30px; color: var(--text-primary);">
-<h4 style="color: var(--warning-600); margin-bottom: 15px;">🚨 Emergency Security Hotline</h4>
-<div><strong>Phone:</strong> +1 (571) 665-5287</div>
-<div><strong>Email:</strong> security@meridianks.com</div>
-<div><strong>Response SLA:</strong> 1 hour for Category 1-2 incidents</div>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-<div style="background: var(--bg-accent); padding: 25px; border-radius: 10px; border-left: 4px solid var(--danger-500); border: 1px solid var(--border-color);">
-<h4 style="color: var(--text-primary);">📋 Incident Report Template</h4>
-<p style="color: var(--text-secondary);">Standardized FedRAMP incident reporting format</p>
-<button onclick="downloadIncidentTemplate()" style="background: var(--danger-500); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: var(--shadow-sm);">Download Template</button>
-</div>
-<div style="background: var(--bg-accent); padding: 25px; border-radius: 10px; border-left: 4px solid var(--danger-500); border: 1px solid var(--border-color);">
-<h4 style="color: var(--text-primary);">📊 Classification Guide</h4>
-<p style="color: var(--text-secondary);">FedRAMP Categories 1-5 with notification timelines</p>
-<button onclick="downloadClassificationGuide()" style="background: var(--danger-500); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: var(--shadow-sm);">Download Guide</button>
-</div>
-</div>
-</div>
-                <div class="trust-center-container">
-<!-- Trust Center Header -->
-<div class="trust-center-header">
-<h1>🛡️ Enhanced Trust Center with SCN Transparency</h1>
-<p class="trust-center-subtitle">Real-time change management transparency for federal agencies</p>
-<div class="compliance-badge-large">
-                    RFC-0011 Compliant • FedRAMP 20x • Enhanced SCN Automation • Public Transparency
+                </form>
+                
+                <div id="form-response" style="margin-top: 20px;"></div>
+            </div>
+
+            <!-- Incident Section -->
+            <div id="incident-section" class="trust-section">
+                <h2>🚨 Security Incident Reporting</h2>
+                <p>FedRAMP-compliant incident classification, reporting templates, and notification procedures</p>
+                
+                <div style="background: rgba(245, 158, 11, 0.1); border: 2px solid var(--warning-500); border-radius: 10px; padding: 25px; margin-bottom: 30px; color: var(--text-primary);">
+                    <h4 style="color: var(--warning-600); margin-bottom: 15px;">🚨 Emergency Security Hotline</h4>
+                    <div><strong>Phone:</strong> +1 (571) 665-5287</div>
+                    <div><strong>Email:</strong> security@meridianks.com</div>
+                    <div><strong>Response SLA:</strong> 1 hour for Category 1-2 incidents</div>
                 </div>
-</div>
-<div class="access-card" onclick="scrollToSection('api-section-scn')">
-<div class="card-icon">🔧</div>
-<h3>Enhanced API Access</h3>
-<button class="access-btn">View API Docs</button>
-</div>
-<div class="access-card" onclick="scrollToSection('compliance-status-section')">
-<div class="card-icon">📊</div>
-<h3>Compliance Dashboard</h3>
-<p>Real-time FedRAMP 20x status</p>
-<button class="access-btn">View Status</button>
-</div>
-<div class="access-card" onclick="scrollToSection('evidence-packages-section')">
-<div class="card-icon">📋</div>
-<h3>Evidence Packages</h3>
-<p>Professional audit-ready documentation</p>
-<button class="access-btn">Download Evidence</button>
-</div>
-</div>
-                <div class="trust-center-header">
-<h1>🛡️ Enhanced Trust Center with SCN Transparency</h1>
-<p class="trust-center-subtitle">Real-time change management transparency for federal agencies</p>
-<div class="compliance-badge-large">
-                    RFC-0011 Compliant • FedRAMP 20x • Enhanced SCN Automation • Public Transparency
-                </div>
-</div>
-                <p class="trust-center-subtitle">Real-time change management transparency for federal agencies</p>
-                <div class="trust-section" id="scn-transparency-section">
-<h2>🔄 Enhanced SCN Transparency Dashboard</h2>
-<p>Real-time visibility into all significant change notifications with FedRAMP 20x compliance</p>
-<!-- SCN Dashboard -->
-<div class="scn-dashboard">
-<div class="scn-status-card">
-<div class="scn-status-value" id="scn-status-value">Loading...</div>
-<div class="scn-status-label">Current SCN Status</div>
-<div style="margin-top: 10px; font-size: 0.8rem;">
-                            Last Updated: <span id="scn-last-update">Loading...</span>
-</div>
-</div>
-<div class="scn-recent-activity">
-<h4>Recent SCN Activity</h4>
-<div id="scn-activity-list">
-<div class="loading-spinner"></div> Loading recent changes...
-                        </div>
-</div>
-</div>
-<!-- Current SCN Details -->
-<div id="scn-current-details">
-<h4>Current Change Classification Details</h4>
-<div class="scn-details-grid">
-<div class="scn-detail-card">
-<strong>Service Offering ID:</strong>
-<div id="scn-service-id">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>3PAO Assessment:</strong>
-<div id="scn-3pao">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>Customer Impact:</strong>
-<div id="scn-customer-impact">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>Files Changed:</strong>
-<div id="scn-file-count">Loading...</div>
-</div>
-</div>
-<!-- FedRAMP 20x Compliance Status -->
-<h4 style="margin-top: 25px;">FedRAMP 20x Compliance Verification</h4>
-<div class="scn-compliance-grid" id="scn-compliance-checks">
-<div class="loading-spinner"></div> Loading compliance status...
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div style="background: var(--bg-accent); padding: 25px; border-radius: 10px; border-left: 4px solid var(--danger-500); border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--text-primary);">📋 Incident Report Template</h4>
+                        <p style="color: var(--text-secondary);">Standardized FedRAMP incident reporting format</p>
+                        <button onclick="downloadIncidentTemplate()" style="background: var(--danger-500); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: var(--shadow-sm);">Download Template</button>
                     </div>
-</div>
-<!-- Change Files Detail -->
-<div style="margin-top: 25px;">
-<h4>Changed Files (Latest Classification)</h4>
-<p style="color: var(--text-secondary); margin-bottom: 10px;">Complete transparency of all files included in the current change classification</p>
-<div class="scn-file-list" id="scn-files-list">
+                    
+                    <div style="background: var(--bg-accent); padding: 25px; border-radius: 10px; border-left: 4px solid var(--danger-500); border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--text-primary);">📊 Classification Guide</h4>
+                        <p style="color: var(--text-secondary);">FedRAMP Categories 1-5 with notification timelines</p>
+                        <button onclick="downloadClassificationGuide()" style="background: var(--danger-500); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; box-shadow: var(--shadow-sm);">Download Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 3 - Enhanced SCN Transparency -->
+    <div id="scn-transparency-tab" class="tab-content">
+        <div class="trust-center-container">
+            <!-- Trust Center Header -->
+            <div class="trust-center-header">
+                <h1>🛡️ Enhanced Trust Center with SCN Transparency</h1>
+                <p class="trust-center-subtitle">Real-time change management transparency for federal agencies</p>
+                <div class="compliance-badge-large">
+                    RFC-0011 Compliant • FedRAMP 20x • Enhanced SCN Automation • Public Transparency
+                </div>
+            </div>
+
+                
+                <div class="access-card" onclick="scrollToSection('api-section-scn')">
+                    <div class="card-icon">🔧</div>
+                    <h3>Enhanced API Access</h3>
+                    <button class="access-btn">View API Docs</button>
+                </div>
+                
+                <div class="access-card" onclick="scrollToSection('compliance-status-section')">
+                    <div class="card-icon">📊</div>
+                    <h3>Compliance Dashboard</h3>
+                    <p>Real-time FedRAMP 20x status</p>
+                    <button class="access-btn">View Status</button>
+                </div>
+                
+                <div class="access-card" onclick="scrollToSection('evidence-packages-section')">
+                    <div class="card-icon">📋</div>
+                    <h3>Evidence Packages</h3>
+                    <p>Professional audit-ready documentation</p>
+                    <button class="access-btn">Download Evidence</button>
+                </div>
+            </div>
+
+            <!-- SCN Transparency Section -->
+            <div id="scn-transparency-section" class="trust-section">
+                <h2>🔄 Enhanced SCN Transparency Dashboard</h2>
+                <p>Real-time visibility into all significant change notifications with FedRAMP 20x compliance</p>
+                
+                <!-- SCN Dashboard -->
+                <div class="scn-dashboard">
+                    <div class="scn-status-card">
+                        <div class="scn-status-value" id="scn-status-value">Loading...</div>
+                        <div class="scn-status-label">Current SCN Status</div>
+                        <div style="margin-top: 10px; font-size: 0.8rem;">
+                            Last Updated: <span id="scn-last-update">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="scn-recent-activity">
+                        <h4>Recent SCN Activity</h4>
+                        <div id="scn-activity-list">
+                            <div class="loading-spinner"></div> Loading recent changes...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current SCN Details -->
+                <div id="scn-current-details">
+                    <h4>Current Change Classification Details</h4>
+                    <div class="scn-details-grid">
+                        <div class="scn-detail-card">
+                            <strong>Service Offering ID:</strong>
+                            <div id="scn-service-id">Loading...</div>
+                        </div>
+                        <div class="scn-detail-card">
+                            <strong>3PAO Assessment:</strong>
+                            <div id="scn-3pao">Loading...</div>
+                        </div>
+                        <div class="scn-detail-card">
+                            <strong>Customer Impact:</strong>
+                            <div id="scn-customer-impact">Loading...</div>
+                        </div>
+                        <div class="scn-detail-card">
+                            <strong>Files Changed:</strong>
+                            <div id="scn-file-count">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- FedRAMP 20x Compliance Status -->
+                    <h4 style="margin-top: 25px;">FedRAMP 20x Compliance Verification</h4>
+                    <div class="scn-compliance-grid" id="scn-compliance-checks">
+                        <div class="loading-spinner"></div> Loading compliance status...
+                    </div>
+                </div>
+
+                <!-- Change Files Detail -->
+                <div style="margin-top: 25px;">
+                    <h4>Changed Files (Latest Classification)</h4>
+                    <p style="color: var(--text-secondary); margin-bottom: 10px;">Complete transparency of all files included in the current change classification</p>
+                    <div class="scn-file-list" id="scn-files-list">
                         Loading file list...
                     </div>
-</div>
-</div>
-                <div class="trust-section" id="api-section-scn">
-<h2>🔧 Enhanced API Access (RFC-0011 + SCN)</h2>
-<p>Programmatic access to real-time authorization and change notification data</p>
-<h4>Core Compliance Endpoints:</h4>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./unified_ksi_validations.json - Complete KSI validation results
                 </div>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./failed_ksi_report_readable.md - Human-readable remediation guidance
+            </div>
+
+            <!-- Enhanced API Access Section -->
+            <div id="api-section-scn" class="trust-section">
+                <h2>🔧 Enhanced API Access (RFC-0011 + SCN)</h2>
+                <p>Programmatic access to real-time authorization and change notification data</p>
+                
+                <h4>Core Compliance Endpoints:</h4>
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./unified_ksi_validations.json - Complete KSI validation results
                 </div>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./evidence_commit_metadata.json - Complete audit trail metadata
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./failed_ksi_report_readable.md - Human-readable remediation guidance
                 </div>
-<h4 style="margin-top: 20px;">Enhanced SCN Transparency Endpoints:</h4>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./scn_automation/scn_classification.json - Latest SCN classification with complete FRR-SCN-09 elements
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./evidence_commit_metadata.json - Complete audit trail metadata
                 </div>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./scn_automation/enhanced_scn_status.json - Real-time SCN automation status
+
+                <h4 style="margin-top: 20px;">Enhanced SCN Transparency Endpoints:</h4>
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./scn_automation/scn_classification.json - Latest SCN classification with complete FRR-SCN-09 elements
                 </div>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./scn_automation/external_repo_changes.json - External repository monitoring data
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./scn_automation/enhanced_scn_status.json - Real-time SCN automation status
                 </div>
-<div class="api-endpoint">
-<span class="api-method">GET</span> ./directory_index.json - Complete repository structure guide
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./scn_automation/external_repo_changes.json - External repository monitoring data
                 </div>
-<h4 style="margin-top: 20px;">Usage Example - SCN Data:</h4>
-<pre style="background: var(--bg-accent); padding: 15px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color);">
+                <div class="api-endpoint">
+                    <span class="api-method">GET</span> ./directory_index.json - Complete repository structure guide
+                </div>
+
+                <h4 style="margin-top: 20px;">Usage Example - SCN Data:</h4>
+                <pre style="background: var(--bg-accent); padding: 15px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color);">
 // Fetch current SCN classification status
 async function getSCNStatus() {
     const base = 'https://meridian-knowledge-solutions.github.io/fedramp-20x-public';
@@ -5223,100 +4067,141 @@ async function getSCNStatus() {
     };
 }
                 </pre>
-</div>
-                <div class="trust-section" id="compliance-status-section">
-<h2>📊 Real-Time Compliance Status</h2>
-<p>Live monitoring of FedRAMP 20x requirements and enhanced SCN automation</p>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-<div class="scn-detail-card">
-<strong>Enhanced SCN Automation:</strong>
-<div id="enhanced-scn-active">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>FedRAMP 20x Compliant:</strong>
-<div id="fedramp-compliant">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>Emergency Mode Support:</strong>
-<div id="emergency-support">Loading...</div>
-</div>
-<div class="scn-detail-card">
-<strong>Public Transparency:</strong>
-<div id="public-transparency">Loading...</div>
-</div>
-</div>
-</div>
-                <div class="trust-section" id="evidence-packages-section">
-<h2>📋 Professional Evidence Packages</h2>
-<p>Audit-ready documentation with complete metadata and compliance trails</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-<div class="access-card">
-<div class="card-icon">📄</div>
-<h4>SCN Compliance Package</h4>
-<p>Complete SCN documentation with FRR-SCN-09 elements</p>
-<button class="access-btn" onclick="downloadEvidence('scn')">Download SCN Evidence</button>
-</div>
-<div class="access-card">
-<div class="card-icon">📊</div>
-<h4>KSI Validation Package</h4>
-<p>Complete KSI evidence with validation results</p>
-<button class="access-btn" onclick="downloadEvidence('ksi')">Download KSI Evidence</button>
-</div>
-<div class="access-card">
-<div class="card-icon">🔍</div>
-<h4>Audit Trail Package</h4>
-<p>Complete audit metadata with Git SHA tracking</p>
-<button class="access-btn" onclick="downloadEvidence('audit')">Download Audit Trail</button>
-</div>
-</div>
-</div>
             </div>
-            
-            <!-- Markdown Sections (Preserved) -->
-            <div id="markdown-components" style="display: none;">
-                <div class="markdown-modal" id="markdown-modal">
-<div class="markdown-modal-content">
-<div class="markdown-modal-header">
-<h3 class="markdown-modal-title">Failed KSI Report</h3>
-<button class="close-btn" onclick="closeMarkdownModal()">×</button>
-</div>
-<div class="markdown-modal-body" id="markdown-modal-body">
-<!-- Markdown content will be inserted here -->
-</div>
-</div>
-</div>
-                <div class="markdown-modal-content">
-<div class="markdown-modal-header">
-<h3 class="markdown-modal-title">Failed KSI Report</h3>
-<button class="close-btn" onclick="closeMarkdownModal()">×</button>
-</div>
-<div class="markdown-modal-body" id="markdown-modal-body">
-<!-- Markdown content will be inserted here -->
-</div>
-</div>
-                <div class="markdown-modal-header">
-<h3 class="markdown-modal-title">Failed KSI Report</h3>
-<button class="close-btn" onclick="closeMarkdownModal()">×</button>
-</div>
-                <div class="markdown-modal-body" id="markdown-modal-body">
-<!-- Markdown content will be inserted here -->
-</div>
+
+            <!-- Compliance Status Section -->
+            <div id="compliance-status-section" class="trust-section">
+                <h2>📊 Real-Time Compliance Status</h2>
+                <p>Live monitoring of FedRAMP 20x requirements and enhanced SCN automation</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="scn-detail-card">
+                        <strong>Enhanced SCN Automation:</strong>
+                        <div id="enhanced-scn-active">Loading...</div>
+                    </div>
+                    <div class="scn-detail-card">
+                        <strong>FedRAMP 20x Compliant:</strong>
+                        <div id="fedramp-compliant">Loading...</div>
+                    </div>
+                    <div class="scn-detail-card">
+                        <strong>Emergency Mode Support:</strong>
+                        <div id="emergency-support">Loading...</div>
+                    </div>
+                    <div class="scn-detail-card">
+                        <strong>Public Transparency:</strong>
+                        <div id="public-transparency">Loading...</div>
+                    </div>
+                </div>
             </div>
-        </main>
+
+            <!-- Evidence Packages Section -->
+            <div id="evidence-packages-section" class="trust-section">
+                <h2>📋 Professional Evidence Packages</h2>
+                <p>Audit-ready documentation with complete metadata and compliance trails</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="access-card">
+                        <div class="card-icon">📄</div>
+                        <h4>SCN Compliance Package</h4>
+                        <p>Complete SCN documentation with FRR-SCN-09 elements</p>
+                        <button class="access-btn" onclick="downloadEvidence('scn')">Download SCN Evidence</button>
+                    </div>
+                    
+                    <div class="access-card">
+                        <div class="card-icon">📊</div>
+                        <h4>KSI Validation Package</h4>
+                        <p>Complete KSI evidence with validation results</p>
+                        <button class="access-btn" onclick="downloadEvidence('ksi')">Download KSI Evidence</button>
+                    </div>
+                    
+                    <div class="access-card">
+                        <div class="card-icon">🔍</div>
+                        <h4>Audit Trail Package</h4>
+                        <p>Complete audit metadata with Git SHA tracking</p>
+                        <button class="access-btn" onclick="downloadEvidence('audit')">Download Audit Trail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon" id="theme-icon"></i>
-    </button>
+    <!-- Enhanced Modals -->
+    <div class="cli-modal" id="cli-modal">
+        <div class="cli-modal-content">
+            <div class="cli-modal-header">
+                <h3 class="cli-modal-title" id="modal-title">CLI Details</h3>
+                <button class="close-btn" onclick="closeCliModal()">&times;</button>
+            </div>
+            <div class="cli-content" id="modal-content">
+                <!-- CLI content will be inserted here -->
+            </div>
+        </div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Preserved Inline Scripts -->
+    <!-- Enhanced Why Modal -->
+    <div class="why-modal" id="why-modal">
+        <div class="why-modal-content">
+            <div class="why-modal-header">
+                <h3 class="why-modal-title" id="why-modal-title">🤔 Why This Result?</h3>
+                <button class="close-btn" onclick="closeWhyModal()">&times;</button>
+            </div>
+            <div class="why-modal-body" id="why-modal-body">
+                <!-- Enhanced Why content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="markdown-modal" id="markdown-modal">
+        <div class="markdown-modal-content">
+            <div class="markdown-modal-header">
+                <h3 class="markdown-modal-title">Failed KSI Report</h3>
+                <button class="close-btn" onclick="closeMarkdownModal()">&times;</button>
+            </div>
+            <div class="markdown-modal-body" id="markdown-modal-body">
+                <!-- Markdown content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="commands-modal" id="commands-modal">
+        <div class="commands-modal-content">
+            <div class="commands-modal-header">
+                <h3 class="commands-modal-title" id="commands-modal-title">⚡ Commands Executed</h3>
+                <button class="close-btn" onclick="closeCommandsModal()">&times;</button>
+            </div>
+            <div class="commands-modal-body" id="commands-modal-body">
+                <!-- Commands content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced POA&M Modal -->
+    <div class="poam-modal" id="poam-modal">
+        <div class="poam-modal-content">
+            <div class="poam-modal-header">
+                <h3 class="poam-modal-title" id="poam-modal-title">🚀 Risk-Based Analysis</h3>
+                <button class="close-btn" onclick="closePOAMModal()">&times;</button>
+            </div>
+            <div class="poam-modal-body" id="poam-modal-body">
+                <!-- Enhanced POA&M content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhancement Details Modal -->
+    <div class="enhancement-modal" id="enhancement-modal">
+        <div class="enhancement-modal-content">
+            <div class="enhancement-modal-header">
+                <h3 class="enhancement-modal-title" id="enhancement-modal-title">🗒️ Additional Context</h3>
+                <button class="close-btn" onclick="closeEnhancementModal()">&times;</button>
+            </div>
+            <div class="enhancement-modal-body" id="enhancement-modal-body">
+                <!-- Enhancement details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Preserved Original Functions
-        
         // ✅ GLOBAL VARIABLES: Enhanced for multi-level POA&M system
         let allKsis = [];
         let filteredKsis = [];
@@ -7282,11 +6167,291 @@ async function loadQuarterlyReportData() {
             @keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
         `;
         document.head.appendChild(style);
-    
     </script>
-    <script>
-        // Preserved Original Functions
-        
+
+<!-- Custom Registration Modal -->
+<div class="custom-modal" id="registration-modal">
+    <div class="custom-modal-content">
+        <div class="custom-modal-header">
+            <h3>📅 Authorization Data Access</h3>
+            <button class="modal-close-btn" onclick="closeCustomModal('registration-modal')">×</button>
+        </div>
+        <div class="custom-modal-body">
+            <p><strong>Federal agencies can register for access to authorization data.</strong></p>
+            <div class="requirements-box">
+                <h4>Registration Requirements:</h4>
+                <ul>
+                    <li>Valid .gov or .mil email address</li>
+                    <li>Agency security representative</li>
+                    <li>Current FedRAMP authorization</li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h4>Contact Information:</h4>
+                <p><strong>Email:</strong> security@meridianks.com</p>
+                <p><strong>Subject:</strong> "Agency Registration"</p>
+            </div>
+        </div>
+        <div class="custom-modal-footer">
+            <button onclick="openEmailClient('registration')" class="modal-btn primary">Open Email Client</button>
+            <button onclick="closeCustomModal('registration-modal')" class="modal-btn secondary">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Feedback Modal -->
+<div class="custom-modal" id="feedback-modal">
+    <div class="custom-modal-content">
+        <div class="custom-modal-header">
+            <h3>💬 Agency Feedback</h3>
+            <button class="modal-close-btn" onclick="closeCustomModal('feedback-modal')">×</button>
+        </div>
+        <div class="custom-modal-body">
+            <p><strong>Per RFC-0016 FRR-CCM-04, we maintain an asynchronous mechanism for agency feedback.</strong></p>
+            <div class="feedback-types">
+                <h4>Federal agencies may submit:</h4>
+                <ul>
+                    <li>Questions about authorization reports</li>
+                    <li>Concerns about reported data</li>
+                    <li>Requests for clarification</li>
+                </ul>
+            </div>
+            <div class="privacy-notice">
+                <h4>📋 Privacy Notice:</h4>
+                <p>Per FRR-CCM-05, agency feedback is shared only with FedRAMP and the submitting agency.</p>
+            </div>
+        </div>
+        <div class="custom-modal-footer">
+            <button onclick="openEmailClient('feedback')" class="modal-btn primary">Open Secure Feedback Channel</button>
+            <button onclick="closeCustomModal('feedback-modal')" class="modal-btn secondary">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Download Modal -->
+<div class="custom-modal" id="download-modal">
+    <div class="custom-modal-content">
+        <div class="custom-modal-header">
+            <h3>📥 Download Initiated</h3>
+            <button class="modal-close-btn" onclick="closeCustomModal('download-modal')">×</button>
+        </div>
+        <div class="custom-modal-body">
+             <p>Your download for the report <strong id="download-modal-filename"></strong> has started.</p>
+             <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text-secondary);">If the download does not begin automatically, the report may not be available yet for the current quarter.</p>
+        </div>
+        <div class="custom-modal-footer">
+            <button onclick="closeCustomModal('download-modal')" class="modal-btn primary">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================== -->
+<!-- FEDRAMP TWO-TIER IMPLEMENTATION SCRIPT & MODALS V2.0               -->
+<!-- This block contains all necessary HTML, CSS, and JavaScript.       -->
+<!-- Paste this entire block before the closing </body> tag.            -->
+<!-- ==================================================================== -->
+
+<!-- MODAL HTML: All custom modals are defined here. -->
+<!-- Custom Registration Modal -->
+<div class="custom-modal" id="registration-modal">
+    <div class="custom-modal-content">
+        <div class="custom-modal-header">
+            <h3>🏛️ Federal Agency Registration</h3>
+            <button class="modal-close-btn" onclick="closeCustomModal('registration-modal')">×</button>
+        </div>
+        <div class="custom-modal-body">
+            <h4>Get Full Technical Access</h4>
+            <p>Register with your .gov or .mil email to view detailed security assessments, evidence, and remediation plans.</p>
+            <form id="agency-registration-form" class="registration-form">
+                <div class="form-group">
+                    <label for="reg-agency">Federal Agency *</label>
+                    <input id="reg-agency" type="text" name="agency" required placeholder="e.g., Department of Defense">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Official Email *</label>
+                    <input id="reg-email" type="email" name="email" required pattern=".*\.(gov|mil)$" placeholder="e.g., name@agency.gov">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Simulate Registration</button>
+                    <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Access Required Modal -->
+<div class="custom-modal" id="access-required-modal">
+    <div class="custom-modal-content">
+        <div class="custom-modal-header">
+            <h3>🔒 Federal Agency Access Required</h3>
+            <button class="modal-close-btn" onclick="closeCustomModal('access-required-modal')">×</button>
+        </div>
+        <div class="custom-modal-body">
+            <h4 class="feature-name">Technical Feature Access</h4>
+            <p>This feature requires federal agency registration to access detailed technical information.</p>
+            <h5>What you'll get with registration:</h5>
+            <ul class="benefits-list">
+                <!-- Benefits are populated dynamically by JavaScript -->
+            </ul>
+            <div class="access-actions">
+                <button onclick="showRegistrationModal(); closeCustomModal('access-required-modal');" class="btn-primary">
+                    Register for Access
+                </button>
+                <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary">
+                    Continue with Public View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ==================================================================== -->
+<!-- TRUST CENTER OVERHAUL SCRIPT V4.0 (COMPLETE)                       -->
+<!-- This block contains all necessary HTML, CSS, and JavaScript.       -->
+<!-- Paste this entire block before the closing </body> tag.            -->
+<!-- ==================================================================== -->
+
+<!-- MODAL HTML: All custom modals are defined here. -->
+<div class="modal access-required-modal" id="access-required-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🔒 Federal Agency Access Required</h3>
+            <button class="close-btn" onclick="closeCustomModal('access-required-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h4 class="feature-name">Technical Feature Access</h4>
+            <p>This feature requires federal agency registration to access detailed technical information.</p>
+            <h5>What you'll get with registration:</h5>
+            <ul class="benefits-list">
+                <!-- Benefits are populated dynamically by JavaScript -->
+            </ul>
+            <div class="access-actions">
+                <button onclick="showRegistrationModal(); closeCustomModal('access-required-modal');" class="btn-primary">
+                    Register for Access
+                </button>
+                <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary">
+                    Continue with Public View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal registration-modal" id="registration-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🏛️ Federal Agency Registration</h3>
+            <button class="close-btn" onclick="closeCustomModal('registration-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h4>Get Full Technical Access</h4>
+            <p>Register with your .gov or .mil email to view detailed security assessments, evidence, and remediation plans.</p>
+            <form id="agency-registration-form" class="registration-form">
+                <div class="form-group">
+                    <label for="reg-agency">Federal Agency *</label>
+                    <input id="reg-agency" type="text" name="agency" required placeholder="e.g., Department of Defense">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Official Email *</label>
+                    <input id="reg-email" type="email" name="email" required pattern=".*\.(gov|mil)$" placeholder="e.g., name@agency.gov">
+                    <small>Must be a .gov or .mil email address</small>
+                </div>
+                <div class="form-group">
+                    <label for="reg-contact">Contact Name *</label>
+                    <input id="reg-contact" type="text" name="contact" required placeholder="e.g., John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="reg-system">System/Project Name</label>
+                    <input id="reg-system" type="text" name="system_name" placeholder="e.g., Agency Training Platform">
+                </div>
+                <div class="form-group">
+                    <label for="reg-purpose">Access Purpose</label>
+                    <textarea id="reg-purpose" name="purpose" placeholder="e.g., Authorization review for new system deployment"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Register for Access</button>
+                    <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ==================================================================== -->
+<!-- TRUST CENTER OVERHAUL SCRIPT V4.0 (CLEANED UP)                     -->
+<!-- This block contains all necessary HTML, CSS, and JavaScript.       -->
+<!-- Paste this entire block before the closing </body> tag.            -->
+<!-- ==================================================================== -->
+
+<!-- MODAL HTML: All custom modals are defined here. -->
+<div class="modal access-required-modal" id="access-required-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🔒 Federal Agency Access Required</h3>
+            <button class="close-btn" onclick="closeCustomModal('access-required-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h4 class="feature-name">Technical Feature Access</h4>
+            <p>This feature requires federal agency registration to access detailed technical information.</p>
+            <h5>What you'll get with registration:</h5>
+            <ul class="benefits-list">
+                <!-- Benefits are populated dynamically by JavaScript -->
+            </ul>
+            <div class="access-actions">
+                <button onclick="showRegistrationModal(); closeCustomModal('access-required-modal');" class="btn-primary">
+                    Register for Access
+                </button>
+                <button onclick="closeCustomModal('access-required-modal')" class="btn-secondary">
+                    Continue with Public View
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal registration-modal" id="registration-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🏛️ Federal Agency Registration</h3>
+            <button class="close-btn" onclick="closeCustomModal('registration-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h4>Get Full Technical Access</h4>
+            <p>Register with your .gov or .mil email to view detailed security assessments, evidence, and remediation plans.</p>
+            <form id="agency-registration-form" class="registration-form">
+                <div class="form-group">
+                    <label for="reg-agency">Federal Agency *</label>
+                    <input id="reg-agency" type="text" name="agency" required placeholder="e.g., Department of Defense">
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Official Email *</label>
+                    <input id="reg-email" type="email" name="email" required pattern=".*\.(gov|mil)$" placeholder="e.g., name@agency.gov">
+                    <small>Must be a .gov or .mil email address</small>
+                </div>
+                <div class="form-group">
+                    <label for="reg-contact">Contact Name *</label>
+                    <input id="reg-contact" type="text" name="contact" required placeholder="e.g., John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="reg-system">System/Project Name</label>
+                    <input id="reg-system" type="text" name="system_name" placeholder="e.g., Agency Training Platform">
+                </div>
+                <div class="form-group">
+                    <label for="reg-purpose">Access Purpose</label>
+                    <textarea id="reg-purpose" name="purpose" placeholder="e.g., Authorization review for new system deployment"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Register for Access</button>
+                    <button type="button" onclick="closeCustomModal('registration-modal')" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
     // ====================================================================
     // SCRIPT START - COMPLETE TWO-TIER IMPLEMENTATION WITH EMAIL VERIFICATION & STATUS MONITORING
     // ====================================================================
@@ -10769,11 +9934,10 @@ const quarterlyReportsSection = `
     console.log('✓ Modal HTML injected/updated');
     }
 })();
+</script>
 
-    </script>
-    <script>
-        // Preserved Original Functions
-            
+
+<script>    
 (function() {
     'use strict';
     
@@ -11670,11 +10834,10 @@ const quarterlyReportsSection = `
 
 })();
     
+</script>
 
-    </script>
-    <script>
-        // Preserved Original Functions
-        
+
+<script>
     (function() {
         'use strict';
 
@@ -11817,181 +10980,7 @@ const quarterlyReportsSection = `
         }
 
     })();
-
-    </script>
+</script>
     
-    <!-- Modern Enhancement Scripts -->
-    <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            
-            const icon = document.getElementById('theme-icon');
-            icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            
-            localStorage.setItem('theme', newTheme);
-        }
-
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            document.getElementById('theme-icon').className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-
-            // Initialize Charts
-            initializeCharts();
-            
-            // Add animation classes on scroll
-            observeElements();
-            
-            // Initialize preserved components
-            initializePreservedComponents();
-        });
-
-        // Initialize Charts
-        function initializeCharts() {
-            const ctx1 = document.getElementById('complianceChart');
-            if (ctx1) {
-                new Chart(ctx1, {
-                    type: 'line',
-                    data: {
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                        datasets: [{
-                            label: 'Compliance Score',
-                            data: [88, 90, 89, 92, 93, 94.5],
-                            borderColor: '#5B4EFF',
-                            backgroundColor: 'rgba(91, 78, 255, 0.1)',
-                            borderWidth: 3,
-                            tension: 0.4,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        }
-                    }
-                });
-            }
-
-            const ctx2 = document.getElementById('ksiChart');
-            if (ctx2) {
-                new Chart(ctx2, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Automated', 'Manual', 'Pending'],
-                        datasets: [{
-                            data: [75, 20, 5],
-                            backgroundColor: ['#5B4EFF', '#10B981', '#F59E0B']
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false
-                    }
-                });
-            }
-        }
-
-        // Intersection Observer for animations
-        function observeElements() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-
-            document.querySelectorAll('.animate-in').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease-out';
-                observer.observe(el);
-            });
-        }
-
-        // Initialize preserved components
-        function initializePreservedComponents() {
-            // Call any preserved initialization functions
-            if (typeof initializeTrustCenter === 'function') {
-                initializeTrustCenter();
-            }
-            if (typeof initializeMarkdown === 'function') {
-                initializeMarkdown();
-            }
-            if (typeof initializeAuthentication === 'function') {
-                initializeAuthentication();
-            }
-            if (typeof initializeValidation === 'function') {
-                initializeValidation();
-            }
-            if (typeof initializeKSI === 'function') {
-                initializeKSI();
-            }
-            
-            console.log('✅ All preserved components initialized');
-        }
-
-        // Navigation active state
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Handle navigation to preserved components
-                const href = this.getAttribute('href');
-                if (href === '#trust-center') {
-                    showComponent('trust-center-components');
-                } else if (href === '#markdown') {
-                    showComponent('markdown-components');
-                } else if (href === '#authenticated') {
-                    showComponent('authenticated-components');
-                }
-            });
-        });
-
-        // Show/hide preserved components
-        function showComponent(componentId) {
-            // Hide all component sections
-            document.querySelectorAll('[id$="-components"]').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            // Show selected component
-            const component = document.getElementById(componentId);
-            if (component) {
-                component.style.display = 'block';
-            }
-        }
-
-        // Search functionality
-        const searchInput = document.querySelector('.search-bar input');
-        if (searchInput) {
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    console.log('Searching for:', this.value);
-                    // Implement search across all components
-                }
-            });
-        }
-
-        // Mobile menu toggle
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('open');
-        }
-
-        console.log('✅ Modern Trust Center loaded successfully');
-        console.log('📊 Preserved functions:', ['determineKsiStatus', 'loadCommandRegister', 'extractCommandDetails', 'determineCommandStatus', 'parseCliCommandString', 'generateCommandDescription', 'detectEnhancementOpportunities', 'calculateEnhancementPriority', 'parseAssertionReason', 'extractMetrics', 'generateValidationTitle', 'cleanValidationDescription', 'loadRealData', 'updateDashboardWithRealData', 'displayImpactLevel', 'getStatusBreakdown', 'initializeFallbackData', 'renderKsis', 'generateKsiSummary', 'showDataSourceNotification', 'updateMetrics', 'populateCategoryFilter', 'filterKsis', 'getStatusIcon', 'updateFilterChips', 'setupEventListeners', 'showCommandsModal', 'toggleCommandDetails', 'showWhyModal', 'createGitHubIssue', 'downloadJSON', 'viewFailedReport', 'showPOAMModal', 'getKSICategory', 'showKSIDetails', 'exportVDRIntegratedFindings', 'generateVDRPOAMTemplate', 'prioritizeByNRating', 'viewVDRDashboard', 'showEnhancementModal', 'closeCliModal', 'closeWhyModal', 'closeMarkdownModal', 'closeCommandsModal', 'closePOAMModal', 'closeEnhancementModal', 'updateTimestamps', 'updateTimestampsWithData', 'showTab', 'scrollToTrustSection', 'scrollToSection', 'downloadEvidence', 'downloadIncidentTemplate', 'downloadClassificationGuide', 'initializeDashboard', 'closeCustomModal', 'openEmailClient', 'loadQuarterlyReportData', 'downloadCurrentReport', 'loadQuarterlyReportData', 'registerForReview', 'openAgencyFeedback', 'showDownloadFeedbackModal', 'closeCustomModal', 'openEmailClient', 'initializeDashboard', 'viewPublicSecureConfiguration', 'downloadPublicSecureConfiguration', 'viewSecureConfiguration', 'downloadSecureConfiguration', 'removeRedundantSections', 'renderTrustCenterTab', 'getPublicTrustCenterHTML', 'getAuthenticatedTrustCenterHTML', 'renderKSICardTwoTier', 'downloadJSON', 'viewFailedReport', 'showWhyTwoTier', 'showFallbackWhyModal', 'showPublicWhyModal', 'showDetailedWhyModal', 'showCLITwoTier', 'showPOAMModalTwoTier', 'createIssueTwoTier', 'filterKsisTwoTier', 'searchKsisTwoTier', 'resetFiltersTwoTier', 'createTemporaryModal', 'closeTemporaryModal', 'getStatusIcon', 'downloadAuthPackage', 'viewTechnicalReports', 'showRiskDashboard', 'viewQuarterlyReports', 'viewCurrentReport', 'displayReportModal', 'openReportInNewWindow', 'loadQuarterlyReportData', 'exportValidationData', 'downloadQuarterlyReport', 'viewQuarterlyReport', 'showReportArchive', 'subscribeToReports', 'registerForQuarterlyReview', 'openAgencyFeedback', 'registerForReview', 'generateComplianceReport', 'showEvidenceSearch', 'contactFederalSupport', 'downloadEvidencePackage', 'logAgencyAccess', 'showRegistrationModal', 'closeCustomModal', 'showAccessRequiredModal', 'handleRegistration', 'handleEmailVerification', 'downloadAuthorizationPackage', 'showLoadingMessage', 'hideLoadingMessage', 'showSuccessMessage', 'showErrorMessage', 'createNotification', 'addStyles', 'initializeTwoTierSystem', 'pollAndApplyRenderOverride', 'ensureKSIDataLoaded', 'addAuthenticationIndicator', 'injectModalHTML', 'initEnhancements', 'injectModernStyles', 'enhanceInteractivity', 'addVisualEffects', 'improveAccessibility', 'addFontAwesome', 'replacePageIcons', 'setupAnimatedCounters', 'setupScrollAnimations']);
-    </script>
 </body>
 </html>
