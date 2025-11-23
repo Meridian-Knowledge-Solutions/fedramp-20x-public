@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-23 04:29
+**Last Check:** 2025-11-23 06:18
 
 **What it validates:** Persistently validate... (PVA) standard...
 
@@ -22,7 +22,7 @@
 
 FAIL Insufficient 5/10 (50%): PASS [Documentation] Validation Architecture Diagram found in CodeCommit.
 - PASS [Quality] Document appears substantial (7420 bytes).
-- WARNING [Technical] EventBridge command successful, but no rules found with prefix 'fedramp-validation'.
+- WARNING [Technical] GitHub CLI command failed or missing (gh run list).
 
 ---
-*Generated 2025-11-23 04:40 UTC*
+*Generated 2025-11-23 06:28 UTC*

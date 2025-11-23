@@ -4,7 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** FAIL
-**Last Check:** 2025-11-23 04:29
+**Last Check:** 2025-11-23 06:18
 
 **What it validates:** Establish secure and private network communications between cloud and federal customer systems.
 
@@ -59,10 +59,7 @@
 
 ## Latest Results
 
-FAIL Insufficient 4/30 (13%): FAIL No CloudTrail configured
-- WARNING No compute resources detected
-- PASS Proactive monitoring: 13 alarms
-- PASS Enterprise governance: AWS Organizations (ALL)
+- Error in wrapped function evaluate_KSI_CNA_07: name 'snapshots' is not defined
 
 ---
-*Generated 2025-11-23 04:40 UTC*
+*Generated 2025-11-23 06:28 UTC*
