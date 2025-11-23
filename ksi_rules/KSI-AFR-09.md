@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-23 02:56
+**Last Check:** 2025-11-23 03:47
 
 **What it validates:** Persistently validate... (PVA) standard...
 
@@ -20,7 +20,9 @@
 
 ## Latest Results
 
-- Error in wrapped function evaluate_KSI_AFR_09: 'str' object has no attribute 'get'
+FAIL Insufficient 5/10 (50%): PASS [Documentation] Validation Architecture Diagram found in CodeCommit.
+- PASS [Quality] Document appears substantial (7420 bytes).
+- WARNING [Technical] EventBridge command successful, but no rules found with prefix 'fedramp-validation'.
 
 ---
-*Generated 2025-11-23 03:06 UTC*
+*Generated 2025-11-23 03:57 UTC*

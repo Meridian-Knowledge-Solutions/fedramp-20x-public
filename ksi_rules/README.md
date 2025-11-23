@@ -16,7 +16,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-CNA-02](KSI-CNA-02.md): Design systems to minimize the attack surface and minimize lateral movement if compromised.
 - [PASS] [KSI-CNA-03](KSI-CNA-03.md): Use logical networking and related capabilities to enforce traffic flow controls.
 - [PASS] [KSI-CNA-04](KSI-CNA-04.md): Use immutable infrastructure with strictly defined functionality and privileges by default.
-- [FAIL] [KSI-CNA-05](KSI-CNA-05.md): Deploy effective spam, spoofing, and denial-of-service countermeasures.
+- [PASS] [KSI-CNA-05](KSI-CNA-05.md): Deploy effective spam, spoofing, and denial-of-service countermeasures.
 - [PASS] [KSI-CNA-06](KSI-CNA-06.md): Design systems for high availability and rapid recovery.
 - [FAIL] [KSI-CNA-07](KSI-CNA-07.md): Establish secure and private network communications between cloud and federal customer systems.
 - [PASS] [KSI-CNA-08](KSI-CNA-08.md): Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state.
@@ -58,14 +58,14 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-AFR-01](KSI-AFR-01.md): Apply the FedRAMP Minimum Assessment Standard (MAS) to identify and document the scope of the cloud service offering to be assessed for FedRAMP authorization and persistently address all related requirements and recommendations.
 - [PASS] [KSI-AFR-02](KSI-AFR-02.md): Set security goals for the cloud service offering based on FedRAMP 20x Phase Two Key Security Indicators (KSIs - you are here), develop automated validation of status and progress to the greatest extent possible, and persistently address all related requirements and recommendations.
 - [PASS] [KSI-AFR-03](KSI-AFR-03.md): Determine how authorization data will be shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) standard and persistently address all related requirements and recommendations.
-- [FAIL] [KSI-AFR-04](KSI-AFR-04.md): Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
+- [PASS] [KSI-AFR-04](KSI-AFR-04.md): Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
 - [FAIL] [KSI-AFR-05](KSI-AFR-05.md): Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 - [PASS] [KSI-AFR-06](KSI-AFR-06.md): Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) standard and persistently address all related requirements and recommendations.
 - [PASS] [KSI-AFR-07](KSI-AFR-07.md): Document the secure configuration baseline for the cloud service offering.
-- [FAIL] [KSI-AFR-08](KSI-AFR-08.md): Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
+- [PASS] [KSI-AFR-08](KSI-AFR-08.md): Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.
 - [FAIL] [KSI-AFR-09](KSI-AFR-09.md): Persistently validate... (PVA) standard...
-- [FAIL] [KSI-AFR-10](KSI-AFR-10.md): Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
-- [FAIL] [KSI-AFR-11](KSI-AFR-11.md): Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
+- [PASS] [KSI-AFR-10](KSI-AFR-10.md): Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
+- [PASS] [KSI-AFR-11](KSI-AFR-11.md): Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
 ## Policy and Inventory
 
@@ -94,7 +94,7 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 - [PASS] [KSI-SVC-05](KSI-SVC-05.md): Use cryptographic methods to validate the integrity of machine-based information resources.
 - [PASS] [KSI-SVC-06](KSI-SVC-06.md): Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.
 - [PASS] [KSI-SVC-07](KSI-SVC-07.md): Use a consistent, risk-informed approach for applying security patches.
-- [FAIL] [KSI-SVC-08](KSI-SVC-08.md): Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
+- [PASS] [KSI-SVC-08](KSI-SVC-08.md): Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.
 - [PASS] [KSI-SVC-09](KSI-SVC-09.md): Persistently validate the authenticity and integrity of communications between machine-based information resources using automation.
 - [PASS] [KSI-SVC-10](KSI-SVC-10.md): Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.
 
@@ -107,9 +107,9 @@ This directory contains documentation for all Key Security Indicators (KSIs).
 ## Summary
 
 - **Total KSIs:** 69
-- **Passing:** 52
-- **Failing:** 13
+- **Passing:** 58
+- **Failing:** 7
 - **Not Tested:** 4
 
 ---
-*Generated 2025-11-23 03:06 UTC*
+*Generated 2025-11-23 03:57 UTC*

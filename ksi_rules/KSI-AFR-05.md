@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-23 02:56
+**Last Check:** 2025-11-23 03:47
 
 **What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
@@ -20,7 +20,8 @@
 
 ## Latest Results
 
-- Error in wrapped function evaluate_KSI_AFR_05: 'str' object has no attribute 'get'
+FAIL Insufficient 5/10 (50%): PASS [Governance] SCN Procedures found (3413 bytes).
+- WARNING [Evidence] No SCN issues found in the repository. Automation may not have triggered yet.
 
 ---
-*Generated 2025-11-23 03:06 UTC*
+*Generated 2025-11-23 03:57 UTC*

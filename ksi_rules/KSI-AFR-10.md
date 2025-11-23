@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Other
-**Status:** FAIL
-**Last Check:** 2025-11-23 02:56
+**Status:** PASS
+**Last Check:** 2025-11-23 03:47
 
 **What it validates:** Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
 
@@ -26,7 +26,10 @@
 
 ## Latest Results
 
-- Error in wrapped function evaluate_KSI_AFR_10: 'str' object has no attribute 'get'
+PASS Excellent 10/10 (100%): PASS [Governance] ICP Playbook verified (10426 bytes).
+- PASS [Governance] IR Plan verified (5730 bytes).
+- PASS [Infrastructure] 10 SNS Topic(s) found (2 incident-specific).
+- PASS [Infrastructure] 6 Active SNS Subscription(s) found.
 
 ---
-*Generated 2025-11-23 03:06 UTC*
+*Generated 2025-11-23 03:57 UTC*

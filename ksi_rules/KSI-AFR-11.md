@@ -3,8 +3,8 @@
 ## Overview
 
 **Category:** Other
-**Status:** FAIL
-**Last Check:** 2025-11-23 02:56
+**Status:** PASS
+**Last Check:** 2025-11-23 03:47
 
 **What it validates:** Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
@@ -38,7 +38,12 @@
 
 ## Latest Results
 
-- Error in wrapped function evaluate_KSI_AFR_11: 'str' object has no attribute 'get'
+PASS Strong 8/10 (85%): PASS [KMS Infrastructure] 17 KMS keys and 25 aliases active.
+- FAIL [S3 Encryption] Target bucket 'meridian-fedramp-evidence' does not exist.
+- PASS [RDS Encryption] All 1 instances encrypted.
+- PASS [TLS Policies] 39 SSL policies available (FIPS/TLS 1.2 compatible).
+- PASS [UCM Policy] Governance document verified (10428 bytes).
+-    PASS FIPS validation referenced.
 
 ---
-*Generated 2025-11-23 03:06 UTC*
+*Generated 2025-11-23 03:57 UTC*
