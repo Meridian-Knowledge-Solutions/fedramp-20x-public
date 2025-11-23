@@ -4,11 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** FAIL
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 00:44
-=======
-**Last Check:** 2025-11-23 01:08
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 02:56
 
 **What it validates:** Require and monitor the effectiveness of role-specific training to staff involved with incident response or disaster recovery.
 
@@ -23,8 +19,4 @@
 - Below threshold: 3/5 (60.0%) - requires 64.0% for MODERATE impact: WARNING Files found but filenames lack keywords (expected 'incident', 'dr', etc.): cli_output.json
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 00:55 UTC*
-=======
-*Generated 2025-11-23 01:18 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 03:06 UTC*

@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 00:44
-=======
-**Last Check:** 2025-11-23 01:08
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 02:56
 
 **What it validates:** Maintain a list of information resources and event types that will be monitored, logged, and audited, then do so.
 
@@ -32,8 +28,4 @@ PASS Excellent 8/8 (100%): PASS Comprehensive log infrastructure: 33 CloudWatch 
 - PASS Comprehensive monitoring configuration: 13 CloudWatch alarms found.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 00:55 UTC*
-=======
-*Generated 2025-11-23 01:18 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 03:06 UTC*
