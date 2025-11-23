@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-**Last Check:** 2025-11-23 03:47
+**Last Check:** 2025-11-23 04:29
 
 **What it validates:** Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.
 
@@ -25,4 +25,4 @@ PASS Excellent 10/10 (100%): PASS [Technical] Inspector active. Mode: EC2_HYBRID
 - PASS [Quality] Document appears substantial (195834 bytes).
 
 ---
-*Generated 2025-11-23 03:57 UTC*
+*Generated 2025-11-23 04:40 UTC*
