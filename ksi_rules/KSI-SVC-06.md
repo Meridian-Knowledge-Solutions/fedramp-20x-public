@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 12:24
-=======
-**Last Check:** 2025-11-23 12:45
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 16:20
 
 **What it validates:** Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.
 
@@ -57,8 +53,4 @@ PASS Excellent 18/20 (90%): PASS Automated key management infrastructure: 17 KMS
 - PASS Advanced organization features: SCPs for key management policy enforcement enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 12:32 UTC*
-=======
-*Generated 2025-11-23 12:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 16:30 UTC*

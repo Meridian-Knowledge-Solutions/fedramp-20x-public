@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 12:24
-=======
-**Last Check:** 2025-11-23 12:45
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 16:20
 
 **What it validates:** Always follow a documented incident response procedure.
 
@@ -50,8 +46,4 @@ PASS Excellent 11/11 (100%): PASS Incident response plan documented in CodeCommi
 - PASS Incident response plan maintenance: 1 recent update(s) detected.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 12:32 UTC*
-=======
-*Generated 2025-11-23 12:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 16:30 UTC*

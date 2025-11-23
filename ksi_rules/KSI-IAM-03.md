@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 12:24
-=======
-**Last Check:** 2025-11-23 12:45
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 16:20
 
 **What it validates:** Enforce appropriately secure authentication methods for non-user accounts and services.
 
@@ -35,8 +31,4 @@ PASS Excellent 10/10 (100%): PASS [Roles] Excellent role-based foundation with 9
 - PASS [IAM Hygiene] Excellent: No IAM human users with console access found. Access likely managed via federation or roles.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 12:32 UTC*
-=======
-*Generated 2025-11-23 12:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 16:30 UTC*
