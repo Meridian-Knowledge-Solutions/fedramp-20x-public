@@ -4,11 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 06:18
-=======
-**Last Check:** 2025-11-23 06:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 08:20
 
 **What it validates:** Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) standard and persistently address all related requirements and recommendations.
 
@@ -25,8 +21,4 @@ PASS Excellent 5/5 (100%): PASS [Documentation] Continuous Monitoring Plan (Trac
 - PASS [Quality] Document appears substantial (195834 bytes).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 06:28 UTC*
-=======
-*Generated 2025-11-23 06:51 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 08:30 UTC*

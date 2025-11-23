@@ -3,13 +3,8 @@
 ## Overview
 
 **Category:** Cloud Native Architecture
-<<<<<<< Updated upstream
-**Status:** FAIL
-**Last Check:** 2025-11-23 06:18
-=======
 **Status:** PASS
-**Last Check:** 2025-11-23 06:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 08:20
 
 **What it validates:** Maximize use of managed services and cloud resources
 
@@ -64,12 +59,6 @@
 
 ## Latest Results
 
-<<<<<<< Updated upstream
-- Error in wrapped function evaluate_KSI_CNA_07: name 'snapshots' is not defined
-
----
-*Generated 2025-11-23 06:28 UTC*
-=======
 PASS Excellent 30/30 (98%): PASS CloudTrail excellently configured: 'meridianks-Management-events' ready for activation (cost-optimized for pilot)
 - PASS Multi-region audit coverage: CloudTrail spans all AWS regions
 - PASS Log integrity protection: CloudTrail log file validation enabled
@@ -89,5 +78,4 @@ PASS Excellent 30/30 (98%): PASS CloudTrail excellently configured: 'meridianks-
 - PASS Enterprise governance: AWS Organizations with ALL features enabled (including SCPs)
 
 ---
-*Generated 2025-11-23 06:51 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 08:30 UTC*

@@ -21,8 +21,4 @@
    *Check SSM Parameter Store for centralized policy storage*
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 06:28 UTC*
-=======
-*Generated 2025-11-23 06:51 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 08:30 UTC*

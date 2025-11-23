@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 06:18
-=======
-**Last Check:** 2025-11-23 06:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 08:20
 
 **What it validates:** Use a consistent, risk-informed approach for applying security patches.
 
@@ -57,8 +53,4 @@ PASS Sufficient 13/20 (65%): PASS Consistent patch management: 17 patch baseline
 - PASS Advanced organization features: SCPs for patch management policy enforcement enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 06:28 UTC*
-=======
-*Generated 2025-11-23 06:51 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 08:30 UTC*

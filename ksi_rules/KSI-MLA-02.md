@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-23 06:18
-=======
-**Last Check:** 2025-11-23 06:41
->>>>>>> Stashed changes
+**Last Check:** 2025-11-23 08:20
 
 **What it validates:** Regularly review and audit logs.
 
@@ -54,8 +50,4 @@ PASS Strong 15/18 (83%): PASS Log review notifications: 10 SNS topics available 
 - PASS Enterprise log aggregation: AWS Organizations enables centralized multi-account log review.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-23 06:28 UTC*
-=======
-*Generated 2025-11-23 06:51 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-23 08:30 UTC*
