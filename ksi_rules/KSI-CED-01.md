@@ -4,7 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-**Last Check:** 2025-11-23 20:20
+**Last Check:** 2025-11-24 00:38
 
 **What it validates:** Require and monitor the effectiveness of training given to all employees on policies, procedures, and security-related topics.
 
@@ -19,4 +19,4 @@
 - PASS Excellent 10/10 (100%): PASS Specific security awareness training evidence found: cyber_security_training.png, security_training_roster.png, fedramp_role_based.png.
 
 ---
-*Generated 2025-11-23 20:30 UTC*
+*Generated 2025-11-24 00:48 UTC*
