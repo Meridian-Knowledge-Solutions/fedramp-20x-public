@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-**Last Check:** 2025-11-24 08:22
+**Last Check:** 2025-11-24 12:24
 
 **What it validates:** Set security goals for the cloud service offering based on FedRAMP 20x Phase Two Key Security Indicators (KSIs - you are here), develop automated validation of status and progress to the greatest extent possible, and persistently address all related requirements and recommendations.
 
@@ -21,4 +21,4 @@ PASS Excellent 5/5 (100%): PASS [Documentation] KSI Compliance Tracker found in 
 - PASS [Quality] Document appears substantial (195834 bytes).
 
 ---
-*Generated 2025-11-24 08:33 UTC*
+*Generated 2025-11-24 12:34 UTC*
