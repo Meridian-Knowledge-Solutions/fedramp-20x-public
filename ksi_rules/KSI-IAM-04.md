@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 12:24
-=======
-**Last Check:** 2025-11-24 12:46
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 16:23
 
 **What it validates:** Require a centralized identity management system.
 
@@ -41,17 +37,9 @@
 
 PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center active: 1 instance(s) found.
 - WARNING [Role Mapping] Could not list Permission Sets (AccessDenied). Attempting inference via Roles...
-<<<<<<< Updated upstream
-- PASS [Role Mapping] Inferred 3 Permission Sets from role list (e.g., AdministratorAccess).
-=======
-- PASS [Role Mapping] Inferred 3 Permission Sets from role list (e.g., ReadOnlyAccess).
->>>>>>> Stashed changes
+- PASS [Role Mapping] Inferred 3 Permission Sets from role list (e.g., Development).
 - PASS [Least Privilege] Excellent: 97 roles and 0 IAM users (Pure RBAC).
 - PASS [Just-in-Time] Validation performed via temporary credentials (assumed role).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 12:34 UTC*
-=======
-*Generated 2025-11-24 12:56 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 16:33 UTC*

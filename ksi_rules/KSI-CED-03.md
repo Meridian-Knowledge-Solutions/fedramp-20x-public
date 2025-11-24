@@ -4,11 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** FAIL
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 12:24
-=======
-**Last Check:** 2025-11-24 12:46
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 16:23
 
 **What it validates:** Require and monitor the effectiveness of role-specific training provided to development and engineering staff that covers best practices for delivering secure software.
 
@@ -31,8 +27,4 @@ FAIL Insufficient 3/7 (43%): PASS Development security automation: Found 2 poten
 - PASS Enterprise governance: AWS Organizations detected (enables central training/security policies).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 12:34 UTC*
-=======
-*Generated 2025-11-24 12:56 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 16:33 UTC*
