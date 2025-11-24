@@ -4,7 +4,11 @@
 
 **Category:** Other
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-24 12:24
+=======
+**Last Check:** 2025-11-24 12:46
+>>>>>>> Stashed changes
 
 **What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
@@ -24,4 +28,8 @@ FAIL Insufficient 5/10 (50%): PASS [Governance] SCN Procedures found (3413 bytes
 - WARNING [Evidence] No issues found in the repository (CLI command returned 0 items).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-24 12:34 UTC*
+=======
+*Generated 2025-11-24 12:56 UTC*
+>>>>>>> Stashed changes
