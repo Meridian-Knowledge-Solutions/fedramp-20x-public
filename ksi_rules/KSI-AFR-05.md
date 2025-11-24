@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** FAIL
-**Last Check:** 2025-11-24 02:51
+**Last Check:** 2025-11-24 04:30
 
 **What it validates:** Verify SCN procedures are documented and active change tracking is visible via GitHub Issues.
 
@@ -24,4 +24,4 @@ FAIL Insufficient 5/10 (50%): PASS [Governance] SCN Procedures found (3413 bytes
 - WARNING [Evidence] No issues found in the repository (CLI command returned 0 items).
 
 ---
-*Generated 2025-11-24 03:01 UTC*
+*Generated 2025-11-24 04:38 UTC*
