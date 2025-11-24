@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 00:38
-=======
-**Last Check:** 2025-11-24 01:00
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 02:51
 
 **What it validates:** Securely manage the lifecycle and privileges of all accounts, roles, and groups, using automation.
 
@@ -35,8 +31,4 @@ PASS Strong 8/10 (80%): PASS Service Oriented Architecture: Excellent - 97 roles
 - PASS Advanced Identity Management: AWS Identity Center is active (1 instance(s) found). Enables central privilege/access reviews.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 00:48 UTC*
-=======
-*Generated 2025-11-24 01:10 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 03:01 UTC*

@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 00:38
-=======
-**Last Check:** 2025-11-24 01:00
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 02:51
 
 **What it validates:** Document the security objectives and requirements for each information resource or set of information resources.
 
@@ -41,8 +37,4 @@ PASS Strong 13/16 (81%): PASS Security governance repository configured.
 - PASS Main/Master branch configured.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 00:48 UTC*
-=======
-*Generated 2025-11-24 01:10 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 03:01 UTC*

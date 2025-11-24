@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 00:38
-=======
-**Last Check:** 2025-11-24 01:00
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 02:51
 
 **What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
@@ -27,8 +23,4 @@
 - No rule function found: evaluate_KSI_PIY_08
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 00:48 UTC*
-=======
-*Generated 2025-11-24 01:10 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 03:01 UTC*
