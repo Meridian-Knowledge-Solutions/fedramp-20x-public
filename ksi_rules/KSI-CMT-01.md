@@ -4,7 +4,11 @@
 
 **Category:** Change Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-24 06:20
+=======
+**Last Check:** 2025-11-24 06:44
+>>>>>>> Stashed changes
 
 **What it validates:** Log and monitor modifications to the cloud service offering.
 
@@ -59,4 +63,8 @@ PASS Excellent 20/20 (100%): PASS System modification logging: 1/1 CloudTrail tr
 - PASS Advanced organization features: SCPs available for modification policy enforcement.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-24 06:31 UTC*
+=======
+*Generated 2025-11-24 06:55 UTC*
+>>>>>>> Stashed changes

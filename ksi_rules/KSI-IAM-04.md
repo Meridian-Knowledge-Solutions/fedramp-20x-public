@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-24 06:20
+=======
+**Last Check:** 2025-11-24 06:44
+>>>>>>> Stashed changes
 
 **What it validates:** Require a centralized identity management system.
 
@@ -42,4 +46,8 @@ PASS Excellent 10/10 (100%): PASS [Modern Auth] IAM Identity Center active: 1 in
 - PASS [Just-in-Time] Validation performed via temporary credentials (assumed role).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-24 06:31 UTC*
+=======
+*Generated 2025-11-24 06:55 UTC*
+>>>>>>> Stashed changes
