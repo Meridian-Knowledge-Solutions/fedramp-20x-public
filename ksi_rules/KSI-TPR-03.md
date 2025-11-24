@@ -4,11 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Identify and prioritize mitigation of potential supply chain risks.
 
@@ -32,8 +28,4 @@ PASS Excellent 10/10 (100%): PASS [Policy] A comprehensive supply chain risk man
 - PASS [Audit Trail] Policy appears actively maintained (1 recent update(s) detected).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*

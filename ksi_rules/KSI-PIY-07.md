@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Document risk management decisions for software supply chain security.
 
@@ -32,8 +28,4 @@ PASS Excellent 10/10 (100%): PASS [Policy] Supply chain risk management policy d
 - PASS [Audit Trail] Policy appears actively maintained (1 recent update(s) detected).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*

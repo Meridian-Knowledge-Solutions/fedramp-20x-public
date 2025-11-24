@@ -4,11 +4,7 @@
 
 **Category:** Cybersecurity Education
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Require and monitor the effectiveness of role-specific training for high risk roles, including at least roles with privileged access.
 
@@ -23,8 +19,4 @@
 - PASS Excellent 10/10 (100%): PASS Role-specific and privileged access training evidence found: fedramp_role_based.png, cyber_security_training.png, security_training_roster.png.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*

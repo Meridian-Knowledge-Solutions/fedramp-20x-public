@@ -4,11 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and infrastructure.
 
@@ -36,8 +32,4 @@ PASS Excellent 10/10 (100%): PASS [Governance] ICP Playbook verified (10426 byte
 - PASS [Infrastructure] 6 Active SNS Subscription(s) found.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*

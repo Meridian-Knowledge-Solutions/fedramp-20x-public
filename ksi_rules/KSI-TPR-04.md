@@ -4,11 +4,7 @@
 
 **Category:** Third-Party Information Resources
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Automatically monitor third party software information resources for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.
 
@@ -45,8 +41,4 @@ PASS Excellent 11/11 (100%): PASS Inspector EC2 vulnerability scanning successfu
 - 📊 Monitoring Maturity: 5/5 capabilities detected (100% coverage).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*

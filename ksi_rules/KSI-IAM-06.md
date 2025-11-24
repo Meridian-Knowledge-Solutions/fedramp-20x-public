@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-24 06:20
-=======
-**Last Check:** 2025-11-24 06:44
->>>>>>> Stashed changes
+**Last Check:** 2025-11-24 08:22
 
 **What it validates:** Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity
 
@@ -40,8 +36,4 @@ PASS Excellent 10/10 (100%): PASS [Detection] Advanced threat detection is activ
 - PASS [Response] Proactive monitoring and alerting likely configured with 13 security-focused CloudWatch Alarms.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-24 06:31 UTC*
-=======
-*Generated 2025-11-24 06:55 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-24 08:33 UTC*
