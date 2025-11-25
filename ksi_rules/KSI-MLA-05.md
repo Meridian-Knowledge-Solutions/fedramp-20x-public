@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 15:58
-=======
-**Last Check:** 2025-11-25 16:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 18:25
 
 **What it validates:** Perform Infrastructure as Code and configuration evaluation and testing.
 
@@ -43,8 +39,4 @@ PASS Excellent 20/20 (100%): PASS Automated change management: Validated via ext
 - PASS Enterprise multi-account governance: AWS Organizations with ALL features enabled (SCPs available).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 16:08 UTC*
-=======
-*Generated 2025-11-25 16:34 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 18:36 UTC*

@@ -4,11 +4,7 @@
 
 **Category:** Service Configuration
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 15:58
-=======
-**Last Check:** 2025-11-25 16:24
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 18:25
 
 **What it validates:** Encrypt or otherwise secure network traffic.
 
@@ -53,8 +49,4 @@ PASS Sufficient 12/18 (67%): PASS Private service communication: 7 VPC endpoints
 - PASS Advanced organization features: SCPs for encryption policy enforcement enabled.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 16:08 UTC*
-=======
-*Generated 2025-11-25 16:34 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 18:36 UTC*
