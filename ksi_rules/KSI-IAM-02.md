@@ -4,7 +4,11 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-25 15:58
+=======
+**Last Check:** 2025-11-25 16:24
+>>>>>>> Stashed changes
 
 **What it validates:** Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA.
 
@@ -31,4 +35,8 @@ PASS Strong 5/6 (83%): PASS 1 SAML providers configured (passwordless authentica
 - PASS Centralized MFA via SAML/IdP assumed (IAM MFA devices not strictly required).
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-25 16:08 UTC*
+=======
+*Generated 2025-11-25 16:34 UTC*
+>>>>>>> Stashed changes
