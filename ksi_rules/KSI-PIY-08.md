@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-11-25 04:24
+**Last Check:** 2025-11-25 06:24
 
 **What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
@@ -24,4 +24,4 @@ FAIL Insufficient 0/10 (0%): FAIL [Governance] Failed to retrieve AWS Budgets.
 - WARNING [Oversight] Failed to check Anomaly Monitors.
 
 ---
-*Generated 2025-11-25 04:34 UTC*
+*Generated 2025-11-25 06:34 UTC*
