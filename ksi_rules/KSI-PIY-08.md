@@ -4,7 +4,11 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-25 12:25
+=======
+**Last Check:** 2025-11-25 12:49
+>>>>>>> Stashed changes
 
 **What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
@@ -24,4 +28,8 @@ FAIL Insufficient 0/10 (0%): FAIL [Governance] Failed to retrieve AWS Budgets.
 - WARNING [Oversight] Failed to check Anomaly Monitors.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-25 12:35 UTC*
+=======
+*Generated 2025-11-25 12:59 UTC*
+>>>>>>> Stashed changes

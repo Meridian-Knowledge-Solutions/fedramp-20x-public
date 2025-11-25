@@ -36,4 +36,8 @@
    *Check organization-wide vulnerability management policies*
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-25 12:35 UTC*
+=======
+*Generated 2025-11-25 12:59 UTC*
+>>>>>>> Stashed changes

@@ -4,7 +4,11 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
+<<<<<<< Updated upstream
 **Last Check:** 2025-11-25 12:25
+=======
+**Last Check:** 2025-11-25 12:49
+>>>>>>> Stashed changes
 
 **What it validates:** Use logical networking and related capabilities to enforce traffic flow controls.
 
@@ -45,4 +49,8 @@ PASS Excellent 17/16 (106%): PASS Logical routing infrastructure: 5/5 route tabl
 - PASS Traffic flow monitoring: 2 VPC Flow Log groups found.
 
 ---
+<<<<<<< Updated upstream
 *Generated 2025-11-25 12:35 UTC*
+=======
+*Generated 2025-11-25 12:59 UTC*
+>>>>>>> Stashed changes
