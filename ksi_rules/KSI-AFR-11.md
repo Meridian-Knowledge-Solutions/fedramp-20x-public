@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-**Last Check:** 2025-11-25 06:24
+**Last Check:** 2025-11-25 08:21
 
 **What it validates:** Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.
 
@@ -46,4 +46,4 @@ PASS Strong 8/10 (85%): PASS [KMS Infrastructure] 17 KMS keys and 25 aliases act
 -    PASS FIPS validation referenced.
 
 ---
-*Generated 2025-11-25 06:34 UTC*
+*Generated 2025-11-25 08:31 UTC*

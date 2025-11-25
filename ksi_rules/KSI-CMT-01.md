@@ -4,7 +4,7 @@
 
 **Category:** Change Management
 **Status:** PASS
-**Last Check:** 2025-11-25 06:24
+**Last Check:** 2025-11-25 08:21
 
 **What it validates:** Log and monitor modifications to the cloud service offering.
 
@@ -59,4 +59,4 @@ PASS Excellent 20/20 (100%): PASS System modification logging: 1/1 CloudTrail tr
 - PASS Advanced organization features: SCPs available for modification policy enforcement.
 
 ---
-*Generated 2025-11-25 06:34 UTC*
+*Generated 2025-11-25 08:31 UTC*
