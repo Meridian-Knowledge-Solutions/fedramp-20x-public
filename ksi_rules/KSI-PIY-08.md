@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** FAIL
-**Last Check:** 2025-11-24 20:20
+**Last Check:** 2025-11-25 00:48
 
 **What it validates:** Measure executive support via active budgetary controls and financial commitment.
 
@@ -20,7 +20,8 @@
 
 ## Latest Results
 
-- No rule function found: evaluate_KSI_PIY_08
+FAIL Insufficient 0/10 (0%): FAIL [Governance] Failed to retrieve AWS Budgets.
+- WARNING [Oversight] Failed to check Anomaly Monitors.
 
 ---
-*Generated 2025-11-24 20:30 UTC*
+*Generated 2025-11-25 00:59 UTC*
