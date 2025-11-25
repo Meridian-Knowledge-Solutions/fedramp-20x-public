@@ -4,11 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 12:25
-=======
-**Last Check:** 2025-11-25 12:49
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 15:58
 
 **What it validates:** Monitor the effectiveness of the organization's investments in achieving security objectives.
 
@@ -44,8 +40,4 @@ PASS Excellent 10/10 (100%): PASS [Engagement] High security team activity detec
 - PASS [Capabilities] Automated security response capability suggested by 3 potentially security-related Lambda functions.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 12:35 UTC*
-=======
-*Generated 2025-11-25 12:59 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 16:08 UTC*

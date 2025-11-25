@@ -4,11 +4,7 @@
 
 **Category:** Identity and Access Management
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 12:25
-=======
-**Last Check:** 2025-11-25 12:49
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 15:58
 
 **What it validates:** Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.
 
@@ -39,8 +35,4 @@ PASS Excellent 10/10 (100%): PASS [Modern Identity] AWS Identity Center is activ
 - users likely managed via Identity Center.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 12:35 UTC*
-=======
-*Generated 2025-11-25 12:59 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 16:08 UTC*

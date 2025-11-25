@@ -4,11 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 12:25
-=======
-**Last Check:** 2025-11-25 12:49
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 15:58
 
 **What it validates:** Regularly test the recovery planning capability by performing disaster recovery tests at least annually.
 
@@ -42,8 +38,4 @@ PASS Excellent 10/10 (100%): PASS [Retention] All 2 backup plans meet retention 
 - PASS [Coverage] 10 EBS snapshots available as recovery points.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 12:35 UTC*
-=======
-*Generated 2025-11-25 12:59 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 16:08 UTC*

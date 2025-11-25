@@ -4,11 +4,7 @@
 
 **Category:** Monitoring, Logging, and Auditing
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-25 12:25
-=======
-**Last Check:** 2025-11-25 12:49
->>>>>>> Stashed changes
+**Last Check:** 2025-11-25 15:58
 
 **What it validates:** Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity.
 
@@ -36,8 +32,4 @@ PASS Excellent 10/10 (100%): PASS [Integrity] The primary CloudTrail (meridianks
 - PASS [Access Control] Excellent RBAC for logs: Found 1 admin role(s) and 2 viewer role(s).
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-25 12:35 UTC*
-=======
-*Generated 2025-11-25 12:59 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-25 16:08 UTC*
