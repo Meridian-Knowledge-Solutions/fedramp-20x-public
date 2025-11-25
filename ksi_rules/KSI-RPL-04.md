@@ -4,7 +4,7 @@
 
 **Category:** Recovery Planning
 **Status:** PASS
-**Last Check:** 2025-11-25 08:21
+**Last Check:** 2025-11-25 12:25
 
 **What it validates:** Regularly test the capability to recover from incidents and contingencies.
 
@@ -29,9 +29,9 @@
 PASS Strong 8/10 (80%): PASS [Backup Success] 39 successful backup jobs completed in the last 72 hours.
 - PASS [Backup Encryption] All recent backup jobs are encrypted.
 - PASS [Backup Retention] All recent backup jobs have a retention lifecycle.
-- PASS [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-25T08:10:01+00:00).
+- PASS [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-25T12:15:01+00:00).
 - PASS [Automation] Found automated recovery Lambda: 'fedramp-backup-restore'
 - WARNING [Recovery Test] Recovery Lambda exists but has not logged any validation summaries in the last 7 days.
 
 ---
-*Generated 2025-11-25 08:31 UTC*
+*Generated 2025-11-25 12:35 UTC*
