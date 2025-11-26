@@ -3007,7 +3007,11 @@
       "pass_count": 59
     },
     {
+<<<<<<< Updated upstream
       "timestamp": "2025-11-26T00:37:10.476055",
+=======
+      "timestamp": "2025-11-26T00:59:33.519893",
+>>>>>>> Stashed changes
       "infrastructure_fingerprint": "1018fa3b8a1e7074",
       "results": [
         {
@@ -3018,12 +3022,20 @@
           "cli_command": "1 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/minimum_assessment_scope.html",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.210524",
+=======
+          "timestamp": "2025-11-26T00:59:31.380133",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082284Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252672Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Apply the FedRAMP Minimum Assessment Standard (MAS) to identify and document the scope of the cloud service offering to be assessed for FedRAMP authorization and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3041,12 +3053,20 @@
           "cli_command": "1 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/phase_2_ksi_compliance_tracker.html",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.211309",
+=======
+          "timestamp": "2025-11-26T00:59:31.380917",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082326Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252717Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Set security goals for the cloud service offering based on FedRAMP 20x Phase Two Key Security Indicators (KSIs - you are here), develop automated validation of status and progress to the greatest extent possible, and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3064,12 +3084,20 @@
           "cli_command": "1 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/phase_2_ksi_compliance_tracker.html",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.211899",
+=======
+          "timestamp": "2025-11-26T00:59:31.381507",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082357Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252749Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Determine how authorization data will be shared with all necessary parties in alignment with the FedRAMP Authorization Data Sharing (ADS) standard and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3087,12 +3115,20 @@
           "cli_command": "2 commands (2 successful): aws inspector2 get-configuration --output json; aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/phase_2_ksi_compliance_tracker.html",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 2 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.212352",
+=======
+          "timestamp": "2025-11-26T00:59:31.381958",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 2,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082386Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252783Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Document the vulnerability detection and vulnerability response methodology used within the cloud service offering in alignment with the FedRAMP Vulnerability Detection and Response (VDR) standard and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3110,12 +3146,20 @@
           "cli_command": "2 commands (2 successful): aws codecommit get-file --repository-name security-governance --file-path procedures/scn_procedures.md --output json; gh issue list --repo Meridian-Knowledge-Solutions/fedramp-20x-submission-final --state all --limit 30 --json number,title,state,labels,createdAt --jq '.' 2>/dev/null || echo '[]'",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 2 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.212444",
+=======
+          "timestamp": "2025-11-26T00:59:31.382050",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 2,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082417Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252812Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Determine how significant changes will be tracked and how all necessary parties will be notified in alignment with the FedRAMP Significant Change Notifications (SCN) standard and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3133,12 +3177,20 @@
           "cli_command": "1 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/phase_2_ksi_compliance_tracker.html",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.212867",
+=======
+          "timestamp": "2025-11-26T00:59:31.382474",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082447Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252841Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Maintain a plan and process for providing Ongoing Authorization Reports and Quarterly Reviews for all necessary parties in alignment with the FedRAMP Collaborative Continuous Monitoring (CCM) standard and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3156,12 +3208,20 @@
           "cli_command": "1 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path fedramp-20x-secure-configuration.md --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.213079",
+=======
+          "timestamp": "2025-11-26T00:59:31.382710",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082476Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252869Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Develop secure by default configurations and provide guidance for secure configuration of the cloud service offering to customers in alignment with the FedRAMP Recommended Secure Configuration (RSC) guidance standard and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3179,12 +3239,20 @@
           "cli_command": "4 commands (4 successful): nslookup -type=MX meridianks.com | grep 'mail exchanger' || echo 'No MX records found'; nslookup -type=TXT meridianks.com | grep -i 'v=spf1' || echo 'No SPF record found' (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.213211",
+=======
+          "timestamp": "2025-11-26T00:59:31.382851",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082513Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252900Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Operate a secure inbox to receive critical communication from FedRAMP and other government entities in alignment with FedRAMP Security Inbox (FSI) requirements and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3202,12 +3270,20 @@
           "cli_command": "2 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path authorization_by_fedramp/fedramp-phase2-validation-architecture.mmd --output json; gh run list --workflow \"FedRAMP 20x CLI Validation Pipeline + Phase 2 Master Validator\" --limit 1 --json name,status,conclusion,databaseId,updatedAt",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/2 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.213299",
+=======
+          "timestamp": "2025-11-26T00:59:31.382940",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 1,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082542Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252929Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Persistently validate, assess, and report on the effectiveness and status of security decisions and policies that are implemented within the cloud service offering in alignment with the FedRAMP 20x Persistent Validation and Assessment (PVA) standard, and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3225,12 +3301,20 @@
           "cli_command": "4 commands (4 successful): aws codecommit get-file --repository-name security-governance --file-path procedures/icp_playbook.md --output json; aws codecommit get-file --repository-name security-governance --file-path procedures/incident-response-plan.md --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.213411",
+=======
+          "timestamp": "2025-11-26T00:59:31.383052",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082571Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252959Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Integrate FedRAMP's Incident Communications Procedures (ICP) into incident response procedures and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3248,12 +3332,20 @@
           "cli_command": "8 commands (7 successful): aws kms list-aliases --output json; aws kms list-keys --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/8 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.213878",
+=======
+          "timestamp": "2025-11-26T00:59:31.383513",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 7,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082600Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.252989Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Ensure that cryptographic modules used to protect potentially sensitive federal customer data are selected and used in alignment with the FedRAMP 20x Using Cryptographic Modules (UCM) policy and persistently address all related requirements and recommendations.",
           "ksi_status": "ACTIVE",
@@ -3271,12 +3363,20 @@
           "cli_command": "1 commands (1 successful): evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214004",
+=======
+          "timestamp": "2025-11-26T00:59:31.383617",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082628Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253018Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Require and monitor the effectiveness of training given to all employees on policies, procedures, and security-related topics.",
           "ksi_status": "ACTIVE",
@@ -3294,12 +3394,20 @@
           "cli_command": "1 commands (1 successful): evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214070",
+=======
+          "timestamp": "2025-11-26T00:59:31.383674",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082656Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253046Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Require and monitor the effectiveness of role-specific training for high risk roles, including at least roles with privileged access.",
           "ksi_status": "ACTIVE",
@@ -3317,12 +3425,20 @@
           "cli_command": "3 commands (3 successful): aws lambda list-functions --output json; aws events list-rules --output json; aws organizations describe-organization --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214267",
+=======
+          "timestamp": "2025-11-26T00:59:31.383865",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082684Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253078Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Require and monitor the effectiveness of role-specific training provided to development and engineering staff that covers best practices for delivering secure software.",
           "ksi_status": "ACTIVE",
@@ -3340,12 +3456,20 @@
           "cli_command": "1 commands (1 successful): evidence_check",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214338",
+=======
+          "timestamp": "2025-11-26T00:59:31.383932",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082713Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253106Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Require and monitor the effectiveness of role-specific training to staff involved with incident response or disaster recovery.",
           "ksi_status": "ACTIVE",
@@ -3363,12 +3487,20 @@
           "cli_command": "9 commands (9 successful): aws cloudtrail describe-trails --output json; aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]' (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214691",
+=======
+          "timestamp": "2025-11-26T00:59:31.384279",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082741Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253134Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Log and monitor modifications to the cloud service offering.",
           "ksi_status": "ACTIVE",
@@ -3386,12 +3518,20 @@
           "cli_command": "9 commands (9 successful): aws cloudformation list-stacks --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE --output json; aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,ImageId,LaunchTime]' --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.214958",
+=======
+          "timestamp": "2025-11-26T00:59:31.384529",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082769Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253162Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Execute changes though redeployment of version controlled immutable resources rather than direct modification wherever possible",
           "ksi_status": "ACTIVE",
@@ -3409,12 +3549,20 @@
           "cli_command": "1 commands (1 successful): aws configservice describe-config-rules --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 1 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.216942",
+=======
+          "timestamp": "2025-11-26T00:59:31.386482",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 1,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082798Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253190Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Automate persistent testing and validation of changes throughout deployment.",
           "ksi_status": "ACTIVE",
@@ -3432,12 +3580,20 @@
           "cli_command": "2 commands (1 successful): aws codecommit get-file --repository-name security-governance --file-path procedures/change-management-procedure.md; aws s3 ls s3://mks-states/plans/ --recursive",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/2 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.217106",
+=======
+          "timestamp": "2025-11-26T00:59:31.386678",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 1,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082827Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253218Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Always follow a documented change management procedure.",
           "ksi_status": "ACTIVE",
@@ -3455,12 +3611,20 @@
           "cli_command": "8 commands (8 successful): aws ec2 describe-security-groups --output json; aws ec2 describe-network-acls --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.217408",
+=======
+          "timestamp": "2025-11-26T00:59:31.386983",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082855Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253248Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Configure all machine-based information resources to limit inbound and outbound network traffic.",
           "ksi_status": "ACTIVE",
@@ -3478,12 +3642,20 @@
           "cli_command": "7 commands (7 successful): aws ec2 describe-subnets --output json; aws ec2 describe-security-groups --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.218196",
+=======
+          "timestamp": "2025-11-26T00:59:31.387754",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082884Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253276Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Design systems to minimize the attack surface and minimize lateral movement if compromised.",
           "ksi_status": "ACTIVE",
@@ -3501,12 +3673,20 @@
           "cli_command": "7 commands (7 successful): aws ec2 describe-route-tables --output json; aws ec2 describe-network-acls --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.218475",
+=======
+          "timestamp": "2025-11-26T00:59:31.388021",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082912Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253304Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use logical networking and related capabilities to enforce traffic flow controls.",
           "ksi_status": "ACTIVE",
@@ -3524,12 +3704,20 @@
           "cli_command": "5 commands (4 successful): aws s3 ls s3://mks-states/ --recursive; aws lambda list-functions --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/5 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.219490",
+=======
+          "timestamp": "2025-11-26T00:59:31.389048",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 4,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082967Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253333Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use immutable infrastructure with strictly defined functionality and privileges by default.",
           "ksi_status": "ACTIVE",
@@ -3547,12 +3735,20 @@
           "cli_command": "9 commands (9 successful): aws wafv2 list-web-acls --scope REGIONAL --output json; aws wafv2 list-web-acls --scope CLOUDFRONT --region us-east-1 --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.219828",
+=======
+          "timestamp": "2025-11-26T00:59:31.389381",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.082995Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253361Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Protect against denial of service attacks and other unwanted activity.",
           "ksi_status": "ACTIVE",
@@ -3570,12 +3766,20 @@
           "cli_command": "9 commands (9 successful): aws ec2 describe-subnets --output json; aws ec2 describe-availability-zones --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.227283",
+=======
+          "timestamp": "2025-11-26T00:59:31.396849",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083023Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253390Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Design systems for high availability and rapid recovery.",
           "ksi_status": "ACTIVE",
@@ -3593,12 +3797,20 @@
           "cli_command": "15 commands (15 successful): aws configservice describe-config-rules --output json; aws cloudtrail describe-trails --output json (+13 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 15 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.230960",
+=======
+          "timestamp": "2025-11-26T00:59:31.400702",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 15,
           "successful_commands": 15,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083051Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253420Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Ensure cloud-native information resources are implemented based on host provider's best practices and documented guidance.",
           "ksi_status": "ACTIVE",
@@ -3616,12 +3828,20 @@
           "cli_command": "7 commands (7 successful): aws securityhub get-enabled-standards --output json; aws configservice describe-config-rules --output json (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.232471",
+=======
+          "timestamp": "2025-11-26T00:59:31.402394",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083081Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253451Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use automated services to persistently assess the security posture of all machine-based information resources and automatically enforce their intended operational state.",
           "ksi_status": "ACTIVE",
@@ -3639,12 +3859,20 @@
           "cli_command": "5 commands (5 successful): aws iam list-users --output json; aws sso-admin list-instances --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.232697",
+=======
+          "timestamp": "2025-11-26T00:59:31.402645",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083110Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253480Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Enforce multi-factor authentication (MFA) using methods that are difficult to intercept or impersonate (phishing-resistant MFA) for all user authentication.",
           "ksi_status": "ACTIVE",
@@ -3662,12 +3890,20 @@
           "cli_command": "4 commands (4 successful): aws iam list-saml-providers --output json; aws iam list-virtual-mfa-devices --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.232779",
+=======
+          "timestamp": "2025-11-26T00:59:31.402733",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083138Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253509Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use secure passwordless methods for user authentication and authorization when feasible, otherwise enforce strong passwords with MFA.",
           "ksi_status": "ACTIVE",
@@ -3685,12 +3921,20 @@
           "cli_command": "4 commands (4 successful): aws iam list-roles --output json; aws iam list-users --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.233342",
+=======
+          "timestamp": "2025-11-26T00:59:31.403286",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083166Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253538Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Enforce appropriately secure authentication methods for non-user accounts and services.",
           "ksi_status": "ACTIVE",
@@ -3704,16 +3948,28 @@
           "ksi_id": "KSI-IAM-04",
           "validation_id": "KSI-IAM-04",
           "assertion": true,
+<<<<<<< Updated upstream
           "assertion_reason": "\u2705 Excellent 10/10 (100%): \u2705 [Modern Auth] IAM Identity Center active: 1 instance(s) found.; \u26a0\ufe0f [Role Mapping] Could not list Permission Sets (AccessDenied). Attempting inference via Roles...; \u2705 [Role Mapping] Inferred 3 Permission Sets from role list (e.g., AdministratorAccess).; \u2705 [Least Privilege] Excellent: 97 roles and 0 IAM users (Pure RBAC).; \u2705 [Just-in-Time] Validation performed via temporary credentials (assumed role).",
           "cli_command": "7 commands (7 successful): aws sso-admin list-instances --output json; aws sso-admin list-instances --output json | jq -r '.Instances[].InstanceArn' | xargs -I {} aws sso-admin list-permission-sets --instance-arn {} --output json | jq -s '.' || echo '[]' (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
           "timestamp": "2025-11-26T00:37:08.233733",
+=======
+          "assertion_reason": "\u2705 Excellent 10/10 (100%): \u2705 [Modern Auth] IAM Identity Center active: 1 instance(s) found.; \u26a0\ufe0f [Role Mapping] Could not list Permission Sets (AccessDenied). Attempting inference via Roles...; \u2705 [Role Mapping] Inferred 3 Permission Sets from role list (e.g., Development).; \u2705 [Least Privilege] Excellent: 97 roles and 0 IAM users (Pure RBAC).; \u2705 [Just-in-Time] Validation performed via temporary credentials (assumed role).",
+          "cli_command": "7 commands (7 successful): aws sso-admin list-instances --output json; aws sso-admin list-instances --output json | jq -r '.Instances[].InstanceArn' | xargs -I {} aws sso-admin list-permission-sets --instance-arn {} --output json | jq -s '.' || echo '[]' (+5 more)",
+          "cli_output_digest": "",
+          "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+          "timestamp": "2025-11-26T00:59:31.403700",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083195Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253583Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use a least-privileged, role and attribute-based, and just-in-time security authorization model for all user and non-user accounts and services.",
           "ksi_status": "ACTIVE",
@@ -3731,12 +3987,20 @@
           "cli_command": "10 commands (10 successful): aws iam list-users --output json; aws sso-admin list-instances --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.234060",
+=======
+          "timestamp": "2025-11-26T00:59:31.404019",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083223Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253613Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Configure identity and access management with measures that always verify each user or device can only access the resources they need.",
           "ksi_status": "ACTIVE",
@@ -3754,12 +4018,20 @@
           "cli_command": "5 commands (5 successful): aws guardduty list-detectors --output json; aws securityhub describe-hub --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.234339",
+=======
+          "timestamp": "2025-11-26T00:59:31.404293",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083252Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253642Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Automatically disable or otherwise secure accounts with privileged access in response to suspicious activity",
           "ksi_status": "ACTIVE",
@@ -3777,12 +4049,20 @@
           "cli_command": "4 commands (4 successful): aws iam list-roles --output json; aws iam list-users --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.234682",
+=======
+          "timestamp": "2025-11-26T00:59:31.404668",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083280Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253670Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Securely manage the lifecycle and privileges of all accounts, roles, and groups, using automation.",
           "ksi_status": "ACTIVE",
@@ -3800,12 +4080,20 @@
           "cli_command": "8 commands (8 successful): aws codecommit get-repository --repository-name security-governance --output json; aws codecommit get-file --repository-name security-governance --file-path procedures/incident-response-plan.md --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.235642",
+=======
+          "timestamp": "2025-11-26T00:59:31.405402",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083309Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253699Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Always follow a documented incident response procedure.",
           "ksi_status": "ACTIVE",
@@ -3823,12 +4111,20 @@
           "cli_command": "5 commands (5 successful): aws events list-rules --output json; aws logs describe-log-groups --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.235964",
+=======
+          "timestamp": "2025-11-26T00:59:31.405703",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083338Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253728Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Maintain a log of incidents and periodically review past incidents for patterns or vulnerabilities.",
           "ksi_status": "ACTIVE",
@@ -3846,12 +4142,20 @@
           "cli_command": "4 commands (4 successful): aws securityhub get-findings --max-results 50 --output json; aws lambda list-functions --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.237354",
+=======
+          "timestamp": "2025-11-26T00:59:31.406460",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083368Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253758Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Generate after action reports and regularly incorporate lessons learned into operations.",
           "ksi_status": "ACTIVE",
@@ -3869,12 +4173,20 @@
           "cli_command": "7 commands (7 successful): aws cloudtrail describe-trails --output json; aws cloudtrail describe-trails --output json | jq -r '.trailList[].TrailARN' | xargs -I {} aws cloudtrail get-trail-status --name {} --output json | jq -s '.' || echo '[]' (+5 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 7 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.237628",
+=======
+          "timestamp": "2025-11-26T00:59:31.406721",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 7,
           "successful_commands": 7,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083398Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253787Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Operate a Security Information and Event Management (SIEM) or similar system(s) for centralized, tamper-resistent logging of events, activities, and changes.",
           "ksi_status": "ACTIVE",
@@ -3892,12 +4204,20 @@
           "cli_command": "8 commands (8 successful): aws cloudwatch describe-alarms --output json; aws logs describe-metric-filters --output json (+6 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 8 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.238043",
+=======
+          "timestamp": "2025-11-26T00:59:31.407112",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 8,
           "successful_commands": 8,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083426Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253816Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Regularly review and audit logs.",
           "ksi_status": "ACTIVE",
@@ -3915,12 +4235,20 @@
           "cli_command": "5 commands (5 successful): aws configservice describe-config-rules --output json; aws ssm describe-parameters --max-results 50 --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.240272",
+=======
+          "timestamp": "2025-11-26T00:59:31.409329",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083455Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253844Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Perform Infrastructure as Code and configuration evaluation and testing.",
           "ksi_status": "ACTIVE",
@@ -3938,12 +4266,20 @@
           "cli_command": "3 commands (3 successful): aws logs describe-log-groups --output json; aws cloudtrail describe-trails --output json; aws cloudwatch describe-alarms --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.240719",
+=======
+          "timestamp": "2025-11-26T00:59:31.409808",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083484Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253873Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Maintain a list of information resources and event types that will be monitored, logged, and audited, then do so.",
           "ksi_status": "ACTIVE",
@@ -3961,12 +4297,20 @@
           "cli_command": "4 commands (3 successful): aws cloudtrail describe-trails --output json; aws logs describe-log-groups --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/4 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.241396",
+=======
+          "timestamp": "2025-11-26T00:59:31.410470",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 3,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083513Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253903Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use a least-privileged, role and attribute-based, and just-in-time access authorization model for access to log data based on organizationally defined data sensitivity.",
           "ksi_status": "ACTIVE",
@@ -3984,12 +4328,20 @@
           "cli_command": "9 commands (9 successful): aws ec2 describe-instances --output json; aws rds describe-db-instances --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.242325",
+=======
+          "timestamp": "2025-11-26T00:59:31.411393",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083542Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253933Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use authoritative sources to automatically maintain real-time inventories of all information resources.",
           "ksi_status": "ACTIVE",
@@ -4007,12 +4359,20 @@
           "cli_command": "5 commands (5 successful): aws codecommit get-repository --repository-name security-governance --output json; aws codecommit get-folder --repository-name security-governance --folder-path policies/security-objectives/ --output json (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.242553",
+=======
+          "timestamp": "2025-11-26T00:59:31.411645",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083571Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253964Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Document the security objectives and requirements for each information resource or set of information resources.",
           "ksi_status": "ACTIVE",
@@ -4030,12 +4390,20 @@
           "cli_command": "4 commands (3 successful): aws codecommit list-repositories --output json; aws codecommit get-file --repository-name security-governance --file-path policies/vulnerability-disclosure-policy.md --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u26a0\ufe0f 1/4 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.242729",
+=======
+          "timestamp": "2025-11-26T00:59:31.411829",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 3,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083600Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.253995Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Maintain a vulnerability disclosure program.",
           "ksi_status": "ACTIVE",
@@ -4053,12 +4421,20 @@
           "cli_command": "4 commands (4 successful): aws codebuild list-projects --output json; aws codepipeline list-pipelines --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.243042",
+=======
+          "timestamp": "2025-11-26T00:59:31.412109",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083629Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254024Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Monitor the effectiveness of building security and privacy considerations into the Software Development Lifecycle and aligning with CISA Secure By Design principles.",
           "ksi_status": "ACTIVE",
@@ -4076,12 +4452,20 @@
           "cli_command": "3 commands (3 successful): aws codecommit get-file --repository-name security-governance --file-path policies/evaluation-methodology.md --output json; aws codecommit get-folder --repository-name security-governance --folder-path procedures/ --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.243220",
+=======
+          "timestamp": "2025-11-26T00:59:31.412275",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083658Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254053Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Document methods used to evaluate information resource implementations.",
           "ksi_status": "ACTIVE",
@@ -4099,12 +4483,20 @@
           "cli_command": "6 commands (6 successful): aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=ConsoleLogin --start-time $(date -u -d '30 days ago' '+%Y-%m-%dT%H:%M:%S') --max-items 50 --output json; aws cloudtrail lookup-events --lookup-attributes AttributeKey=EventName,AttributeValue=PutConfigRule --start-time $(date -u -d '90 days ago' '+%Y-%m-%dT%H:%M:%S') --max-items 50 --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.246949",
+=======
+          "timestamp": "2025-11-26T00:59:31.415954",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083689Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254083Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Monitor the effectiveness of the organization's investments in achieving security objectives.",
           "ksi_status": "ACTIVE",
@@ -4122,12 +4514,20 @@
           "cli_command": "3 commands (3 successful): aws codecommit get-file --repository-name security-governance --file-path policies/supply-chain-risk-management.md --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json; aws codecommit list-approval-rule-templates --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.247286",
+=======
+          "timestamp": "2025-11-26T00:59:31.416307",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083718Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254113Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Document risk management decisions for software supply chain security.",
           "ksi_status": "ACTIVE",
@@ -4145,12 +4545,20 @@
           "cli_command": "2 commands (0 successful): aws sts get-caller-identity --query Account --output text | xargs -I {} aws budgets describe-budgets --account-id {} --output json; aws ce get-anomaly-monitors --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u274c All 2 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.247391",
+=======
+          "timestamp": "2025-11-26T00:59:31.416412",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 2,
           "successful_commands": 0,
           "failed_commands": 2,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083747Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254143Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Regularly measure executive support for achieving the organization\u2019s security objectives.",
           "ksi_status": "ACTIVE",
@@ -4168,12 +4576,20 @@
           "cli_command": "6 commands (6 successful): aws rds describe-db-instances --output json; aws backup list-backup-plans --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.247547",
+=======
+          "timestamp": "2025-11-26T00:59:31.416605",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083778Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254173Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO).",
           "ksi_status": "ACTIVE",
@@ -4191,12 +4607,20 @@
           "cli_command": "3 commands (3 successful): aws backup list-backup-plans --output json; aws backup list-backup-vaults --output json; aws ec2 describe-snapshots --owner-ids self --max-results 100 --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.248198",
+=======
+          "timestamp": "2025-11-26T00:59:31.417255",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083808Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254203Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Develop and maintain a recovery plan that aligns with the defined recovery objectives.",
           "ksi_status": "ACTIVE",
@@ -4214,12 +4638,20 @@
           "cli_command": "6 commands (6 successful): aws backup list-backup-plans --output json; aws backup list-backup-plans --output json | jq -r '.BackupPlansList[].BackupPlanId' | xargs -I {} aws backup get-backup-plan --backup-plan-id {} --output json | jq -s '.' || echo '[]' (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.248582",
+=======
+          "timestamp": "2025-11-26T00:59:31.417664",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083837Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254238Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Perform system backups aligned with recovery objectives.",
           "ksi_status": "ACTIVE",
@@ -4233,16 +4665,28 @@
           "ksi_id": "KSI-RPL-04",
           "validation_id": "KSI-RPL-04",
           "assertion": true,
+<<<<<<< Updated upstream
           "assertion_reason": "\u2705 Strong 8/10 (80%): \u2705 [Backup Success] 39 successful backup jobs completed in the last 72 hours.; \u2705 [Backup Encryption] All recent backup jobs are encrypted.; \u2705 [Backup Retention] All recent backup jobs have a retention lifecycle.; \u2705 [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-26T00:25:01+00:00).; \u2705 [Automation] Found automated recovery Lambda: 'fedramp-backup-restore'; \u26a0\ufe0f [Recovery Test] Recovery Lambda exists but has not logged any validation summaries in the last 7 days.",
           "cli_command": "4 commands (4 successful): aws backup list-backup-jobs --by-state COMPLETED --by-created-after $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v-30d +%Y-%m-%dT%H:%M:%SZ) --max-results 50 --output json; aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,LatestRestorableTime]' --output json (+2 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
           "timestamp": "2025-11-26T00:37:08.249077",
+=======
+          "assertion_reason": "\u2705 Strong 8/10 (80%): \u2705 [Backup Success] 39 successful backup jobs completed in the last 72 hours.; \u2705 [Backup Encryption] All recent backup jobs are encrypted.; \u2705 [Backup Retention] All recent backup jobs have a retention lifecycle.; \u2705 [PITR] RDS instance 'saas' has Point-in-Time-Recovery enabled (Last restorable: 2025-11-26T00:50:01+00:00).; \u2705 [Automation] Found automated recovery Lambda: 'fedramp-backup-restore'; \u26a0\ufe0f [Recovery Test] Recovery Lambda exists but has not logged any validation summaries in the last 7 days.",
+          "cli_command": "4 commands (4 successful): aws backup list-backup-jobs --by-state COMPLETED --by-created-after $(date -u -d '30 days ago' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -v-30d +%Y-%m-%dT%H:%M:%SZ) --max-results 50 --output json; aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier,LatestRestorableTime]' --output json (+2 more)",
+          "cli_output_digest": "",
+          "cli_output_interpretation": "\u2705 All 4 commands executed successfully | \u26a0\ufe0f No usable output",
+          "timestamp": "2025-11-26T00:59:31.418319",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 4,
           "successful_commands": 4,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083867Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254270Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Regularly test the capability to recover from incidents and contingencies.",
           "ksi_status": "ACTIVE",
@@ -4260,12 +4704,20 @@
           "cli_command": "11 commands (11 successful): aws ec2 describe-security-groups --output json; aws ec2 describe-instances --output json (+9 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 11 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.250573",
+=======
+          "timestamp": "2025-11-26T00:59:31.420197",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 11,
           "successful_commands": 11,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083897Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254300Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Implement improvements based on persistent evaluation of information resources for opportunities to improve security.",
           "ksi_status": "ACTIVE",
@@ -4283,12 +4735,20 @@
           "cli_command": "9 commands (9 successful): aws elbv2 describe-load-balancers --output json; for arn in $(aws elbv2 describe-load-balancers --query 'LoadBalancers[].LoadBalancerArn' --output text 2>/dev/null || echo ''); do aws elbv2 describe-listeners --load-balancer-arn $arn --output json; done (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.250937",
+=======
+          "timestamp": "2025-11-26T00:59:31.420572",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083944Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254330Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Encrypt or otherwise secure network traffic.",
           "ksi_status": "ACTIVE",
@@ -4306,12 +4766,20 @@
           "cli_command": "10 commands (10 successful): aws ssm describe-parameters --output json; aws configservice describe-configuration-recorders --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.254532",
+=======
+          "timestamp": "2025-11-26T00:59:31.424138",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.083978Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254360Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Manage configuration of machine-based information resources using automation.",
           "ksi_status": "ACTIVE",
@@ -4329,12 +4797,20 @@
           "cli_command": "10 commands (10 successful): aws cloudtrail describe-trails --output json; aws kms list-keys --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.255194",
+=======
+          "timestamp": "2025-11-26T00:59:31.424810",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084010Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254390Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use cryptographic methods to validate the integrity of machine-based information resources.",
           "ksi_status": "ACTIVE",
@@ -4352,12 +4828,20 @@
           "cli_command": "9 commands (9 successful): aws kms list-keys --output json; aws acm list-certificates --output json (+7 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 9 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.255761",
+=======
+          "timestamp": "2025-11-26T00:59:31.425363",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 9,
           "successful_commands": 9,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084041Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254421Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Automate management, protection, and regular rotation of digital keys, certificates, and other secrets.",
           "ksi_status": "ACTIVE",
@@ -4375,12 +4859,20 @@
           "cli_command": "10 commands (10 successful): aws ssm describe-patch-baselines --output json; aws ssm describe-instance-information --output json (+8 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 10 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.259243",
+=======
+          "timestamp": "2025-11-26T00:59:31.428835",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 10,
           "successful_commands": 10,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084071Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254453Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Use a consistent, risk-informed approach for applying security patches.",
           "ksi_status": "ACTIVE",
@@ -4398,12 +4890,20 @@
           "cli_command": "1 commands (0 successful): aws s3 ls s3://mks-states/ --recursive",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u274c All 1 commands failed execution | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.259608",
+=======
+          "timestamp": "2025-11-26T00:59:31.429205",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 1,
           "successful_commands": 0,
           "failed_commands": 1,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084101Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254483Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Do not introduce or leave behind residual elements that could negatively affect confidentiality, integrity, or availability of federal customer data during operations.",
           "ksi_status": "ACTIVE",
@@ -4421,12 +4921,20 @@
           "cli_command": "6 commands (6 successful): aws acm list-certificates --output json; aws elbv2 describe-ssl-policies --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.260248",
+=======
+          "timestamp": "2025-11-26T00:59:31.429866",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084131Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254513Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Persistently validate the authenticity and integrity of communications between machine-based information resources using automation.",
           "ksi_status": "ACTIVE",
@@ -4444,12 +4952,20 @@
           "cli_command": "5 commands (5 successful): aws backup list-backup-plans --output json; aws backup list-backup-plans --output json | jq -r '.BackupPlansList[].BackupPlanId' | xargs -I {} aws backup get-backup-plan --backup-plan-id {} --output json | jq -s '.' || echo '[]' (+3 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 5 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.260779",
+=======
+          "timestamp": "2025-11-26T00:59:31.430388",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 5,
           "successful_commands": 5,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084161Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254543Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Remove unwanted federal customer data promptly when requested by an agency in alignment with customer agreements, including from backups if appropriate.",
           "ksi_status": "ACTIVE",
@@ -4467,12 +4983,20 @@
           "cli_command": "3 commands (3 successful): aws codecommit get-file --repository-name security-governance --file-path policies/supply-chain-risk-management.md; aws codecommit list-approval-rule-templates --output json; aws codecommit get-differences --repository-name security-governance --after-commit-specifier refs/heads/main --output json",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 3 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.260972",
+=======
+          "timestamp": "2025-11-26T00:59:31.430584",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 3,
           "successful_commands": 3,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084193Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254590Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Identify and prioritize mitigation of potential supply chain risks.",
           "ksi_status": "ACTIVE",
@@ -4490,12 +5014,20 @@
           "cli_command": "6 commands (6 successful): aws inspector2 get-configuration --output json; aws inspector2 list-findings --filter-criteria '{\"componentType\":[{\"comparison\":\"EQUALS\",\"value\":\"OPERATING_SYSTEM\"}]}' --max-results 50 --output json (+4 more)",
           "cli_output_digest": "",
           "cli_output_interpretation": "\u2705 All 6 commands executed successfully | \u26a0\ufe0f No usable output",
+<<<<<<< Updated upstream
           "timestamp": "2025-11-26T00:37:08.263044",
+=======
+          "timestamp": "2025-11-26T00:59:31.433015",
+>>>>>>> Stashed changes
           "validation_method": "validation-engine-sync",
           "commands_executed": 6,
           "successful_commands": 6,
           "failed_commands": 0,
+<<<<<<< Updated upstream
           "original_timestamp": "2025-11-26T00:37:08.084225Z",
+=======
+          "original_timestamp": "2025-11-26T00:59:31.254622Z",
+>>>>>>> Stashed changes
           "synced_from_validation_engine": true,
           "updated_requirement": "Automatically monitor third party software information resources for upstream vulnerabilities using mechanisms that may include contractual notification requirements or active monitoring services.",
           "ksi_status": "ACTIVE",
@@ -4526,7 +5058,11 @@
       "comparison_count": 1
     },
     {
+<<<<<<< Updated upstream
       "timestamp": "2025-11-26T00:37:10.476070",
+=======
+      "timestamp": "2025-11-26T00:59:33.519908",
+>>>>>>> Stashed changes
       "consistency_score": 100.0,
       "issues_found": 0,
       "infrastructure_fingerprint": "1018fa3b8a1e7074",
