@@ -4,7 +4,7 @@
 
 **Category:** Policy and Inventory
 **Status:** PASS
-**Last Check:** 2025-11-25 20:19
+**Last Check:** 2025-11-26 00:37
 
 **What it validates:** Document the security objectives and requirements for each information resource or set of information resources.
 
@@ -37,4 +37,4 @@ PASS Strong 13/16 (81%): PASS Security governance repository configured.
 - PASS Main/Master branch configured.
 
 ---
-*Generated 2025-11-25 20:30 UTC*
+*Generated 2025-11-26 00:47 UTC*
