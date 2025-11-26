@@ -1,10 +1,6 @@
 {
   "metadata": {
-<<<<<<< Updated upstream
-    "generated_at": "2025-11-26T00:47:17Z",
-=======
-    "generated_at": "2025-11-26T01:10:02Z",
->>>>>>> Stashed changes
+    "generated_at": "2025-11-26T02:58:42Z",
     "generator_version": "enhanced-v2",
     "total_evidence_files": 69,
     "evidence_directories": [
@@ -90,16 +86,12 @@
       "ksi_id": "KSI-PIY-08",
       "evidence_directory": "KSI-PIY-08",
       "file_path": "evidence_v2/KSI-PIY-08/cli_output.json",
-      "file_size": 1876,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:10Z",
-=======
-      "file_modified": "2025-11-26T00:59:33Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 1875,
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 2,
       "successful_commands": 0,
       "failed_commands": 2,
@@ -113,31 +105,23 @@
       "evidence_directory": "KSI-SVC-08",
       "file_path": "evidence_v2/KSI-SVC-08/cli_output.json",
       "file_size": 988,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:10Z",
-=======
-      "file_modified": "2025-11-26T00:59:33Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 8 column 193 (char 345)"
     },
     "evidence_v2/KSI-CNA-08/cli_output.json": {
       "ksi_id": "KSI-CNA-08",
       "evidence_directory": "KSI-CNA-08",
       "file_path": "evidence_v2/KSI-CNA-08/cli_output.json",
-      "file_size": 310863,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:10Z",
-=======
-      "file_modified": "2025-11-26T00:59:33Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 310862,
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 7,
       "successful_commands": 7,
       "failed_commands": 0,
@@ -150,17 +134,12 @@
       "ksi_id": "KSI-SVC-07",
       "evidence_directory": "KSI-SVC-07",
       "file_path": "evidence_v2/KSI-SVC-07/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 511166,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_size": 511167,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 10,
       "successful_commands": 10,
       "failed_commands": 0,
@@ -173,38 +152,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-01",
       "file_path": "evidence_v2/KSI-CNA-01/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 65223,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
       "file_size": 65222,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-<<<<<<< Updated upstream
-      "error": "Expecting value: line 2037 column 27 (char 64069)"
-=======
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 2037 column 27 (char 64068)"
->>>>>>> Stashed changes
     },
     "evidence_v2/KSI-PIY-02/cli_output.json": {
       "ksi_id": "KSI-PIY-02",
       "evidence_directory": "KSI-PIY-02",
       "file_path": "evidence_v2/KSI-PIY-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 11836,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
       "file_size": 11838,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 5,
       "successful_commands": 5,
       "failed_commands": 0,
@@ -217,54 +182,36 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-03",
       "file_path": "evidence_v2/KSI-CNA-03/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 31418,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_size": 31421,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-<<<<<<< Updated upstream
-      "error": "Expecting value: line 935 column 27 (char 30295)"
-=======
-      "error": "Expecting value: line 935 column 27 (char 30297)"
->>>>>>> Stashed changes
+      "file_size": 31420,
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting value: line 935 column 27 (char 30296)"
     },
     "evidence_v2/KSI-MLA-08/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-08",
       "file_path": "evidence_v2/KSI-MLA-08/cli_output.json",
-      "file_size": 88007,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 88006,
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 50 column 27 (char 1820)"
     },
     "evidence_v2/KSI-SVC-04/cli_output.json": {
       "ksi_id": "KSI-SVC-04",
       "evidence_directory": "KSI-SVC-04",
       "file_path": "evidence_v2/KSI-SVC-04/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 520618,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_size": 520616,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 520615,
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 10,
       "successful_commands": 10,
       "failed_commands": 0,
@@ -277,17 +224,12 @@
       "ksi_id": "KSI-AFR-05",
       "evidence_directory": "KSI-AFR-05",
       "file_path": "evidence_v2/KSI-AFR-05/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 1707,
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_size": 1706,
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 2,
       "successful_commands": 2,
       "failed_commands": 0,
@@ -302,15 +244,11 @@
       "evidence_directory": "KSI-SVC-05",
       "file_path": "evidence_v2/KSI-SVC-05/cli_output.json",
       "file_size": 36067,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 10,
       "successful_commands": 10,
       "failed_commands": 0,
@@ -324,15 +262,11 @@
       "evidence_directory": "KSI-IAM-04",
       "file_path": "evidence_v2/KSI-IAM-04/cli_output.json",
       "file_size": 79272,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:37:11Z",
-=======
-      "file_modified": "2025-11-26T00:59:34Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:48:27Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 7,
       "successful_commands": 7,
       "failed_commands": 0,
@@ -346,15 +280,11 @@
       "evidence_directory": "KSI-AFR-04",
       "file_path": "evidence_v2/KSI-AFR-04/cli_output.json",
       "file_size": 2296,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 2,
       "successful_commands": 2,
       "failed_commands": 0,
@@ -368,15 +298,11 @@
       "evidence_directory": "KSI-CED-04",
       "file_path": "evidence_v2/KSI-CED-04/cli_output.json",
       "file_size": 620,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -389,17 +315,12 @@
       "ksi_id": "KSI-CNA-06",
       "evidence_directory": "KSI-CNA-06",
       "file_path": "evidence_v2/KSI-CNA-06/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 840085,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
       "file_size": 840086,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 9,
       "successful_commands": 9,
       "failed_commands": 0,
@@ -412,17 +333,12 @@
       "ksi_id": "KSI-SVC-03",
       "evidence_directory": "KSI-SVC-03",
       "file_path": "evidence_v2/KSI-SVC-03/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 299422,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
       "file_size": 299424,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 10,
       "successful_commands": 10,
       "failed_commands": 0,
@@ -435,34 +351,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-PIY-06",
       "file_path": "evidence_v2/KSI-PIY-06/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 529786,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_size": 529784,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 529785,
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting property name enclosed in double quotes: line 20 column 180 (char 746)"
     },
     "evidence_v2/KSI-RPL-01/cli_output.json": {
       "ksi_id": "KSI-RPL-01",
       "evidence_directory": "KSI-RPL-01",
       "file_path": "evidence_v2/KSI-RPL-01/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 9515,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
       "file_size": 9514,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 6,
       "successful_commands": 6,
       "failed_commands": 0,
@@ -477,32 +383,23 @@
       "evidence_directory": "KSI-CMT-05",
       "file_path": "evidence_v2/KSI-CMT-05/cli_output.json",
       "file_size": 1756,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 31 column 193 (char 1267)"
     },
     "evidence_v2/KSI-RPL-02/cli_output.json": {
       "ksi_id": "KSI-RPL-02",
       "evidence_directory": "KSI-RPL-02",
       "file_path": "evidence_v2/KSI-RPL-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 89091,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
       "file_size": 89093,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 3,
       "successful_commands": 3,
       "failed_commands": 0,
@@ -515,17 +412,12 @@
       "ksi_id": "KSI-CNA-02",
       "evidence_directory": "KSI-CNA-02",
       "file_path": "evidence_v2/KSI-CNA-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 145428,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
       "file_size": 145430,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 7,
       "successful_commands": 7,
       "failed_commands": 0,
@@ -539,15 +431,11 @@
       "evidence_directory": "KSI-CMT-03",
       "file_path": "evidence_v2/KSI-CMT-03/cli_output.json",
       "file_size": 267165,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -560,34 +448,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-SVC-06",
       "file_path": "evidence_v2/KSI-SVC-06/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 66507,
-      "file_modified": "2025-11-26T00:39:19Z",
-=======
-      "file_size": 66506,
-      "file_modified": "2025-11-26T01:01:46Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-      "error": "Expecting property name enclosed in double quotes: line 651 column 200 (char 23198)"
+      "file_size": 70605,
+      "file_modified": "2025-11-26T02:50:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting property name enclosed in double quotes: line 651 column 194 (char 23187)"
     },
     "evidence_v2/KSI-AFR-07/cli_output.json": {
       "ksi_id": "KSI-AFR-07",
       "evidence_directory": "KSI-AFR-07",
       "file_path": "evidence_v2/KSI-AFR-07/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 872,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 871,
-      "file_modified": "2025-11-26T01:02:08Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -600,34 +478,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-07",
       "file_path": "evidence_v2/KSI-MLA-07/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 28647,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
       "file_size": 28648,
-      "file_modified": "2025-11-26T01:02:08Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 13 column 27 (char 335)"
     },
     "evidence_v2/KSI-PIY-04/cli_output.json": {
       "ksi_id": "KSI-PIY-04",
       "evidence_directory": "KSI-PIY-04",
       "file_path": "evidence_v2/KSI-PIY-04/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 28296,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 28298,
-      "file_modified": "2025-11-26T01:02:08Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 28297,
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -640,17 +508,12 @@
       "ksi_id": "KSI-IAM-05",
       "evidence_directory": "KSI-IAM-05",
       "file_path": "evidence_v2/KSI-IAM-05/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 62324,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 62323,
-      "file_modified": "2025-11-26T01:02:08Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 10,
       "successful_commands": 10,
       "failed_commands": 0,
@@ -664,15 +527,11 @@
       "evidence_directory": "KSI-AFR-09",
       "file_path": "evidence_v2/KSI-AFR-09/cli_output.json",
       "file_size": 1775,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 2,
       "successful_commands": 1,
       "failed_commands": 1,
@@ -687,15 +546,11 @@
       "evidence_directory": "KSI-PIY-03",
       "file_path": "evidence_v2/KSI-PIY-03/cli_output.json",
       "file_size": 11528,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 3,
       "failed_commands": 1,
@@ -708,17 +563,12 @@
       "ksi_id": "KSI-INR-03",
       "evidence_directory": "KSI-INR-03",
       "file_path": "evidence_v2/KSI-INR-03/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 261266,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 210520,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 206023,
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -731,17 +581,12 @@
       "ksi_id": "KSI-CNA-05",
       "evidence_directory": "KSI-CNA-05",
       "file_path": "evidence_v2/KSI-CNA-05/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 21731,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 21729,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 21730,
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 9,
       "successful_commands": 9,
       "failed_commands": 0,
@@ -755,15 +600,11 @@
       "evidence_directory": "KSI-CED-01",
       "file_path": "evidence_v2/KSI-CED-01/cli_output.json",
       "file_size": 677,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -777,15 +618,11 @@
       "evidence_directory": "KSI-TPR-03",
       "file_path": "evidence_v2/KSI-TPR-03/cli_output.json",
       "file_size": 8388,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 3,
       "successful_commands": 3,
       "failed_commands": 0,
@@ -798,16 +635,12 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-IAM-06",
       "file_path": "evidence_v2/KSI-IAM-06/cli_output.json",
-      "file_size": 47940,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 47939,
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 133 column 152 (char 6053)"
     },
     "evidence_v2/KSI-RPL-03/cli_output.json": {
@@ -815,32 +648,23 @@
       "evidence_directory": "KSI-RPL-03",
       "file_path": "evidence_v2/KSI-RPL-03/cli_output.json",
       "file_size": 35419,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 131 column 32 (char 4907)"
     },
     "evidence_v2/KSI-SVC-09/cli_output.json": {
       "ksi_id": "KSI-SVC-09",
       "evidence_directory": "KSI-SVC-09",
       "file_path": "evidence_v2/KSI-SVC-09/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 84522,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 84521,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 6,
       "successful_commands": 6,
       "failed_commands": 0,
@@ -854,33 +678,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CED-03",
       "file_path": "evidence_v2/KSI-CED-03/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 34024,
-      "file_modified": "2025-11-26T00:39:41Z",
-=======
-      "file_size": 34023,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 885 column 152 (char 29927)"
     },
     "evidence_v2/KSI-PIY-07/cli_output.json": {
       "ksi_id": "KSI-PIY-07",
       "evidence_directory": "KSI-PIY-07",
       "file_path": "evidence_v2/KSI-PIY-07/cli_output.json",
-      "file_size": 8371,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 8370,
+      "file_modified": "2025-11-26T02:51:04Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 3,
       "successful_commands": 3,
       "failed_commands": 0,
@@ -893,17 +708,12 @@
       "ksi_id": "KSI-MLA-03",
       "evidence_directory": "KSI-MLA-03",
       "file_path": "evidence_v2/KSI-MLA-03/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 517979,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
-      "file_size": 517955,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 517977,
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 8,
       "successful_commands": 8,
       "failed_commands": 0,
@@ -916,17 +726,12 @@
       "ksi_id": "KSI-SVC-01",
       "evidence_directory": "KSI-SVC-01",
       "file_path": "evidence_v2/KSI-SVC-01/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 399110,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
       "file_size": 399109,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 11,
       "successful_commands": 11,
       "failed_commands": 0,
@@ -939,17 +744,12 @@
       "ksi_id": "KSI-IAM-01",
       "evidence_directory": "KSI-IAM-01",
       "file_path": "evidence_v2/KSI-IAM-01/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 12886,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
       "file_size": 12887,
-      "file_modified": "2025-11-26T01:02:09Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 5,
       "successful_commands": 5,
       "failed_commands": 0,
@@ -963,17 +763,12 @@
       "ksi_id": "KSI-AFR-10",
       "evidence_directory": "KSI-AFR-10",
       "file_path": "evidence_v2/KSI-AFR-10/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 5184,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
       "file_size": 5186,
-      "file_modified": "2025-11-26T01:02:10Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -986,17 +781,12 @@
       "ksi_id": "KSI-AFR-08",
       "evidence_directory": "KSI-AFR-08",
       "file_path": "evidence_v2/KSI-AFR-08/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 4010,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
       "file_size": 4011,
-      "file_modified": "2025-11-26T01:02:10Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -1010,33 +800,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-RPL-04",
       "file_path": "evidence_v2/KSI-RPL-04/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 78976,
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
-      "file_size": 78973,
-      "file_modified": "2025-11-26T01:02:10Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 29 column 32 (char 995)"
     },
     "evidence_v2/KSI-TPR-01/cli_output.json": {
       "ksi_id": "KSI-TPR-01",
       "evidence_directory": "KSI-TPR-01",
       "file_path": "evidence_v2/KSI-TPR-01/cli_output.json",
-      "file_size": 4646,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
-      "file_modified": "2025-11-26T01:02:10Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 4645,
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 3,
       "successful_commands": 3,
       "failed_commands": 0,
@@ -1050,15 +831,11 @@
       "evidence_directory": "KSI-IAM-02",
       "file_path": "evidence_v2/KSI-IAM-02/cli_output.json",
       "file_size": 3251,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:39:42Z",
-=======
-      "file_modified": "2025-11-26T01:02:10Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:51:05Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -1071,17 +848,12 @@
       "ksi_id": "KSI-AFR-06",
       "evidence_directory": "KSI-AFR-06",
       "file_path": "evidence_v2/KSI-AFR-06/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 1084,
-      "file_modified": "2025-11-26T00:41:51Z",
-=======
-      "file_size": 1083,
-      "file_modified": "2025-11-26T01:04:22Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:53:14Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -1094,34 +866,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-INR-02",
       "file_path": "evidence_v2/KSI-INR-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 41126,
-      "file_modified": "2025-11-26T00:41:51Z",
-=======
-      "file_size": 40742,
-      "file_modified": "2025-11-26T01:04:22Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 37598,
+      "file_modified": "2025-11-26T02:53:14Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 92 column 152 (char 4561)"
     },
     "evidence_v2/KSI-CMT-02/cli_output.json": {
       "ksi_id": "KSI-CMT-02",
       "evidence_directory": "KSI-CMT-02",
       "file_path": "evidence_v2/KSI-CMT-02/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 37937,
-      "file_modified": "2025-11-26T00:41:51Z",
-=======
-      "file_size": 37936,
-      "file_modified": "2025-11-26T01:04:23Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:53:14Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 9,
       "successful_commands": 9,
       "failed_commands": 0,
@@ -1135,15 +897,11 @@
       "evidence_directory": "KSI-PIY-05",
       "file_path": "evidence_v2/KSI-PIY-05/cli_output.json",
       "file_size": 9817,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:41:52Z",
-=======
-      "file_modified": "2025-11-26T01:04:23Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:53:14Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 3,
       "successful_commands": 3,
       "failed_commands": 0,
@@ -1156,16 +914,12 @@
       "ksi_id": "KSI-PIY-01",
       "evidence_directory": "KSI-PIY-01",
       "file_path": "evidence_v2/KSI-PIY-01/cli_output.json",
-      "file_size": 107949,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:41:52Z",
-=======
-      "file_modified": "2025-11-26T01:04:23Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 107950,
+      "file_modified": "2025-11-26T02:53:14Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 9,
       "successful_commands": 9,
       "failed_commands": 0,
@@ -1179,15 +933,11 @@
       "evidence_directory": "KSI-AFR-03",
       "file_path": "evidence_v2/KSI-AFR-03/cli_output.json",
       "file_size": 1054,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:44:01Z",
-=======
-      "file_modified": "2025-11-26T01:06:39Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:55:23Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -1201,15 +951,11 @@
       "evidence_directory": "KSI-AFR-02",
       "file_path": "evidence_v2/KSI-AFR-02/cli_output.json",
       "file_size": 1100,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:46:09Z",
-=======
-      "file_modified": "2025-11-26T01:08:51Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:57:33Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -1222,69 +968,48 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-SVC-02",
       "file_path": "evidence_v2/KSI-SVC-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 27777,
-      "file_modified": "2025-11-26T00:46:09Z",
-=======
       "file_size": 27780,
-      "file_modified": "2025-11-26T01:08:51Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-<<<<<<< Updated upstream
-      "error": "Expecting ',' delimiter: line 501 column 218 (char 16465)"
-=======
+      "file_modified": "2025-11-26T02:57:33Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 501 column 218 (char 16467)"
->>>>>>> Stashed changes
     },
     "evidence_v2/KSI-MLA-01/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-01",
       "file_path": "evidence_v2/KSI-MLA-01/cli_output.json",
-      "file_size": 27259,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:46:09Z",
-=======
-      "file_modified": "2025-11-26T01:08:51Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-      "error": "Expecting value: line 154 column 27 (char 5728)"
+      "file_size": 27257,
+      "file_modified": "2025-11-26T02:57:33Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting value: line 154 column 27 (char 5727)"
     },
     "evidence_v2/KSI-CMT-01/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CMT-01",
       "file_path": "evidence_v2/KSI-CMT-01/cli_output.json",
-      "file_size": 71831,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:46:09Z",
-=======
-      "file_modified": "2025-11-26T01:08:51Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-      "error": "Expecting value: line 81 column 27 (char 3223)"
+      "file_size": 71833,
+      "file_modified": "2025-11-26T02:57:33Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting value: line 81 column 27 (char 3224)"
     },
     "evidence_v2/KSI-AFR-01/cli_output.json": {
       "ksi_id": "KSI-AFR-01",
       "evidence_directory": "KSI-AFR-01",
       "file_path": "evidence_v2/KSI-AFR-01/cli_output.json",
       "file_size": 1077,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -1297,17 +1022,12 @@
       "ksi_id": "KSI-IAM-07",
       "evidence_directory": "KSI-IAM-07",
       "file_path": "evidence_v2/KSI-IAM-07/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 83429,
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_size": 83430,
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -1321,15 +1041,11 @@
       "evidence_directory": "KSI-CED-02",
       "file_path": "evidence_v2/KSI-CED-02/cli_output.json",
       "file_size": 700,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 1,
       "successful_commands": 1,
       "failed_commands": 0,
@@ -1342,34 +1058,24 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-05",
       "file_path": "evidence_v2/KSI-MLA-05/cli_output.json",
-<<<<<<< Updated upstream
       "file_size": 323196,
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_size": 323195,
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting property name enclosed in double quotes: line 7001 column 181 (char 271475)"
     },
     "evidence_v2/KSI-TPR-04/cli_output.json": {
       "ksi_id": "KSI-TPR-04",
       "evidence_directory": "KSI-TPR-04",
       "file_path": "evidence_v2/KSI-TPR-04/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 354778,
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
       "file_size": 354780,
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 6,
       "successful_commands": 6,
       "failed_commands": 0,
@@ -1383,15 +1089,11 @@
       "evidence_directory": "KSI-CMT-04",
       "file_path": "evidence_v2/KSI-CMT-04/cli_output.json",
       "file_size": 1725,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 31 column 193 (char 1241)"
     },
     "evidence_v2/KSI-SVC-10/cli_output.json": {
@@ -1399,47 +1101,35 @@
       "evidence_directory": "KSI-SVC-10",
       "file_path": "evidence_v2/KSI-SVC-10/cli_output.json",
       "file_size": 46332,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting value: line 131 column 27 (char 7591)"
     },
     "evidence_v2/KSI-CNA-07/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-07",
       "file_path": "evidence_v2/KSI-CNA-07/cli_output.json",
-      "file_size": 391065,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-      "error": "Expecting ',' delimiter: line 10276 column 218 (char 388637)"
+      "file_size": 391066,
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting ',' delimiter: line 10276 column 218 (char 388638)"
     },
     "evidence_v2/KSI-IAM-03/cli_output.json": {
       "ksi_id": "KSI-IAM-03",
       "evidence_directory": "KSI-IAM-03",
       "file_path": "evidence_v2/KSI-IAM-03/cli_output.json",
       "file_size": 137247,
-<<<<<<< Updated upstream
-      "file_modified": "2025-11-26T00:47:16Z",
-=======
-      "file_modified": "2025-11-26T01:10:01Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:41Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 4,
       "successful_commands": 4,
       "failed_commands": 0,
@@ -1453,17 +1143,12 @@
       "ksi_id": "KSI-AFR-11",
       "evidence_directory": "KSI-AFR-11",
       "file_path": "evidence_v2/KSI-AFR-11/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 82626,
-      "file_modified": "2025-11-26T00:47:17Z",
-=======
       "file_size": 82627,
-      "file_modified": "2025-11-26T01:10:02Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 8,
       "successful_commands": 7,
       "failed_commands": 1,
@@ -1476,51 +1161,36 @@
       "ksi_id": "unknown",
       "evidence_directory": "KSI-CNA-04",
       "file_path": "evidence_v2/KSI-CNA-04/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 132574,
-      "file_modified": "2025-11-26T00:47:17Z",
-=======
       "file_size": 132575,
-      "file_modified": "2025-11-26T01:10:02Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_modified": "2025-11-26T02:58:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "error": "Expecting ',' delimiter: line 8 column 193 (char 345)"
     },
     "evidence_v2/KSI-MLA-02/cli_output.json": {
       "ksi_id": "unknown",
       "evidence_directory": "KSI-MLA-02",
       "file_path": "evidence_v2/KSI-MLA-02/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 74861,
-      "file_modified": "2025-11-26T00:47:17Z",
-=======
-      "file_size": 76432,
-      "file_modified": "2025-11-26T01:10:02Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
-      "error": "Expecting value: line 399 column 27 (char 15567)"
+      "file_size": 76884,
+      "file_modified": "2025-11-26T02:58:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "error": "Expecting value: line 399 column 27 (char 15566)"
     },
     "evidence_v2/KSI-INR-01/cli_output.json": {
       "ksi_id": "KSI-INR-01",
       "evidence_directory": "KSI-INR-01",
       "file_path": "evidence_v2/KSI-INR-01/cli_output.json",
-<<<<<<< Updated upstream
-      "file_size": 242453,
-      "file_modified": "2025-11-26T00:47:17Z",
-=======
-      "file_size": 191724,
-      "file_modified": "2025-11-26T01:10:02Z",
->>>>>>> Stashed changes
-      "commit_sha": "7b16522",
-      "full_commit_sha": "7b165225a486a7af069c9c014e828e63f8de2709",
-      "commit_time": "2025-11-25T20:30:02Z",
-      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-25 20:30:02 UTC) [MODERATE] | 59/65 KSIs passed | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
+      "file_size": 187220,
+      "file_modified": "2025-11-26T02:58:42Z",
+      "commit_sha": "9ae62b1",
+      "full_commit_sha": "9ae62b1352115d4e1e356bb8207578b6f33e9fc7",
+      "commit_time": "2025-11-26T01:10:06Z",
+      "commit_message": "\ud83e\udd16 Automated FedRAMP 20x CLI validation pipeline output (2025-11-26 01:10:06 UTC) [MODERATE] | Multi-account \u26a0\ufe0f | MV: 100.0% [ci skip]",
       "total_commands": 8,
       "successful_commands": 8,
       "failed_commands": 0,

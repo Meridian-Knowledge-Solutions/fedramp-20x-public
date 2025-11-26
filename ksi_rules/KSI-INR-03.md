@@ -4,11 +4,7 @@
 
 **Category:** Incident Reporting
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-26 00:37
-=======
-**Last Check:** 2025-11-26 00:59
->>>>>>> Stashed changes
+**Last Check:** 2025-11-26 02:48
 
 **What it validates:** Generate after action reports and regularly incorporate lessons learned into operations.
 
@@ -36,8 +32,4 @@ PASS Excellent 10/10 (100%): PASS Incident analysis capability: Security Hub fin
 - PASS Standards actively enabled: 1 Security Hub standard(s) are enabled and READY.
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-26 00:47 UTC*
-=======
-*Generated 2025-11-26 01:10 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-26 02:58 UTC*

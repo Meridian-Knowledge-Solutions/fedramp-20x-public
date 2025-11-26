@@ -4,11 +4,7 @@
 
 **Category:** Cloud Native Architecture
 **Status:** PASS
-<<<<<<< Updated upstream
-**Last Check:** 2025-11-26 00:37
-=======
-**Last Check:** 2025-11-26 00:59
->>>>>>> Stashed changes
+**Last Check:** 2025-11-26 02:48
 
 **What it validates:** Configure all machine-based information resources to limit inbound and outbound network traffic.
 
@@ -55,8 +51,4 @@ PASS Excellent 16/16 (97%): PASS VPC infrastructure: 1 VPC(s) detected
 - PASS Traffic visibility: 2 VPC Flow Log groups for traffic monitoring
 
 ---
-<<<<<<< Updated upstream
-*Generated 2025-11-26 00:47 UTC*
-=======
-*Generated 2025-11-26 01:10 UTC*
->>>>>>> Stashed changes
+*Generated 2025-11-26 02:58 UTC*
