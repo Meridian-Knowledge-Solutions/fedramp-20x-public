@@ -4,7 +4,7 @@
 
 **Category:** Other
 **Status:** PASS
-**Last Check:** 2025-11-26 02:48
+**Last Check:** 2025-11-26 04:23
 
 **What it validates:** Apply the FedRAMP Minimum Assessment Standard (MAS) to identify and document the scope of the cloud service offering to be assessed for FedRAMP authorization and persistently address all related requirements and recommendations.
 
@@ -21,4 +21,4 @@ PASS Excellent 5/5 (100%): PASS [Documentation] Minimum Assessment Scope found i
 - PASS [Quality] Document appears substantial (139831 bytes).
 
 ---
-*Generated 2025-11-26 02:58 UTC*
+*Generated 2025-11-26 04:33 UTC*
